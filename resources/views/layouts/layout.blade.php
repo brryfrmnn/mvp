@@ -12,13 +12,13 @@
     <title>@yield('title')</title>
 
     <!-- Bootstrap core CSS -->
-	  <link rel="icon" type="image/png" href="images/mvp.png">
+	  <link rel="icon" type="image/png" href="{{URL('images/mvp.png')}}">
     <link href="{{URL::asset('assets/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="assets/fontawesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/flexslider/flexslider.css" rel="stylesheet">
-    <link href="assets/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
-    <link href="assets/colorbox/example4/colorbox.css" rel="stylesheet">
-    <link href="assets/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="{{URL::asset('assets/fontawesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('assets/flexslider/flexslider.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('assets/dropzone/dist/min/dropzone.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('assets/colorbox/example4/colorbox.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('assets/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
     
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -40,6 +40,10 @@
   <body>
 
   @include('layouts.header')
+
+
+  
+
   @yield('content')
   @include('layouts.footer')
 
@@ -51,17 +55,17 @@
     <!-- Placed at the end of the document so the pages load faster -->
     
     <script src="{{URL::asset('assets/jquery/dist/jquery.min.js')}}"></script>
-    <script src="js/jquery.migrate.js"></script>
-    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/response.js"></script>
-    <script src="assets/parallax.js/parallax.min.js"></script>
-    <script src="assets/bootstrap-datepicker/dist/js//bootstrap-datepicker.min.js"></script>
-    <script src="assets/galleria/galleria-1.4.2.min.js"></script>
-    <script src="assets/dropzone/dist/min/dropzone.min.js"></script>
-    <script src="assets/colorbox/jquery.colorbox-min.js"></script>
-    <script src="assets/bootbox/bootbox.js"></script>
-    <script src="assets/parsley/parsley.min.js"></script>
-    <script src="assets/jquery-input-mask/jquery.inputmask.bundle.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{{URL::asset('js/jquery.migrate.js')}}"></script>
+    <script src="{{URL::asset('assets/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('js/response.js')}}"></script>
+    <script src="{{URL::asset('assets/parallax.js/parallax.min.js')}}"></script>
+    <script src="{{URL::asset('assets/bootstrap-datepicker/dist/js//bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{URL::asset('assets/galleria/galleria-1.4.2.min.js')}}"></script>
+    <script src="{{URL::asset('assets/dropzone/dist/min/dropzone.min.js')}}"></script>
+    <script src="{{URL::asset('assets/colorbox/jquery.colorbox-min.js')}}"></script>
+    <script src="{{URL::asset('assets/bootbox/bootbox.js')}}"></script>
+    <script src="{{URL::asset('assets/parsley/parsley.min.js')}}"></script>
+    <script src="{{URL::asset('assets/jquery-input-mask/jquery.inputmask.bundle.min.js')}}"></script>
+    <script src="{{URL::asset('js/custom.js')}}"></script> 
   </body>
 </html>

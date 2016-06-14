@@ -43,6 +43,8 @@
                     <li><a href="pesan">Pesan</a></li>
                     <li><a href="credit">Credit</a></li>
                     <li><a href="sapa">Sapa</a></li>
+                    <li><a href="templating">Templating</a></li>
+                    <li><a href="templating2">Templating2</a></li>
                 </ol>
             </div>
         </div>

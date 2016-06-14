@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('welcome', function () {
+    return view('welcome');
+});
 
 
 Route::get('credit', function () {
@@ -29,6 +32,19 @@ Route::post('sapa/kirim', function () {
     return view('sapa_kirim');
 });
 
+Route::get('templating', function () {
+});
+
+Route::get('templating2', function () {
+    return view('child');
+});
+
+Route::get('templating3', function () {
+    return view('anak');
+});
+
+
+
 
 Route::get('down', function () {
     Artisan::call('down');
@@ -43,3 +59,27 @@ Route::get('up', function () {
  Route::get('/', array('as' => 'home', function(){
     return view('index');
 }));
+
+/*=================================ROUTE UNTUK ADMIN =========================================*/
+
+Route::group(['prefix' => 'admin'], function () {
+	Route::group(['prefix' => 'data'], function () {
+		Route::get('siswa', function ()    {
+		    return 'belum adaan :v';
+		});
+		Route::get('guru', function ()    {
+		    return 'belum adaan :v';
+		});
+		Route::get('kelas', function ()    {
+		    return 'belum adaan :v';
+		});
+
+	});
+
+	Route::get('profil', function () {
+	    return view('admin.profile');
+	});
+});
+
+
+/*=================================ROUTE UNTUK ADMIN =========================================*/
