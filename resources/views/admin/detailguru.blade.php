@@ -1,27 +1,30 @@
 @extends('layouts.layout')
 @section('title')
-	Ruang Administrator
+  Ruang Administrator
 @endsection
 
 
 
 @section('content')
-	<div class="container bread">
-		<ul class="breadcrumb"><li><a href="index.php">Home</a></li>
-		
-		
-			<li class="active">Profil</li>
-		</ul>
-	</div>
+
+<div class="container bread">
+	<ul class="breadcrumb"><li><a href="index.php">Home</a></li>
+	
+	
+		<li class="active">Detail Profile Guru</li>
+	</ul>
+</div>
+
+	
 	<div class="container">
 		<div class="row">
-			@include('layouts.sidebar')
+			@include('layouts.sidebarsiswa')
 			<div class="col-md-9">
 				
 
 					<div class="content_dash">
 						<h4 class="detail-header">
-							Profil Saya
+							Profile Guru
 						</h4>
 						<div class="profile-detail">
 						
@@ -29,13 +32,13 @@
 						<tr >
 							<td>NIP</td>
 							<td>:</td>
-							<td>201601112</td>
+							<td>201601111</td>
 							
 						</tr>
 						<tr>
 							<td>Nama </td>
 							<td>:</td>
-							<td>{{$nama}}</td>
+							<td>Rachma Wina Pertiwi,S.Si,Apt</td>
 							
 						</tr>
 						<tr >
@@ -53,19 +56,40 @@
 						<tr>
 							<td>Alamat Email</td>
 							<td>:</td>
-							<td>Berry.frm@mvp.sch.id</td>
+							<td>Rachma.wpi@mvp.sch.id</td>
 							
-						</tr>
-						<tr>
-							<td>Lahir</td>
-							<td>:</td>
-							<td>23, Maret 1990</td>
 						</tr>
 						<tr>
 							<td>Jenis Kelamin</td>
 							<td>:</td>
-							<td>Laki-laki</td>
+							<td>Perempuan</td>
 						</tr>
+						<tr>
+							<td>Tempat Lahir</td>
+							<td>:</td>
+							<td>Bandung</td>
+						</tr>
+						<tr>
+							<td>Tanggal Lahir</td>
+							<td>:</td>
+							<td>23, Maret 1990</td>
+						</tr>
+						<tr>
+							<td>Lulusan</td>
+							<td>:</td>
+							<td>Farmasi</td>
+						</tr>
+						<tr>
+							<td>Status Wali Kelas</td>
+							<td>:</td>
+							<td>Tidak Ada</td>
+						</tr>
+						<tr>
+							<td>Terakhir Login</td>
+							<td>:</td>
+							<td>258 hari yang lalu</td>
+						</tr>
+						
 						</table>
 						</div>
 

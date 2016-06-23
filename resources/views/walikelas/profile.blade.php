@@ -15,7 +15,7 @@
 	</div>
 	<div class="container">
 		<div class="row">
-			@include('layouts.sidebar')
+			@include('layouts.sidebarguru')
 			<div class="col-md-9">
 				
 
@@ -25,46 +25,61 @@
 						</h4>
 						<div class="profile-detail">
 						
-					<table class="table table-striped" >
-						<tr >
+					<table class="table table-hover" >
+						<tr class="warning">
 							<td>NIP</td>
 							<td>:</td>
-							<td>201601112</td>
+							<td>3204280708830010</td>
 							
 						</tr>
 						<tr>
 							<td>Nama </td>
 							<td>:</td>
-							<td>{{$nama}}</td>
+							<td>Aang Miftah</td>
 							
 						</tr>
-						<tr >
+						<tr class="warning">
 							<td>Alamat</td>
 							<td>:</td>
-							<td>Jl. Slamet 1 No.52 Cicadas Bandung</td>
+							<td>Bandung</td>
 							
 						</tr>
-						<tr >
+						<tr class="">
 							<td>No Telepon</td>
 							<td>:</td>
 							<td>085722738348</td>
 							
 						</tr>
-						<tr>
+						<tr class="warning">
 							<td>Alamat Email</td>
 							<td>:</td>
-							<td>Berry.frm@mvp.sch.id</td>
+							<td>aangmiftah@yahoo.com</td>
 							
 						</tr>
 						<tr>
-							<td>Lahir</td>
+							<td>Tempat Lahir</td>
 							<td>:</td>
-							<td>23, Maret 1990</td>
+							<td>Bandung</td>
+						</tr>
+						<tr class="warning">
+							<td>Tanggal Lahir</td>
+							<td>:</td>
+							<td>1983-08-07</td>
 						</tr>
 						<tr>
 							<td>Jenis Kelamin</td>
 							<td>:</td>
-							<td>Laki-laki</td>
+							<td>Laki-Laki</td>
+						</tr>
+						<tr class="warning">
+							<td>Pendidikan Terakhir</td>
+							<td>:</td>
+							<td>S1</td>
+						</tr>
+						<tr>
+							<td>Jurusan</td>
+							<td>:</td>
+							<td>Sistem Informasi</td>
 						</tr>
 						</table>
 						</div>
@@ -75,3 +90,4 @@
 		</div>
 	</div>
 @endsection
+	

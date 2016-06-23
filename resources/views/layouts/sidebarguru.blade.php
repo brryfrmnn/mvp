@@ -6,22 +6,17 @@
 				<img src="{{url('images/default.png')}}" class="img-responsive img-thumbnail img-circle">
 			
 			
-			<h3>{{$nama}}</h3>
+			<h3>Aang Miftah</h3>
 		</div>
 		<ul class="menu">
 			<li>
-				<a href="">
-					<i class="fa fa-user"></i> Profile
+				<a href="{{URL('guru/editprofil')}}">
+					<i class="fa fa-user"></i>Edit Profil
 				</a>
 			</li>
 			<li>
 				<a href="#" data-toggle="modal" data-target="#changeavatar">
 					<i class="fa fa-file-image-o"></i> Edit Photo
-				</a>
-			</li>
-			<li>
-				<a href="{{ URL('admin/editprofil')}}" data-toggle="modal">
-					<i class="fa fa-file-image-o"></i> Edit Profil
 				</a>
 			</li>
 		</ul>
