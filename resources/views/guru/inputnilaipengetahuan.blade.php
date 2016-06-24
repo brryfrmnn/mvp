@@ -17,7 +17,7 @@
      <div class="row">
 
 				<div class="col-lg-12">
-				    	<h1 class="page-header">Nilai Pengetahuan <a href="{{ URL('guru/inputnilai')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+				    	<h1 class="page-header">Nilai Pengetahuan <a href="{{ URL('guru/input/pengetahuan')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
 				</div>
 	
 			</div>

@@ -46,11 +46,15 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Input Nilai Siswa<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="{{URL ('guru/kelasx')}}">Kelas X</a></li>
+                      <li><a href="{{URL ('guru/kelas/1/show')}}">Kelas X</a></li>
                       <li><a href="">Kelas XI</a></li>
                       <li><a href="">Kelas XII</a></li>
                     </ul>
                   </li>
+                  @if (Sentry::check() && Sentry::getUser()->hasAccess('wali_kelas'))
+                  <li><a href="{{ URL('walikelas/nilai/kelola') }}">Kelola Nilai</a></li>
+                  <li><a href="{{ URL('walikelas/lihatnilai') }}">Lihat Nilai</a></li>
+                  @endif
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentry::getUser()->first_name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -92,35 +96,8 @@
                 </ul>
                 
               </div>
-            
-            @elseif (Sentry::check() && Sentry::getUser()->hasAccess('walikelas'))
-              <div class="collapse navbar-collapse">
-                
-                <ul class="nav navbar-nav navbar-right" id="nav">
-                  <li><a href="">Home</a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Input Nilai Siswa<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="{{URL ('walikelas/kelasx')}}">Kelas X</a></li>
-                      <li><a href="">Kelas XI</a></li>
-                      <li><a href="">Kelas XII</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="{{ URL('walikelas/kelolanilai') }}">Kelola Nilai</a></li>
-                  <li><a href="{{ URL('walikelas/lihatnilai') }}">Lihat Nilai</a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentry::getUser()->first_name}} <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="{{ URL('guru/profil') }}">Profil Saya</a></li>
-                      <li><a href="">Pengaturan</a></li>
-                      <li><a href="{{ route('sentinel.logout') }}">Keluar</a></li>
-                    </ul>
-                  </li>
-                  
-                </ul>
-                
-              </div>
             @endif
+            
   		        
 	        
         

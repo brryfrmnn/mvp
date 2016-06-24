@@ -28,35 +28,86 @@ class AdminController extends Controller
    									  ->with('hasil',$hasil);
    	}
 
+/*================================= Awal Controller ADMIN=========================================*/
+
    	public function dataGuru()
    	{
    		return view('admin.dataguru');
-
    	}
-
    	public function dataKelas()
    	{
    		return view ('admin.datakelas');
-
    	}
-
    	public function dataMapel()
    	{
    		return view ('admin.datamapel');
-
    	}
 
    	public function adminProfil()
    	{
    		$nama= 'Rikuchanjelek';
    		return view('admin.profile')->with('nama',$nama);
-
    	}
-   	
+
    	public function jadwalMengajar()
    	{
    		return view('admin.jadwal_mengajar');
-
    	}
-   	
+      public function tambahSiswa()
+      {
+         return view('admin.tambahsiswa');
+      }
+      public function tambahGuru()
+      {
+         return view('admin.tambahguru');
+      }
+      public function tambahMapel()
+      {
+         return view('admin.tambahmapel');
+      }
+      public function tambahKelas()
+      {
+         return view('admin.tambahkelas');
+      }
+      public function tambahJadwal()
+      {
+       return view('admin.tambahjadwal');
+      }
+      public function editSiswa()
+      {
+       return view('admin.editsiswa');
+      }
+      public function editGuru()
+      {
+       return view('admin.editguru');
+      }
+      public function editMapel()
+      {
+        return view('admin.editmapel');
+      }
+      public function editProfil()
+      {
+       return view('admin.editprofil');
+      }
+      public function detailSiswa()
+      {
+       return view('admin.detailsiswa');
+      }
+      public function detailGuru()
+      {
+       return view('admin.detailguru');
+      }
+      public function detailKelas()
+      {
+       return view('admin.detailkelas');
+      }
+
+      public function ()
+      {
+       
+      }
+      public function ()
+      {
+       
+      }
 }
