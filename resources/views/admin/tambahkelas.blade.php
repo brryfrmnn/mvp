@@ -52,7 +52,7 @@
                      
                         </select>
                     </div>     
-                    <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
+                    <button type="submit" class="btn btn-orange" name="simpan">Simpan</button>
                    </form>
                 </div>
             </div>

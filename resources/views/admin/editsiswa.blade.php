@@ -88,7 +88,7 @@
                    
                     
                    
-                    <button type="submit" class="btn btn-primary" name="edit">EDIT</button>
+                    <button type="submit" class="btn btn-orange" name="edit">EDIT</button>
                    </form>
                 </div>
             </div>

@@ -17,7 +17,7 @@
 	
 	<div class="container">
 
-					<h1 class="page-header">Jadwal Mengajar <a href="{{URL ('admin/tambahjadwal')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Input Jadwal Mengajar</a></h1>
+					<h1 class="page-header">Jadwal Mengajar <a href="{{URL ('admin/jadwal/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Input Jadwal Mengajar</a></h1>
 					
 					<div class="text-center">
 						<ul class="pagination">

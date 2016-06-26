@@ -9,24 +9,7 @@ use App\Http\Requests;
 class AdminController extends Controller
 {
    	//membuat method index untuk ambil data semua siswa
-   	public function dataSiswa()
-   	{
-   		$data = [
-   					'nama' => 'Sari Susanti',
-   					'kelas' => 'X'
-   				];
-   		$data2 = [
-   					'nama' => 'Sari Susanti',
-   					'kelas' => 'X'
-   				];
-   		$nilai1 = 5;
-   		$nilai2 = 10;
-   		$hasil = $nilai2 + $nilai1;
-
-   		return view('admin.datasiswa')->with('data',$data)
-   									  ->with('data2',$data2)
-   									  ->with('hasil',$hasil);
-   	}
+   	
 
 /*================================= Awal Controller ADMIN=========================================*/
 
@@ -34,6 +17,10 @@ class AdminController extends Controller
    	{
    		return view('admin.dataguru');
    	}
+      public function dataSiswa()
+      {
+         return view('admin.datasiswa');
+      }
    	public function dataKelas()
    	{
    		return view ('admin.datakelas');
@@ -100,14 +87,5 @@ class AdminController extends Controller
       public function detailKelas()
       {
        return view('admin.detailkelas');
-      }
-
-      public function ()
-      {
-       
-      }
-      public function ()
-      {
-       
       }
 }

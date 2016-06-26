@@ -11,14 +11,14 @@
 	<ul class="breadcrumb"><li><a href="index.php">Home</a></li>
 	
 	
-		<li class="active">Data Siswa {{$hasil}}</li>
+		<li class="active">Data Siswa</li>
 	</ul>
 </div>
 
 	
 	<div class="container">
 
-					<h1 class="page-header">Data Siswa <a href="{{ URL('admin/tambahsiswa')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah data</a></h1>
+					<h1 class="page-header">Data Siswa <a href="{{ URL('admin/siswa/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah data</a></h1>
 					<table class="table table-striped">
   						<tr>
   							<th>No</th>
@@ -32,7 +32,7 @@
   							<td>16150111</td>
   							<td>Sari Susanti</td>
   							<td>XII Farmasi</td>
-  							<td><a href="{{ URL('admin/editsiswa')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-siswa.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>&nbsp&nbsp&nbsp<a href="{{ URL('admin/detailsiswa')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
+  							<td><a href="{{ URL('admin/siswa/edit')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-siswa.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>&nbsp&nbsp&nbsp<a href="{{ URL('admin/siswa/detail')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
   						</tr>
   						</tr>		
 							<tr>

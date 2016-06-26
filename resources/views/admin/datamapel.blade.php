@@ -17,7 +17,7 @@
 	
 	<div class="container">
 
-					<h1 class="page-header">Data Mata Pelajaran <a href="{{ URL('admin/tambahmapel')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Mapel</a></h1>
+					<h1 class="page-header">Data Mata Pelajaran <a href="{{ URL('admin/mapel/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Mapel</a></h1>
 					<table class="table table-striped">
   						<tr>
   							<th>No</th>
@@ -29,7 +29,7 @@
   							<td>1</td>
   							<td>Pemrograman Berorientasi Objek</td>
   							<td>C2</td>
-  							<td><a href="{{ URL('admin/editmapel')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-mapel.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a></td>
+  							<td><a href="{{ URL('admin/mapel/edit')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-mapel.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a></td>
   						</tr>		
 							<tr>
                 <td>2</td>

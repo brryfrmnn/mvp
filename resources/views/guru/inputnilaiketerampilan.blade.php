@@ -16,7 +16,7 @@
     </ul>
 
 	<div class="col-lg-12">
-	    	<h1 class="page-header">Nilai Keterampilan <a href="{{ URL('guru/inputnilai')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+	    	<h1 class="page-header">Nilai Keterampilan <a href="{{ URL('guru/nilai/input')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
 	</div>
 	<div class="row">
 	<div class="col-lg-8">

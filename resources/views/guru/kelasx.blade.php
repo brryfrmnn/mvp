@@ -35,7 +35,7 @@
   							<td>Teknik Ilmu Komputer</td>
   							<td>Pemrograman Dasar</td>
                 <td>Aaang Miftah Parid</td>
-  							<td><a href="{{URL('guru/nilai/input')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Input Nilai</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/editnilai')}}" class="btn btn-danger"><i class="glyphicon glyphicon-edit"></i> Edit Nilai</td>
+  							<td><a href="{{URL('guru/nilai/input')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Input Nilai</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/edit')}}" class="btn btn-danger"><i class="glyphicon glyphicon-edit"></i> Edit Nilai</td>
   						</tr>
   						<tr>
                 <td>2</td>
@@ -43,7 +43,7 @@
                 <td>Teknik Ilmu Komputer</td>
                 <td>Sistem Komputer</td>
                 <td>Aaang Miftah Parid</td>>
-                <td><a href="{{URL('guru/nilai/input')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Input Nilai</a>&nbsp&nbsp&nbsp<a href="{{URL('editnilai')}}" class="btn btn-danger"><i class="glyphicon glyphicon-edit"></i> Edit Nilai</td>
+                <td><a href="{{URL('guru/nilai/input')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Input Nilai</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/edit')}}" class="btn btn-danger"><i class="glyphicon glyphicon-edit"></i> Edit Nilai</td>
               </tr>
               
   					

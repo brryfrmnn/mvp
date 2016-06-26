@@ -20,7 +20,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="{{ URL('admin/editprofil')}}" data-toggle="modal">
+				<a href="{{ URL('admin/profil/edit')}}" data-toggle="modal">
 					<i class="fa fa-file-image-o"></i> Edit Profil
 				</a>
 			</li>

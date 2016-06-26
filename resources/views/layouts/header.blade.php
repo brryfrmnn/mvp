@@ -23,7 +23,7 @@
                   </li>
 
                   <li><a href="{{ URL('admin/data/mapel') }}">Mata Pelajaran</a></li>
-                  <li><a href="{{ URL('admin/jadwal_mengajar') }}">Jadwal Mengajar</a></li>
+                  <li><a href="{{ URL('admin/jadwal/mengajar') }}">Jadwal Mengajar</a></li>
 
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentry::getUser()->first_name}} <span class="caret"></span></a>
@@ -87,7 +87,7 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, Berry <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="{{URL('profil')}}">Profil Saya</a></li>
+                      <li><a href="{{URL('siswa/profil')}}">Profil Saya</a></li>
                       <li><a href="">Pengaturan</a></li>
                       <li><a href="{{ route('sentinel.logout') }}">Keluar</a></li>
                     </ul>

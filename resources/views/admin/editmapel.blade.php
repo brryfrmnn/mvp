@@ -38,7 +38,7 @@
 					<input type="text" name="kategori_mapel" class="form-control bgcol" cols="30" value="" placeholder="C2">
 					</div>
 				</div>
-				<button type="submit" name="edit" class="btn btn-primary">EDIT</button>
+				<button type="submit" name="edit" class="btn btn-orange">EDIT</button>
 			</form>
                 </div>
             </div>

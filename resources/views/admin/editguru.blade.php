@@ -95,7 +95,7 @@
                         <input name="email_guru"type="text" class="form-control" id="" placeholder="rachmawina.pwi@mvp.sch.id" value="">
                     </div>         
                    
-                    <button type="submit" class="btn btn-primary" name="edit">EDIT</button>
+                    <button type="submit" class="btn btn-orange" name="edit">EDIT</button>
                    </form>
                 </div>
             </div>

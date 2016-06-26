@@ -11,7 +11,12 @@
     <ul class="menu">
       <li>
         <a href="">
-          <i class="fa fa-user"></i> Profile
+          <i class="fa fa-user"></i>Profile
+        </a>
+      </li>
+      <li>
+        <a href="{{URL('siswa/profil/edit')}}">
+          <i class="fa fa-user"></i>Edit Profil
         </a>
       </li>
       <li>

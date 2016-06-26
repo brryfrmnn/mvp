@@ -44,21 +44,32 @@
                             <td>Bandung</td>
                             
                         </tr>
+
                         <tr>
-							<td>Tempat Lahir</td>
+							<td>No Telepon</td>
 							<td>:</td>
-							<td>Bandung</td>
+							<td>085722738348</td>
 						</tr>
 						<tr class="warning">
-							<td>Tanggal Lahir</td>
+							<td>Alamat Email</td>
 							<td>:</td>
-							<td>1997-10-05</td>
+							<td>dinaokta@yahoo.com</td>
 						</tr>
                         <tr>
                             <td>Jenis Kelamin</td>
                             <td>:</td>
                             <td>Perempuan</td>
                         </tr>
+                        <tr class="warning">
+							<td>Tempat Lahir</td>
+							<td>:</td>
+							<td>Bandung</td>
+						</tr>
+						<tr >
+							<td>Tanggal Lahir</td>
+							<td>:</td>
+							<td>1997-10-05</td>
+						</tr>
                         </table>
 						</div>
 

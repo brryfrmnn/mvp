@@ -90,7 +90,7 @@
                    
                     
                    
-                    <button type="submit" class="btn btn-primary" name="edit">Simpan</button>
+                    <button type="submit" class="btn btn-orange" name="edit">Simpan</button>
                    </form>
                 </div>
             </div>

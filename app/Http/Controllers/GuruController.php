@@ -11,7 +11,7 @@ class GuruController extends Controller
     //Controller Buat Guru
     	public function guruProfil()
       {
-       return view('guru.profil');
+       return view('guru.profile');
       }
       public function KelasX()
       {

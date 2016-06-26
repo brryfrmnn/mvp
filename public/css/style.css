@@ -7,6 +7,12 @@ body{
 	font-family: 'Lato', sans-serif;
 	margin-bottom: 50px;
 }
+.page-header {
+    margin: 0px 0 20px;
+}
+.h1, h1 {
+    font-size: 29px;
+}
 .mb50{
 	margin-bottom: 50px;
 }

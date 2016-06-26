@@ -10,7 +10,7 @@
 		</div>
 		<ul class="menu">
 			<li>
-				<a href="{{URL('guru/editprofil')}}">
+				<a href="{{URL('guru/profil/edit')}}">
 					<i class="fa fa-user"></i>Edit Profil
 				</a>
 			</li>

@@ -23,7 +23,7 @@
       <div class="container">
         <div class="row" >
         <div class="col-lg-8 col-lg-offset-2">
-        <h1 class="page-header">Tambah Jadwal<a href="{{ URL('guru/jadwal_mengajar')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+        <h1 class="page-header">Tambah Jadwal<a href="{{ URL('admin/jadwal/mengajar')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
 
             <div class="panel panel-default">
                 <div class="panel-body">

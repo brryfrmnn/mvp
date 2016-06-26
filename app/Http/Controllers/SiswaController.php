@@ -9,7 +9,14 @@ use App\Http\Requests;
 class SiswaController extends Controller
 {
     //Controller Untuk Siswa
-     
+     Public function siswaProfil()
+      {
+       return view ('siswa.profil');
+      }
+      Public function profilEdit()
+      {
+       return view ('siswa.profil_edit');
+      }
       Public function NilaiSemester1()
       {
        return view ('siswa.Semester1');
