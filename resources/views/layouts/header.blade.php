@@ -9,7 +9,7 @@
           </button>
           <a class="navbar-brand" href="index.php"><img src="{{URL('images/logo6.png')}}" alt=""></a>
         </div>
-            @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
+            @if (Sentinel::check() && Sentinel::inRole('administrator'))
               <div class="collapse navbar-collapse">
                 
                 <ul class="nav navbar-nav navbar-right" id="nav">
@@ -26,11 +26,11 @@
                   <li><a href="{{ URL('admin/jadwal/mengajar') }}">Jadwal Mengajar</a></li>
 
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentry::getUser()->first_name}} <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentinel::getUser()->first_name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="{{ URL('admin/profil') }}">Profile Saya</a></li>
                       <li><a href="">Pengaturan</a></li>
-                      <li><a href="{{ route('sentinel.logout') }}">Keluar</a></li>
+                      <li><a href="{{ route('auth.logout') }}">Keluar</a></li>
                     </ul>
                   </li>
                   
@@ -38,7 +38,7 @@
                 
               </div>
             
-            @elseif (Sentry::check() && Sentry::getUser()->hasAccess('guru'))
+            @elseif (Sentinel::check() && Sentinel::inRole('guru'))
               <div class="collapse navbar-collapse">
                 
                 <ul class="nav navbar-nav navbar-right" id="nav">
@@ -51,16 +51,16 @@
                       <li><a href="">Kelas XII</a></li>
                     </ul>
                   </li>
-                  @if (Sentry::check() && Sentry::getUser()->hasAccess('wali_kelas'))
+                  @if (Sentinel::check() && Sentinel::inRole('wali_kelas'))
                   <li><a href="{{ URL('walikelas/nilai/kelola') }}">Kelola Nilai</a></li>
                   <li><a href="{{ URL('walikelas/lihatnilai') }}">Lihat Nilai</a></li>
                   @endif
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentry::getUser()->first_name}} <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentinel::getUser()->first_name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="{{ URL('guru/profil') }}">Profil Saya</a></li>
                       <li><a href="">Pengaturan</a></li>
-                      <li><a href="{{ route('sentinel.logout') }}">Keluar</a></li>
+                      <li><a href="{{ route('auth.logout') }}">Keluar</a></li>
                     </ul>
                   </li>
                   
@@ -68,7 +68,7 @@
                 
               </div>
             
-            @elseif (Sentry::check() && Sentry::getUser()->hasAccess('siswa'))
+            @elseif (Sentinel::check() && Sentinel::inRole('siswa'))
               <div class="collapse navbar-collapse">
                 
                 <ul class="nav navbar-nav navbar-right" id="nav">
@@ -89,7 +89,7 @@
                     <ul class="dropdown-menu">
                       <li><a href="{{URL('siswa/profil')}}">Profil Saya</a></li>
                       <li><a href="">Pengaturan</a></li>
-                      <li><a href="{{ route('sentinel.logout') }}">Keluar</a></li>
+                      <li><a href="{{ route('auth.logout') }}">Keluar</a></li>
                     </ul>
                   </li>
                   

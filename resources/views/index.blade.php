@@ -9,12 +9,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-lg-7 col-xs-10 col-center">
+				@if (!Sentinel::check())
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h4 class="sc-heading">Login</h4>
 						</div>
 						<div class="panel-body">
-							<form class="form form-inline" action="{{ route('sentinel.session.store') }}" role="form" method="POST"> <!--inline fungsinya supaya inputan nya sejajar -->
+							<form class="form form-inline" action="{{ route('auth.login.attempt') }}" role="form" method="POST"> <!--inline fungsinya supaya inputan nya sejajar -->
 								{{csrf_field()}}
 								<div class="form-group">
 									<label class="sr-only" for="inputusername">Username</label>
@@ -37,6 +38,17 @@
 						</div>
 						
 					</div>
+				@else
+					<div class="panel panel-default" style="transparent: 100%" >
+						<div class="panel-heading">
+							<h4 class="sc-heading">Selamat Datang</h4>
+						</div>
+						<div class="panel-body">
+							<a class="btn btn-orange" href="/dashboard">Menuju Dashboard</a>
+						</div>
+						
+					</div>
+				@endif			
 				</div>
 			</div>
 		</div>
