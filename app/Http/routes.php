@@ -38,8 +38,13 @@ Route::resource('users', 'UserController');
 Route::resource('roles', 'RoleController');
 
 // Dashboard
-Route::get('dashboard', ['as' => 'dashboard', 'uses' => function() {
+Route::get('/dashboard', ['as' => 'dashboard', 'uses' => function() {
     return view('centaur.dashboard');
+    // return view('index');
+}]);
+Route::get('/', ['as' => 'home', 'uses' => function() {
+    // return view('centaur.dashboard');
+    return view('index');
 }]);
 
 //=======================END ========================================
@@ -90,12 +95,13 @@ Route::get('up', function () {
     return view('index');
 });
 
- Route::get('/', array('as' => 'home', function(){
-    return view('index');
-}));
+//  Route::get('/', array('as' => 'home', function(){
+//     return view('index');
+// }));
 
 /*=================================ROUTE UNTUK ADMIN =========================================*/
 Route::group(['prefix' => 'admin'], function () {
+	Route::get('/','AdminController@index');
 	Route::group(['prefix' => 'data'], function () {
 		Route::get('siswa', 'AdminController@dataSiswa');
 		Route::get('guru', 'AdminController@dataGuru');
@@ -137,6 +143,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 /*=================================ROUTE UNTUK guru =========================================*/
 Route::group(['prefix' => 'guru'], function () {
+	Route::get('/','GuruController@index');
 	Route::group(['prefix' => 'nilai'], function () {
 		Route::get('input', 'GuruController@inputNilai'); //sudah
 		Route::get('input/pengetahuan', 'GuruController@inputNilaiPengetahuan');//sudah
@@ -154,6 +161,7 @@ Route::group(['prefix' => 'guru'], function () {
 });
 /*=================================ROUTE UNTUK Siswa =========================================*/
 Route::group(['prefix' => 'siswa'], function () {
+	Route::get('/','SiswaController@index');
 	Route::group(['prefix' => 'lihatnilai'], function () {
 		Route::get('semester/1/show', 'SiswaController@NilaiSemester1');
 	});
@@ -162,6 +170,7 @@ Route::group(['prefix' => 'siswa'], function () {
 });
 /*=================================ROUTE UNTUK Wali Kelas =========================================*/
 Route::group(['prefix' => 'walikelas'], function () {
+	Route::get('/','WaliKelasController@index');
 	Route::group(['prefix' => 'nilai'], function () {
 		Route::get('kelola', 'WaliKelasController@kelolaNilai');	
 		Route::get('input', 'GuruController@inputNilai');

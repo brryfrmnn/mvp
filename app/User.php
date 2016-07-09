@@ -2,25 +2,22 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Cartalyst\Sentinel\Users\EloquentUser as Sentinel;
 
-class User extends Authenticatable
+class User extends Sentinel
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = 'users';
+    protected $loginNames = ['nomor_induk','email'];
     protected $fillable = [
-        'name', 'email', 'password',
+        'email',
+        'nomor_induk',
+        'password',
+        'last_name',
+        'first_name',
+        'permissions',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    use SoftDeletes;
 }

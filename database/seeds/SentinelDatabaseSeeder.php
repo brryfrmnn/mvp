@@ -16,26 +16,21 @@ class SentinelDatabaseSeeder extends Seeder
 
         $admin = Sentinel::getUserRepository()->create(array(
             'email'    => 'admin@admin.com',
-            'password' => 'password'
+            'password' => 'password',
+            'nomor_induk' => 'admin'
         ));
 
-        $user = Sentinel::getUserRepository()->create(array(
-            'email'    => 'user@user.com',
-            'password' => 'password'
-        ));
 
         // Create Activations
         DB::table('activations')->truncate();
         $code = Activation::create($admin)->code;
         Activation::complete($admin, $code);
-        $code = Activation::create($user)->code;
-        Activation::complete($user, $code);
-
         // Create Roles
         $administratorRole = Sentinel::getRoleRepository()->create(array(
             'name' => 'Administrator',
             'slug' => 'administrator',
             'permissions' => array(
+                'admin' => true,
                 'users.create' => true,
                 'users.update' => true,
                 'users.view' => true,
@@ -46,22 +41,8 @@ class SentinelDatabaseSeeder extends Seeder
                 'roles.delete' => true
             )
         ));
-        $moderatorRole = Sentinel::getRoleRepository()->create(array(
-            'name' => 'Moderator',
-            'slug' => 'moderator',
-            'permissions' => array(
-                'users.update' => true,
-                'users.view' => true,
-            )
-        ));
-        $subscriberRole = Sentinel::getRoleRepository()->create(array(
-            'name' => 'Subscriber',
-            'slug' => 'subscriber',
-            'permissions' => array()
-        ));
-
+        
         // Assign Roles to Users
         $administratorRole->users()->attach($admin);
-        $subscriberRole->users()->attach($user);
     }
 }

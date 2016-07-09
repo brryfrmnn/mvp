@@ -7,7 +7,7 @@ use Centaur\AuthManager;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Centaur\Dispatches\BaseDispatch;
-
+// use App\Users;
 class SessionController extends Controller
 {
     /** @var Centaur\AuthManager */
@@ -56,7 +56,7 @@ class SessionController extends Controller
         $result = $this->authManager->authenticate($credentials, $remember);
 
         // Return the appropriate response
-        $path = session()->pull('url.intended', route('dashboard'));
+        $path = session()->pull('url.intended', route('home'));
         return $result->dispatch($path);
     }
 

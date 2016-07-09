@@ -8,6 +8,8 @@ use App\Http\Requests;
 use Centaur\AuthManager;
 use Illuminate\Http\Request;
 use Cartalyst\Sentinel\Users\IlluminateUserRepository;
+use App\User;
+use App\Role;
 
 class UserController extends Controller
 {
@@ -38,7 +40,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->userRepository->createModel()->paginate(15);
+        // $users = $this->userRepository->createModel()->paginate(15);
+        $role = Sentinel::findRoleBySlug('guru');
+        $users = $role->users()->with('roles')->paginate(15);
 
         return view('Centaur::users.index', ['users' => $users]);
     }

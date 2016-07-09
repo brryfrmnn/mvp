@@ -24,6 +24,30 @@
                     <h5>Permissions:</h5>
                     <div class="checkbox">
                         <label>
+                            <input type="checkbox" name="permissions[admin]" value="1">
+                            admin
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="permissions[guru]" value="1">
+                            guru
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="permissions[wali_kelas]" value="1">
+                            wali kelas
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="permissions[siswa]" value="1">
+                            siswa
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
                             <input type="checkbox" name="permissions[users.create]" value="1">
                             users.create
                         </label>

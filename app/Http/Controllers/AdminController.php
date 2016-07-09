@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Sentinel;
 use App\Http\Requests;
 
 class AdminController extends Controller
@@ -12,7 +12,14 @@ class AdminController extends Controller
    	
 
 /*================================= Awal Controller ADMIN=========================================*/
+  
+    public function index()
+    {
+          $role = Sentinel::findRoleBySlug('administrator');
+          $users = $role->users()->with('roles')->paginate(8);
 
+          return view('admin.index', ['users' => $users]);
+    }
    	public function dataGuru()
    	{
    		return view('admin.dataguru');

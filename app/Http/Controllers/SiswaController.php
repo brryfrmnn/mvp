@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Sentinel;
 use App\Http\Requests;
 
 class SiswaController extends Controller
 {
     //Controller Untuk Siswa
+      public function index()
+      {
+            $role = Sentinel::findRoleBySlug('siswa');
+            $users = $role->users()->with('roles')->paginate(8);
+
+            return view('siswa.index', ['users' => $users]);
+      }
      Public function siswaProfil()
       {
        return view ('siswa.profil');
