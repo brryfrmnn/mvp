@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mapel; 
 use Sentinel;
 use App\Http\Requests;
 
@@ -22,11 +23,18 @@ class AdminController extends Controller
     }
    	public function dataGuru()
    	{
-   		return view('admin.dataguru');
+   		$role = Sentinel::findRoleBySlug('guru');
+         $guru = $role->users()->with('roles')->paginate(8);
+         $no=1;
+        return view('admin.dataguru', ['guru' => $guru, 'no' =>$no]);
    	}
       public function dataSiswa()
       {
-         return view('admin.datasiswa');
+         $role = Sentinel::findRoleBySlug('siswa');
+         $siswa = $role->users()->with('roles')->paginate(8);
+         $no=1;
+        return view('admin.datasiswa', ['siswa' => $siswa, 'no' =>$no]);
+         
       }
    	public function dataKelas()
    	{
@@ -34,7 +42,10 @@ class AdminController extends Controller
    	}
    	public function dataMapel()
    	{
-   		return view ('admin.datamapel');
+      $mapel = Mapel::orderBy('id','desc')->paginate(3);
+      $no=1;
+      return view('admin.datamapel')->with('mapel',$mapel)->with('no',$no);
+   		
    	}
 
    	public function adminProfil()

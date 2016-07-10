@@ -27,15 +27,17 @@
   							<th>Jenis Kelamin</th>
   							<th>Aksi</th>
 
-  						</tr>		
+  						</tr>
+  						 @foreach ($guru as $data)				
 							<tr>
-  							<td>1</td>
-  							<td>201601111</td>
-  							<td>Rachma Wina Pertiwi,S.Si,Apt</td>
-  							<td>Jl. Slamet 1 No.52 Cicadas Bandung</td>
-                <td>Perempuan</td>
+  							<td>{{ $no++ }}</td>
+  							<td>{{ $data->nomor_induk }}</td>
+  							<td>{{ $data->first_name }} {{ $data->last_name }}</td>
+                			<td>Bandung</td>
+                			<td>P</td>
   							<td><a href="{{ URL('admin/guru/edit')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-guru.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>&nbsp&nbsp&nbsp<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
   						</tr>
+  						@endforeach
   						
   					
 					</table>

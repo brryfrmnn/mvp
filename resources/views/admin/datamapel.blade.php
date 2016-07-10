@@ -24,37 +24,15 @@
   							<th>Nama Mata Pelajaran</th>
   							<th>Kategori</th>
   							<th>Aksi</th>
-  						</tr>		
+  						</tr>	
+              @foreach ($mapel as $data)	
 							<tr>
-  							<td>1</td>
-  							<td>Pemrograman Berorientasi Objek</td>
-  							<td>C2</td>
+  							<td>{{ $no++}}</td>
+  							<td>{{ $data->nama}}</td>
+  							<td>{{ $data->kategori}}</td>
   							<td><a href="{{ URL('admin/mapel/edit')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-mapel.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a></td>
   						</tr>		
-							<tr>
-                <td>2</td>
-                <td>Pemodelan Perangkat Lunak</td>
-                <td>C2</td>
-                <td><a href="edit-mapel.php" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-mapel.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a></td>
-              </tr>  
-              <tr>
-                <td>3</td>
-                <td>Pemrograman Website</td>
-                <td>C2</td>
-                <td><a href="edit-mapel.php" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-mapel.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a></td>
-              </tr>    
-              <tr>
-                <td>4</td>
-                <td>Pemodelan Perangkat Lunak</td>
-                <td>C2</td>
-                <td><a href="edit-mapel.php" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-mapel.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a></td>
-              </tr>  
-              <tr>
-                <td>5</td>
-                <td>Pemrograman Website</td>
-                <td>C2</td>
-                <td><a href="edit-mapel.php" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-mapel.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a></td>
-              </tr>    
+							@endforeach
               
   					
 					</table>
