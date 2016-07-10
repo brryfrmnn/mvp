@@ -42,10 +42,7 @@ Route::get('/dashboard', ['as' => 'dashboard', 'uses' => function() {
     return view('centaur.dashboard');
     // return view('index');
 }]);
-Route::get('/', ['as' => 'home', 'uses' => function() {
-    // return view('centaur.dashboard');
-    return view('index');
-}]);
+Route::get('/', ['as' => 'home', 'uses' => 'PengumumanController@index']);
 
 //=======================END ========================================
 
