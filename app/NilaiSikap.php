@@ -33,9 +33,8 @@ class NilaiSikap extends Model
 
     protected $table = 'nilai_sikap';
 
-    public function user()
+    public function nilaiRapor()  
     {
-
-    	//ga ngerti yang ini mah
+        return $this->hasOne('App\NilaiRapor', 'sikap_id','id');
     }
 }

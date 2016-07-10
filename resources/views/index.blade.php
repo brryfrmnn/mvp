@@ -70,7 +70,7 @@
 							<div class="product-detail">
 								<h5><a href="product-detail.php?id=">{{ $data->judul }}</a></h5>
 								<p>{{ $data->isi }}</p>
-								<div class="author">by <a href="vendor-detail.php?id=">Riku</a></div>
+								<div class="author">by <a href="vendor-detail.php?id=">{{ $data->user->first_name }}</a></div>
 								<a class="btn-orange btn-sm btn" href="product-detail.php?id=">Selengkapnya</a>
 							</div>
 						</div>

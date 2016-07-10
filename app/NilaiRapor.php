@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class NilaiRapor extends Model
 {
     //
+    use SoftDeletes;
     protected $fillabel = [
 
     	
@@ -22,9 +23,16 @@ class NilaiRapor extends Model
 
     protected $table = 'nilai_rapor';
 
-    public function user()
+    public function guru() //relasi user dengan
     {
-
-    	//ga ngerti yang ini mah
+        return $this->belongsTo('App\User', 'guru_id','id');
+    }
+    public function siswa() //relasi user dengan
+    {
+        return $this->belongsTo('App\User', 'siswa_id','id');
+    }
+     public function mapel() //relasi user dengan
+    {
+        return $this->belongsTo('App\User', 'mapel_id','id');
     }
 }

@@ -28,9 +28,5 @@ class Guru extends Model
 
     protected $table = 'admin';
 
-    public function user()
-    {
-
-    	//ga ngerti yang ini mah
-    }
+    
 }

@@ -28,9 +28,8 @@ class NilaiKeterampilan extends Model
 
     protected $table = 'nilai_keterampilan';
 
-    public function user()
+    public function nilaiRapor()  
     {
-
-    	//ga ngerti yang ini mah
+        return $this->hasOne('App\NilaiRapor', 'keterampilan_id','id');
     }
 }

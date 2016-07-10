@@ -21,8 +21,8 @@ class NilaiDeskripsi extends Model
     protected $table = 'nilai_deskripsi';
 
     public function user()
+    public function nilaiRapor()  
     {
-
-    	//ga ngerti yang ini mah
+        return $this->hasOne('App\NilaiRapor', 'deskripsi_id','id');
     }
 }

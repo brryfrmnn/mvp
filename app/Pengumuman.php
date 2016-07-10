@@ -3,10 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+ use SoftDeletes;
 class Pengumuman extends Model
 {	
 	//tentukan field yang akan diisi apa aja
+
     protected $fillable = [
     	'judul',
     	'isi',
@@ -18,7 +19,7 @@ class Pengumuman extends Model
 
     //membuat relasi yang berhubungan dengan model/table in
 
-    public function user()
+    public function user() //digunakan untuk memanggil data
     {
     	/*
 			membuat relasi pengumuman ke user M:1 jadi pake belongsTo

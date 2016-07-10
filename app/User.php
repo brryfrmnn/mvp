@@ -20,4 +20,80 @@ class User extends Sentinel
     ];
 
     use SoftDeletes;
+
+    public function admin() //relasi user dengan admin
+    {
+        return $this->hasOne('App\Admin', 'user_id','id');
+    }
+
+    public function guru() //relasi user dengan guru
+    {
+        return $this->hasOne('App\Guru', 'user_id','id');
+    }
+
+    public function siswa() //relasi user dengan siswa
+    {
+        return $this->hasOne('App\Siswa', 'user_id','id');
+    }
+
+    public function mataPelajaran() //relasi user dengan mapel
+    {
+        return $this->hasMany('App\Mapel', 'admin_id','id');
+    }
+
+    public function jadwalPelajaran() //relasi user dengan jadwal oleh admin
+    {
+        return $this->hasMany('App\JadwalPelajaran', 'admin_id','id');
+    }
+    public function jadwalPelajaranGuru() //relasi user dengan jadwal oleh guru
+    {
+        return $this->hasMany('App\JadwalPelajaran', 'guru_id','id');
+    }
+    public function jadwalPelajaranSiswa() //relasi user dengan jadwal oleh siswa
+    {
+        return $this->hasMany('App\JadwalPelajaran', 'siswa_id','id');
+    }
+    public function nilaiKeterampilanGuru() //relasi user dengan
+    {
+        return $this->hasMany('App\NilaiKeterampilan', 'guru_id','id');
+    }
+    public function nilaiKeterampilanSiswa() //relasi user dengan
+    {
+        return $this->hasMany('App\NilaiKeterampilan', 'siswa_id','id');
+    }
+    public function nilaiPengetahuanGuru() //relasi user dengan
+    {
+        return $this->hasMany('App\NilaiPengetahuan', 'guru_id','id');
+    }
+    public function nilaiPengetahuanSiswa() //relasi user dengan
+    {
+        return $this->hasMany('App\NilaiPengetahuan', 'siswa_id','id');
+    }
+    public function nilaiSikapGuru() //relasi user dengan
+    {
+        return $this->hasMany('App\NilaiSikap', 'guru_id','id');
+    }
+    public function nilaiSikapSiswa() //relasi user dengan
+    {
+        return $this->hasMany('App\NilaiSikap', 'siswa_id','id');
+    }
+    public function nilaiDeskripsiGuru() //relasi user dengan
+    {
+        return $this->hasMany('App\NilaiDeskripsi', 'guru_id','id');
+    }
+    public function nilaiDeskripsiSiswa() //relasi user dengan
+    {
+        return $this->hasMany('App\NilaiDeskripsi', 'siswa_id','id');
+    }
+    public function nilaiRaporGuru() //relasi user dengan
+    {
+        return $this->hasMany('App\NilaiRapor', 'guru_id','id');
+    }
+    public function nilaiRaporSiswa() //relasi user dengan
+    {
+        return $this->hasMany('App\NilaiRapor', 'siswa_id','id');
+    }
+
+
+
 }

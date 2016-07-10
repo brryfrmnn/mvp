@@ -25,9 +25,9 @@ class NilaiPengetahuan extends Model
 
     protected $table = 'nilai_pengetahuan';
 
-    public function user()
+    public function nilaiRapor() //relasi rapor dengan nilaipengetahuan 
     {
-
-    	//ga ngerti yang ini mah
+        return $this->hasOne('App\NilaiRapor', 'pengetahuan_id','id');
     }
+    
 }

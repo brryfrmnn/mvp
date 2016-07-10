@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Siswa extends Model
 {
     //
+    use SoftDeletes;
     protected $fillabel = [
 
     	
@@ -26,9 +27,5 @@ class Siswa extends Model
 
     protected $table = 'siswa';
 
-    public function user()
-    {
-
-    	//ga ngerti yang ini mah
-    }
+   
 }
