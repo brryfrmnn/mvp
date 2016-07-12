@@ -59,23 +59,34 @@ class PengumumanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(Request $request)
-    // {
-    //     //memasukan semua inputan 
-    //     /*
-    //         ada 2 cara.. menggunakan cara manual menggunakan Eloquent ORM (lebih disarankan)
-    //         atau menggunakan cara Query Builder mnggunakan method insert berbentuk array
+    public function store(Request $request)
+    {
+        //memasukan semua inputan 
+        /*
+            ada 2 cara.. menggunakan cara manual menggunakan Eloquent ORM (lebih disarankan)
+            atau menggunakan cara Query Builder mnggunakan method insert berbentuk array
 
-    //         contoh A
-    //     */
-    //     $input = $request->all() //ambil semua data yang dari post / request
-    //     $input['admin_id'] = \Sentinel::getUser()->id; //karena butuh admin_id jadi dibuat array pada var input
-    //     $save = Pengumuman::insert($input);
-    //     //jika berhasil arahkan ke halaman admin/create
-    //     return redirect('/admin/create')->with('message','Success .. ')
-    //                                     ->with('alert','success');
+            contoh A
+        */
+        $pengumuman = new Pengumuman; //deklarasikan objek pengumuman dari Class/odel Pengumuman
+        $pengumuman->admin_id = \Sentinel::getUser()->id; //gunakan Model Sentinel agar dapat id dari orang yang login
+        $pengumuman->judul    = $request->input('judul'); //$request->input mirip $_POST['']
+        $pengumuman->isi      = $request->input('isi');
 
-    // }
+        if ($pengumuman->save()) { //jika save berhasil
+            //jika berhasil arahkan ke halaman admin/pengumuman
+            return redirect('/admin/pengumuman')->with('message','Success .. ')
+                                        ->with('alert','success');
+
+        } else {
+            //jika berhasil arahkan ke halaman admin/pengumuman/tambah
+            return redirect('/admin/pengumuman/tambah')->with('message','Success .. ')
+                                        ->with('alert','success');
+
+        }
+
+        
+    }
 
     /**
      * Display the specified resource.
