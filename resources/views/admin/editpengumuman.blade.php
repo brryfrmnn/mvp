@@ -29,19 +29,20 @@
                 <div class="panel-body">
                    <form action="" method="POST" role="form" enctype="multipart/form-data" >
                    {{csrf_field()}}
+                   {{($pengumuman as $data) }} 
                     <div class="form-group">
                         <label >Judul Pengumuman</label>
                     
-                            <input type="text" value="Kelas X" class="form-control bgcol" name="" placeholder="Masukan Judul">
+                            <input type="text" value="{{ $data->judul }}" class="form-control bgcol" name="" placeholder="Masukan Judul">
                     </div>
                     <div class="form-group">
                         <label>Isi Pengumuman</label>
-                        <textarea name="alamat_guru" class="form-control" placeholder="Masukan Isi Pengumuman">Jadwal Uas Tanggal 12/7/2015</textarea>
+                        <textarea name="alamat_guru" class="form-control" placeholder="Masukan Isi Pengumuman">{{ $data->isi }} </textarea>
                     </div>
                     <div class="form-group">
                         <label for="">Admin</label>
                         <select class="form-control" name="nip">
-                            <option value="0">Berry</option>                       
+                            <option value="0">{{ $data->admin_id }} </option>                       
                             <option value="1">Rikuchan</option>
                             <option value="1">Rikuchin</option>
                         </select>

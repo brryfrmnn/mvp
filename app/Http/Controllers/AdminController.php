@@ -111,7 +111,8 @@ class AdminController extends Controller
       }
       public function editPengumuman()
       {
-       return view('admin.editpengumuman');
+       $pengumuman = Pengumuman::orderBy('id','desc')->paginate(3);
+       return view('admin.editpengumuman')->with('pengumuman',$pengumuman);
       }
       public function detailSiswa()
       {
