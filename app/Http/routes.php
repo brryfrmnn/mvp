@@ -137,6 +137,9 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::get('jadwal/mengajar', 'AdminController@jadwalMengajar');
 	Route::get('jadwal/tambah', 'AdminController@tambahJadwal');
 	Route::get('pengumuman', 'AdminController@pengumuman');
+	//===========================================================
+	Route::post('pengumuman', 'AdminController@pengumuman'); //Pengumuman berbentuk POST, di view pas bikin FORM. actionnya ke "route('pengumuman')"
+	//===========================================================
 	Route::get('pengumuman/tambah', 'AdminController@tambahPengumuman');
 	Route::get('pengumuman/edit', 'AdminController@editPengumuman');
 	
