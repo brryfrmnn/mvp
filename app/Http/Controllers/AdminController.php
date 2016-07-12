@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mapel; 
+use App\Pengumuman;
 use Sentinel;
 use App\Http\Requests;
 
@@ -60,13 +61,13 @@ class AdminController extends Controller
    	}
     public function pengumuman()
     {
-      //$pengumuman = Pengumuman::orderBy('id','desc')->paginate(3);
-      //$no=1;
-      //return view('admin.pengumuman')->with('pengumuman',$pengumuman)->with('no',$no);
-      $role = Sentinel::findRoleBySlug('administrator');
-      $users = $role->users()->with('roles')->paginate(8);
+      $pengumuman = Pengumuman::orderBy('id','desc')->paginate(3);
       $no=1;
-      return view('admin.pengumuman', ['users' => $users, 'no' =>$no]);
+      return view('admin.pengumuman')->with('pengumuman',$pengumuman)->with('no',$no);
+      //$role = Sentinel::findRoleBySlug('administrator');
+      //$users = $role->users()->with('roles')->paginate(8);
+      //$no=1;
+      //return view('admin.pengumuman', ['users' => $users, 'no' =>$no]);
     }
       public function tambahSiswa()
       {

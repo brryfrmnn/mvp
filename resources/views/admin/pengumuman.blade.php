@@ -27,12 +27,12 @@
   							<th>Aksi</th>
 
   						</tr>
-  						 @foreach ($users as $pengumuman)				
+  						 @foreach ($pengumuman as $data)				
 							<tr>
   							<td>{{ $no++ }}</td>
-  							<td>{{ $pengumuman->judul }} Kelas X</td>
-                			<td>{{ $pengumuman->isi }} Jadwal Uas Tanggal 12/7/2015, </td>
-                			<td>{{ $pengumuman->admin_id }} Berry</td>
+  							<td>{{ $data->judul }} </td>
+                			<td>{{ $data->isi }} </td>
+                			<td>{{ $data->admin_id }} </td>
   							<td><a href="{{ URL('admin/pengumuman/edit')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-guru.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>&nbsp&nbsp&nbsp<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
   						</tr>
   						@endforeach
