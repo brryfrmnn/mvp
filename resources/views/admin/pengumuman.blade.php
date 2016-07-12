@@ -22,7 +22,7 @@
   						<tr>
   							<th>No</th>
   							<th>JUDUL</th>
-                			<th>ISI</th>
+                			<th width="50px" height="40px">ISI</th>
                 			<th>ADMIN</th>
   							<th>Aksi</th>
 
@@ -32,15 +32,21 @@
   							<td>{{ $no++ }}</td>
   							<td>{{ $data->judul }} </td>
                 			<td>{{ $data->isi }} </td>
-                			<td>{{ $data->admin_id }} </td>
-  							<td><a href="{{ URL('admin/pengumuman/edit')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-guru.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>&nbsp&nbsp&nbsp<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
+                			<td>{{ $data->user->first_name }} </td>
+  							<td><a href="{{ URL('admin/pengumuman',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp
+  							<form action="{{ URL('admin/pengumuman',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
+  							{{csrf_field()}}
+  							<button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
+  							</form>
+
+ 							<a href="{{ URL('admin/pengumuman',[$data->id,'detail'])}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
   						</tr>
   						@endforeach
   						
   					
 					</table>
 					<div class="text-center">
-						<ul class="pagination">
+						{{-- <ul class="pagination">
 						    <li>
 						      <a href="member.php?page=1" aria-label="Previous">
 						        <span aria-hidden="true">&laquo;</span>
@@ -54,7 +60,8 @@
 						        <span aria-hidden="true">&raquo;</span>
 						      </a>
 						    </li>
-						</ul>
+						</ul> --}}
+						{!! $pengumuman->links() !!}
 					</div>
 </div>
 @endsection

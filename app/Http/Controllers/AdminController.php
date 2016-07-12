@@ -89,10 +89,7 @@ class AdminController extends Controller
       {
        return view('admin.tambahjadwal');
       }
-      public function tambahPengumuman()
-      {
-       return view('admin.tambahpengumuman');
-      }
+      
       public function editSiswa()
       {
        return view('admin.editsiswa');

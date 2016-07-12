@@ -137,14 +137,15 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::get('jadwal/mengajar', 'AdminController@jadwalMengajar');
 	Route::get('jadwal/tambah', 'AdminController@tambahJadwal');
 	Route::get('pengumuman', 'PengumumanController@pengumuman');
-	Route::get('pengumuman/tambah', 'PengumumanController@index');
-
+	Route::get('pengumuman/tambah', 'PengumumanController@tambahPengumuman');
+	Route::get('pengumuman/{id}/edit', 'PengumumanController@edit');
+	Route::get('pengumuman/{id}/detail', 'PengumumanController@detail');
 	Route::get('pengumuman', 'AdminController@pengumuman');
 	//===========================================================
-	Route::post('pengumuman', 'AdminController@pengumuman'); //Pengumuman berbentuk POST, di view pas bikin FORM. actionnya ke "route('pengumuman')"
+	Route::post('pengumuman', 'PengumumanController@store'); //Pengumuman berbentuk POST, di view pas bikin FORM. actionnya ke "route('pengumuman')"
 	//===========================================================
-	Route::get('pengumuman/tambah', 'AdminController@tambahPengumuman');
-	Route::get('pengumuman/edit', 'AdminController@editPengumuman');
+	Route::post('pengumuman/{id}/update', 'PengumumanController@update');
+	Route::post('pengumuman/{id}/delete', 'PengumumanController@hapus');
 	
 });
 /*=================================ROUTE UNTUK guru =========================================*/

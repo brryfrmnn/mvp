@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //memasukan model pada controller
 use App\Pengumuman; 
+use Sentinel;
 use App\Http\Requests;
 
 class PengumumanController extends Controller
@@ -80,13 +81,20 @@ class PengumumanController extends Controller
 
         } else {
             //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-            return redirect('/admin/pengumuman/tambah')->with('message','Success .. ')
-                                        ->with('alert','success');
+            return redirect('/admin/pengumuman/tambah')->with('message','Gagal .. ')
+                                        ->with('alert','danger');
 
         }
 
         
     }
+
+    public function tambahPengumuman()
+      {
+        /*$role = Sentinel::findRoleBySlug('administrator');
+        $admins = $role->users()->with('roles')->get();*/
+        return view('admin.tambahpengumuman')/*->with('admins',$admins)*/;
+      }
 
     /**
      * Display the specified resource.
@@ -112,7 +120,18 @@ class PengumumanController extends Controller
      */
     public function edit($id)
     {
-        //
+        /*$role = Sentinel::findRoleBySlug('administrator');
+        $admins = $role->users()->with('roles')->get();*/
+        $pengumuman = Pengumuman::find($id);
+        return view('admin.editpengumuman')->with('pengumuman',$pengumuman); 
+    }
+
+    public function detail($id)
+    {
+        /*$role = Sentinel::findRoleBySlug('administrator');
+        $admins = $role->users()->with('roles')->get();*/
+        $pengumuman = Pengumuman::find($id);
+        return view('admin.editpengumuman')->with('pengumuman',$pengumuman); 
     }
 
     /**
@@ -122,16 +141,26 @@ class PengumumanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function update(Request $request, $id)
-    // {
-    //     //gunakan method find utntuk mencari id
-    //     $pengumuman = Pengumuman::find($id);
-    //     $pengumuman->judul = $request->input('judul'); //masukan dari post ke field judul
-    //     $pengumuman->isi   = $request->input('isi');
-    //     $pengumuman->save(); //save perubahan 
-    //     return redirect('/admin/')->with('message','Success .. ')
-    //                               ->with('alert','success');
-    // }
+    public function update(Request $request, $id)
+    {
+        //gunakan method find utntuk mencari id
+        $pengumuman = Pengumuman::find($id);
+        $pengumuman->admin_id = \Sentinel::getUser()->id; //gunakan Model Sentinel agar dapat id dari orang yang login
+        $pengumuman->judul    = $request->input('judul'); //$request->input mirip $_POST['']
+        $pengumuman->isi      = $request->input('isi');
+
+        if ($pengumuman->save()) { //jika save berhasil
+            //jika berhasil arahkan ke halaman admin/pengumuman
+            return redirect('/admin/pengumuman')->with('message','Success .. ')
+                                        ->with('alert','success');
+
+        } else {
+            //jika berhasil arahkan ke halaman admin/pengumuman/tambah
+            return redirect('/admin/pengumuman/tambah')->with('message','Gagal .. ')
+                                        ->with('alert','danger');
+
+        }
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -139,13 +168,22 @@ class PengumumanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function destroy($id)
-    // {
-    //     //method hapus .. jika menggunakan softDeletes() data tidak benar2 dihapus .. tapi tidak ditampilkan daja
-    //     //cari dengan method find
-    //     $pengumuman = Pengumuman::find($id);
-    //     $pengumuman->delete();
-    //     return redirect('/admin/create')->with('message','Success .. ')
-    //                                     ->with('alert','success');
-    // }
+    public function hapus($id)
+    {
+        //method hapus .. jika menggunakan softDeletes() data tidak benar2 dihapus .. tapi tidak ditampilkan daja
+        //cari dengan method find
+        $pengumuman = Pengumuman::find($id);
+        // $pengumuman->delete();
+       if ($pengumuman->delete()) { //jika save berhasil
+            //jika berhasil arahkan ke halaman admin/pengumuman
+            return redirect('/admin/pengumuman')->with('message','Success .. berhasil di hapus')
+                                        ->with('alert','success');
+
+        } else {
+            //jika berhasil arahkan ke halaman admin/pengumuman/tambah
+            return redirect('/admin/pengumuman/tambah')->with('message','Gagal ..dihapus ')
+                                        ->with('alert','danger');
+
+        }
+    }
 }
