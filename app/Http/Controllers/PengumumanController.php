@@ -27,6 +27,20 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::orderBy('id','desc')->paginate(3);
          return view('index')->with('pengumuman',$pengumuman);
     }
+    public function pengumuman()
+    {
+        //tampilkan semua menggunakan method all() atau get() atau paginate()
+        /*
+        $pengumuman = Pengumuman::all();
+        return redirect('/admin/create')->with('message','Success .. ')
+                                        ->with('alert','success');
+                                        */
+        //atau
+
+        $pengumuman = Pengumuman::orderBy('id','desc')->paginate(3);
+        $no=1;
+        return view('admin.pengumuman')->with('pengumuman',$pengumuman)->with('no',$no);
+    }
 
     /**
      * Show the form for creating a new resource.
