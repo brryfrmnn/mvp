@@ -58,6 +58,16 @@ class AdminController extends Controller
    	{
    		return view('admin.jadwal_mengajar');
    	}
+    public function pengumuman()
+    {
+      //$pengumuman = Pengumuman::orderBy('id','desc')->paginate(3);
+      //$no=1;
+      //return view('admin.pengumuman')->with('pengumuman',$pengumuman)->with('no',$no);
+      $role = Sentinel::findRoleBySlug('administrator');
+      $users = $role->users()->with('roles')->paginate(8);
+      $no=1;
+      return view('admin.pengumuman', ['users' => $users, 'no' =>$no]);
+    }
       public function tambahSiswa()
       {
          return view('admin.tambahsiswa');
@@ -78,6 +88,10 @@ class AdminController extends Controller
       {
        return view('admin.tambahjadwal');
       }
+      public function tambahPengumuman()
+      {
+       return view('admin.tambahpengumuman');
+      }
       public function editSiswa()
       {
        return view('admin.editsiswa');
@@ -93,6 +107,10 @@ class AdminController extends Controller
       public function editProfil()
       {
        return view('admin.editprofil');
+      }
+      public function editPengumuman()
+      {
+       return view('admin.editpengumuman');
       }
       public function detailSiswa()
       {

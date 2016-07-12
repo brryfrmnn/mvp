@@ -24,6 +24,7 @@
 
                   <li><a href="{{ URL('admin/data/mapel') }}">Mata Pelajaran</a></li>
                   <li><a href="{{ URL('admin/jadwal/mengajar') }}">Jadwal Mengajar</a></li>
+                  <li><a href="{{ URL('admin/pengumuman') }}">Pengumuman</a></li>
 
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentinel::getUser()->first_name}} <span class="caret"></span></a>

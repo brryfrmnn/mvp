@@ -136,6 +136,9 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::get('profil/edit', 'AdminController@editProfil');
 	Route::get('jadwal/mengajar', 'AdminController@jadwalMengajar');
 	Route::get('jadwal/tambah', 'AdminController@tambahJadwal');
+	Route::get('pengumuman', 'AdminController@pengumuman');
+	Route::get('pengumuman/tambah', 'AdminController@tambahPengumuman');
+	Route::get('pengumuman/edit', 'AdminController@editPengumuman');
 	
 });
 /*=================================ROUTE UNTUK guru =========================================*/
