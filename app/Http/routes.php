@@ -110,6 +110,24 @@ Route::group(['prefix' => 'admin'], function () {
 			Route::get('detail', 'KelasJurusanController@detail');
 			    
 		});
+
+		Route::group(['prefix' => 'kelas'], function () {
+			Route::get('/', 'KelasController@index');
+			Route::post('/', 'KelasController@simpan');
+			Route::get('tampil', 'KelasController@tampil');
+			Route::get('tambah', 'KelasController@tambah');
+			Route::get('detail', 'KelasController@detail');
+			    
+		});
+
+		Route::group(['prefix' => 'jurusan'], function () {
+			Route::get('/', 'JurusanController@index');
+			Route::post('/', 'JurusanController@simpan');
+			Route::get('tampil', 'JurusanController@tampil');
+			Route::get('tambah', 'JurusanController@tambah');
+			Route::get('detail', 'JurusanController@detail');
+			    
+		});
 		Route::get('mapel', 'AdminController@dataMapel');
 		    
 	});
