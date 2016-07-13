@@ -121,12 +121,16 @@ Route::group(['prefix' => 'admin'], function () {
 		    
 	});
 	Route::group(['prefix' => 'mapel'], function () {
+		Route::get('tampil', 'AdminController@tampilMapel');
+		Route::post('tampil', 'AdminController@storeMapel');
 		Route::get('tambah', 'AdminController@tambahMapel');
-		Route::get('edit', 'AdminController@editMapel');
+		Route::get('{id}/edit', 'AdminController@editMapel');
+		Route::post('{id}/update', 'AdminController@updateMapel');
+		Route::post('{id}/delete', 'AdminController@hapusMapel');
 		    
 	});
 
-	Route::group(['prefix' => 'kelas'], function () {
+	Route::group(['prefix' => 'kelas', 'AdminController@dataKelas'], function () {
 		Route::get('tambah', 'AdminController@tambahKelas');
 		Route::get('detail', 'AdminController@detailKelas');
 		    

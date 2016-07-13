@@ -131,7 +131,7 @@ class PengumumanController extends Controller
         /*$role = Sentinel::findRoleBySlug('administrator');
         $admins = $role->users()->with('roles')->get();*/
         $pengumuman = Pengumuman::find($id);
-        return view('admin.editpengumuman')->with('pengumuman',$pengumuman); 
+        return view('admin.detailpengumuman')->with('pengumuman',$pengumuman); 
     }
 
     /**

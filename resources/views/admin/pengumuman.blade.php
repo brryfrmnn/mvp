@@ -18,11 +18,12 @@
 	<div class="container">
 
 					<h1 class="page-header">Pengumuman <a href="{{URL ('admin/pengumuman/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah</a></h1>
+					<div class="box-body table-responsive" >
 					<table class="table table-striped">
   						<tr>
   							<th>No</th>
   							<th>JUDUL</th>
-                			<th width="50px" height="40px">ISI</th>
+                			<th>ISI</th>
                 			<th>ADMIN</th>
   							<th>Aksi</th>
 
@@ -38,13 +39,14 @@
   							{{csrf_field()}}
   							<button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
   							</form>
-
+  							&nbsp&nbsp&nbsp
  							<a href="{{ URL('admin/pengumuman',[$data->id,'detail'])}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
   						</tr>
   						@endforeach
   						
   					
 					</table>
+					</div>
 					<div class="text-center">
 						{{-- <ul class="pagination">
 						    <li>

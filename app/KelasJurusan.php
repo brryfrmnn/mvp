@@ -18,9 +18,13 @@ class KelasJurusan extends Model
 
     protected $table = 'kelas_jurusan';
 
-    public function user()
+    public function jurusan()
     {
-
-    	//ga ngerti yang ini mah
+    	return $this->belongsTo('App\Jurusan','jurusan_id', 'id');
     }
+     public function kelas()
+    {
+        return $this->belongsTo('App\Kelas','kelas_id', 'id');
+    }
+
 }

@@ -22,7 +22,7 @@
                     </ul>
                   </li>
 
-                  <li><a href="{{ URL('admin/data/mapel') }}">Mata Pelajaran</a></li>
+                  <li><a href="{{ URL('admin/mapel/tampil') }}">Mata Pelajaran</a></li>
                   <li><a href="{{ URL('admin/jadwal/mengajar') }}">Jadwal Mengajar</a></li>
                   <li><a href="{{ URL('admin/pengumuman') }}">Pengumuman</a></li>
 

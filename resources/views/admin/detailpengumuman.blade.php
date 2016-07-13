@@ -13,7 +13,7 @@
       <ul class="breadcrumb"><li><a href="index.php">Home</a></li>
       
       
-            <li class="active">Tambah Pengumuman</li>
+            <li class="active">Detail Pengumuman</li>
       </ul>
 </div>
 </div>
@@ -23,20 +23,21 @@
       <div class="container">
         <div class="row" >
         <div class="col-lg-8 col-lg-offset-2">
-        <h1 class="page-header">Tambah Pengumuman<a href="{{ URL('admin/pengumuman')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+        <h1 class="page-header">Detail Pengumuman<a href="{{ URL('admin/pengumuman')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
 
             <div class="panel panel-default">
-                <div class="panel-body">
-                   <form action="{{ URL('admin/pengumuman')}}" method="POST" role="form" enctype="multipart/form-data" >
+                <div class="panel-body">                   
+                   <form action="{{ URL('admin/pengumuman',[$pengumuman->id,'detail'])}}" method="POST" role="form" enctype="multipart/form-data" >
                    {{csrf_field()}}
+                   
                     <div class="form-group">
-                        <label >Judul</label>
+                        <label >Judul Pengumuman</label>
                     
-                            <input type="text" value="" class="form-control bgcol" name="judul" placeholder="Masukan Judul">
+                            <input type="text" value="{{ $pengumuman->judul }}" class="form-control bgcol" name="judul" placeholder="Masukan Judul" readonly>
                     </div>
                     <div class="form-group">
                         <label>Isi Pengumuman</label>
-                        <textarea name="isi" class="form-control" placeholder="Masukan Isi Pengumuman" rows="13"></textarea>
+                        <textarea name="isi" class="form-control" placeholder="Masukan Isi Pengumuman" readonly rows="13">{{ $pengumuman->isi }} </textarea>
                     </div>
                     {{-- <div class="form-group">
                         <label for="">Admin</label>
@@ -47,7 +48,7 @@
                             @endforeach                       
                         </select>
                     </div> --}}
-                    <button type="submit" class="btn btn-orange" name="simpan">Simpan</button>
+                
                    </form>
                 </div>
             </div>
