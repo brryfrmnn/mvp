@@ -37,10 +37,7 @@ class AdminController extends Controller
         return view('admin.datasiswa', ['siswa' => $siswa, 'no' =>$no]);
          
       }
-   	public function dataKelas()
-   	{
-   		return view ('admin.datakelas');
-   	}
+   	
    	public function tampilMapel()
     {
         //tampilkan semua menggunakan method all() atau get() atau paginate()

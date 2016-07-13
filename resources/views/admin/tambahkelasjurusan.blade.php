@@ -22,33 +22,31 @@
       <div class="container">
             <div class="row" >
         <div class="col-lg-8 col-lg-offset-2"  >
-
+            <h1 class="page-header">Tambah Data Kelas<a href="{{ URL('admin/data/kelas')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
           <div class="panel panel-default">
                 <div class="panel-body">
-                   <form action="" method="POST" role="form" >
+                   <form action="{{ URL('admin/data/kelasjurusan')}}" method="POST" role="form" >
+                   {{csrf_field()}}
                     <div class="form-group">
                         <label for="">Kelas</label>
-                        <select required class="form-control" name="kode_kelas">
+                        <select required class="form-control" name="kelas_id">
                             <option value="0" disabled="" selected="" >Pilih</option>
+                            @foreach ($kelas as $data)
+                               <option value="{{$data->id}}">{{$data->nama}}</option>
+                            @endforeach
+                           
 
-                       
-                            
-                            <option value="2" >1</option>
-                            <option value="3" >2</option>
-                            <option value="4" >3</option>
-                       
                         </select>
                     </div>
                    
                    <div class="form-group">
                         <label for="">Jurusan</label>
-                        <select required class="form-control" name="kode_jurusan">
+                        <select required class="form-control" name="jurusan_id">
                             <option value="0" disabled="" selected="" >Pilih</option>
-
-                            <option value="1" >Farmasi</option>
-                            <option value="2" >Rekayasa perngkat lunak</option>
-                            <option value="3" >Teknik otomotif</option>
-                            <option value="4" >Jasa boga</option>
+                            @foreach ($jurusan as $data)
+                              <option value="{{$data->id}}" >{{$data->nama}}</option>
+                            @endforeach
+                           
                      
                         </select>
                     </div>     

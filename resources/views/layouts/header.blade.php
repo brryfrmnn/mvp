@@ -18,7 +18,9 @@
                     <ul class="dropdown-menu">
                       <li><a href="{{ URL('admin/data/siswa') }}">Data Siswa</a></li>
                       <li><a href="{{ URL('admin/data/guru') }}">Data Guru</a></li>
+                      <li><a href="{{ URL('admin/data/kelasjurusan') }}">Data Kelas dan Jurusan</a></li>
                       <li><a href="{{ URL('admin/data/kelas') }}">Data Kelas</a></li>
+                      <li><a href="{{ URL('admin/data/jurusan') }}">Data Jurusan</a></li>
                     </ul>
                   </li>
 

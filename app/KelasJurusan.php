@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use SoftDeletes;
 class KelasJurusan extends Model
 {
     //
-    use SoftDeletes;
+    
     protected $fillabel = [
 
     	

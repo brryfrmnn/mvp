@@ -102,7 +102,14 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::group(['prefix' => 'data'], function () {
 		Route::get('siswa', 'AdminController@dataSiswa');
 		Route::get('guru', 'AdminController@dataGuru');
-		Route::get('kelas', 'AdminController@dataKelas');
+		Route::group(['prefix' => 'kelasjurusan'], function () {
+			Route::get('/', 'KelasJurusanController@index');
+			Route::post('/', 'KelasJurusanController@simpan');
+			Route::get('tampil', 'KelasJurusanController@tampil');
+			Route::get('tambah', 'KelasJurusanController@tambah');
+			Route::get('detail', 'KelasJurusanController@detail');
+			    
+		});
 		Route::get('mapel', 'AdminController@dataMapel');
 		    
 	});
@@ -130,11 +137,7 @@ Route::group(['prefix' => 'admin'], function () {
 		    
 	});
 
-	Route::group(['prefix' => 'kelas', 'AdminController@dataKelas'], function () {
-		Route::get('tambah', 'AdminController@tambahKelas');
-		Route::get('detail', 'AdminController@detailKelas');
-		    
-	});
+	
 
 	Route::get('profil', 'AdminController@adminProfil');
 	Route::get('profil/edit', 'AdminController@editProfil');
