@@ -33,11 +33,11 @@
                    
                     <div class="form-group">
                         <label for="">nis</label>
-                        <input value=""name="nis"type="text" class="form-control" id="" placeholder="16150111" readonly>
+                        <input value=""name="nis"type="text" class="form-control" id="" placeholder="1415100618" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Nama siswa</label>
-                        <input value=""name="nama_siswa"type="text" class="form-control" id="" placeholder="Sari Susanti">
+                        <input value=""name="nama_siswa"type="text" class="form-control" id="" placeholder="Bobby Setiawan">
                     </div>
                     <div class="form-group">
                         <label for="">Tempat lahir</label>

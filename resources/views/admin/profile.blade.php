@@ -35,7 +35,7 @@
 						<tr>
 							<td>Nama </td>
 							<td>:</td>
-							<td>{{$nama}}</td>
+							<td>{{Sentinel::getUser()->first_name}}</td>
 							
 						</tr>
 						<tr >

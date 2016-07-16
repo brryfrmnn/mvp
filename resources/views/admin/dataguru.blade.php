@@ -34,7 +34,7 @@
   							<td>{{ $data->nomor_induk }}</td>
   							<td>{{ $data->first_name }} {{ $data->last_name }}</td>
                 			<td>Bandung</td>
-                			<td>P</td>
+                			<td>Perempuan</td>
   							<td><a href="{{ URL('admin/guru/edit')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-guru.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>&nbsp&nbsp&nbsp<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
   						</tr>
   						@endforeach
