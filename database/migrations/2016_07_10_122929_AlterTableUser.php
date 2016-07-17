@@ -15,7 +15,7 @@ class AlterTableUser extends Migration
         Schema::table('users', function (Blueprint $table) {
             //
             $table->string('phone',14)->nullable();
-            $table->enum('jenis_kelamin', ['perempuan', 'laki-laki'])->nullable();
+            $table->string('jenis_kelamin', 1)->nullable();
             $table->string('Agama',10)->nullable();
             $table->string('tempat_lahir',20)->nullable();
             $table->date('tanggal_lahir')->nullable();
