@@ -47,7 +47,7 @@ class SessionController extends Controller
 
         // Assemble Login Credentials
         $credentials = [
-            'email' => trim($request->get('email')),
+            'login' => trim($request->get('email')),
             'password' => $request->get('password'),
         ];
         $remember = (bool)$request->get('remember', false);
