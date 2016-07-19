@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('title')
-	SMK MVP aRS
+	SMK MVP ARS
 @stop
 
 @section('content')
