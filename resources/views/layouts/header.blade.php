@@ -88,7 +88,7 @@
                     </ul>
                   </li>
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, Berry <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentinel::getUser()->first_name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="{{URL('siswa/profil')}}">Profil Saya</a></li>
                       <li><a href="">Pengaturan</a></li>

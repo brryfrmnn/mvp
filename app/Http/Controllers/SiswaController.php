@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Sentinel;
 use App\Http\Requests;
+use App\KelasJurusan;
 
 class SiswaController extends Controller
 {
@@ -15,6 +16,11 @@ class SiswaController extends Controller
             $users = $role->users()->with('roles')->paginate(8);
 
             return view('siswa.index', ['users' => $users]);
+      }
+      public function tambah()
+      {
+            $kelasjurusan = KelasJurusan::all();
+            return view('admin.tambahsiswa', compact('kelasjurusan'));
       }
      Public function siswaProfil()
       {

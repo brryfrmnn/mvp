@@ -28,12 +28,12 @@
 
             <div class="panel panel-default">
                 <div class="panel-body">
-                   <form action="" method="POST" role="form" enctype="multipart/form-data" >
+                   <form action="{{ URL('admin/data/siswa')}}" method="POST" role="form" enctype="multipart/form-data" >
                     
-                   
+                   {{csrf_field()}}
                     <div class="form-group">
                         <label for="">nis</label>
-                        <input value=""name="nis"type="text" class="form-control" id="" placeholder="Masukan nis" readonly>
+                        <input value=""name="nis"type="text" class="form-control" id="" placeholder="Masukan nis">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Depan</label>
@@ -130,14 +130,12 @@
                     
                     <div class="form-group">
                         <label for="">Pilih Kelas dan Jurusan</label>
-                        <select required class="form-control" name="kelasjurusan_id">
-                            <option value="0" disabled="" selected="" >Pilih</option>
 
-                        
-                            <option value="" >X TIK</option>
-                            <option value="" >XI FAR</option>
-                            <option value="" >XII STP</option>
-                       
+                        <select required class="form-control" name="kelasjurusan_id">
+                        <option value="0" disabled="" selected="" >Pilih</option>
+                        @foreach ($kelasjurusan as $data)               
+                            <option value="{{$data->id}}" >{{$data->kelas->nama}} {{$data->jurusan->nama}}</option>
+                       @endforeach
                         </select>
                     </div>
                    

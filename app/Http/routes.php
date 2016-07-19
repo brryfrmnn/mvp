@@ -47,50 +47,6 @@ Route::get('/', ['as' => 'home', 'uses' => 'PengumumanController@index']);
 //=======================END ========================================
 
 
-Route::get('welcome', function () {
-    return view('welcome');
-});
-
-
-Route::get('credit', function () {
-    return view('credit');
-});
-
-Route::get('pesan', function () {
-    return view('pesan');
-});
-
-Route::get('sapa', function () {
-    return view('sapa');
-});
-
-Route::post('sapa/kirim', function () {
-    return view('sapa_kirim');
-});
-
-Route::get('templating', function () {
-});
-
-Route::get('templating2', function () {
-    return view('child');
-});
-
-Route::get('templating3', function () {
-    return view('anak');
-});
-
-
-
-
-Route::get('down', function () {
-    Artisan::call('down');
-    return view('index');
-});
-
-Route::get('up', function () {
-    Artisan::call('up');
-    return view('index');
-});
 
 //  Route::get('/', array('as' => 'home', function(){
 //     return view('index');
@@ -138,7 +94,7 @@ Route::group(['prefix' => 'admin'], function () {
 		    
 	});
 	Route::group(['prefix' => 'siswa'], function () {
-		Route::get('tambah', 'AdminController@tambahSiswa'); 
+		Route::get('tambah', 'SiswaController@tambah'); 
 		Route::get('{id}/edit', 'AdminController@editSiswa'); 
 		Route::get('hapus', 'AdminController@detailSiswa'); 
 		Route::get('detail', 'AdminController@detailSiswa');

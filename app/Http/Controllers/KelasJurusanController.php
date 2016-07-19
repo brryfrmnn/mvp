@@ -21,8 +21,8 @@ class KelasJurusanController extends Controller
                                         */
         //atau
 
-        $kelas = Kelas::orderBy('id','asc')->get();
-        $jurusan = Jurusan::orderBy('id','asc')->get();
+        $kelas = Kelas::orderBy('nama','asc')->get();
+        $jurusan = Jurusan::orderBy('nama','asc')->get();
         return view('admin.tambahkelasjurusan')->with('kelas',$kelas)->with('jurusan',$jurusan);
     }
 
