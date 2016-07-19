@@ -3,12 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use SoftDeletes;
 
 class Siswa extends Model
 {
     //
-    use SoftDeletes;
-    protected $fillabel = [
+        protected $fillabel = [
 
     	
     	'semester',

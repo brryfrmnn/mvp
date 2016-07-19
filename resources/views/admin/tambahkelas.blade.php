@@ -30,12 +30,12 @@
                     <div class="form-group">
                         <label >Kode</label>
                     
-                            <input type="text" value="" class="form-control bgcol" name="nama" placeholder="Masukan kode">
+                            <input type="text" value="" class="form-control bgcol" name="kode" placeholder="Masukan kode">
                     </div>
                     <div class="form-group">
                         <label >Nama</label>
                     
-                            <input type="text" value="" class="form-control bgcol" name="kode" placeholder="Masukan nama">
+                            <input type="text" value="" class="form-control bgcol" name="nama" placeholder="Masukan nama">
                     </div>
                     {{-- <div class="form-group">
                         <label for="">Admin</label>
