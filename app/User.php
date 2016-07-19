@@ -17,6 +17,13 @@ class User extends Sentinel
         'last_name',
         'first_name',
         'permissions',
+        'phone',
+        'jenis_kelamin',
+        'Agama',
+        'tempat_lahir',
+        'tanggal_lahir',
+        'alamat',
+        'photo',
     ];
 
     use SoftDeletes;

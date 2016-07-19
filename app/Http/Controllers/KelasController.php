@@ -33,8 +33,8 @@ class KelasController extends Controller
    	{
    		$kelas = new Kelas; //deklarasikan objek pengumuman dari Class/odel Pengumuman
         //gunakan Model Sentinel agar dapat id dari orang yang login
-        $jurusan->nama   	= $request->input('nama'); //$request->input mirip $_POST['']
-        $jurusan->kode      = $request->input('kode');
+        $kelas->nama   	= $request->input('nama'); //$request->input mirip $_POST['']
+        $kelas->kode      = $request->input('kode');
 
         if ($kelas->save()) { //jika save berhasil
             //jika berhasil arahkan ke halaman admin/pengumuman

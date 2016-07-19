@@ -95,6 +95,7 @@ Route::group(['prefix' => 'admin'], function () {
 	});
 	Route::group(['prefix' => 'siswa'], function () {
 		Route::get('tambah', 'SiswaController@tambah'); 
+		Route::post('/', 'SiswaController@simpan');
 		Route::get('{id}/edit', 'AdminController@editSiswa'); 
 		Route::get('hapus', 'AdminController@detailSiswa'); 
 		Route::get('detail', 'AdminController@detailSiswa');

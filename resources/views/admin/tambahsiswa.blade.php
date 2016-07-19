@@ -28,35 +28,43 @@
 
             <div class="panel panel-default">
                 <div class="panel-body">
-                   <form action="{{ URL('admin/data/siswa')}}" method="POST" role="form" enctype="multipart/form-data" >
+                   <form action="{{ URL('admin/siswa')}}" method="POST" role="form" enctype="multipart/form-data" >
                     
                    {{csrf_field()}}
                     <div class="form-group">
                         <label for="">nis</label>
-                        <input value=""name="nis"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value=""name="nomor_induk"type="text" class="form-control" id="" placeholder="Masukan nis">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Depan</label>
-                        <input value=""name="nama_depan"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <input value=""name="first_name"type="text" class="form-control" id="" placeholder="Masukan Nama">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Belakang</label>
-                        <input value=""name="nama_belakang"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <input value=""name="last_name"type="text" class="form-control" id="" placeholder="Masukan Nama">
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
                         <input value=""name="email"type="text" class="form-control" id="" placeholder="Masukan Nama">
                     </div>
                     <div class="form-group">
+                        <label for="">Password</label>
+                        <input value=""name="password"type="password" class="form-control" id="" placeholder="Masukan Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input value=""name="password_confirmation"type="password" class="form-control" id="" placeholder="Masukan Konfirmasi Password">
+                    </div>
+                    <div class="form-group">
                         <label for="">Nomor Telepon</label>
-                        <input value=""name="no_telepon"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <input value=""name="phone"type="text" class="form-control" id="" placeholder="Masukan Nama">
                     </div>
                     <div class="form-group">
                         <label>Jenis Kelamin</label>
                         <div class="radio">
                             <label>
-                            <input type="radio" name="jk" value="l" 
-                            > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="jk" value="p" > Perempuan
+                            <input type="radio" name="jenis_kelamin" value="l" 
+                            > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="jenis_kelamin" value="p" > Perempuan
                             </label>
                         </div>
                     </div>
@@ -64,8 +72,8 @@
                         <label>Agama</label>
                         <div class="radio">
                             <label>
-                            <input type="radio" name="agama" value="l" 
-                            >Islam &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="agama" value="p" > Budha &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="agama" value="p" >Katholik&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="agama" value="p" >Hindu
+                            <input type="radio" name="Agama" value="l" 
+                            >Islam &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" > Budha &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" >Katholik&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" >Hindu
 
                             </label>
                         </div>
@@ -76,7 +84,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Tanggal Lahir</label>
-                        <input value="" name="tanggal_lahir"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="" name="tanggal_lahir"type="date" class="form-control" id="" placeholder="Masukan nis">
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
@@ -92,7 +100,7 @@
                     </div>
                     <div class="form-group">
                         <label>Tahun Ajaran</label>
-                        <input required value=""name="tahun_ajaran" type="text " class="form-control" placeholder="">
+                        <input required value=""name="tahun_ajar" type="text " class="form-control" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Jenis Tinggal</label>
@@ -131,7 +139,7 @@
                     <div class="form-group">
                         <label for="">Pilih Kelas dan Jurusan</label>
 
-                        <select required class="form-control" name="kelasjurusan_id">
+                        <select required class="form-control" name="kelas_jurusan_id">
                         <option value="0" disabled="" selected="" >Pilih</option>
                         @foreach ($kelasjurusan as $data)               
                             <option value="{{$data->id}}" >{{$data->kelas->nama}} {{$data->jurusan->nama}}</option>
