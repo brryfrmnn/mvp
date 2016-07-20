@@ -94,16 +94,20 @@ Route::group(['prefix' => 'admin'], function () {
 		    
 	});
 	Route::group(['prefix' => 'siswa'], function () {
-		Route::get('tambah', 'SiswaController@tambah'); 
+		Route::get('tampil', 'SiswaController@tampil');
 		Route::post('/', 'SiswaController@simpan');
-		Route::get('{id}/edit', 'AdminController@editSiswa'); 
+		Route::get('tambah', 'SiswaController@tambah'); 
+		Route::get('{id}/edit', 'SiswaController@edit'); 
+		Route::post('{id}/update', 'SiswaController@update');
 		Route::get('hapus', 'AdminController@detailSiswa'); 
 		Route::get('detail', 'AdminController@detailSiswa');
+		
 		    
 	});
 	Route::group(['prefix' => 'guru'], function () {
-		Route::get('tambah', 'AdminController@tambahGuru');
-		Route::get('{id}/edit', 'AdminController@editGuru');
+		Route::get('tambah', 'GuruController@tambah'); 
+		Route::post('/', 'GuruController@simpan');
+		Route::get('{id}/edit', 'GuruController@edit');
 		Route::get('hapus', 'AdminController@hapusGuru');
 		Route::get('detail', 'AdminController@detailGuru');
 		    

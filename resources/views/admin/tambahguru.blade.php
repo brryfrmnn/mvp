@@ -26,75 +26,132 @@
 
           <div class="panel panel-default">
                 <div class="panel-body">
-                   <form action="" method="POST" role="form" enctype="multipart/form-data" >
+                   <form action="{{ URL('admin/guru')}}" method="POST" role="form" enctype="multipart/form-data" >
                     
-                   
+                   {{csrf_field()}}
                     <div class="form-group">
                         <label for="">NIP</label>
-                        <input name="nip"type="text" class="form-control" id="" placeholder="Masukan NIP">
+                        <input value=""name="nomor_induk"type="text" class="form-control" id="" placeholder="Masukan nis">
                     </div>
                     <div class="form-group">
-                        <label for="">Nama Guru</label>
-                        <input name="nama_guru"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <label for="">Nama Depan</label>
+                        <input value=""name="first_name"type="text" class="form-control" id="" placeholder="Masukan Nama">
                     </div>
                     <div class="form-group">
-                        <label for="">Tempat lahir</label>
-                        <input name="tempatlahir_guru"type="text" class="form-control" id="" placeholder="Masukan Tempat lahir">
+                        <label for="">Nama Belakang</label>
+                        <input value=""name="last_name"type="text" class="form-control" id="" placeholder="Masukan Nama">
                     </div>
                     <div class="form-group">
-                        <label for="">Tanggal Lahir</label>
-                        <input name="tanggallahir_guru"type="text" class="form-control" id="" placeholder="1995-03-23">
+                        <label for="">Email</label>
+                        <input value=""name="email"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input value=""name="password"type="password" class="form-control" id="" placeholder="Masukan Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input value=""name="password_confirmation"type="password" class="form-control" id="" placeholder="Masukan Konfirmasi Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nomor Telepon</label>
+                        <input value=""name="phone"type="text" class="form-control" id="" placeholder="Masukan Nama">
                     </div>
                     <div class="form-group">
                         <label>Jenis Kelamin</label>
                         <div class="radio">
                             <label>
-                            <input type="radio" name="jk" value="l"> Laki-laki &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="jk" value="p"> Perempuan
+                            <input type="radio" name="jenis_kelamin" value="l" 
+                            > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="jenis_kelamin" value="p" > Perempuan
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Agama</label>
+                        <div class="radio">
+                            <label>
+                            <input type="radio" name="Agama" value="l" 
+                            >Islam &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" > Budha &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" >Katholik&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" >Hindu
 
                             </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Alamat Guru</label>
-                        <textarea name="alamat_guru" class="form-control" placeholder=""></textarea>
+                        <label for="">Tempat lahir</label>
+                        <input value=""name="tempat_lahir"type="text" class="form-control" id="" placeholder="Masukan Tempat lahir">
                     </div>
                     <div class="form-group">
-                        <label>Photo Guru</label>
-                        <input type="file" name="photo_guru" class="form-control">
+                        <label for="">Tanggal Lahir</label>
+                        <input value="" name="tanggal_lahir"type="date" class="form-control" id="" placeholder="Masukan nis">
                     </div>
                     <div class="form-group">
-                        <label>Keahlian</label>
-                        <input name="keahlian" type="text " class="form-control" placeholder="">
+                        <label>Alamat</label>
+                        <textarea name="alamat" class="form-control" placeholder=""></textarea>
                     </div>
-                   <div class="form-group">
+                    <div class="form-group">
+                        <label>Photo</label>
+                        <input value=""type="file" name="photo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>nik</label>
+                        <input required value=""name="nik" type="text " class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Status Kepegawaian</label>
+                        <input required value=""name="status_kepegawaian" type="text " class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Jabatan</label>
+                        <input value="" name="jabatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Tugas Tambahan</label>
+                        <input value="" name="tugas_tambahan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">SK Pengangkatan</label>
+                        <input value="" name="sk_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Tahun Pengangkatan</label>
+                        <input value="" name="tahun_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Lembaga Pengangkatan</label>
+                        <input value="" name="lembaga_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Sumber Gaji</label>
+                        <input value="" name="sumber_gaji"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Status Perkawinan</label>
+                        <input value="" name="status_perawinan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nama Suami</label>
+                        <input value="" name="nama_suami"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nama Istri</label>
+                        <input value="" name="nama_istri"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
                         <label for="">Status Wali Kelas</label>
-                        <select class="form-control" name="status_wali_kelas">
-                            <option value="0">Tidak</option>
-                            <option value="1">Ya</option>
+
+                        <select class="form-control" name="status_walikelas">
+                        <option value="0" disabled="" selected="" >Pilih</option>
+                            <option value="0" >Ya</option>
+                             <option value="1" >Tidak</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="">Wali di Kelas</label>
-                        <select class="form-control" name="kode_kelas">
-                            <option value="0">Tidak Ada</option>
-                            <option value=""></option>
-                        
-                        </select>
-                    </div>
-                   <div class="form-group">
-                        <label for="">No Telpon</label>
-                        <input name="no_telpon_guru" type="text" class="form-control" id="" placeholder="masukan no telpon">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Alamat Email</label>
-                        <input name="email_guru" type="text" class="form-control" id="" placeholder="masukan email">
-                    </div>
+                   
                    
                    
                    
                     
                    
-                    <button type="submit" class="btn btn-orange" name="simpan">Simpan</button>
+                    <button type="submit" class="btn btn-orange" name="simapn">Simpan</button>
                    </form>
                 </div>
             </div>

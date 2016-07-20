@@ -38,6 +38,22 @@ class SiswaController extends Controller
 
             return view('siswa.index', ['users' => $users]);
       }
+
+      public function tampil()
+     {
+        //tampilkan semua menggunakan method all() atau get() atau paginate()
+        /*
+        $pengumuman = Pengumuman::all();
+        return redirect('/admin/create')->with('message','Success .. ')
+                                        ->with('alert','success');
+                                        */
+        //atau
+
+        $siswa = Siswa::orderBy('id','asc')->paginate(3);
+        $no=1;
+        return view('admin.datasiswa')->with('siswa',$siswa)->with('no',$no);
+     }
+
       public function tambah()
       {
             $kelasjurusan = KelasJurusan::all();
@@ -110,6 +126,71 @@ class SiswaController extends Controller
                   }  
 
                   
+              // $result->setMessage("User {$request->get('email')} has been created.");
+                 
+      }
+
+      public function edit($id)
+      {
+              /*$role = Sentinel::findRoleBySlug('administrator');
+              $admins = $role->users()->with('roles')->get();*/
+              $siswa = User::find($id);
+              $kelasjurusan = KelasJurusan::all();
+              // dd($siswa);
+              return view('admin.editsiswa', compact('siswa','kelasjurusan')); 
+      }
+
+
+      public function update(Request $request, $id)
+      {
+             // dd($user);
+            // Validate the form data
+
+               $user =  User::find($id);
+               $user->email = $request->input('email');
+               $user->first_name = $request->input('first_name');
+               $user->last_name = $request->input('last_name');
+               // $user->nomor_induk = $request->input('nomor_induk');
+               $user->phone = $request->input('phone');
+               $user->Agama = $request->input('Agama');
+               $user->tempat_lahir = $request->input('tanggal_lahir');
+               $user->tanggal_lahir = $request->input('tanggal_lahir');
+               $user->alamat = $request->input('alamat');
+               $user->photo = $request->file('photo');
+               // dd($user);
+               if ($user->save()) {
+
+                   try {
+                        $siswa =  Siswa::where('user_id',$user->id)->update([
+                                    'semester' => $request->input('semester'),
+                                    'tahun_ajar' => $request->input('tahun_ajar'),
+                                    'jenis_tinggal' => $request->input('jenis_tinggal'),
+                                    'nama_ayah' => $request->input('nama_ayah'),
+                                    'nama_ibu' => $request->input('nama_ibu'),
+                                    'alat_transportasi' => $request->input('alat_transportasi'),
+                                    'penghasilan_orangtua' => $request->input('penghasilan_orangtua'),
+                                    'pekerjaan_ayah' => $request->input('pekerjaan_ayah'),
+                                    'alamat_orangtua' => $request->input('alamat_orangtua'),
+                                    'pekerjaan_ayah' => $request->input('pekerjaan_ibu'),
+                                    'kelas_jurusan_id' => $request->input('kelas_jurusan_id'),
+                                    'user_id' => $user->id,
+                                    'admin_id' => \Sentinel::getUser()->id,
+                              ]);
+                        
+                        if ($siswa) {
+                              return redirect('admin/siswa/'.$user->id.'/edit');
+                        }
+                  } catch (Illuminate\Database\QueryException $e) {
+                     dd($e);   
+                  } catch (PDOException $e) {
+                      dd($e);
+                  }   
+               } else {
+                  return redirect('admin/siswa/'.$user->id.'/edit');
+               }
+
+              // Assign User Roles
+              // foreach ($request->get('roles', []) as $slug => $id) {                  
               // $result->setMessage("User {$request->get('email')} has been created.");
                  
       }

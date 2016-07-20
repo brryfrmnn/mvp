@@ -9,6 +9,7 @@ use Cartalyst\Sentinel\Users\EloquentUser as Sentinel;
 class User extends Sentinel
 {
     protected $table = 'users';
+    protected $hidden = ['password'];
     protected $loginNames = ['nomor_induk','email'];
     protected $fillable = [
         'email',

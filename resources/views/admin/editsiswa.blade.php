@@ -8,78 +8,142 @@
 @section('content')
 
 <div class="container bread">
-	<div class="row" >
+    <div class="row" >
         <div class="col-lg-8 col-lg-offset-2"  >
-	<ul class="breadcrumb"><li><a href="index.php">Home</a></li>
-	
-	
-		<li class="active">Edit Data Siswa</li>
-	</ul>
+    <ul class="breadcrumb"><li><a href="index.php">Home</a></li>
+    
+    
+        <li class="active">Edit Data Siswa</li>
+    </ul>
 </div>
 </div>
 </div>
-	
+    
 </div>
 
-	
-	<div class="container">
-		<div class="row" >
+    
+    <div class="container">
+        <div class="row" >
         <div class="col-lg-8 col-lg-offset-2"  >
-
+                <h1 class="page-header">Edit Siswa<a href="{{ URL('admin/data/siswa')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
             <div class="panel panel-default">
                 <div class="panel-body">
-                   <form action="" method="POST" role="form" enctype="multipart/form-data" >
+                   <form action="{{ URL('admin/siswa',[$siswa->id,'update'])}}" method="POST" role="form" enctype="multipart/form-data" >
                     
-                   
+                   {{csrf_field()}}
                     <div class="form-group">
                         <label for="">nis</label>
-                        <input value=""name="nis"type="text" class="form-control" id="" placeholder="1415100618" readonly>
+                        <input value="{{ $siswa->nomor_induk }}"name="nomor_induk"type="text" class="form-control" id="" placeholder="Masukan nis">
                     </div>
                     <div class="form-group">
-                        <label for="">Nama siswa</label>
-                        <input value=""name="nama_siswa"type="text" class="form-control" id="" placeholder="Bobby Setiawan">
+                        <label for="">Nama Depan</label>
+                        <input value="{{ $siswa->first_name }}"name="first_name"type="text" class="form-control" id="" placeholder="Masukan Nama">
                     </div>
                     <div class="form-group">
-                        <label for="">Tempat lahir</label>
-                        <input value=""name="tempatlahir_siswa"type="text" class="form-control" id="" placeholder="Bandung">
+                        <label for="">Nama Belakang</label>
+                        <input value="{{ $siswa->last_name }}"name="last_name"type="text" class="form-control" id="" placeholder="Masukan Nama">
                     </div>
                     <div class="form-group">
-                        <label for="">Tanggal Lahir</label>
-                        <input value="" name="tanggallahir_siswa"type="text" class="form-control" id="" placeholder="1995-03-23">
+                        <label for="">Email</label>
+                        <input value="{{ $siswa->email}}"name="email"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input value=""name="password"type="password" class="form-control" id="" placeholder="Masukan Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input value=""name="password_confirmation"type="password" class="form-control" id="" placeholder="Masukan Konfirmasi Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nomor Telepon</label>
+                        <input value="phone"name="phone"type="text" class="form-control" id="" placeholder="Masukan Nama">
                     </div>
                     <div class="form-group">
                         <label>Jenis Kelamin</label>
                         <div class="radio">
                             <label>
-                            <input type="radio" name="jk" value="l" 
-                            > Laki-laki &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="jk" value="p" checked="1"  > Perempuan
+                            <input type="radio" name="jenis_kelamin" value="l" 
+                            >Laki-laki &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="jenis_kelamin" value="p" >Perempuan
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Agama</label>
+                        <div class="radio">
+                            <label>
+                            <input type="radio" name="Agama" value="l" 
+                            >Islam &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" > Budha &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" >Katholik&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" >Hindu
 
                             </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Alamat siswa</label>
-                        <textarea name="alamat_siswa" class="form-control" placeholder="Jl. Slamet 1 No.52 Rt08 Rw03 Kel. Babakan Surabaya Kec. Kiaracondong Bandung"></textarea>
+                        <label for="">Tempat lahir</label>
+                        <input value="{{ $siswa->tempat_lahir}}"name="tempat_lahir"type="text" class="form-control" id="" placeholder="Masukan Tempat lahir">
                     </div>
                     <div class="form-group">
-                        <label>Tahun Masuk</label>
-                        <input required value=""name="tahunmasuk" type="text " class="form-control" placeholder="2015">
+                        <label for="">Tanggal Lahir</label>
+                        <input value="{{ $siswa->tanggal_lahir }}" name="tanggal_lahir"type="date" class="form-control" id="" placeholder="Masukan nis">
                     </div>
                     <div class="form-group">
-                        <label>Photo siswa</label>
-                        <input value=""type="file" name="photo_siswa" class="form-control">
+                        <label>Alamat</label>
+                        <textarea name="alamat" class="form-control" placeholder="">{{ $siswa->alamat }} </textarea>
                     </div>
+                    <div class="form-group">
+                        <label>Photo</label>
+                        <input value="{{ $siswa->photo}} "type="file" name="photo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Semester</label>
+                        <input required value="{{ $siswa->siswa->semester }} "name="semester" type="text " class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Tahun Ajaran</label>
+                        <input required value="{{ $siswa->siswa->tahun_ajar}}"name="tahun_ajar" type="text " class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Jenis Tinggal</label>
+                        <input value="{{ $siswa->siswa->jenis_tinggal}}" name="jenis_tinggal"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nama Ayah</label>
+                        <input value="{{ $siswa->siswa->nama_ayah}}" name="nama_ayah"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nama Ibu</label>
+                        <input value="{{ $siswa->siswa->nama_ibu}}" name="nama_ibu"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Alat Transportasi</label>
+                        <input value="{{ $siswa->siswa->alat_transportasi}}" name="alat_transportasi"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Penghasilan Orang Tua</label>
+                        <input value="{{ $siswa->siswa->penghasilan_orangtua}}" name="penghasilan_orangtua"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Alamat orang Tua</label>
+                        <input value="{{ $siswa->siswa->alamat_orangtua}}" name="alamat_orangtua"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Pekerjaan Ayah</label>
+                        <input value="{{ $siswa->siswa->pekerjaan_ayah}}" name="pekerjaan_ayah"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Pekerjaan Ibu</label>
+                        <input value="{{ $siswa->siswa->pekerjaan_ibu}}" name="pekerjaan_ibu"type="text" class="form-control" id="" placeholder="Masukan nis">
+                    </div>
+
                     
                     <div class="form-group">
-                        <label for="">Kelas</label>
-                        <select required class="form-control" name="kode_kelas">
-                            <option value="0" disabled="" selected="" >Pilih</option>
+                        <label for="">Pilih Kelas dan Jurusan</label>
 
-                        
-                            <option value="" >X</option>
-                            <option value="" >XI</option>
-                            <option value="" >XII</option>
-                       
+                        <select required class="form-control" name="kelas_jurusan_id">
+                        <option value="0" disabled="" selected="" >Pilih</option>
+                        @foreach ($kelasjurusan as $data)               
+                            <option value="{{$data->id}}" >{{$data->kelas->nama}} {{$data->jurusan->nama}}</option>
+                       @endforeach
                         </select>
                     </div>
                    
@@ -88,7 +152,7 @@
                    
                     
                    
-                    <button type="submit" class="btn btn-orange" name="edit">EDIT</button>
+                    <button type="submit" class="btn btn-orange" name="edit">Simpan</button>
                    </form>
                 </div>
             </div>
@@ -96,9 +160,10 @@
         </div>
     
     </div>
-	</div>
+    </div>
 
-	
-			
-					
+    
+            
+                    
+
 @endsection

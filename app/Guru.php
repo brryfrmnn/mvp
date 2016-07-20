@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use SoftDeletes;
 class Guru extends Model
 {
     //
-    use SoftDeletes;
+    
     protected $fillabel = [
 
     	
