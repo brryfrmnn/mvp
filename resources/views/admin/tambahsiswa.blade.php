@@ -32,20 +32,20 @@
                     
                    {{csrf_field()}}
                     <div class="form-group">
-                        <label for="">nis</label>
-                        <input value=""name="nomor_induk"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <label for="">Nomor Induk</label>
+                        <input value=""name="nomor_induk"type="text" class="form-control" id="" placeholder="Masukan nomor induk siswa">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Depan</label>
-                        <input value=""name="first_name"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <input value=""name="first_name"type="text" class="form-control" id="" placeholder="Masukan Nama Depan">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Belakang</label>
-                        <input value=""name="last_name"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <input value=""name="last_name"type="text" class="form-control" id="" placeholder="Masukan Nama Belakang">
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input value=""name="email"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <input value=""name="email"type="text" class="form-control" id="" placeholder="Masukan Email">
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
@@ -57,14 +57,14 @@
                     </div>
                     <div class="form-group">
                         <label for="">Nomor Telepon</label>
-                        <input value=""name="phone"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <input value=""name="phone"type="text" class="form-control" id="" placeholder="Masukan Nomo Telepon">
                     </div>
                     <div class="form-group">
                         <label>Jenis Kelamin</label>
                         <div class="radio">
                             <label>
                             <input type="radio" name="jenis_kelamin" value="l" 
-                            > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="jenis_kelamin" value="p" > Perempuan
+                            >Laki-laki &nbsp&nbsp&nbsp&nbsp&nbsp <input type="radio" name="jenis_kelamin" value="p" > Perempuan
                             </label>
                         </div>
                     </div>
@@ -84,55 +84,55 @@
                     </div>
                     <div class="form-group">
                         <label for="">Tanggal Lahir</label>
-                        <input value="" name="tanggal_lahir"type="date" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="" name="tanggal_lahir"type="date" class="form-control" id="" placeholder="Masukan tanggal lahir">
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
-                        <textarea name="alamat" class="form-control" placeholder=""></textarea>
+                        <textarea name="alamat" class="form-control" placeholder="Masukan alamat"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Photo</label>
-                        <input value=""type="file" name="photo" class="form-control">
+                        <input value=""type="file" name="photo" class="form-control" placeholder="pilih Gambar">
                     </div>
                     <div class="form-group">
                         <label>Semester</label>
-                        <input required value=""name="semester" type="text " class="form-control" placeholder="">
+                        <input required value=""name="semester" type="text " class="form-control" placeholder="Masukan Semester">
                     </div>
                     <div class="form-group">
                         <label>Tahun Ajaran</label>
-                        <input required value=""name="tahun_ajar" type="text " class="form-control" placeholder="">
+                        <input required value=""name="tahun_ajar" type="text " class="form-control" placeholder="Masukan Tahun ajaran">
                     </div>
                     <div class="form-group">
                         <label for="">Jenis Tinggal</label>
-                        <input value="" name="jenis_tinggal"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="" name="jenis_tinggal"type="text" class="form-control" id="" placeholder="Jenis tinggal">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Ayah</label>
-                        <input value="" name="nama_ayah"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="" name="nama_ayah"type="text" class="form-control" id="" placeholder="Nama ayah">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Ibu</label>
-                        <input value="" name="nama_ibu"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="" name="nama_ibu"type="text" class="form-control" id="" placeholder="Nama ibu">
                     </div>
                     <div class="form-group">
                         <label for="">Alat Transportasi</label>
-                        <input value="" name="alat_transportasi"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="" name="alat_transportasi"type="text" class="form-control" id="" placeholder="Alat transportasi">
                     </div>
                     <div class="form-group">
                         <label for="">Penghasilan Orang Tua</label>
-                        <input value="" name="penghasilan_orangtua"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="" name="penghasilan_orangtua"type="text" class="form-control" id="" placeholder="Masukan Penghasilan orangtua">
                     </div>
                     <div class="form-group">
                         <label for="">Alamat orang Tua</label>
-                        <input value="" name="alamat_orangtua"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="" name="alamat_orangtua"type="text" class="form-control" id="" placeholder="Masukan alamat orangtua">
                     </div>
                     <div class="form-group">
                         <label for="">Pekerjaan Ayah</label>
-                        <input value="" name="pekerjaan_ayah"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="" name="pekerjaan_ayah"type="text" class="form-control" id="" placeholder="Masukan peerjaan ayah">
                     </div>
                     <div class="form-group">
                         <label for="">Pekerjaan Ibu</label>
-                        <input value="" name="pekerjaan_ibu"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="" name="pekerjaan_ibu"type="text" class="form-control" id="" placeholder="Masukan pekerjaan ibu">
                     </div>
 
                     

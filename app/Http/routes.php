@@ -99,7 +99,7 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::get('tambah', 'SiswaController@tambah'); 
 		Route::get('{id}/edit', 'SiswaController@edit'); 
 		Route::post('{id}/update', 'SiswaController@update');
-		Route::get('hapus', 'AdminController@detailSiswa'); 
+		Route::post('{id}/delete', 'SiswaController@hapus');
 		Route::get('detail', 'AdminController@detailSiswa');
 		
 		    
@@ -119,7 +119,7 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::get('{id}/edit', 'AdminController@editMapel');
 		Route::post('{id}/update', 'AdminController@updateMapel');
 		Route::post('{id}/delete', 'AdminController@hapusMapel');
-		    
+		  
 	});
 
 	

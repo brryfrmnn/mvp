@@ -27,7 +27,7 @@
   						</tr>
   						@foreach ($kelasjurusan as $data)
   							<tr>
-	  							<td>{{$no}}</td>
+	  							<td>{{$no++}}</td>
 	  							<td>{{$data->kelas->nama}}</td>
 	  							<td>{{$data->jurusan->nama}}</td>
 	  							<td><a href="{{URL('admin/kelas/detail')}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>

@@ -19,6 +19,7 @@
 	<div class="container">
 
 					<h1 class="page-header">Data Siswa <a href="{{ URL('admin/siswa/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah data</a></h1>
+          <div class="box-body table-responsive" >
 					<table class="table table-striped">
   						<tr>
   							<th>No</th>
@@ -33,7 +34,12 @@
   							<td>{{ $data->nomor_induk }}</td>
   							<td>{{ $data->first_name }} {{ $data->last_name }}</td>
   							<td>XII Farmasi</td>
-  							<td><a href="{{ URL('admin/siswa',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-siswa.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>&nbsp&nbsp&nbsp<a href="{{ URL('admin/siswa/detail')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
+  							<td><a href="{{ URL('admin/siswa',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp
+                <form action="{{ URL('admin/siswa',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
+                {{csrf_field()}}
+                <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
+                </form>
+                &nbsp&nbsp&nbsp<a href="{{ URL('admin/siswa/detail')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
   						</tr>
   						
   						@endforeach

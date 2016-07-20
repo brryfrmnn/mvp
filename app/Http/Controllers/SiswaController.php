@@ -194,6 +194,25 @@ class SiswaController extends Controller
               // $result->setMessage("User {$request->get('email')} has been created.");
                  
       }
+
+      public function hapus($id)
+          {
+              //method hapus .. jika menggunakan softDeletes() data tidak benar2 dihapus .. tapi tidak ditampilkan daja
+              //cari dengan method find
+              $siswa = Siswa::find($id);
+              // $pengumuman->delete();
+             if ($siswa->delete()) { //jika save berhasil
+                  //jika berhasil arahkan ke halaman admin/pengumuman
+                  return redirect('admin/siswa')->with('message','Success .. berhasil di hapus')
+                                              ->with('alert','success');
+
+              } else {
+                  //jika berhasil arahkan ke halaman admin/pengumuman/tambah
+                  return redirect('admin/siswa')->with('message','Gagal ..dihapus ')
+                                              ->with('alert','danger');
+
+              }
+          }
      Public function siswaProfil()
       {
        return view ('siswa.profil');

@@ -86,4 +86,23 @@ class JurusanController extends Controller
         $kelasjurusan = KelasJurusan::find($id);
         return view('admin.detailkelasjurusan')->with('kelasjurusan',$kelasjurusan); 
     }
+
+    public function hapus($id)
+    {
+        //method hapus .. jika menggunakan softDeletes() data tidak benar2 dihapus .. tapi tidak ditampilkan daja
+        //cari dengan method find
+        $jurusan = Jurusan::find($id);
+        // $pengumuman->delete();
+       if ($jurusan->delete()) { //jika save berhasil
+            //jika berhasil arahkan ke halaman admin/pengumuman
+            return redirect('/admin/data/jurusan')->with('message','Success .. berhasil di hapus')
+                                        ->with('alert','success');
+
+        } else {
+            //jika berhasil arahkan ke halaman admin/pengumuman/tambah
+            return redirect('/admin/data/jurusan')->with('message','Gagal ..dihapus ')
+                                        ->with('alert','danger');
+
+        }
+    }
 }

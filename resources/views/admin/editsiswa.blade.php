@@ -57,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Nomor Telepon</label>
-                        <input value="phone"name="phone"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <input value="{{ $siswa->phone}}"name="phone"type="text" class="form-control" id="" placeholder="Masukan Nama">
                     </div>
                     <div class="form-group">
                         <label>Jenis Kelamin</label>
