@@ -126,7 +126,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Status Perkawinan</label>
-                        <input value="" name="status_perawinan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="" name="status_perkawinan"type="text" class="form-control" id="" placeholder="Masukan nis">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Suami</label>

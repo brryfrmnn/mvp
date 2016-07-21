@@ -28,7 +28,7 @@
   							<th>Kelas</th>
   							<th>Aksi</th>
   						</tr>
-              @foreach ($siswa as $data)		
+              @foreach ($users as $data)		
 							<tr>
   							<td>{{ $no++ }}</td>
   							<td>{{ $data->nomor_induk }}</td>

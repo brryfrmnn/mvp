@@ -71,7 +71,8 @@ class GuruController extends Controller
 
               if ($result->isFailure()) {
                   
-                    return redirect('admin/guru/tambah');
+                    // return redirect('admin/guru/tambah');
+                    dd($result);
               }
 
 
@@ -111,6 +112,17 @@ class GuruController extends Controller
               // $result->setMessage("User {$request->get('email')} has been created.");
                  
       }
+
+      public function edit($id)
+      {
+              /*$role = Sentinel::findRoleBySlug('administrator');
+              $admins = $role->users()->with('roles')->get();*/
+              $guru = User::find($id);
+              // dd($siswa);
+              return view('admin.editsiswa'); 
+      }
+
+
     //Controller Buat Guru
       
     	public function guruProfil()

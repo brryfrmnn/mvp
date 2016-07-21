@@ -26,7 +26,7 @@ class Guru extends Model
 
     ];
 
-    protected $table = 'admin';
+    protected $table = 'guru';
 
     
 }

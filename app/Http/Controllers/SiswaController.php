@@ -49,9 +49,10 @@ class SiswaController extends Controller
                                         */
         //atau
 
-        $siswa = Siswa::orderBy('id','asc')->paginate(3);
-        $no=1;
-        return view('admin.datasiswa')->with('siswa',$siswa)->with('no',$no);
+            $role = Sentinel::findRoleBySlug('siswa');
+            $siswa = $role->users()->with('roles')->paginate(8);
+            $no=1;
+            return view('admin.datasiswa', ['users' => $siswa, 'no' => $no]);
      }
 
       public function tambah()
@@ -199,9 +200,9 @@ class SiswaController extends Controller
           {
               //method hapus .. jika menggunakan softDeletes() data tidak benar2 dihapus .. tapi tidak ditampilkan daja
               //cari dengan method find
-              $siswa = Siswa::find($id);
+              $user = User::find($id);
               // $pengumuman->delete();
-             if ($siswa->delete()) { //jika save berhasil
+             if ($user->delete()) { //jika save berhasil
                   //jika berhasil arahkan ke halaman admin/pengumuman
                   return redirect('admin/siswa')->with('message','Success .. berhasil di hapus')
                                               ->with('alert','success');
