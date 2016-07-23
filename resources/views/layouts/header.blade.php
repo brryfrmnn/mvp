@@ -25,7 +25,7 @@
                   </li>
 
                   <li><a href="{{ URL('admin/mapel/tampil') }}">Mata Pelajaran</a></li>
-                  <li><a href="{{ URL('admin/jadwal/mengajar') }}">Jadwal Pelajaran</a></li>
+                  <li><a href="{{ URL('admin/jadwal') }}">Jadwal Pelajaran</a></li>
                   <li><a href="{{ URL('admin/pengumuman') }}">Pengumuman</a></li>
 
                   <li class="dropdown">

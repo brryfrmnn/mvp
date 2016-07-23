@@ -32,7 +32,7 @@
 							<tr>
   							<td>{{ $no++ }}</td>
   							<td>{{ $data->judul }} </td>
-                			<td>{{ $data->isi }} </td>
+                			<td>{{ str_limit($data->isi,140) }} </td>
                 			<td>{{ $data->user->first_name }} </td>
   							<td><a href="{{ URL('admin/pengumuman',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp
   							<form action="{{ URL('admin/pengumuman',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">

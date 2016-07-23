@@ -31,7 +31,7 @@ class GuruController extends Controller
     public function index()
       {
             $role = Sentinel::findRoleBySlug('guru');
-            $users = $role->users()->with('roles')->paginate(8);
+            $users = $role->users()->with('roles')->paginate(4);
 
             return view('guru.index', ['users' => $users]);
       }
@@ -85,7 +85,7 @@ class GuruController extends Controller
               // }
                   try {
                         $guru =  new guru;
-                        $guru->nik = $request->input('nik');
+                        $guru->nip = $request->input('nip');
                         $guru->status_kepegawaian = $request->input('status_kepegawaian');
                         $guru->jabatan = $request->input('jabatan');
                         $guru->tugas_tambahan= $request->input('tugas_tambahan');
@@ -124,7 +124,27 @@ class GuruController extends Controller
 
 
     //Controller Buat Guru
-      
+      public function hapus($id)
+      {
+       //method hapus .. jika menggunakan softDeletes() data tidak benar2 dihapus .. tapi tidak ditampilkan daja
+        //cari dengan method find
+        $user = User::find($id);
+        $guru = Guru::where('user_id',$user->id);
+
+        // $pengumuman->delete();
+       if ($user->delete() && $guru->delete()) { //jika save berhasil
+            //jika berhasil arahkan ke halaman admin/pengumuman
+
+            return redirect('/admin/data/guru')->with('message','Success .. berhasil di hapus')
+                                        ->with('alert','success');
+
+        } else {
+            //jika berhasil arahkan ke halaman admin/pengumuman/tambah
+            return redirect('/admin/data/guru')->with('message','Gagal ..dihapus ')
+                                        ->with('alert','danger');
+
+        }
+      }
     	public function guruProfil()
       {
        return view('guru.profile');

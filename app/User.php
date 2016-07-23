@@ -9,6 +9,7 @@ use Cartalyst\Sentinel\Users\EloquentUser as Sentinel;
 class User extends Sentinel
 {
     protected $table = 'users';
+    protected $appends = ['full_name'];
     protected $hidden = ['password'];
     protected $loginNames = ['nomor_induk','email'];
     protected $fillable = [
@@ -102,6 +103,10 @@ class User extends Sentinel
         return $this->hasMany('App\NilaiRapor', 'siswa_id','id');
     }
 
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['first_name'].' '.$this->attributes['last_name'];
+    }
 
 
 }

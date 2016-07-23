@@ -30,7 +30,7 @@
                     
                    {{csrf_field()}}
                     <div class="form-group">
-                        <label for="">NIP</label>
+                        <label for="">NIK</label>
                         <input value=""name="nomor_induk"type="text" class="form-control" id="" placeholder="Masukan nis">
                     </div>
                     <div class="form-group">
@@ -93,8 +93,8 @@
                         <input value=""type="file" name="photo" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>nik</label>
-                        <input required value=""name="nik" type="text " class="form-control" placeholder="">
+                        <label>NIP</label>
+                        <input required value=""name="nip" type="text " class="form-control" placeholder="">
                     </div>
                     <div class="form-group">
                         <label>Status Kepegawaian</label>

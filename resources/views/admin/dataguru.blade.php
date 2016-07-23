@@ -23,7 +23,7 @@
   							<th>No</th>
   							<th>NIP</th>
   							<th>Nama</th>
-                <th>Alamat</th>
+                			<th>Alamat</th>
   							<th>Jenis Kelamin</th>
   							<th>Aksi</th>
 
@@ -35,13 +35,22 @@
   							<td>{{ $data->first_name }} {{ $data->last_name }}</td>
                 			<td>Bandung</td>
                 			<td>Perempuan</td>
-  							<td><a href="{{ URL('admin/guru/edit')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp<a href="hapus-guru.php" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>&nbsp&nbsp&nbsp<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
+  							<td><a href="{{ URL('admin/guru/edit')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp
+  							<form action="{{ URL('admin/guru',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
+                                {{csrf_field()}}
+                                <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
+                                {{csrf_field()}}
+                                </form>
+  							<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
   						</tr>
   						@endforeach
   						
   					
 					</table>
 					<div class="text-center">
+						{!! $guru->links() !!}
+					</div>
+					{{-- <div class="text-center">
 						<ul class="pagination">
 						    <li>
 						      <a href="member.php?page=1" aria-label="Previous">
@@ -57,6 +66,7 @@
 						      </a>
 						    </li>
 						</ul>
-					</div>
+					</div> --}}
+
 </div>
 @endsection

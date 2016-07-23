@@ -55,6 +55,11 @@ Route::get('/', ['as' => 'home', 'uses' => 'PengumumanController@index']);
 /*=================================ROUTE UNTUK ADMIN =========================================*/
 Route::group(['prefix' => 'admin'], function () {
 	Route::get('/','AdminController@index');
+	Route::get('jadwal/tambah', 'JadwalPelajaranController@tambah');
+	Route::post('jadwal', 'JadwalPelajaranController@simpan');
+	Route::get('jadwal', 'JadwalPelajaranController@index');
+	Route::get('jadwal/{id}/edit', 'JadwalPelajaranController@edit');
+	Route::post('jadwal/{id}/update', 'JadwalPelajaranController@update');
 	Route::group(['prefix' => 'data'], function () {
 		Route::get('siswa', 'AdminController@dataSiswa');
 		Route::get('guru', 'AdminController@dataGuru');
@@ -108,7 +113,7 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::get('tambah', 'GuruController@tambah'); 
 		Route::post('/', 'GuruController@simpan');
 		Route::get('{id}/edit', 'GuruController@edit');
-		Route::get('hapus', 'AdminController@hapusGuru');
+		Route::post('{id}/delete', 'GuruController@hapus');
 		Route::get('detail', 'AdminController@detailGuru');
 		    
 	});
@@ -126,8 +131,6 @@ Route::group(['prefix' => 'admin'], function () {
 
 	Route::get('profil', 'AdminController@adminProfil');
 	Route::get('profil/edit', 'AdminController@editProfil');
-	Route::get('jadwal/mengajar', 'AdminController@jadwalMengajar');
-	Route::get('jadwal/tambah', 'AdminController@tambahJadwal');
 	Route::get('pengumuman', 'PengumumanController@pengumuman');
 	Route::get('pengumuman/tambah', 'PengumumanController@tambahPengumuman');
 	Route::get('pengumuman/{id}/edit', 'PengumumanController@edit');
