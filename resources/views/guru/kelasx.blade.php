@@ -28,24 +28,17 @@
   							<th>Guru Pengajar</th>
   							<th>Aksi</th>
 
-  						</tr>		
+  						</tr>	
+              @foreach($jadwal_pelajaran as $data)	
 							<tr>
-  							<td>1</td>
-  							<td>X TIK</td>
-  							<td>Teknik Ilmu Komputer</td>
-  							<td>Pemrograman Dasar</td>
-                <td>Aaang Miftah Parid</td>
+  							<td>{{$no++}}</td>
+  							<td>{{$data->kelas->nama}}</td>
+                <td>{{$data->jurusan->nama}}</td>
+  							<td>{{$data->mapel->nama}}</td>
+  							<td>{{$data->guru->fullname}}</td>
   							<td><a href="{{URL('guru/nilai/input')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Input Nilai</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/edit')}}" class="btn btn-danger"><i class="glyphicon glyphicon-edit"></i> Edit Nilai</td>
   						</tr>
-  						<tr>
-                <td>2</td>
-                <td>X TIK</td>
-                <td>Teknik Ilmu Komputer</td>
-                <td>Sistem Komputer</td>
-                <td>Aaang Miftah Parid</td>>
-                <td><a href="{{URL('guru/nilai/input')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Input Nilai</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/edit')}}" class="btn btn-danger"><i class="glyphicon glyphicon-edit"></i> Edit Nilai</td>
-              </tr>
-              
+              @endforeach
   					
 					</table>
 					

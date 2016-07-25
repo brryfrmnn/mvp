@@ -15,8 +15,9 @@ class JadwalPelajaranController extends Controller
 {
     public function index()
     {
-    	$jadwal_pelajaran = JadwalPelajaran::orderBy('id','asc')->paginate(4);
+    	$jadwal_pelajaran = JadwalPelajaran::with('guru')->orderBy('id','asc')->paginate(4);
         $no=1;
+        // dd($jadwal_pelajaran);
         return view('admin.jadwal_pelajaran', compact('jadwal_pelajaran', 'no'));
     }
 
@@ -91,5 +92,31 @@ class JadwalPelajaranController extends Controller
     public function hapus($id)
     {
     	# code...
+    }
+
+    public function tampilJadwalKelas($id)
+    {
+    	$guru_id = \Sentinel::getUser()->id;
+    	// bagaimana kita bisa tahu id kelasjurusan yang memiliki kelas x?
+    	//  bisa pake iner join kalo di native ?
+    	// kalo di Eloquen pake where function
+    	// $kelasjurusan = KelasJurusan::where('kelas',function($query){
+    	// 	$query->where('kode','=','1');
+    	// })->get();
+
+    	// $kelasjurusan_id = $kelasjurusan_id;
+    	$tahun_ajaran = '2016';
+
+    	$jadwal_pelajaran = JadwalPelajaran::where('guru_id', '=', $guru_id)
+    										->whereHas('kelasjurusan',function($query) use ($id){
+    											$query->whereHas('kelas',function($query2) use ($id){
+    												$query2->where('kode','=',$id);
+    											});
+    										})
+    										->where('tahun_ajaran', '=', $tahun_ajaran)
+    										->orderBy('id', 'asc')
+    										->paginate(5);
+    	$no=1;
+    	return view('guru.kelasx',  compact('jadwal_pelajaran', 'no'));  	
     }
 }

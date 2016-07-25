@@ -157,7 +157,7 @@ Route::group(['prefix' => 'guru'], function () {
 		Route::get('edit/sikap', 'GuruController@editNilaiSikap');//sudah
 			
 	});
-		Route::get('kelas/1/show', 'GuruController@kelasx');//sudah	
+		Route::get('kelas/{id}/show', 'JadwalPelajaranController@tampilJadwalKelas');//sudah	
 		Route::get('profil', 'GuruController@guruProfil');
 		Route::get('profil/edit', 'GuruController@editProfil');
 });
