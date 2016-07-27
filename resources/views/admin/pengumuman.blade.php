@@ -48,22 +48,9 @@
 					</table>
 					</div>
 					<div class="text-center">
-						{{-- <ul class="pagination">
-						    <li>
-						      <a href="member.php?page=1" aria-label="Previous">
-						        <span aria-hidden="true">&laquo;</span>
-						      </a>
-						    </li>
-								<li><a href="member.php?page="></a></li>
-								
-							
-						    <li>
-						      <a href="member.php?page=" aria-label="Next">
-						        <span aria-hidden="true">&raquo;</span>
-						      </a>
-						    </li>
-						</ul> --}}
 						{!! $pengumuman->links() !!}
 					</div>
 </div>
+
+
 @endsection

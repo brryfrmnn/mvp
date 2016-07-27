@@ -119,7 +119,63 @@ class GuruController extends Controller
               $admins = $role->users()->with('roles')->get();*/
               $guru = User::find($id);
               // dd($siswa);
-              return view('admin.editsiswa'); 
+              return view('admin.editguru', compact('kelasjurusan')); 
+      }
+
+      public function update(Request $request, $id)
+      {
+             // dd($user);
+            // Validate the form data
+
+               $user =  User::find($id);
+               $user->email = $request->input('email');
+               $user->first_name = $request->input('first_name');
+               $user->last_name = $request->input('last_name');
+               // $user->nomor_induk = $request->input('nomor_induk');
+               $user->phone = $request->input('phone');
+               $user->Agama = $request->input('Agama');
+               $user->tempat_lahir = $request->input('tempat_lahir');
+               $user->tanggal_lahir = $request->input('tanggal_lahir');
+               $user->alamat = $request->input('alamat');
+               $user->photo = $request->file('photo');
+               // dd($user);
+               if ($user->save()) {
+
+                   try {
+                        $guru =  Guru::where('user_id',$user->id)->update([
+              
+                                    'nip' = $request->input('nip'),
+                                    'status_kepegawaian' = $request->input('status_kepegawaian'),
+                                    'jabatan' = $request->input('jabatan'),
+                                    'tugas_tambahan'= $request->input('tugas_tambahan'),
+                                    'sk_pengangkatan'= $request->input('sk_pengangkatan'),
+                                    'tahun_pengangkatan'= $request->input('tahun_pengangkatan'),
+                                    'lembaga_pengangkatan'= $request->input('lembaga_pengangkatan'),
+                                    'sumber_gaji'= $request->input('sumber_gaji'),
+                                    'status_perkawinan' = $request->input('status_perkawinan'),
+                                    'nama_suami'= $request->input('nama_suami'),
+                                    'nama_istri'= $request->input('nama_istri'),
+                                    'status_walikelas' = $request->input('status_walikelas'),
+                                    'user_id' => $user->id,
+                                    'admin_id' => \Sentinel::getUser()->id,
+                              ]);
+                        
+                        if ($guru) {
+                              return redirect('admin/guru/'.$user->id.'/edit');
+                        }
+                  } catch (Illuminate\Database\QueryException $e) {
+                     dd($e);   
+                  } catch (PDOException $e) {
+                      dd($e);
+                  }   
+               } else {
+                  return redirect('admin/guru/'.$user->id.'/edit');
+               }
+
+              // Assign User Roles
+              // foreach ($request->get('roles', []) as $slug => $id) {                  
+              // $result->setMessage("User {$request->get('email')} has been created.");
+                 
       }
 
 
@@ -145,10 +201,14 @@ class GuruController extends Controller
 
         }
       }
-    	public function guruProfil()
+    	public function profil($id)
       {
-       return view('guru.profile');
+           $user = User::find($id);
+           return view('guru.profile')->with('user',$user); 
       }
+
+
+
       public function KelasX()
       {
        return view('guru.kelasx');

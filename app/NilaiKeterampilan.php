@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use SoftDeletes;
 class NilaiKeterampilan extends Model
 {
     //
-    use SoftDeletes;
+    
     protected $fillabel = [
 
     	'npra1',

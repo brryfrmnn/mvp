@@ -32,12 +32,15 @@
               @foreach($jadwal_pelajaran as $data)	
 							<tr>
   							<td>{{$no++}}</td>
-  							<td>{{$data->kelas->nama}}</td>
-                <td>{{$data->jurusan->nama}}</td>
+  							<td>{{$data->kelasJurusan->kelas->nama}}</td>
+                <td>{{$data->kelasJurusan->jurusan->nama}}</td>
   							<td>{{$data->mapel->nama}}</td>
   							<td>{{$data->guru->fullname}}</td>
-  							<td><a href="{{URL('guru/nilai/input')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Input Nilai</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/edit')}}" class="btn btn-danger"><i class="glyphicon glyphicon-edit"></i> Edit Nilai</td>
+  							<td><a href="{{ URL('guru/nilai',[$data->kelasJurusan->id,$data->mapel->id,'input'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Input Nilai</a>{{-- &nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/edit')}}" class="btn btn-danger"><i class="glyphicon glyphicon-edit"></i> Edit Nilai --}}</td>
   						</tr>
+              {{-- itu  $data->id berarti id jadwal pelajaran yang dipanggil, seharusnya apa coba?
+seharusnya kelas jurusan, iya gimana kodingnya, ca perhatikan sekitar ud, ahj ngbne nekre  halaman
+               --}}
               @endforeach
   					
 					</table>

@@ -6,7 +6,7 @@
 				<img src="{{url('images/default.png')}}" class="img-responsive img-thumbnail img-circle">
 			
 			
-			<h3>Aang Miftah</h3>
+			<h3>{{Sentinel::getUser()->first_name}}</h3>
 		</div>
 		<ul class="menu">
 			<li>

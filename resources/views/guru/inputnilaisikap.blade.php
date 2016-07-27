@@ -25,9 +25,12 @@
 	<div class="col-lg-8">
 		<div class="panel panel-default">
 			<div class="panel-body">
-			   <form action="" method="POST" role="form">
+			   <form action="{{ URL('guru/nilai/sikap')}}" method="POST" role="form">
 					<h4>&nbsp;&nbsp;&nbsp;Nilai Observasi</h4>	
 					<div class="col-md-3">
+					{{csrf_field()}}
+					<input value="{{$mapel_id}}" name="mapel_id" type="hidden">
+					<input value="{{$siswa_id}}" name="siswa_id" type="hidden">
 						<div class="form-group">
 							<label for="">Nilai Observasi 1</label>
 							<input value=""name="nob1" type="number" class="form-control" id="1" min="0" max="4" placeholder="1-4" required>
@@ -128,6 +131,19 @@
 							<input value=""name="nj" type="number" class="form-control" id="" min="0" max="4" placeholder="1-4" required>
 						</div>
 					</div>
+					<div class="col-md-12">
+							 <div class="form-group">
+		                        <label for="">Input Deskripsi Sikap</label>
+			                        <select class="form-control" name="semester">
+			                            <option value="0" disabled="" selected="">Pilih Deskripsi</option>
+			                            <option value="1"> Sangat Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
+			                            <option value="2"> Dapat Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
+			                            <option value="3"> Cukup Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
+			                            <option value="4"> Kurang Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
+			                        </select>
+			                        &nbsp&nbsp&nbsp
+                    		</div>
+						</div>
 					<div class="col-md-12">
 						<button type="submit" class="btn btn-orange pull-right	" name="sikap">Simpan</button>
 					</div>

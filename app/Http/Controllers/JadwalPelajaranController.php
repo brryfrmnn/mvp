@@ -91,7 +91,19 @@ class JadwalPelajaranController extends Controller
 
     public function hapus($id)
     {
-    	# code...
+    	$jadwal_pelajaran = JadwalPelajaran::find($id);
+        // $pengumuman->delete();
+       if ($jadwal_pelajaran->delete()) { //jika save berhasil
+            //jika berhasil arahkan ke halaman admin/pengumuman
+            return redirect('/admin/jadwal')->with('message','Success .. berhasil di hapus')
+                                        ->with('alert','success');
+
+        } else {
+            //jika berhasil arahkan ke halaman admin/pengumuman/tambah
+            return redirect('/admin/jadwal')->with('message','Gagal ..dihapus ')
+                                        ->with('alert','danger');
+
+        }
     }
 
     public function tampilJadwalKelas($id)
@@ -117,6 +129,7 @@ class JadwalPelajaranController extends Controller
     										->orderBy('id', 'asc')
     										->paginate(5);
     	$no=1;
+    	
     	return view('guru.kelasx',  compact('jadwal_pelajaran', 'no'));  	
     }
 }

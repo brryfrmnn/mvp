@@ -154,7 +154,7 @@ class SiswaController extends Controller
                // $user->nomor_induk = $request->input('nomor_induk');
                $user->phone = $request->input('phone');
                $user->Agama = $request->input('Agama');
-               $user->tempat_lahir = $request->input('tanggal_lahir');
+               $user->tempat_lahir = $request->input('tempat_lahir');
                $user->tanggal_lahir = $request->input('tanggal_lahir');
                $user->alamat = $request->input('alamat');
                $user->photo = $request->file('photo');

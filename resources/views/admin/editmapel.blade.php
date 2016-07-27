@@ -27,7 +27,7 @@
         		<h1 class="page-header">Ubah Mapel<a href="{{ URL('admin/mapel/tampil')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
      		<div class="panel panel-default">
                 <div class="panel-body">
-                   <form action="{{ URL('admin/mapel',[$mapel->id,'update'])}}" method="POST" class="form-horizontal">
+                   <form action="{{ URL('admin/mapel', [$mapel->id,'update'])}}" method="POST" class="form-horizontal">
                    {{csrf_field()}}
 				<div class="form-group">
 					<label >Nama mapel</label>

@@ -29,7 +29,7 @@
 						<tr class="warning">
 							<td>NIP</td>
 							<td>:</td>
-							<td>3204280708830010</td>
+							<td>{{$user->nomor_induk}}</td>
 							
 						</tr>
 						<tr>

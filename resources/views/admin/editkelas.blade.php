@@ -23,21 +23,22 @@
       <div class="container">
         <div class="row" >
         <div class="col-lg-8 col-lg-offset-2">
-        <h1 class="page-header">Ubah kelas<a href="{{ URL('admin/kelas')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+        <h1 class="page-header">Ubah kelas<a href="{{ URL('admin/data/kelas')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
 
             <div class="panel panel-default">
                 <div class="panel-body">
-                   <form action="{{ URL('admin/kelas',[$kelas->id,'update'])}}" method="POST" role="form" enctype="multipart/form-data" >
+                   <form action="{{ URL('admin/data/kelas',[$kelas->id,'update'])}}" method="POST" role="form" enctype="multipart/form-data" >
                    {{csrf_field()}}
                    
                     <div class="form-group">
-                        <label >Judul Peng</label>
+                        <label >Kode Kelas</label>
                     
-                            <input type="text" value="{{ $kelas->judul }}" class="form-control bgcol" name="judul" placeholder="Masukan Judul">
+                            <input type="text" value="{{ $kelas->kode }}" class="form-control bgcol" name="kode" placeholder="Masukan Judul">
                     </div>
                     <div class="form-group">
-                        <label>Isi kelas</label>
-                        <textarea name="isi" class="form-control" placeholder="Masukan Isi kelas">{{ $kelas->isi }} </textarea>
+                        <label >Nama Kelas</label>
+                    
+                            <input type="text" value="{{ $kelas->nama }}" class="form-control bgcol" name="nama" placeholder="Masukan Judul">
                     </div>
                     {{-- <div class="form-group">
                         <label for="">Admin</label>

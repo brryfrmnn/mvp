@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('title')
-  Ruang Administrator
+  Ruang Wali Kelas
 @endsection
 
 
@@ -11,21 +11,21 @@
     <ul class="breadcrumb"><li><a href="index.php">Home</a></li>
     
     
-        <li class="active">Kelola nilai siswa</li>
+        <li class="active">Tampil nilai pengetahuan</li>
     </ul>
 </div>
 
     
     <div class="container">
 
-                    <h1 class="page-header">Kelola nilai siswa</h1>
+                    <h1 class="page-header">Tampil nilai pengetahuan<a href="{{ URL('walikelas/nilai/cek')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
                     <table class="table table-striped">
 
                         <tr>
                             <th>No</th>
-                            <th>NIS</th>
-                            <th>Nama</th>
-                            <th>Aksi</th>
+                            <th>Keterangan Nilai</th>
+                            <th>Angka</th>
+                            
                             
                         </tr>  
                             @foreach ($ as $data) 
@@ -33,14 +33,12 @@
                             <td>{{$no++}}</td>
                             <td>{{$data->nomor_induk}}</td>
                             <td>{{$data->full_name}}</td>
-                            <td><a href="{{URL('')}}" class="btn btn-orange"><i class="glyphicon glyphicon-edit"></i>Kelola Nilaix</a></td>
                             </tr>
-                        @endforeach
-
-                            
-                            
-                        
+                        @endforeach                        
                     </table>
+                    <div class="text-center">
+                       {{--  {!! $pengumuman->links() !!} --}}
+                    </div>
                     
 </div>
 @endsection

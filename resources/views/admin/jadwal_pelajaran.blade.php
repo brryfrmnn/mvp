@@ -41,8 +41,8 @@
   							<td>{{ $no++ }}</td>
   							<td>{{$data->guru->nomor_induk}}</td>
   							<td>{{$data->guru->full_name}}</td>
-                			<td>{{ $data->kelasJurusan->kelas->nama }} {{ $data->kelasJurusan->jurusan->nama }}</td>
-                			<td>{{ $data->mapel->nama }} </td>
+                			<td></td>
+                			<td> </td>
                 			<td>{{ $data->semester }} </td>
                 			<td>{{ $data->tahun_ajaran }} </td>
   							<td><a href="{{ URL('admin/jadwal',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>

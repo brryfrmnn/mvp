@@ -19,22 +19,27 @@
     <div class="container">
 
                     <h1 class="page-header">Input nilai siswa <a href="{{ URL('guru/kelas/1/show')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
-                    <h3>Kelas       : x</h3>
-                    <h3>Jurusan     : Teknik Ilmu Komputer</h3>
+                    
+                    <h3>Kelas       : {{$kelas_jurusan->kelas->nama}}</h3>                   
+                    <h3>Jurusan      :{{$kelas_jurusan->jurusan->nama}}</h3>
+                    
                     <table class="table table-striped">
+
                         <tr>
                             <th>No</th>
                             <th>NIS</th>
                             <th>Nama</th>
                             <th>Input Nilai</th>
                             
-                        </tr>       
+                        </tr>  
+                            @foreach ($user as $data) 
                             <tr>
-                            <td>2</td>
-                            <td>16150112</td>
-                            <td>Berry Firmann</td>
-                            <td><a href="{{URL('guru/nilai/input/pengetahuan')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Pengetahuan (belum)</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/input/keterampilan')}}" class="btn btn-primary"><i class="fa fa-trash"></i> Keterampilan (belum)</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/input/sikap')}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i> Sikap (belum)</a></td>
+                            <td>{{$no++}}</td>
+                            <td>{{$data->nomor_induk}}</td>
+                            <td>{{$data->full_name}}</td>
+                            <td><a href="{{URL('guru/nilai/input/pengetahuan',[$data->id,$mapel_id])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Pengetahuan</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/input/keterampilan',[$data->id,$mapel_id])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Keterampilan</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/input/sikap',[$data->id,$mapel_id])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Sikap</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/input/deskripsi')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Deskripsi (belum)</a></td>
                             </tr>
+                        @endforeach
 
                             
                             

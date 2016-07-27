@@ -10,14 +10,14 @@
 	<ul class="breadcrumb"><li><a href="index.php">Home</a></li>
 	
 	
-		<li class="active">Data Kelas</li>
+		<li class="active">Data Kelas dan Jurusan</li>
 	</ul>
 </div>
 
 	
 	<div class="container">
 
-					<h1 class="page-header">Data Kelas <a href="{{URL('admin/data/kelasjurusan/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Kelas</a></h1>
+					<h1 class="page-header">Kelas dan Jurusan<a href="{{URL('admin/data/kelasjurusan/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah</a></h1>
 					<table class="table table-striped">
   						<tr>
   							<th>No</th>

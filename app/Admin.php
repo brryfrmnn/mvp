@@ -31,6 +31,6 @@ class Admin extends Model
     public function user()
     {
 
-    	//ga ngerti yang ini mah
+    	
     }
 }
