@@ -83,18 +83,28 @@
 		                        <label for="">Input Deskripsi Pengetahuan</label>
 			                        <select class="form-control" name="ndes">
 			                            <option value="0" disabled="" selected="">Pilih Deskripsi</option>
-			                            <option value="Sangat Baik dan Sempurna"> Sangat Baik dan Sempurna</option>
-			                            <option value="2"> Baik dan sempurna</option>
-			                            <option value="3"> Baik Sekali</option>
-			                            <option value="4"> Baik</option>
-			                            <option value="5"> Cukup Baik</option>
-			                            <option value="6"> Sangat Cukup</option>
-			                            <option value="7"> Cukup</option>
-			                            <option value="8"> Sedang</option>
-			                            <option value="9"> Kurang</option>
-			                            <option value="10"> Sangat Kurang</option>
+
+			                            <option value="Sangat Baik dan Sempurna">Sangat baik dan sempurna. Dapat memahami dan mengevaluasi semua kompetensi dasar </option>
+
+			                            <option value="Baik dan sempurna. Dapat memahami semua kompetensi dasar  tetapi kurang teliti mengevaluasi salah satu kompetensi dasar">Baik dan sempurna. Dapat memahami semua kompetensi dasar  tetapi kurang teliti mengevaluasi salah satu kompetensi dasar </option>
+
+			                            <option value="Baik sekali. Dapat memahami sebagian besar kompetensi dasar tetapi kurang bisa mengevaluasi salah satu dari kompetensi dasar">Baik sekali. Dapat memahami sebagian besar kompetensi dasar tetapi kurang bisa mengevaluasi salah satu dari kompetensi dasar </option>
+
+			                            <option value="Baik. Dapat memahami sebagian besar kompetensi dasar tetapi kurang bisa  mengevaluasi dua kompetensi dasar">Baik. Dapat memahami sebagian besar kompetensi dasar tetapi kurang bisa  mengevaluasi dua kompetensi dasar </option>
+
+			                            <option value="Cukup baik. Dapat memahami sebagian besar kompetensi dasar tetapi kurang bisa menganalisis dan mengevaluasi dua kompetensi dasar">Cukup baik. Dapat memahami sebagian besar kompetensi dasar tetapi kurang bisa menganalisis dan mengevaluasi dua kompetensi dasar </option>
+
+			                            <option value="Sangat cukup. Dapat memahami sebagian kompetensi dasar, tetapi kurang bisa menganalisis dan mengevaluasi beberapa kompetensi dasar">Sangat cukup. Dapat memahami sebagian kompetensi dasar, tetapi kurang bisa menganalisis dan mengevaluasi beberapa kompetensi dasar </option>
+
+			                            <option value="Cukup. Dapat mengingat, mengetahui sebagian kompetensi dasar,tetapi kurang bisa menerapkan, menganalisis dan mengevaluasi beberapa kompetensi dasar">Cukup. Dapat mengingat, mengetahui sebagian kompetensi dasar,tetapi kurang bisa menerapkan, menganalisis dan mengevaluasi beberapa kompetensi dasar </option>
+
+			                            <option value="Sedang cukup Dapat memahami sebagian kecil kompetensi dasar tetapi kurang bisa menerapkan, menganalisis, dan mengevaluasi sebagian besar kompetensi dasar">Sedang cukup Dapat memahami sebagian kecil kompetensi dasar tetapi kurang bisa menerapkan, menganalisis, dan mengevaluasi sebagian besar kompetensi dasar </option>
+
+			                            <option value="Kurang. Hanya dapat memahami dan mengeveluasi sebagian kecil kompetensi dasar">Kurang. Hanya dapat memahami dan mengeveluasi sebagian kecil kompetensi dasar </option>
+
+			                            <option value="Sangat kurang. Hanya dapat memahami dan mengeveluasi satu atau dua kompetensi dasar saja">Sangat kurang. Hanya dapat memahami dan mengeveluasi satu atau dua kompetensi dasar saja </option>
 			                        </select>
-                    		</div>
+                    </div>
 					</div>
 					<div class="col-md-12">
 						<button type="submit" class="btn btn-orange pull-right	" name="pengetahuan">Simpan</button>

@@ -136,10 +136,14 @@
 		                        <label for="">Input Deskripsi Sikap</label>
 			                        <select class="form-control" name="semester">
 			                            <option value="0" disabled="" selected="">Pilih Deskripsi</option>
-			                            <option value="1"> Sangat Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
-			                            <option value="2"> Dapat Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
-			                            <option value="3"> Cukup Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
-			                            <option value="4"> Kurang Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
+
+			                            <option value="Sangat Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama"> Sangat Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
+
+			                            <option value="Dapat Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama"> Dapat Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
+
+			                            <option value="Cukup Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama"> Cukup Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
+
+			                            <option value="Kurang Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama"> Kurang Menerima, menjalankan, menghargai, menghayati dan mengamalkan nilai agama</option>
 			                        </select>
 			                        &nbsp&nbsp&nbsp
                     		</div>

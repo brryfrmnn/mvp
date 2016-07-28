@@ -103,16 +103,26 @@
 		                        <label for="">Input Deskripsi Keterampilan</label>
 			                        <select class="form-control" name="ndes">
 			                            <option value="0" disabled="" selected="">Pilih Deskripsi</option>
-			                            <option value="Sangat Baik dan Sempurna"> Sangat Baik dan Sempurna</option>
-			                            <option value="2"> Baik dan sempurna</option>
-			                            <option value="3"> Baik Sekali</option>
-			                            <option value="4"> Baik</option>
-			                            <option value="5"> Cukup Baik</option>
-			                            <option value="6"> Sangat Cukup</option>
-			                            <option value="7"> Cukup</option>
-			                            <option value="8"> Sedang</option>
-			                            <option value="9"> Kurang</option>
-			                            <option value="10"> Sangat Kurang</option>
+
+			                            <option value="Sangat baik dan sempurna. Sangat aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan  semua soal ">Sangat baik dan sempurna. Sangat aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan  semua soal </option>
+
+			                            <option value="Baik dan sempurna. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan semua soal ">Baik dan sempurna. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan semua soal </option>
+
+			                            <option value="Baik sekali. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan sebagian besar soal ">Baik sekali. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan sebagian besar soal </option>
+
+			                            <option value="Baik, Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan sebagian besar soal cerita ">Baik, Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan sebagian besar soal cerita </option>
+
+			                            <option value="Cukup baik. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal cerita ">Cukup baik. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal cerita </option>
+
+			                            <option value="Sangat cukup. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal cerita ">Sangat cukup. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal cerita </option>
+
+			                            <option value="Cukup. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal cerita ">Cukup. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal cerita </option>
+
+			                            <option value="Cukup – sedang. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal cerita ">Cukup – sedang. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal cerita </option>
+
+			                            <option value="Kurang, kurang aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal">Kurang, kurang aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal</option>
+
+			                            <option value="Sangat kurang, tidak aktif dalam mencoba, menalar, dan tidak kreatif dalam menyelesaikan latihan ">Sangat kurang, tidak aktif dalam mencoba, menalar, dan tidak kreatif dalam menyelesaikan latihan </option>
 			                        </select>
                     		</div>
 					</div>
