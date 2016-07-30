@@ -35,7 +35,7 @@
   							<td>{{ $data->first_name }} {{ $data->last_name }}</td>
                 			<td>Bandung</td>
                 			<td>Perempuan</td>
-  							<td><a href="{{ URL('admin/guru',[$data->id,'edit')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp
+  							<td><a href="{{ URL('admin/guru',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp
   							<form action="{{ URL('admin/guru',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
                                 {{csrf_field()}}
                                 <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
