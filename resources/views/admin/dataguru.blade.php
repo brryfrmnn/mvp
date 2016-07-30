@@ -30,7 +30,7 @@
   							<th>Nama</th>
                 			<th>Alamat</th>
   							<th>Jenis Kelamin</th>
-  							<th>Aksi</th>
+  							<th width="35%">Aksi</th>
 
   						</tr>
   						 @foreach ($guru as $data)				
@@ -40,13 +40,23 @@
   							<td>{{ $data->first_name }} {{ $data->last_name }}</td>
                 			<td>Bandung</td>
                 			<td>Perempuan</td>
-  							<td><a href="{{ URL('admin/guru',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp
+  							<td>
   							<form action="{{ URL('admin/guru',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
                                 {{csrf_field()}}
+                                <a href="{{ URL('admin/guru',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
+  							<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
+  							@if ($data->wali_kelas)
+  								<a href="{{ URL('admin/guru/edit')}}" class="btn btn-orange">Wali Kelas</a>
+  							@else
+  								<a href="{{ URL('admin/guru/edit')}}" class="btn btn-info">Guru Biasa</a>
+  							@endif
                                 <button onclick="return confirm('yakin akan di hapus?')" class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
                                
                                 </form>
-  							<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
+
+
+  							</td>
+
   						</tr>
   						@endforeach
   						

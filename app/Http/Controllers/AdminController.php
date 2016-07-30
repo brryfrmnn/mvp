@@ -27,6 +27,18 @@ class AdminController extends Controller
    		$role = Sentinel::findRoleBySlug('guru');
          $guru = $role->users()->with('roles')->paginate(8);
          $no=1;
+         //cek jika guru tersebut memiliki role wali kelas
+         foreach ($guru as $data) {
+            foreach ($data->roles as $role) {
+                if ($role->slug == 'wali_kelas') {
+                    $data->wali_kelas = true;
+                } else {
+                    $data->wali_kelas = false;
+                }
+            }
+          }
+
+        
         return view('admin.dataguru', ['guru' => $guru, 'no' =>$no]);
    	}
       public function dataSiswa()
@@ -196,5 +208,14 @@ class AdminController extends Controller
       public function detailKelas()
       {
        return view('admin.detailkelas');
+      }
+
+      public function indexWaliKelas()
+      {
+          $role = Sentinel::findRoleBySlug('guru');
+          $guru = $role->users()->with('roles')->paginate(8);
+          $no=1;
+          
+          return view('admin.dataguru', ['guru' => $guru, 'no' =>$no]);
       }
 }

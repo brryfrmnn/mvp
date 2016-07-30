@@ -128,6 +128,10 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::post('{id}/delete', 'AdminController@hapusMapel');
 		  
 	});
+	Route::group(['prefix' => 'walikelas'], function () {
+		Route::get('kelola', 'AdminController@indexWaliKelas');
+		Route::post('/', 'AdminController@setWaliKelas');		  
+	});
 
 	
 
