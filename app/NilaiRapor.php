@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use SoftDeletes;
 class NilaiRapor extends Model
 {
     //
-    use SoftDeletes;
+    
     protected $fillabel = [
 
     	
@@ -17,7 +17,17 @@ class NilaiRapor extends Model
     	'deskripsi_id',
     	'guru_id',
     	'siswa_id',
-    	'mapel_id'
+    	'mapel_id',
+        'angka_pengetahuan_puluhan',
+        'angka_keterampilan_puluhan',
+        'angka_sikap_puluhan',
+        'angka_pengetahuan',
+        'angka_keterampilan',
+        'angka_sikap',
+        'predikat_pengetahuan',
+        'predikat_keterampilan',
+        'predikat_sikap',
+        'antar_mapel'
     	
     ];
 

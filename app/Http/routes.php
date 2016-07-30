@@ -167,6 +167,8 @@ Route::group(['prefix' => 'guru'], function () {
 		Route::get('pengetahuan/edit', 'NilaiPengetahuanController@edit');//sudah
 		Route::get('keterampilan/input', 'NilaiKeterampilanController@edit') ;	//sudah
 		Route::get('sikap/input', 'NilaiSikapController@edit');	//sudah
+		Route::post('proses', 'NilaiController@proses');	//sudah
+
 		
 	});
 		Route::get('kelas/{id}/show', 'JadwalPelajaranController@tampilJadwalKelas');//sudah	

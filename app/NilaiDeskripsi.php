@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use SoftDeletes;
 class NilaiDeskripsi extends Model
 {
     //
-    use SoftDeletes;
+    
     protected $fillabel = [
 
     	'kode',
@@ -20,7 +20,7 @@ class NilaiDeskripsi extends Model
 
     protected $table = 'nilai_deskripsi';
 
-    public function user()
+
     public function nilaiRapor()  
     {
         return $this->hasOne('App\NilaiRapor', 'deskripsi_id','id');

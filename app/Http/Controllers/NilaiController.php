@@ -10,9 +10,9 @@ use App\Kelas;
 use App\Jurusan;
 use App\Siswa;
 use App\NilaiPengetahuan;
-use App\NilaiKerterampilan;
+use App\NilaiKeterampilan;
 use App\NilaiSikap;
-use App\NilaiDeskripsi;
+use App\NilaiRapor;
 
 class NilaiController extends Controller
 {
@@ -33,13 +33,17 @@ class NilaiController extends Controller
     	
     }		
 
-    public function proses()
+    public function proses(Request $request)
     {
+        $siswa_id = 2;
+        $mapel_id = 4;
+        $guru_id = 15;
+
         $nilai_pengetahuan = NilaiPengetahuan::where('siswa_id','=',$siswa_id)
                                                 ->where('mapel_id','=',$mapel_id)
                                                 ->where('guru_id','=',$guru_id)
                                                 ->first();
-        $nilai_ketreampilan = NilaiKerterampilan::where('siswa_id','=',$siswa_id)
+        $nilai_keterampilan = NilaiKeterampilan::where('siswa_id','=',$siswa_id)
                                                 ->where('mapel_id','=',$mapel_id)
                                                 ->where('guru_id','=',$guru_id)
                                                 ->first();
@@ -52,6 +56,8 @@ class NilaiController extends Controller
                                                 ->where('guru_id','=',$guru_id)
                                                 ->first();
 
+        // dd($nilai_pengetahuan, $nilai_keterampilan, $nilai_sikap, $nilai_deskripsi);
+
         $nuh1 = $nilai_pengetahuan->nuh1;
         $nuh2 = $nilai_pengetahuan->nuh2;
         $nuh3 = $nilai_pengetahuan->nuh3;
@@ -60,17 +66,17 @@ class NilaiController extends Controller
         $nilaiuts = $nilai_pengetahuan->nuts;
         $ndes = $nilai_pengetahuan->ndes;
 
-        $npra1 = $nilai_ketreampilan->npra1;
-        $npra2 = $nilai_ketreampilan->npra2;
-        $npra3 = $nilai_ketreampilan->npra3;
-        $npra4 = $nilai_ketreampilan->npra4;
-        $npra5 = $nilai_ketreampilan->npra5;
-        $npra6 = $nilai_ketreampilan->npra6;
-        $npra7 = $nilai_ketreampilan->npra7;
-        $npra8 = $nilai_ketreampilan->npra8;
-        $nproy = $nilai_ketreampilan->nproy;
-        $nport = $nilai_ketreampilan->nport;
-        $ndes = $nilai_ketreampilan->ndes;
+        $npra1 = $nilai_keterampilan->npra1;
+        $npra2 = $nilai_keterampilan->npra2;
+        $npra3 = $nilai_keterampilan->npra3;
+        $npra4 = $nilai_keterampilan->npra4;
+        $npra5 = $nilai_keterampilan->npra5;
+        $npra6 = $nilai_keterampilan->npra6;
+        $npra7 = $nilai_keterampilan->npra7;
+        $npra8 = $nilai_keterampilan->npra8;
+        $nproy = $nilai_keterampilan->nproy;
+        $nport = $nilai_keterampilan->nport;
+        $ndes = $nilai_keterampilan->ndes;
 
         $nob1 = $nilai_sikap->nob1;
         $nob2 = $nilai_sikap->nob2;
@@ -90,443 +96,539 @@ class NilaiController extends Controller
         $ndes = $nilai_sikap->ndes;
 
         $ratanuh=(($nuh1+$nuh2+$nuh3+$nuh4)/4)*2;
-        $hasilpengetahuan=($ratanuh+$nilaiuts+$nilaiuas)/4;
-        $hasilpengetahuan=number_format($hasilpengetahuan,2);
+        $hasil_pengetahuan=($ratanuh+$nilaiuts+$nilaiuas)/4;
+        $hasil_pengetahuan=number_format($hasil_pengetahuan,2);
 
 
         $ratanilaipraktek=(($npra1+$npra2+$npra3+$npra4+$npra5+$npra7+$npra8)/8)*2;
-        $hasilketerampilan=($ratanilaipraktek+$nproy+$nport)/4;
-        $hasilketerampilan=number_format($hasilketerampilan,2);
+        $hasil_keterampilan=($ratanilaipraktek+$nproy+$nport)/4;
+        $hasil_keterampilan=number_format($hasil_keterampilan,2);
 
 
 
         $ratanob=(($nob1+$nob2+$nob3+$nob4+$nob5+$nob6+$nob7+$nob8+$nob10+$nob11+$nob12)/12)*2;
-        $hasilsikap=($ratanob+$nds+$nat+$nj)/5;
-        $hasilsikap=number_format($hasilsikap,2);
+        $hasil_sikap=($ratanob+$nds+$nat+$nj)/5;
+        $hasil_sikap=number_format($hasil_sikap,2);
 
 
         //Awal dari Nilai Pengetahuan
-        switch (floor($hasilpengetahuan)) {
+        switch (floor($hasil_pengetahuan)) {
             case '100':
-                $desimalpengetahuan='4.00';
-                $gradepengetahuan='A';
+                $angka_pengetahuan='4.00';
+                $predikat_pengetahuan='A';
                 break;
             case '99':
-                $desimalpengetahuan='3.96';
-                $gradepengetahuan='A';
+                $angka_pengetahuan='3.96';
+                $predikat_pengetahuan='A';
                 break;
             case '98':
-                $desimalpengetahuan='3.93';
-                $gradepengetahuan='A';
+                $angka_pengetahuan='3.92';
+                $predikat_pengetahuan='A';
                 break;
             case '97':
-                $desimalpengetahuan='3.89';
-                $gradepengetahuan='A';
+                $angka_pengetahuan='3.88';
+                $predikat_pengetahuan='A';
                 break;
             case '96':
-                $desimalpengetahuan='3.85';
-                $gradepengetahuan='A';
+                $angka_pengetahuan='3.84';
+                $predikat_pengetahuan='A';
                 break;
             case '95':
-                $desimalpengetahuan='3.3.84';
-                $gradepengetahuan='A-';
+                $angka_pengetahuan='3.80';
+                $predikat_pengetahuan='A';
                 break;
             case '94':
-                $desimalpengetahuan='3.76';
-                $gradepengetahuan='A-';
+                $angka_pengetahuan='3.76';
+                $predikat_pengetahuan='A';
                 break;
             case '93':
-                $desimalpengetahuan='3.68';
-                $gradepengetahuan='A-';
+                $angka_pengetahuan='3.72';
+                $predikat_pengetahuan='A';
                 break;
             case '92':
-                $desimalpengetahuan='3.59';
-                $gradepengetahuan='A-';
+                $angka_pengetahuan='3.68';
+                $predikat_pengetahuan='A';
                 break;
             case '91':
-                $desimalpengetahuan='3.51';
-                $gradepengetahuan='A-';
+                $angka_pengetahuan='3.64';
+                $predikat_pengetahuan='A-';
                 break;
             case '90':
-                $desimalpengetahuan='3.50';
-                $gradepengetahuan='B+';
+                $angka_pengetahuan='3.60';
+                $predikat_pengetahuan='B+';
                 break;
             case '89':
-                $desimalpengetahuan='3.42';
-                $gradepengetahuan='B+';
+                $angka_pengetahuan='3.56';
+                $predikat_pengetahuan='A-';
                 break;
             case '88':
-                $desimalpengetahuan='3.34';
-                $gradepengetahuan='B+';
+                $angka_pengetahuan='3.52';
+                $predikat_pengetahuan='A-';
                 break;
             case '87':
-                $desimalpengetahuan='3.26';
-                $gradepengetahuan='B+';
+                $angka_pengetahuan='3.48';
+                $predikat_pengetahuan='A-';
                 break;
             case '86':
-                $desimalpengetahuan='3.18';
-                $gradepengetahuan='B+';
+                $angka_pengetahuan='3.44';
+                $predikat_pengetahuan='A-';
                 break;
             case '85':
-                $desimalpengetahuan='3.17';
-                $gradepengetahuan='B';
+                $angka_pengetahuan='3.40';
+                $predikat_pengetahuan='A-';
                 break;
             case '84':
-                $desimalpengetahuan='3.09';
-                $gradepengetahuan='B';
+                $angka_pengetahuan='3.36';
+                $predikat_pengetahuan='A-';
                 break;
             case '83':
-                $desimalpengetahuan='3.01';
-                $gradepengetahuan='B';
+                $angka_pengetahuan='3.32';
+                $predikat_pengetahuan='B+';
                 break;
             case '82':
-                $desimalpengetahuan='2.93';
-                $gradepengetahuan='B';
+                $angka_pengetahuan='3.28';
+                $predikat_pengetahuan='B+';
                 break;
             case '81':
-                $desimalpengetahuan='2.85';
-                $gradepengetahuan='B';
+                $angka_pengetahuan='3.24';
+                $predikat_pengetahuan='B+';
                 break;
             case '80':
-                $desimalpengetahuan='2.84';
-                $gradepengetahuan='B';
+                $angka_pengetahuan='3.20';
+                $predikat_pengetahuan='B+';
                 break;
             case '79':
-                $desimalpengetahuan='2.77';
-                $gradepengetahuan='B-';
+                $angka_pengetahuan='3.16';
+                $predikat_pengetahuan='B+';
                 break;
             case '78':
-                $desimalpengetahuan='2.71';
-                $gradepengetahuan='B-';
+                $angka_pengetahuan='3.12';
+                $predikat_pengetahuan='B+';
                 break;
             case '77':
-                $desimalpengetahuan='2.64';
-                $gradepengetahuan='B-';
+                $angka_pengetahuan='3.08';
+                $predikat_pengetahuan='B+';
                 break;
             case '76':
-                $desimalpengetahuan='2.58';
-                $gradepengetahuan='B-';
+                $angka_pengetahuan='3.04';
+                $predikat_pengetahuan='B+';
                 break;
             case '75':
-                $desimalpengetahuan='2.51';
-                $gradepengetahuan='B-';
+                $angka_pengetahuan='3.00';
+                $predikat_pengetahuan='B';
                 break;
             case '74':
-                $desimalpengetahuan='2.50';
-                $gradepengetahuan='C+';
+                $angka_pengetahuan='2.96';
+                $predikat_pengetahuan='B';
                 break;
             case '73':
-                $desimalpengetahuan='2.42';
-                $gradepengetahuan='C+';
+                $angka_pengetahuan='2.92';
+                $predikat_pengetahuan='B';
                 break;
             case '72':
-                $desimalpengetahuan='2.34';
-                $gradepengetahuan='C+';
+                $angka_pengetahuan='2.88';
+                $predikat_pengetahuan='B';
                 break;
             case '71':
-                $desimalpengetahuan='2.26';
-                $gradepengetahuan='C+';
+                $angka_pengetahuan='2.84';
+                $predikat_pengetahuan='B';
                 break;
             case '70':
-                $desimalpengetahuan='2.18';
-                $gradepengetahuan='C+';
+                $angka_pengetahuan='2.80';
+                $predikat_pengetahuan='B';
                 break;
             case '69':
-                $desimalpengetahuan='2.17';
-                $gradepengetahuan='C';
+                $angka_pengetahuan='2.76';
+                $predikat_pengetahuan='B';
                 break;
             case '68':
-                $desimalpengetahuan='2.09';
-                $gradepengetahuan='C';
+                $angka_pengetahuan='2.72';
+                $predikat_pengetahuan='B';
                 break;
             case '67':
-                $desimalpengetahuan='2.01';
-                $gradepengetahuan='C';
+                $angka_pengetahuan='2.68';
+                $predikat_pengetahuan='B';
                 break;
             case '66':
-                $desimalpengetahuan='1.93';
-                $gradepengetahuan='C';
+                $angka_pengetahuan='2.64';
+                $predikat_pengetahuan='B-';
                 break;
             case '65':
-                $desimalpengetahuan='1.85';
-                $gradepengetahuan='C';
+                $angka_pengetahuan='2.60';
+                $predikat_pengetahuan='B-';
                 break;
             case '64':
-                $desimalpengetahuan='1.84';
-                $gradepengetahuan='C-';
+                $angka_pengetahuan='2.56';
+                $predikat_pengetahuan='B-';
                 break;
             case '63':
-                $desimalpengetahuan='1.76';
-                $gradepengetahuan='C-';
+                $angka_pengetahuan='2.52';
+                $predikat_pengetahuan='B-';
                 break;
             case '62':
-                $desimalpengetahuan='1.68';
-                $gradepengetahuan='C-';
+                $angka_pengetahuan='2.48';
+                $predikat_pengetahuan='B-';
                 break;
             case '61':
-                $desimalpengetahuan='1.59';
-                $gradepengetahuan='C-';
+                $angka_pengetahuan='2.44';
+                $predikat_pengetahuan='B-';
                 break;
             case '60':
-                $desimalpengetahuan='1.51';
-                $gradepengetahuan='C-';
+                $angka_pengetahuan='2.40';
+                $predikat_pengetahuan='B-';
                 break;
             case '59':
-                $desimalpengetahuan='1.50';
-                $gradepengetahuan='D+';
+                $angka_pengetahuan='2.36';
+                $predikat_pengetahuan='B-';
                 break;
             case '58':
-                $desimalpengetahuan='1.42';
-                $gradepengetahuan='D+';
+                $angka_pengetahuan='2.32';
+                $predikat_pengetahuan='C+';
                 break;
             case '57':
-                $desimalpengetahuan='1.34';
-                $gradepengetahuan='D++';
+                $angka_pengetahuan='2.28';
+                $predikat_pengetahuan='C+';
                 break;
             case '56':
-                $desimalpengetahuan='1.26';
-                $gradepengetahuan='D+';
+                $angka_pengetahuan='2.24';
+                $predikat_pengetahuan='C+';
                 break;
             case '55':
-                $desimalpengetahuan='1.18';
-                $gradepengetahuan='D+';
+                $angka_pengetahuan='2.20';
+                $predikat_pengetahuan='C+';
                 break;
             case '54':
-                $desimalpengetahuan='1.17';
-                $gradepengetahuan='D+';
+                $angka_pengetahuan='2.16';
+                $predikat_pengetahuan='C+';
                 break;
             case '53':
-                $desimalpengetahuan='1.13';
-                $gradepengetahuan='D+';
+                $angka_pengetahuan='2.12';
+                $predikat_pengetahuan='C+';
                 break;
             case '52':
-                $desimalpengetahuan='1.09';
-                $gradepengetahuan='D+';
+                $angka_pengetahuan='2.08';
+                $predikat_pengetahuan='C+';
                 break;
             case '51':
-                $desimalpengetahuan='1.04';
-                $gradepengetahuan='D+';
+                $angka_pengetahuan='2.04';
+                $predikat_pengetahuan='C+';
                 break;
             case '50':
-                $desimalpengetahuan='1.00';
-                $gradepengetahuan='D+';
+                $angka_pengetahuan='2.00';
+                $predikat_pengetahuan='C';
+                break;
+            case '49':
+                $angka_pengetahuan='1.96';
+                $predikat_pengetahuan='C';
+                break;
+            case '48':
+                $angka_pengetahuan='1.92';
+                $predikat_pengetahuan='C';
+                break;
+            case '47':
+                $angka_pengetahuan='1.88';
+                $predikat_pengetahuan='C';
+                break;
+            case '46':
+                $angka_pengetahuan='1.84';
+                $predikat_pengetahuan='C';
+                break;
+            case '45':
+                $angka_pengetahuan='1.80';
+                $predikat_pengetahuan='C';
+                break;
+            case '44':
+                $angka_pengetahuan='1.76';
+                $predikat_pengetahuan='C';
+                break;
+            case '43':
+                $angka_pengetahuan='1.72';
+                $predikat_pengetahuan='C';
+                break;
+            case '42':
+                $angka_pengetahuan='1.68';
+                $predikat_pengetahuan='C';
+                break;
+            case '41':
+                $angka_pengetahuan='1.64';
+                $predikat_pengetahuan='C';
+                break;
+            case '40':
+                $angka_pengetahuan='1.60';
+                $predikat_pengetahuan='C-';
+                break;
+            case '39':
+                $angka_pengetahuan='1.56';
+                $predikat_pengetahuan='C-';
+                break;
+            case '38':
+                $angka_pengetahuan='1.52';
+                $predikat_pengetahuan='C-';
+                break;
+            case '37':
+                $angka_pengetahuan='1.48';
+                $predikat_pengetahuan='';
+                break;
+            case '36':
+                $angka_pengetahuan='1.44';
+                $predikat_pengetahuan='C-';
+                break;
+            case '35':
+                $angka_pengetahuan='1.40';
+                $predikat_pengetahuan='C-';
+                break;
+            case '34':
+                $angka_pengetahuan='1.36';
+                $predikat_pengetahuan='C-';
+                break;
+            case '33':
+                $angka_pengetahuan='1.32';
+                $predikat_pengetahuan='D+';
+                break;
+            case '32':
+                $angka_pengetahuan='1.28';
+                $predikat_pengetahuan='D+';
+                break;
+            case '31':
+                $angka_pengetahuan='1.24';
+                $predikat_pengetahuan='D+';
+                break;
+            case '30':
+                $angka_pengetahuan='1.20';
+                $predikat_pengetahuan='D+';
+                break;
+            case '29':
+                $angka_pengetahuan='1.16';
+                $predikat_pengetahuan='D+';
+                break;
+            case '28':
+                $angka_pengetahuan='1.12';
+                $predikat_pengetahuan='';
+                break;
+            case '27':
+                $angka_pengetahuan='1.08';
+                $predikat_pengetahuan='D+';
+                break;
+            case '26':
+                $angka_pengetahuan='1.04';
+                $predikat_pengetahuan='D+';
                 break;
             default:
-                $desimalpengetahuan='0';
-                $gradepengetahuan='E';
+                $angka_pengetahuan='0';
+                $predikat_pengetahuan='D';
                 break;
         }
 
         //Akhir dari Nilai Pengetahuan
         //Awal dari Nilai Keterampilan
-        switch (floor($hasilketerampilan)) {
+        switch (floor($hasil_keterampilan)) {
             case '100':
-                $desimalketerampilan='4.00';
-                $gradeketerampilan='A';
+                $angka_keterampilan='4.00';
+                $predikat_keterampilan='A';
                 break;
             case '99':
-                $desimalketerampilan='3.96';
-                $gradeketerampilan='A';
+                $angka_keterampilan='3.96';
+                $predikat_keterampilan='A';
                 break;
             case '98':
-                $desimalketerampilan='3.93';
-                $gradeketerampilan='A';
+                $angka_keterampilan='3.93';
+                $predikat_keterampilan='A';
                 break;
             case '97':
-                $desimalketerampilan='3.89';
-                $gradeketerampilan='A';
+                $angka_keterampilan='3.89';
+                $predikat_keterampilan='A';
                 break;
             case '96':
-                $desimalketerampilan='3.85';
-                $gradeketerampilan='A';
+                $angka_keterampilan='3.85';
+                $predikat_keterampilan='A';
                 break;
             case '95':
-                $desimalketerampilan='3.3.84';
-                $gradeketerampilan='A-';
+                $angka_keterampilan='3.3.84';
+                $predikat_keterampilan='A-';
                 break;
             case '94':
-                $desimalketerampilan='3.76';
-                $gradeketerampilan='A-';
+                $angka_keterampilan='3.76';
+                $predikat_keterampilan='A-';
                 break;
             case '93':
-                $desimalketerampilan='3.68';
-                $gradeketerampilan='A-';
+                $angka_keterampilan='3.68';
+                $predikat_keterampilan='A-';
                 break;
             case '92':
-                $desimalketerampilan='3.59';
-                $gradeketerampilan='A-';
+                $angka_keterampilan='3.59';
+                $predikat_keterampilan='A-';
                 break;
             case '91':
-                $desimalketerampilan='3.51';
-                $gradeketerampilan='A-';
+                $angka_keterampilan='3.51';
+                $predikat_keterampilan='A-';
                 break;
             case '90':
-                $desimalketerampilan='3.50';
-                $gradeketerampilan='B+';
+                $angka_keterampilan='3.50';
+                $predikat_keterampilan='B+';
                 break;
             case '89':
-                $desimalketerampilan='3.42';
-                $gradeketerampilan='B+';
+                $angka_keterampilan='3.42';
+                $predikat_keterampilan='B+';
                 break;
             case '88':
-                $desimalketerampilan='3.34';
-                $gradeketerampilan='B+';
+                $angka_keterampilan='3.34';
+                $predikat_keterampilan='B+';
                 break;
             case '87':
-                $desimalketerampilan='3.26';
-                $gradeketerampilan='B+';
+                $angka_keterampilan='3.26';
+                $predikat_keterampilan='B+';
                 break;
             case '86':
-                $desimalketerampilan='3.18';
-                $gradeketerampilan='B+';
+                $angka_keterampilan='3.18';
+                $predikat_keterampilan='B+';
                 break;
             case '85':
-                $desimalketerampilan='3.17';
-                $gradeketerampilan='B';
+                $angka_keterampilan='3.17';
+                $predikat_keterampilan='B';
                 break;
             case '84':
-                $desimalketerampilan='3.09';
-                $gradeketerampilan='B';
+                $angka_keterampilan='3.09';
+                $predikat_keterampilan='B';
                 break;
             case '83':
-                $desimalketerampilan='3.01';
-                $gradeketerampilan='B';
+                $angka_keterampilan='3.01';
+                $predikat_keterampilan='B';
                 break;
             case '82':
-                $desimalketerampilan='2.93';
-                $gradeketerampilan='B';
+                $angka_keterampilan='2.93';
+                $predikat_keterampilan='B';
                 break;
             case '81':
-                $desimalketerampilan='2.85';
-                $gradeketerampilan='B';
+                $angka_keterampilan='2.85';
+                $predikat_keterampilan='B';
                 break;
             case '80':
-                $desimalketerampilan='2.84';
-                $gradeketerampilan='B';
+                $angka_keterampilan='2.84';
+                $predikat_keterampilan='B';
                 break;
             case '79':
-                $desimalketerampilan='2.77';
-                $gradeketerampilan='B-';
+                $angka_keterampilan='2.77';
+                $predikat_keterampilan='B-';
                 break;
             case '78':
-                $desimalketerampilan='2.71';
-                $gradeketerampilan='B-';
+                $angka_keterampilan='2.71';
+                $predikat_keterampilan='B-';
                 break;
             case '77':
-                $desimalketerampilan='2.64';
-                $gradeketerampilan='B-';
+                $angka_keterampilan='2.64';
+                $predikat_keterampilan='B-';
                 break;
             case '76':
-                $desimalketerampilan='2.58';
-                $gradeketerampilan='B-';
+                $angka_keterampilan='2.58';
+                $predikat_keterampilan='B-';
                 break;
             case '75':
-                $desimalketerampilan='2.51';
-                $gradeketerampilan='B-';
+                $angka_keterampilan='2.51';
+                $predikat_keterampilan='B-';
                 break;
             case '74':
-                $desimalketerampilan='2.50';
-                $gradeketerampilan='C+';
+                $angka_keterampilan='2.50';
+                $predikat_keterampilan='C+';
                 break;
             case '73':
-                $desimalketerampilan='2.42';
-                $gradeketerampilan='C+';
+                $angka_keterampilan='2.42';
+                $predikat_keterampilan='C+';
                 break;
             case '72':
-                $desimalketerampilan='2.34';
-                $gradeketerampilan='C+';
+                $angka_keterampilan='2.34';
+                $predikat_keterampilan='C+';
                 break;
             case '71':
-                $desimalketerampilan='2.26';
-                $gradeketerampilan='C+';
+                $angka_keterampilan='2.26';
+                $predikat_keterampilan='C+';
                 break;
             case '70':
-                $desimalketerampilan='2.18';
-                $gradeketerampilan='C+';
+                $angka_keterampilan='2.18';
+                $predikat_keterampilan='C+';
                 break;
             case '69':
-                $desimalketerampilan='2.17';
-                $gradeketerampilan='C';
+                $angka_keterampilan='2.17';
+                $predikat_keterampilan='C';
                 break;
             case '68':
-                $desimalketerampilan='2.09';
-                $gradeketerampilan='C';
+                $angka_keterampilan='2.09';
+                $predikat_keterampilan='C';
                 break;
             case '67':
-                $desimalketerampilan='2.01';
-                $gradeketerampilan='C';
+                $angka_keterampilan='2.01';
+                $predikat_keterampilan='C';
                 break;
             case '66':
-                $desimalketerampilan='1.93';
-                $gradeketerampilan='C';
+                $angka_keterampilan='1.93';
+                $predikat_keterampilan='C';
                 break;
             case '65':
-                $desimalketerampilan='1.85';
-                $gradeketerampilan='C';
+                $angka_keterampilan='1.85';
+                $predikat_keterampilan='C';
                 break;
             case '64':
-                $desimalketerampilan='1.84';
-                $gradeketerampilan='C-';
+                $angka_keterampilan='1.84';
+                $predikat_keterampilan='C-';
                 break;
             case '63':
-                $desimalketerampilan='1.76';
-                $gradeketerampilan='C-';
+                $angka_keterampilan='1.76';
+                $predikat_keterampilan='C-';
                 break;
             case '62':
-                $desimalketerampilan='1.68';
-                $gradeketerampilan='C-';
+                $angka_keterampilan='1.68';
+                $predikat_keterampilan='C-';
                 break;
             case '61':
-                $desimalketerampilan='1.59';
-                $gradeketerampilan='C-';
+                $angka_keterampilan='1.59';
+                $predikat_keterampilan='C-';
                 break;
             case '60':
-                $desimalketerampilan='1.51';
-                $gradeketerampilan='C-';
+                $angka_keterampilan='1.51';
+                $predikat_keterampilan='C-';
                 break;
             case '59':
-                $desimalketerampilan='1.50';
-                $gradeketerampilan='D+';
+                $angka_keterampilan='1.50';
+                $predikat_keterampilan='D+';
                 break;
             case '58':
-                $desimalketerampilan='1.42';
-                $gradeketerampilan='D+';
+                $angka_keterampilan='1.42';
+                $predikat_keterampilan='D+';
                 break;
             case '57':
-                $desimalketerampilan='1.34';
-                $gradeketerampilan='D++';
+                $angka_keterampilan='1.34';
+                $predikat_keterampilan='D+';
                 break;
             case '56':
-                $desimalketerampilan='1.26';
-                $gradeketerampilan='D+';
+                $angka_keterampilan='1.26';
+                $predikat_keterampilan='D+';
                 break;
             case '55':
-                $desimalketerampilan='1.18';
-                $gradeketerampilan='D+';
+                $angka_keterampilan='1.18';
+                $predikat_keterampilan='D+';
                 break;
             case '54':
-                $desimalketerampilan='1.17';
-                $gradeketerampilan='D+';
+                $angka_keterampilan='1.17';
+                $predikat_keterampilan='D+';
                 break;
             case '53':
-                $desimalketerampilan='1.13';
-                $gradeketerampilan='D+';
+                $angka_keterampilan='1.13';
+                $predikat_keterampilan='D+';
                 break;
             case '52':
-                $desimalketerampilan='1.09';
-                $gradeketerampilan='D+';
+                $angka_keterampilan='1.09';
+                $predikat_keterampilan='D+';
                 break;
             case '51':
-                $desimalketerampilan='1.04';
-                $gradeketerampilan='D+';
+                $angka_keterampilan='1.04';
+                $predikat_keterampilan='D+';
                 break;
             case '50':
-                $desimalketerampilan='1.00';
-                $gradeketerampilan='D+';
+                $angka_keterampilan='1.00';
+                $predikat_keterampilan='D+';
                 break;
             default:
-                $desimalketerampilan='0';
-                $gradeketerampilan='E';
+                $angka_keterampilan='0';
+                $predikat_keterampilan='E';
                 break; 
         }
 
@@ -537,24 +639,78 @@ class NilaiController extends Controller
 
 
         //Awal dari Nilai Sikap
-        $puluhansikap=$hasilsikap*100/4;
-        if ($hasilsikap>3.51) {
-            $gradesikap="SB";
+        $puluhan_sikap=$hasil_sikap*100/4;
+        if ($hasil_sikap>3.51) {
+            $predikat_sikap="SB";
         }
-        elseif ($hasilsikap>2.51) {
-            $gradesikap="B";
+        elseif ($hasil_sikap>2.51) {
+            $predikat_sikap="B";
         }
-        elseif ($hasilsikap>1.51) {
-            $gradesikap="C";
+        elseif ($hasil_sikap>1.51) {
+            $predikat_sikap="C";
         }
         else
         {
-            $gradesikap="K";
+            $predikat_sikap="K";
         }
 
 
+        if ($predikat_sikap="SB") {
+                $antar_mapel="Peserta didik menunjukan sikap sangat baik dan bersungguh-sungguh dalam menerpakan sikap jujur dan bekerjasama ";
+        }
+        elseif ($predikat_sikap="B") {
+            $antar_mapel="Peserta didik menunjukan sikap baik dan bersungguh-sungguh dalam menerpakan sikap jujur dan bekerjasama";
+        }
+        elseif ($predikat_sikap="C") {
+            $antar_mapel="Peserta didik menunjukan sikap baik dan bersungguh-sungguh dalam menerpakan sikap jujur dan bekerjasama, namun masih perlu ditingkatkan lagi sikap kerjasama dan percaya diri  ";
+        }
+        elseif ($predikat_sikap="K") {
+            $antar_mapel="Peserta didik menunjukan sikap yang kurang dalam bersungguh-sungguh menerpakan sikap jujur dan bekerjasama, maka perlu ditingkatkan lagi sikap kerjasama dan percaya diri ";
+        }
+    // dd($hasil_pengetahuan);
 
+        $nilai_rapor = new NilaiRapor; 
+        $nilai_rapor->guru_id =  $request->input('guru_id');
+        $nilai_rapor->siswa_id = $request->input('siswa_id');
+        $nilai_rapor->mapel_id = $request->input('mapel_id');//$request->input mirip $_POST['']
+        $nilai_rapor->nilai_pengetahuan_id = $nilai_pengetahuan->id;
+        $nilai_rapor->nilai_keterampilan_id = $nilai_keterampilan->id;
+        $nilai_rapor->nilai_sikap_id = $nilai_sikap->id;
+        $nilai_rapor->angka_pengetahuan = $angka_pengetahuan;
+        $nilai_rapor->angka_keterampilan =$angka_keterampilan;
+        $nilai_rapor->angka_sikap = $hasil_sikap;
+        $nilai_rapor->angka_pengetahuan_puluhan = $hasil_pengetahuan;
+        $nilai_rapor->angka_keterampilan_puluhan = $hasil_keterampilan;
+        $nilai_rapor->angka_sikap_puluhan = $puluhan_sikap;
+        $nilai_rapor->predikat_pengetahuan = $predikat_pengetahuan;
+        $nilai_rapor->predikat_keterampilan =$predikat_keterampilan;
+        $nilai_rapor->predikat_sikap =$predikat_sikap;
+        $nilai_rapor->antar_mapel = $antar_mapel;
+        // dd($nilai_rapor);
+        if ($nilai_rapor->save()) { //jika save berhasil_
+            //jika berhasil_ arahkan ke halaman admin/pengumuman
+            
+            return redirect('guru/nilai/input/pengetahuan')->with('message','Success .. ')
+                                        ->with('alert','success');
 
-    }	
+        } else {
+            //jika berhasil_ arahkan ke halaman admin/pengumuman/tambah
+            
+            return redirect('')->with('message','Gagal .. ')
+                                        ->with('alert','danger');
+
+        }
+
+    }
+
+    public function tampil($siswa_id, $guru_id, $kelasjurusan_id,$mapel_id, $nilai_pengetahuan_id, $nilai_keterampilan_id, $nilai_sikap_id)
+        {
+        $nilai_rapor = NilaiRapor::where('siswa_id','=',$siswa_id)
+                                ->where('mapel_id','=',$mapel_id)
+                                ->where('semester', '=', $semester)
+                                                ->get();
+        }	
+
+    
 
 }
