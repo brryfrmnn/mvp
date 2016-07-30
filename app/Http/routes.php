@@ -184,6 +184,7 @@ Route::group(['prefix' => 'siswa'], function () {
 	Route::get('/','SiswaController@index');
 	Route::group(['prefix' => 'lihatnilai'], function () {
 		Route::get('semester/1/show', 'SiswaController@NilaiSemester1');
+		Route::get('tampil', 'NilaiController@tampil');
 	});
 	Route::get('profil', 'SiswaController@siswaProfil');
 	Route::get('profil/edit', 'SiswaController@profilEdit');
@@ -192,7 +193,7 @@ Route::group(['prefix' => 'siswa'], function () {
 Route::group(['prefix' => 'walikelas'], function () {
 	Route::get('/','WaliKelasController@index');
 	Route::group(['prefix' => 'nilai'], function () {
-		Route::get('kelola', '@kelolaNilai');
+		/*Route::get('kelola', '@kelolaNilai');
 		Route::get('cek', '@kelolaNilai');	
 		Route::get('input', 'GuruController@inputNilai');
 		Route::get('input/pengetahuan', 'GuruController@inputNilaiPengetahuan');
@@ -201,7 +202,7 @@ Route::group(['prefix' => 'walikelas'], function () {
 		Route::get('edit', 'GuruController@editNilai');
 		Route::get('edit/pengetahuan', 'GuruController@editNilaiPengetahuan');
 		Route::get('edit/keterampilan', 'GuruController@editNilaiKeterampilan');	
-		Route::get('edit/sikap', 'GuruController@editNilaiSikap');	
+		Route::get('edit/sikap', 'GuruController@editNilaiSikap');	*/
 	});
 		
 		Route::get('profil', 'WaliKelasController@guruProfil');
