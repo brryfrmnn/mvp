@@ -11,46 +11,57 @@
 		<li class="active">Data Guru</li>
 	</ul>
 </div>
-	
-<div class="container">
-	@if (session('message'))
-        <div class="alert alert-{{session('alert')}}">
-            <p>{{session('message')}}
-            </p>
-        </div>  
-    @endif
-		<h1 class="page-header">Data Guru <a href="{{ URL('admin/guru/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Guru</a></h1>
-		<table class="table table-striped">
-				<tr>
-					<th>No</th>
-					<th>NIP</th>
-					<th>Nama</th>
-    			<th>Alamat</th>
-					<th>Jenis Kelamin</th>
-					<th>Aksi</th>
 
-				</tr>
-				 @foreach ($guru as $data)				
-				<tr>
-					<td>{{ $no++ }}</td>
-					<td>{{ $data->nomor_induk }}</td>
-					<td>{{ $data->first_name }} {{ $data->last_name }}</td>
-    			<td>Bandung</td>
-    			<td>Perempuan</td>
-					<td><a href="{{ URL('admin/guru',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp
-					<form action="{{ URL('admin/guru',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
-                    {{csrf_field()}}
-                    <button onclick="return confirm('yakin akan di hapus?')" class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
-                   
-                    </form>
-					<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
-				</tr>
-				@endforeach
-				
-			
-		</table>
-		<div class="text-center">
-			{!! $guru->links() !!}
-		</div>
+<div class="container">
+			@if (session('message'))
+                <div class="alert alert-{{session('alert')}}">
+                    <p>{{session('message')}}
+                    </p>
+                </div>  
+              @endif
+				<h1 class="page-header">Data Guru <a href="{{ URL('admin/guru/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Guru</a></h1>
+				<table class="table table-striped">
+						<tr>
+							<th>No</th>
+							<th>NIP</th>
+							<th>Nama</th>
+            			<th>Alamat</th>
+							<th>Jenis Kelamin</th>
+							<th width="35%">Aksi</th>
+
+						</tr>
+						 @foreach ($guru as $data)				
+						<tr>
+							<td>{{ $no++ }}</td>
+							<td>{{ $data->nomor_induk }}</td>
+							<td>{{ $data->first_name }} {{ $data->last_name }}</td>
+            			<td>Bandung</td>
+            			<td>Perempuan</td>
+							<td>
+							<form action="{{ URL('admin/guru',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
+                            {{csrf_field()}}
+                            <a href="{{ URL('admin/guru',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
+							<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
+							@if ($data->wali_kelas)
+								<a href="{{ URL('admin/guru/edit')}}" class="btn btn-orange">Wali Kelas</a>
+							@else
+								<a href="{{ URL('admin/guru/edit')}}" class="btn btn-info">Guru Biasa</a>
+							@endif
+                            <button onclick="return confirm('yakin akan di hapus?')" class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
+                           
+                            </form>
+
+
+							</td>
+
+						</tr>
+						@endforeach
+						
+					
+				</table>
+				<div class="text-center">
+					{!! $guru->links() !!}
+				</div>
+					
 </div>
 @endsection

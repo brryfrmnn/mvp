@@ -44,7 +44,7 @@
 							<h4 class="sc-heading">Selamat Datang</h4>
 						</div>
 						<div class="panel-body">
-							<a class="btn btn-orange" href="/dashboard">Menuju Dashboard</a>
+							<a class="btn btn-orange" href="/logout"><i class="fa fa-power-off"></i> Logout</a>
 						</div>
 						
 					</div>
