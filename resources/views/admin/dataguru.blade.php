@@ -25,8 +25,9 @@
 							<th>No</th>
 							<th>NIP</th>
 							<th>Nama</th>
-            			<th>Alamat</th>
+            				<th>Alamat</th>
 							<th>Jenis Kelamin</th>
+							<th>Wali Kelas</th>
 							<th width="35%">Aksi</th>
 
 						</tr>
@@ -37,22 +38,26 @@
 							<td>{{ $data->first_name }} {{ $data->last_name }}</td>
             			<td>Bandung</td>
             			<td>Perempuan</td>
+            			<td>
+								@if ($data->wali_kelas)
+									<a href="{{ URL('admin/guru/edit')}}" class="btn btn-orange">Ya. Jadikan Guru&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+								@else
+									<a href="{{ URL('admin/guru/edit')}}" class="btn btn-info">Tidak. Jadikan Wali Kelas</a>
+								@endif
+							</td>
 							<td>
 							<form action="{{ URL('admin/guru',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
                             {{csrf_field()}}
                             <a href="{{ URL('admin/guru',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
 							<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
-							@if ($data->wali_kelas)
-								<a href="{{ URL('admin/guru/edit')}}" class="btn btn-orange">Wali Kelas</a>
-							@else
-								<a href="{{ URL('admin/guru/edit')}}" class="btn btn-info">Guru Biasa</a>
-							@endif
+							
                             <button onclick="return confirm('yakin akan di hapus?')" class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
                            
                             </form>
 
 
 							</td>
+							
 
 						</tr>
 						@endforeach
