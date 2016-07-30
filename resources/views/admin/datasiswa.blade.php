@@ -14,22 +14,28 @@
 		<li class="active">Data Siswa</li>
 	</ul>
 </div>
-
 	
-	<div class="container">
+<div class="container">
+		@if (session('message'))
+            <div class="alert alert-{{session('alert')}}">
+                <p>{{session('message')}}
+                </p>
+            </div>  
+          @endif
+		<h1 class="page-header">Data Siswa <a href="{{ URL('admin/siswa/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah data</a>
+		</h1>
 
-					<h1 class="page-header">Data Siswa <a href="{{ URL('admin/siswa/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah data</a></h1>
-          <div class="box-body table-responsive" >
-					<table class="table table-striped">
-  						<tr>
-  							<th>No</th>
-  							<th>NIS</th>
-  							<th>Nama</th>
-  							<th>Kelas</th>
-  							<th>Aksi</th>
-  						</tr>
-              @foreach ($users as $data)		
-							<tr>
+      	<div class="box-body table-responsive" >
+				<table class="table table-striped">
+						<tr>
+							<th>No</th>
+							<th>NIS</th>
+							<th>Nama</th>
+							<th>Kelas</th>
+							<th>Aksi</th>
+						</tr>
+	              	@foreach ($users as $data)		
+						<tr>
   							<td>{{ $no++ }}</td>
   							<td>{{ $data->nomor_induk }}</td>
   							<td>{{ $data->first_name }} {{ $data->last_name }}</td>
@@ -38,32 +44,20 @@
                                 &nbsp&nbsp&nbsp
                                 <form action="{{ URL('admin/siswa',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
                                 {{csrf_field()}}
-                                <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
-                                {{csrf_field()}}
+                                <button onclick="return confirm('Yakin akan menghapus data ini?')" class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
+                           
                                 </form>
                                 &nbsp&nbsp&nbsp
                                 <a href="{{ URL('admin/siswa/detail')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
   						</tr>
-  						
-  						@endforeach
-  					
-					</table>
-					<div class="text-center">
-						<ul class="pagination">
-						    <li>
-						      <a href="member.php?page=1" aria-label="Previous">
-						        <span aria-hidden="true">&laquo;</span>
-						      </a>
-						    </li>
-								<li><a href="member.php?page="></a></li>
-								
-							
-						    <li>
-						      <a href="member.php?page=" aria-label="Next">
-						        <span aria-hidden="true">&raquo;</span>
-						      </a>
-						    </li>
-						</ul>
-					</div>
+	  						
+	  				@endforeach
+		  					
+				</table>
+				<div class="text-center">
+					{{$users->links()}}
+				</div>
+				
+		</div>
 </div>
 @endsection

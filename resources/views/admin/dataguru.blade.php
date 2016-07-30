@@ -16,7 +16,12 @@
 
 	
 	<div class="container">
-
+				@if (session('message'))
+                    <div class="alert alert-{{session('alert')}}">
+                        <p>{{session('message')}}
+                        </p>
+                    </div>  
+                  @endif
 					<h1 class="page-header">Data Guru <a href="{{ URL('admin/guru/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Guru</a></h1>
 					<table class="table table-striped">
   						<tr>
@@ -38,8 +43,8 @@
   							<td><a href="{{ URL('admin/guru',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp
   							<form action="{{ URL('admin/guru',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
                                 {{csrf_field()}}
-                                <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
-                                {{csrf_field()}}
+                                <button onclick="return confirm('yakin akan di hapus?')" class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
+                               
                                 </form>
   							<a href="{{ URL('admin/guru/edit')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
   						</tr>

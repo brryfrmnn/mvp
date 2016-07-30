@@ -10,22 +10,22 @@
 <div class="container bread">
 	<div class="row" >
         <div class="col-lg-8 col-lg-offset-2"  >
-	<ul class="breadcrumb"><li><a href="index.php">Home</a></li>
-	
-	
-		<li class="active">Tambah Data Siswa</li>
-	</ul>
-</div>
-</div>
+        	<ul class="breadcrumb"><li><a href="index.php">Home</a></li>       	
+        		<li class="active">Tambah Data Siswa</li>
+        	</ul>
+        </div>
+    </div>
 </div>
 	
-</div>
-
-	
-	<div class="container">
-		<div class="row" >
+<div class="container">
+	<div class="row" >
         <div class="col-lg-8 col-lg-offset-2"  >
-
+        @if (session('message'))
+            <div class="alert alert-{{session('alert')}}">
+                <p>{{session('message')}}
+                </p>
+            </div>  
+          @endif
             <div class="panel panel-default">
                 <div class="panel-body">
                    <form action="{{ URL('admin/siswa')}}" method="POST" role="form" enctype="multipart/form-data" >
@@ -156,11 +156,9 @@
                    </form>
                 </div>
             </div>
-       
         </div>
-    
     </div>
-	</div>
+</div>
 
 	
 			
