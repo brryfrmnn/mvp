@@ -18,52 +18,38 @@
     
     <div class="container">
 
-                    <h1 class="page-header">Input nilai siswa <a href="{{ URL('guru/kelasx')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
-                    <h3>Kelas       : x</h3>
-                    <h3>Jurusan     : Teknik Ilmu Komputer</h3>
+                    <h1 class="page-header">Input nilai siswa <a href="{{ URL('guru/kelas/1/show')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+                    
+                    <h3>Kelas       : {{$kelas_jurusan->kelas->nama}}</h3>                   
+                    <h3>Jurusan      :{{$kelas_jurusan->jurusan->nama}}</h3>
+                    
                     <table class="table table-striped">
+
                         <tr>
                             <th>No</th>
                             <th>NIS</th>
                             <th>Nama</th>
                             <th>Input Nilai</th>
                             
-                        </tr>       
+                        </tr>  
+                            @foreach ($user as $data) 
                             <tr>
-                            <td>1</td>
-                            <td>16150111</td>
-                            <td>Sari Susanti</td>
-                            <td><a href="{{URL('guru/editnilaipengetahuan')}}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i> Pengetahuan (sudah)</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/editnilaiketerampilan')}}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i> Keterampilan (sudah)</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/editnilaisikap')}}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i> Sikap (sudah)</a></td>
+                            <td>{{$no++}}</td>
+                            <td>{{$data->nomor_induk}}</td>
+                            <td>{{$data->full_name}}</td>
+                            <td><a href="{{URL('guru/nilai/input/pengetahuan',[$data->id,$mapel_id])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Pengetahuan</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/input/keterampilan',[$data->id,$mapel_id])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Keterampilan</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/input/sikap',[$data->id,$mapel_id])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Sikap</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/input/deskripsi')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Deskripsi (belum)</a>&nbsp&nbsp&nbsp
+                            <form action="{{ URL('guru/nilai/proses')}}" method="POST" accept-charset="utf-8">
+                            {{csrf_field()}}
+                            <input type="hidden" name="guru_id" value="15" placeholder="">
+                            <input type="hidden" name="siswa_id" value="{{$data->id}}" placeholder="">
+                            <input type="hidden" name="mapel_id" value="{{$mapel_id}}" placeholder="">
+                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Proses</button>
+                            </form>
+                            </td>
                             </tr>
+                        @endforeach
 
-                            <tr>
-                            <td>2</td>
-                            <td>16150112</td>
-                            <td>Berry Firmann</td>
-                            <td><a href="{{URL('guru/inputnilaipengetahuan')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Pengetahuan (belum)</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/inputnilaiketerampilan')}}" class="btn btn-primary"><i class="fa fa-trash"></i> Keterampilan (belum)</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/inputnilaisikap')}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i> Sikap (belum)</a></td>
-                            </tr>
-
-                            <tr>
-                            <td>3</td>
-                            <td>16150113</td>
-                            <td>Ina Najiyah</td>
-                            <td><a href="" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Pengetahuan (belum)</a>&nbsp&nbsp&nbsp<a href="hapus-siswa.php" class="btn btn-primary"><i class="fa fa-trash"></i> Keterampilan (belum)</a>&nbsp&nbsp&nbsp<a href="" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i> Sikap (belum)</a></td>
-                            </tr>
-
-                            <tr>
-                            <td>4</td>
-                            <td>16150114</td>
-                            <td>asri wahyuni</td>
-                            <td><a href="" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Pengetahuan (belum)</a>&nbsp&nbsp&nbsp<a href="hapus-siswa.php" class="btn btn-primary"><i class="fa fa-trash"></i> Keterampilan (belum)</a>&nbsp&nbsp&nbsp<a href="" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i> Sikap (belum)</a></td>
-                            </tr>
-
-                            <tr>
-                            <td>5</td>
-                            <td>16150115</td>
-                            <td>Eka Rosdiana</td>
-                            <td><a href="" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Pengetahuan (belum)</a>&nbsp&nbsp&nbsp<a href="hapus-siswa.php" class="btn btn-primary"><i class="fa fa-trash"></i> Keterampilan (belum)</a>&nbsp&nbsp&nbsp<a href="" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i> Sikap (belum)</a></td>
-                            </tr>
-
+                            
                             
                         
                     </table>

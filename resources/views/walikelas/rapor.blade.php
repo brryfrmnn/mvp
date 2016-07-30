@@ -1,15 +1,32 @@
-<?php 
-session_start();
-$nis=$_GET['nis'];
-$semester=$_GET['semester'];
-include_once '../koneksi.php';
-$no=1;
+@extends('layouts.layout')
+@section('title')
+  Ruang Administrator
+@endsection
 
-$proses=$mysqli->query("SELECT siswa.nis, siswa.nama_siswa, kelas.nama_kelas, jurusan.nama_jurusan, pelajaran.semester, pelajaran.tahun_pelajaran FROM siswa, pelajaran, jurusan, kelas, kelasjurusan, guru WHERE siswa.nis=pelajaran.nis AND kelasjurusan.id_kelasjurusan=pelajaran.id_kelasjurusan and jurusan.kode_jurusan=kelasjurusan.kode_jurusan AND kelas.kode_kelas=kelasjurusan.kode_kelas AND guru.nip=pelajaran.nip AND siswa.nis='$nis' AND pelajaran.semester='$semester'");
 
-$data=$proses->fetch_object();
 
-  ?>
+@section('content')
+
+<div class="container bread">
+    <ul class="breadcrumb"><li><a href="index.php">Home</a></li>
+    
+    
+        <li class="active">Cek nilai siswa</li>
+    </ul>
+</div>
+
+    
+    <div class="container">
+
+                    <h1 class="page-header">Cek nilai siswa<a href="{{ URL('walikelas/nilai/kelola')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+                    
+                    
+</div>
+@endsection
+
+
+
+
 <body>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;margin:0px left;}

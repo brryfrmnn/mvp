@@ -52,11 +52,6 @@
             <td><?php echo $data->grade_s; ?></td>
 
         </tr>
-            <?php
-    $no++;
-}
-
- ?>
     </tbody>
 </table>
 

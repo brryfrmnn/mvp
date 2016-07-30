@@ -11,14 +11,18 @@
     <ul class="breadcrumb"><li><a href="index.php">Home</a></li>
     
     
-        <li class="active">Kelola nilai siswa</li>
+        <li class="active">Input nilai siswa</li>
     </ul>
 </div>
 
     
     <div class="container">
 
-                    <h1 class="page-header">Kelola nilai siswa</h1>
+                    <h1 class="page-header">Input nilai siswa <a href="{{ URL('guru/kelas/1/show')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+                    
+                    <h3>Kelas       : {{$kelas_jurusan->kelas->nama}}</h3>                   
+                    <h3>Jurusan      :{{$kelas_jurusan->jurusan->nama}}</h3>
+                    
                     <table class="table table-striped">
 
                         <tr>
@@ -28,12 +32,13 @@
                             <th>Aksi</th>
                             
                         </tr>  
-                            @foreach ($ as $data) 
+                            @foreach ($user as $data) 
                             <tr>
                             <td>{{$no++}}</td>
                             <td>{{$data->nomor_induk}}</td>
                             <td>{{$data->full_name}}</td>
-                            <td><a href="{{URL('')}}" class="btn btn-orange"><i class="glyphicon glyphicon-edit"></i>Kelola Nilaix</a></td>
+                            <td><a href="{{URL('guru/nilai/input/pengetahuan',[$data->id,$mapel_id])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Kelola Nilai</a>
+                            </td>
                             </tr>
                         @endforeach
 
