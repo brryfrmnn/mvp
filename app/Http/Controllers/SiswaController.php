@@ -63,71 +63,79 @@ class SiswaController extends Controller
 
       public function simpan(Request $request)
       {
-            // Validate the form data
-              $result = $this->validate($request, [
-                  'email' => 'required|email|max:255|unique:users',
-                  'password' => 'required|confirmed|min:6',
-              ]);
+            $validator = \Validator::make($request->all(), [
+                'email' => 'required|email|max:255|unique:users',
+                'password' => 'required|confirmed|min:6',
+            ]);
 
-              // Assemble registration credentials and attributes
-              $credentials = [
-                  'email' => trim($request->get('email')),
-                  'password' => $request->get('password'),
-                  'first_name' => $request->get('first_name', null),
-                  'last_name' => $request->get('last_name', null),
-                  'nomor_induk' => $request->get('nomor_induk'),
-                  'phone'  => $request->get('phone',null),
-                  'jenis_kelamin' => $request->get('jenis_kelamin',null),
-                  'Agama' => $request->get('Agama',null),
-                  'tempat_lahir' => $request->get('tempat_lahir',null),
-                  'tanggal_lahir' => $request->get('tanggal_lahir',null),
-                  'alamat' => $request->get('alamat',null),
-                  'photo' => $request->get('photo',null),
-              ];
-              // $activate = (bool)$request->get('activate', true);
+            if ($validator->passes()) {
+                
+                // Assemble registration credentials and attributes
+                $credentials = [
+                    'email' => trim($request->get('email')),
+                    'password' => $request->get('password'),
+                    'first_name' => $request->get('first_name', null),
+                    'last_name' => $request->get('last_name', null),
+                    'nomor_induk' => $request->get('nomor_induk'),
+                    'phone'  => $request->get('phone',null),
+                    'jenis_kelamin' => $request->get('jenis_kelamin',null),
+                    'Agama' => $request->get('Agama',null),
+                    'tempat_lahir' => $request->get('tempat_lahir',null),
+                    'tanggal_lahir' => $request->get('tanggal_lahir',null),
+                    'alamat' => $request->get('alamat',null),
+                    'photo' => $request->get('photo',null),
+                ];
+                // $activate = (bool)$request->get('activate', true);
 
-              // Attempt the registration
-              $result = $this->authManager->register($credentials, true);
+                // Attempt the registration
+                $result = $this->authManager->register($credentials, true);
 
-              if ($result->isFailure()) {
-                  
-                    return redirect('admin/siswa/tambah');
-              }
-
-
-              // Assign User Roles
-              // foreach ($request->get('roles', []) as $slug => $id) {
-                  $role = Sentinel::findRoleBySlug('siswa');
-                  if ($role) {
-                      $role->users()->attach($result->user);
-                  }
-              // }
-                  try {
-                        $siswa =  new Siswa;
-                        $siswa->semester = $request->input('semester');
-                        $siswa->tahun_ajar = $request->input('tahun_ajar');
-                        $siswa->jenis_tinggal = $request->input('jenis_tinggal');
-                        $siswa->nama_ayah= $request->input('nama_ayah');
-                        $siswa->nama_ibu= $request->input('nama_ibu');
-                        $siswa->alat_transportasi= $request->input('alat_transportasi');
-                        $siswa->penghasilan_orangtua= $request->input('penghasilan_orangtua');
-                        $siswa->pekerjaan_ayah= $request->input('pekerjaan_ayah');
-                        $siswa->alamat_orangtua = $request->input('alamat_orangtua');
-                        $siswa->pekerjaan_ibu= $request->input('pekerjaan_ibu');
-                        $siswa->kelas_jurusan_id= $request->input('kelas_jurusan_id');
-                        $siswa->user_id = $result->user->id;
-                        $siswa->admin_id = \Sentinel::getUser()->id;
-                        if ($siswa->save()) {
-                              return redirect('admin/siswa/tambah');
-                        }
-                  } catch (Illuminate\Database\QueryException $e) {
-                     dd($e);   
-                  } catch (PDOException $e) {
-                      dd($e);
-                  }  
-
-                  
-              // $result->setMessage("User {$request->get('email')} has been created.");
+                if ($result->isFailure()) {
+                    return redirect('admin/siswa/tambah')->with('message','Error'.$result->message())
+                                              ->with('alert','danger');
+                } elseif ($result->isSuccessful()) {
+                                    // Assign User Roles
+                // foreach ($request->get('roles', []) as $slug => $id) {
+                    $role = Sentinel::findRoleBySlug('siswa');
+                    if ($role) {
+                        $role->users()->attach($result->user);
+                    }
+                // }
+                    try {
+                          $siswa =  new Siswa;
+                          $siswa->semester = $request->input('semester');
+                          $siswa->tahun_ajar = $request->input('tahun_ajar');
+                          $siswa->jenis_tinggal = $request->input('jenis_tinggal');
+                          $siswa->nama_ayah= $request->input('nama_ayah');
+                          $siswa->nama_ibu= $request->input('nama_ibu');
+                          $siswa->alat_transportasi= $request->input('alat_transportasi');
+                          $siswa->penghasilan_orangtua= $request->input('penghasilan_orangtua');
+                          $siswa->pekerjaan_ayah= $request->input('pekerjaan_ayah');
+                          $siswa->alamat_orangtua = $request->input('alamat_orangtua');
+                          $siswa->pekerjaan_ibu= $request->input('pekerjaan_ibu');
+                          $siswa->kelas_jurusan_id= $request->input('kelas_jurusan_id');
+                          $siswa->user_id = $result->user->id;
+                          $siswa->admin_id = \Sentinel::getUser()->id;
+                          if ($siswa->save()) {
+                                return redirect('admin/siswa/tambah')->with('message','Berhasil input data')
+                                              ->with('alert','success');
+                          } else {
+                                return redirect('admin/siswa/tambah')->with('message','Error. belum diketahui')
+                                              ->with('alert','danger');
+                          }
+                    } catch (Illuminate\Database\QueryException $e) {
+                       return redirect('admin/siswa/tambah')->with('message','Error'.$e)
+                                              ->with('alert','danger');
+                    } catch (PDOException $e) {
+                        return redirect('admin/siswa/tambah')->with('message','Error'.$e)
+                                              ->with('alert','danger');
+                    }  
+                         
+                }    
+            } else {
+                return redirect('admin/siswa/tambah')->with('message','Error'.$validator->errors())
+                                              ->with('alert','danger');
+            }
                  
       }
 

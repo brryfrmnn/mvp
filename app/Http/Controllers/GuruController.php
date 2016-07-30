@@ -44,69 +44,87 @@ class GuruController extends Controller
       public function simpan(Request $request)
       {
             // Validate the form data
-              $result = $this->validate($request, [
+              /*$result = $this->validate($request, [
+                  'email' => 'required|email|max:255|unique:users',
+                  'password' => 'required|confirmed|min:6',
+              ]);*/
+            $validator = \Validator::make($request->all(), [
                   'email' => 'required|email|max:255|unique:users',
                   'password' => 'required|confirmed|min:6',
               ]);
+            if ($validator->passes()) {
+                // Assemble registration credentials and attributes
+                $credentials = [
+                    'email' => trim($request->get('email')),
+                    'password' => $request->get('password'),
+                    'first_name' => $request->get('first_name', null),
+                    'last_name' => $request->get('last_name', null),
+                    'nomor_induk' => $request->get('nomor_induk'),
+                    'phone'  => $request->get('phone',null),
+                    'jenis_kelamin' => $request->get('jenis_kelamin',null),
+                    'Agama' => $request->get('Agama',null),
+                    'tempat_lahir' => $request->get('tempat_lahir',null),
+                    'tanggal_lahir' => $request->get('tanggal_lahir',null),
+                    'alamat' => $request->get('alamat',null),
+                    'photo' => $request->get('photo',null),
+                ];
+                // $activate = (bool)$request->get('activate', true);
 
-              // Assemble registration credentials and attributes
-              $credentials = [
-                  'email' => trim($request->get('email')),
-                  'password' => $request->get('password'),
-                  'first_name' => $request->get('first_name', null),
-                  'last_name' => $request->get('last_name', null),
-                  'nomor_induk' => $request->get('nomor_induk'),
-                  'phone'  => $request->get('phone',null),
-                  'jenis_kelamin' => $request->get('jenis_kelamin',null),
-                  'Agama' => $request->get('Agama',null),
-                  'tempat_lahir' => $request->get('tempat_lahir',null),
-                  'tanggal_lahir' => $request->get('tanggal_lahir',null),
-                  'alamat' => $request->get('alamat',null),
-                  'photo' => $request->get('photo',null),
-              ];
-              // $activate = (bool)$request->get('activate', true);
+                // Attempt the registration
+                $result = $this->authManager->register($credentials, true);
 
-              // Attempt the registration
-              $result = $this->authManager->register($credentials, true);
+                if ($result->isFailure()) {
+                      // return redirect('admin/guru/tambah');
+                     return redirect('admin/guru/tambah')->with('message','Error'.$result->message())
+                                              ->with('alert','danger');
+                } elseif ($result->isSuccessful()) {
+                    // Assign User Roles
+                // foreach ($request->get('roles', []) as $slug => $id) {
+                    $role = Sentinel::findRoleBySlug('guru');
+                    if ($role) {
+                        $role->users()->attach($result->user);
+                    }
+                // }
+                    try {
+                          $guru =  new guru;
+                          $guru->nip = $request->input('nip');
+                          $guru->status_kepegawaian = $request->input('status_kepegawaian');
+                          $guru->jabatan = $request->input('jabatan');
+                          $guru->tugas_tambahan= $request->input('tugas_tambahan');
+                          $guru->sk_pengangkatan= $request->input('sk_pengangkatan');
+                          $guru->tahun_pengangkatan= $request->input('tahun_pengangkatan');
+                          $guru->lembaga_pengangkatan= $request->input('lembaga_pengangkatan');
+                          $guru->sumber_gaji= $request->input('sumber_gaji');
+                          $guru->status_perkawinan = $request->input('status_perkawinan');
+                          $guru->nama_suami= $request->input('nama_suami');
+                          $guru->nama_istri= $request->input('nama_istri');
+                          $guru->status_walikelas = $request->input('status_walikelas');
+                          $guru->user_id = $result->user->id;
+                          $guru->admin_id = \Sentinel::getUser()->id;
+                          if ($guru->save()) {
+                                return redirect('admin/guru/tambah')->with('message','Berhasil input data ')
+                                              ->with('alert','success');   
+                            // dd($guru);
+                          }
+                    } catch (Illuminate\Database\QueryException $e) {
+                        return redirect('admin/guru/tambah')->with('message','Error '.$e)
+                                              ->with('alert','danger');   
+                    } catch (PDOException $e) {
+                        return redirect('admin/guru/tambah')->with('message','Error '.$e)
+                                              ->with('alert','danger');   
+                    }        
+                } else {
+                     return redirect('admin/guru/tambah')->with('message','Error input data aneh')
+                                              ->with('alert','danger'); 
+                }
 
-              if ($result->isFailure()) {
-                  
-                    // return redirect('admin/guru/tambah');
-                    dd($result);
-              }
+                
+            } else {
+                return redirect('admin/guru/tambah')->with('message','Error'.$validator->errors())
+                                              ->with('alert','danger'); 
+            }
 
-
-              // Assign User Roles
-              // foreach ($request->get('roles', []) as $slug => $id) {
-                  $role = Sentinel::findRoleBySlug('guru');
-                  if ($role) {
-                      $role->users()->attach($result->user);
-                  }
-              // }
-                  try {
-                        $guru =  new guru;
-                        $guru->nip = $request->input('nip');
-                        $guru->status_kepegawaian = $request->input('status_kepegawaian');
-                        $guru->jabatan = $request->input('jabatan');
-                        $guru->tugas_tambahan= $request->input('tugas_tambahan');
-                        $guru->sk_pengangkatan= $request->input('sk_pengangkatan');
-                        $guru->tahun_pengangkatan= $request->input('tahun_pengangkatan');
-                        $guru->lembaga_pengangkatan= $request->input('lembaga_pengangkatan');
-                        $guru->sumber_gaji= $request->input('sumber_gaji');
-                        $guru->status_perkawinan = $request->input('status_perkawinan');
-                        $guru->nama_suami= $request->input('nama_suami');
-                        $guru->nama_istri= $request->input('nama_istri');
-                        $guru->status_walikelas = $request->input('status_walikelas');
-                        $guru->user_id = $result->user->id;
-                        $guru->admin_id = \Sentinel::getUser()->id;
-                        if ($guru->save()) {
-                              return redirect('admin/guru/tambah');
-                        }
-                  } catch (Illuminate\Database\QueryException $e) {
-                     dd($e);   
-                  } catch (PDOException $e) {
-                      dd($e);
-                  }  
+              
 
                   
               // $result->setMessage("User {$request->get('email')} has been created.");
@@ -142,20 +160,19 @@ class GuruController extends Controller
                if ($user->save()) {
 
                    try {
-                        $guru =  Guru::where('user_id',$user->id)->update([
-              
-                                    'nip' = $request->input('nip'),
-                                    'status_kepegawaian' = $request->input('status_kepegawaian'),
-                                    'jabatan' = $request->input('jabatan'),
-                                    'tugas_tambahan'= $request->input('tugas_tambahan'),
-                                    'sk_pengangkatan'= $request->input('sk_pengangkatan'),
-                                    'tahun_pengangkatan'= $request->input('tahun_pengangkatan'),
-                                    'lembaga_pengangkatan'= $request->input('lembaga_pengangkatan'),
-                                    'sumber_gaji'= $request->input('sumber_gaji'),
-                                    'status_perkawinan' = $request->input('status_perkawinan'),
-                                    'nama_suami'= $request->input('nama_suami'),
-                                    'nama_istri'= $request->input('nama_istri'),
-                                    'status_walikelas' = $request->input('status_walikelas'),
+                        $guru =  Guru::where('user_id',$user->id)->update([             
+                                    'nip' => $request->input('nip'),
+                                    'status_kepegawaian' => $request->input('status_kepegawaian'),
+                                    'jabatan' => $request->input('jabatan'),
+                                    'tugas_tambahan'=> $request->input('tugas_tambahan'),
+                                    'sk_pengangkatan'=> $request->input('sk_pengangkatan'),
+                                    'tahun_pengangkatan'=> $request->input('tahun_pengangkatan'),
+                                    'lembaga_pengangkatan'=> $request->input('lembaga_pengangkatan'),
+                                    'sumber_gaji'=> $request->input('sumber_gaji'),
+                                    'status_perkawinan' => $request->input('status_perkawinan'),
+                                    'nama_suami'=> $request->input('nama_suami'),
+                                    'nama_istri'=> $request->input('nama_istri'),
+                                    'status_walikelas' => $request->input('status_walikelas'),
                                     'user_id' => $user->id,
                                     'admin_id' => \Sentinel::getUser()->id,
                               ]);
@@ -201,6 +218,7 @@ class GuruController extends Controller
 
         }
       }
+
     	public function profil($id)
       {
            $user = User::find($id);
