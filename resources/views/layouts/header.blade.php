@@ -56,7 +56,7 @@
                     </ul>
                   </li>
                   @if (Sentinel::check() && Sentinel::inRole('wali_kelas'))
-                  <li><a href="{{ URL('walikelas/nilai/kelola') }}">Kelola Nilai</a></li>
+                  <li><a href="{{ URL('walikelas/nilai/kelola')}}">Kelola Nilai</a></li>
                   <li><a href="{{ URL('walikelas/lihatnilai') }}">Lihat Nilai</a></li>
                   @endif
                   <li class="dropdown">

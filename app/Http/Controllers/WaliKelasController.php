@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Sentinel;
 use App\Http\Requests;
+use App\KelasJurusan;
+use App\Kelas;
+use App\Jurusan;
 
 class WaliKelasController extends Controller
 {
@@ -16,15 +19,26 @@ class WaliKelasController extends Controller
 
             return view('walikelas.index', ['users' => $users]);
       }
-    	public function guruProfil()
+    	public function halamanKelolaNilai($kelasjurusan_id,$mapel_id)
       {
-       	return view('guru.profil');
-      }
-      public function KelasX()
+
+            $role = Sentinel::findRoleBySlug('siswa');
+            $user = $role->users()->with('roles','siswa.kelasJurusan')->paginate(20);
+              
+
+            $kelas_jurusan = KelasJurusan::find($kelasjurusan_id);  //kalo ini nampilin semua kelasjurusan
+
+              // mau nyoab cek data siswa apa ada relasinya.. tuh kan ada
+            $no=1;
+            return view('walikelas.kelolanilai', compact('user','no', 'kelas_jurusan', 'mapel_id'));
+                
+        
+      }   
+      /*public function cek()
       {
-       	return view('guru.kelasx');
-      }
-      public function kelolaNilai()
+       	return view('walikelas.ceknilai');
+      }*/
+      public function kelola()
       {
         return view ('walikelas.kelolanilai');
       }

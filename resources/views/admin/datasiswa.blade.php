@@ -9,55 +9,48 @@
 
 <div class="container bread">
 	<ul class="breadcrumb"><li><a href="index.php">Home</a></li>
-	
-	
 		<li class="active">Data Siswa</li>
 	</ul>
 </div>
 	
 <div class="container">
-		@if (session('message'))
+			@if (session('message'))
             <div class="alert alert-{{session('alert')}}">
-                <p>{{session('message')}}
-                </p>
+                <p>{{session('message')}}</p>
             </div>  
-          @endif
-		<h1 class="page-header">Data Siswa <a href="{{ URL('admin/siswa/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah data</a>
-		</h1>
+        	@endif
+			<h1 class="page-header">Data Siswa <a href="{{ URL('admin/siswa/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah data</a>
+			</h1>
 
-      	<div class="box-body table-responsive" >
+	      	<div class="box-body table-responsive" >
 				<table class="table table-striped">
-						<tr>
-							<th>No</th>
-							<th>NIS</th>
-							<th>Nama</th>
-							<th>Kelas</th>
-							<th>Aksi</th>
-						</tr>
-	              	@foreach ($users as $data)		
-						<tr>
-  							<td>{{ $no++ }}</td>
-  							<td>{{ $data->nomor_induk }}</td>
-  							<td>{{ $data->first_name }} {{ $data->last_name }}</td>
-  							<td>XII Farmasi</td>
-                  							<td><a href="{{ URL('admin/siswa',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
-                                &nbsp&nbsp&nbsp
-                                <form action="{{ URL('admin/siswa',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
-                                {{csrf_field()}}
-                                <button onclick="return confirm('Yakin akan menghapus data ini?')" class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
-                           
-                                </form>
-                                &nbsp&nbsp&nbsp
-                                <a href="{{ URL('admin/siswa/detail')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
-  						</tr>
-	  						
-	  				@endforeach
-		  					
+					<tr>
+						<th>No</th>
+						<th>NIS</th>
+						<th>Nama</th>
+						<th>Kelas</th>
+						<th>Aksi</th>
+					</tr>
+              		@foreach ($users as $data)		
+					<tr>
+						<td>{{ $no++ }}</td>
+						<td>{{ $data->nomor_induk }}</td>
+						<td>{{ $data->first_name }} {{ $data->last_name }}</td>
+						<td>XII Farmasi</td>
+          				<td><a href="{{ URL('admin/siswa',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
+                        &nbsp&nbsp&nbsp
+                        <form action="{{ URL('admin/siswa',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
+                        {{csrf_field()}}
+                        <button onclick="return confirm('Yakin akan menghapus data ini?')" class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
+                        </form>
+                        &nbsp&nbsp&nbsp
+                        <a href="{{ URL('admin/siswa/detail')}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
+					</tr>
+  					@endforeach	
 				</table>
 				<div class="text-center">
 					{{$users->links()}}
-				</div>
-				
-		</div>
+				</div>	
+			</div>
 </div>
 @endsection

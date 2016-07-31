@@ -28,14 +28,14 @@
                             <th>Cek Nilai</th>
                             
                         </tr>  
-                            @foreach ($ as $data) 
+                           {{--  @foreach ($ as $data) --}} 
                             <tr>
-                            <td>{{$no++}}</td>
-                            <td>{{$data->nomor_induk}}</td>
-                            <td>{{$data->full_name}}</td>
-                            <td><a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Pengetahuan</a>&nbsp&nbsp&nbsp<a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Keterampilan</a>&nbsp&nbsp&nbsp<a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Sikap</a>&nbsp&nbsp&nbsp<a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Deskripsi</a>&nbsp&nbsp&nbsp<a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Proses Nilai</a></td>
+                            <td>{{-- {{$no++}} --}}</td>
+                            <td>{{-- {{$data->nomor_induk}} --}}</td>
+                            <td>{{-- {{$data->full_name}} --}}</td>
+                            <td><a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Pengetahuan</a>&nbsp&nbsp&nbsp<a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Keterampilan</a>&nbsp&nbsp&nbsp<a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Sikap</a>&nbsp&nbsp&nbsp<a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Proses Nilai</a></td>
                             </tr>
-                        @endforeach                        
+                       {{--  @endforeach  --}}                       
                     </table>
                     <div class="text-center">
                        {{--  {!! $pengumuman->links() !!} --}}

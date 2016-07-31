@@ -3,16 +3,12 @@
   Ruang Administrator
 @endsection
 
-
-
 @section('content')
 <div class="container bread">
 	<ul class="breadcrumb"><li><a href="index.php">Home</a></li>
 		<li class="active">Kelola Jurusan</li>
 	</ul>
-</div>
-
-	
+</div>	
 <div class="container">
 	@if (session('message'))
                     <div class="alert alert-{{session('alert')}}">
@@ -41,5 +37,8 @@
 			</tr>			
 			@endforeach		
 		</table>
+		<div class="text-center">
+			{!! $jurusan->links() !!}
+		</div>
 </div>
 @endsection

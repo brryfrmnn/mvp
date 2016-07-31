@@ -10,26 +10,20 @@
 <div class="container bread">
 	<div class="row" >
         <div class="col-lg-8 col-lg-offset-2"  >
-	<ul class="breadcrumb"><li><a href="index.php">Home</a></li>
-	
-	
-		<li class="active">Edit Data Guru</li>
-	</ul>
+        	<ul class="breadcrumb"><li><a href="index.php">Home</a></li>
+        		<li class="active">Edit Data Guru</li>
+        	</ul>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-	
-</div>
-
-	
-	<div class="container">
-		<div class="row" >
+		
+<div class="container">
+	<div class="row" >
         <div class="col-lg-8 col-lg-offset-2"  >
-                    <h1 class="page-header">Edit Guru<a href="{{ URL('admin/data/guru')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+        <h1 class="page-header">Edit Guru<a href="{{ URL('admin/data/guru')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
      		<div class="panel panel-default">
                 <div class="panel-body">
                    <form action="{{ URL('admin/guru',[$guru->id,'update'])}}" method="POST" role="form" enctype="multipart/form-data" >
-                    
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="">NIP</label>
@@ -153,11 +147,9 @@
                    </form>
                 </div>
             </div>
-       
         </div>
-    
     </div>
-	</div>
+</div>
 
 	
 			

@@ -34,5 +34,8 @@
 				</tr>			
 					@endforeach		
 			</table>
+			<div class="text-center">
+						{!! $kelasjurusan->links() !!}
+			</div>
 </div>
 @endsection

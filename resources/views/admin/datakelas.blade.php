@@ -43,5 +43,8 @@
 				</tr>			
 					@endforeach		
 			</table>
+			<div class="text-center">
+				{!! $kelas->links() !!}
+			</div>
 </div>
 @endsection
