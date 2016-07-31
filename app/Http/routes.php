@@ -117,6 +117,7 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::post('{id}/update', 'GuruController@update');
 		Route::post('{id}/delete', 'GuruController@hapus');
 		Route::get('detail', 'AdminController@detailGuru');
+		Route::post('/wali','AdminController@wali');
 		    
 	});
 	Route::group(['prefix' => 'mapel'], function () {
