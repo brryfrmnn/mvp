@@ -194,18 +194,8 @@ Route::group(['prefix' => 'siswa'], function () {
 Route::group(['prefix' => 'walikelas'], function () {
 	Route::get('/','WaliKelasController@index');
 	Route::group(['prefix' => 'nilai'], function () {
-		Route::get('kelola', 'WaliKelasController@halamanKelolaNilai');/*{kelasjurusan_id}/{mapel_id}/*/
+		Route::get('kelola', 'WaliKelasController@kelola');/*{kelasjurusan_id}/{mapel_id}/*/
 		Route::get('cek', 'WaliKelasController@cek');
-		/*Route::get('kelola', '@kelolaNilai');
-		Route::get('cek', '@kelolaNilai');	
-		Route::get('input', 'GuruController@inputNilai');
-		Route::get('input/pengetahuan', 'GuruController@inputNilaiPengetahuan');
-		Route::get('input/keterampilan', 'GuruController@inputNilaiKeterampilan') ;	
-		Route::get('input/sikap', 'GuruController@inputNilaiSikap');	
-		Route::get('edit', 'GuruController@editNilai');
-		Route::get('edit/pengetahuan', 'GuruController@editNilaiPengetahuan');
-		Route::get('edit/keterampilan', 'GuruController@editNilaiKeterampilan');	
-		Route::get('edit/sikap', 'GuruController@editNilaiSikap');	*/
 	});
 		
 		Route::get('profil', 'WaliKelasController@guruProfil');

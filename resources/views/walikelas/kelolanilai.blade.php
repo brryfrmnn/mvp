@@ -32,7 +32,7 @@
                             <th>Aksi</th>
                             
                         </tr>  
-                            @foreach ($user as $data) 
+                        @foreach ($user as $data) 
                             <tr>
                             <td>{{$no++}}</td>
                             <td>{{$data->nomor_induk}}</td>

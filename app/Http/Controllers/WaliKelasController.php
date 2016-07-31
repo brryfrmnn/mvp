@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\KelasJurusan;
 use App\Kelas;
 use App\Jurusan;
+use App\User;
 
 class WaliKelasController extends Controller
 {
@@ -19,12 +20,18 @@ class WaliKelasController extends Controller
 
             return view('walikelas.index', ['users' => $users]);
       }
-    	public function halamanKelolaNilai($kelasjurusan_id,$mapel_id)
-      {
 
+    	public function kelola()
+      {
+            $guru = User::with('guru')->find(Sentinel::getUser()->id);
+            $kelasjurusan_id = $guru->guru->kelas_jurusan_id;
+            // dd($kelasjurusan_id);
             $role = Sentinel::findRoleBySlug('siswa');
-            $user = $role->users()->with('roles','siswa.kelasJurusan')->paginate(20);
-              
+            $user = $role->users()->with(['roles','siswa.kelasJurusan' => function($query) use ($kelasjurusan_id){
+                                      $query->where('id',$kelasjurusan_id);
+                                  }])                               
+                                  ->paginate(20);
+            // dd($user);
 
             $kelas_jurusan = KelasJurusan::find($kelasjurusan_id);  //kalo ini nampilin semua kelasjurusan
 
@@ -38,8 +45,8 @@ class WaliKelasController extends Controller
       {
        	return view('walikelas.ceknilai');
       }*/
-      public function kelola()
+      /*public function kelola()
       {
         return view ('walikelas.kelolanilai');
-      }
+      }*/
 }
