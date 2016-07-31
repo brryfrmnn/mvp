@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Mapel; 
 use App\Pengumuman;
 use Sentinel;
+use App\KelasJurusan;
 use App\Http\Requests;
+use App\User;
+use App\Guru;
 
 class AdminController extends Controller
 {
@@ -25,21 +28,25 @@ class AdminController extends Controller
    	public function dataGuru()
    	{
    		$role = Sentinel::findRoleBySlug('guru');
-         $guru = $role->users()->with('roles')->paginate(8);
+         $guru = $role->users()->with('roles','guru')->paginate(8);
          $no=1;
+         $kelasjurusan_id = 0;
+         $kelasjurusan = 0;
          //cek jika guru tersebut memiliki role wali kelas
          foreach ($guru as $data) {
             foreach ($data->roles as $role) {
                 if ($role->slug == 'wali_kelas') {
                     $data->wali_kelas = true;
+                    $kelasjurusan_id = $data->guru->kelas_jurusan_id;
                 } else {
                     $data->wali_kelas = false;
+                    $kelasjurusan = KelasJurusan::all();
                 }
             }
           }
-
+          
         
-        return view('admin.dataguru', ['guru' => $guru, 'no' =>$no]);
+        return view('admin.dataguru', ['guru' => $guru, 'no' =>$no, 'kelasjurusan' => $kelasjurusan, 'kelasjurusan_id' => $kelasjurusan_id,]);
    	}
       public function dataSiswa()
       {
@@ -210,12 +217,40 @@ class AdminController extends Controller
        return view('admin.detailkelas');
       }
 
-      public function indexWaliKelas()
-      {
-          $role = Sentinel::findRoleBySlug('guru');
-          $guru = $role->users()->with('roles')->paginate(8);
-          $no=1;
-          
-          return view('admin.dataguru', ['guru' => $guru, 'no' =>$no]);
+      public function wali(Request $request)
+      { 
+
+          $validator = \Validator::make($request->all(), [
+              'guru_id' => 'integer|required|exists:users,id',
+              'status' => 'boolean|required',
+              'kelasjurusan_id' => 'integer|required'
+          ]);
+          if ($validator->passes()) {
+              //method for giving role walikelas
+              $guru_id = $request->input('guru_id');
+              $status = $request->input('status');
+              $kelasjurusan_id = $request->input('kelasjurusan_id');
+              $guru = User::find($guru_id);
+              if ($status == 1) {
+                  $role = Sentinel::findRoleBySlug('wali_kelas');
+                  if ($role) {
+                      $role->users()->attach($guru);
+                      $setKelasJurusan = Guru::where('user_id',$guru_id)
+                                              ->update(['kelas_jurusan_id' => $kelasjurusan_id]);
+                  }   
+              } else {
+                  $role = Sentinel::findRoleBySlug('wali_kelas');
+                  if ($role) {
+                      $role->users()->detach($guru);
+                      $setKelasJurusan = Guru::where('user_id',$guru_id)
+                                              ->update(['kelas_jurusan_id' => '0']);
+                  }
+              }
+              return redirect('admin/data/guru')->with('message','Berhasil mengubah ')
+                                          ->with('alert','success');
+          } else {
+              return redirect('admin/data/guru')->with('message','Error '.$validator->errors())
+                                          ->with('alert','danger');
+          }
       }
 }

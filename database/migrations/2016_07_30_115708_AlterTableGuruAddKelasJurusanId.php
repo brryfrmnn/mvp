@@ -12,7 +12,9 @@ class AlterTableGuruAddKelasJurusanId extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('guru', function($table) {
+            $table->unsignedInteger('kelas_jurusan_id')->default(0);
+        });
     }
 
     /**

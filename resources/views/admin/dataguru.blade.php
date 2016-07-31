@@ -27,8 +27,9 @@
 							<th>Nama</th>
             				<th>Alamat</th>
 							<th>Jenis Kelamin</th>
-							<th>Wali Kelas</th>
-							<th width="35%">Aksi</th>
+							<th width="10%">Wali Kelas</th>
+							<th width="25%">Aksi</th>
+
 						</tr>
 						 @foreach ($guru as $data)				
 						<tr>
@@ -39,9 +40,51 @@
             			<td>Perempuan</td>
             			<td>
 								@if ($data->wali_kelas)
-									<a href="{{ URL('admin/guru/edit')}}" class="btn btn-orange">Ya. Jadikan Guru&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+									<form action="{{ URL('admin/guru/wali')}}" method="POST" accept-charset="utf-8">
+			                            {{csrf_field()}}
+			                            <input type="hidden" name="guru_id" value="{{$data->id}}">
+			                            <input type="hidden" name="status" value="0">
+			                            <input type="hidden" name="kelasjurusan_id" value="{{$kelasjurusan_id}}">
+			                            <button class="btn btn-orange" style="padding: 6px 18px;" type="submit">Ya. Jadikan Guru Biasa</button>
+		                            </form>
 								@else
-									<a href="{{ URL('admin/guru/edit')}}" class="btn btn-info">Tidak. Jadikan Wali Kelas</a>
+									<button class="btn btn-info"  data-toggle="modal" data-target="#myModal_{{$data->id}}">Tidak. Jadikan Wali Kelas</button>
+									<!-- Modal -->
+										<div class="modal fade" id="myModal_{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										        <h4 class="modal-title" id="myModalLabel">Pilih Kelas</h4>
+										      </div>
+										      <form action="{{ URL('admin/guru/wali')}}" method="POST" accept-charset="utf-8">
+											      <div class="modal-body">
+														
+								                            {{csrf_field()}}
+								                            <input type="hidden" name="guru_id" value="{{$data->id}}">
+								                            <input type="hidden" name="status" value="1">
+								                            <select name="kelasjurusan_id" id="inputKelasjurusan_id" class="form-control" required="required">
+								                            	<option value="0" selected disabled>Pilih Kelas</option>
+								                            	@foreach ($kelasjurusan as $data)
+								                            		<option value="{{$data->id}}">{{$data->kelas_jurusan}}</option>
+								                            	@endforeach
+								                            </select>
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											        <button  type="submit" class="btn btn-primary">Jadikan Wali Kelas</button>
+											      </div>
+    										   </form>
+										    </div>
+										  </div>
+										</div>
+
+										<script type="text/javascript">
+											$('#myModal').on('shown.bs.modal', function () {
+											  $('#myInput').focus()
+											})
+										</script>
+		                            
 								@endif
 							</td>
 							<td>
