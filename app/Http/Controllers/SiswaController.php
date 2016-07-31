@@ -50,8 +50,9 @@ class SiswaController extends Controller
         //atau
 
             $role = Sentinel::findRoleBySlug('siswa');
-            $siswa = $role->users()->with('roles')->paginate(8);
+            $siswa = $role->users()->with('roles','siswa.kelasJurusan')->paginate(8);
             $no=1;
+            // dd($siswa[0]->siswa);
             return view('admin.datasiswa', ['users' => $siswa, 'no' => $no]);
      }
 

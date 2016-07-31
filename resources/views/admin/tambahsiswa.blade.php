@@ -32,35 +32,35 @@
                     
                    {{csrf_field()}}
                     <div class="form-group">
-                        <label for="">Nomor Induk</label>
-                        <input value=""name="nomor_induk"type="text" class="form-control" id="" placeholder="Masukan nomor induk siswa">
+                        <label for="">Nomor Induk *</label>
+                        <input required value=""name="nomor_induk"type="text" class="form-control" id="" placeholder="Masukan nomor induk siswa">
                     </div>
                     <div class="form-group">
-                        <label for="">Nama Depan</label>
-                        <input value=""name="first_name"type="text" class="form-control" id="" placeholder="Masukan Nama Depan">
+                        <label for="">Nama Depan *</label>
+                        <input required value=""name="first_name"type="text" class="form-control" id="" placeholder="Masukan Nama Depan">
                     </div>
                     <div class="form-group">
-                        <label for="">Nama Belakang</label>
-                        <input value=""name="last_name"type="text" class="form-control" id="" placeholder="Masukan Nama Belakang">
+                        <label for="">Nama Belakang *</label>
+                        <input required value=""name="last_name"type="text" class="form-control" id="" placeholder="Masukan Nama Belakang">
                     </div>
                     <div class="form-group">
-                        <label for="">Email</label>
-                        <input value=""name="email"type="text" class="form-control" id="" placeholder="Masukan Email">
+                        <label for="">Email *</label>
+                        <input required value=""name="email"type="text" class="form-control" id="" placeholder="Masukan Email">
                     </div>
                     <div class="form-group">
-                        <label for="">Password</label>
-                        <input value=""name="password"type="password" class="form-control" id="" placeholder="Masukan Password">
+                        <label for="">Password *</label>
+                        <input required value=""name="password"type="password" class="form-control" id="" placeholder="Masukan Password">
                     </div>
                     <div class="form-group">
-                        <label for="">Password</label>
-                        <input value=""name="password_confirmation"type="password" class="form-control" id="" placeholder="Masukan Konfirmasi Password">
+                        <label for="">Password *</label>
+                        <input required value=""name="password_confirmation"type="password" class="form-control" id="" placeholder="Masukan Konfirmasi Password">
                     </div>
                     <div class="form-group">
-                        <label for="">Nomor Telepon</label>
-                        <input value=""name="phone"type="text" class="form-control" id="" placeholder="Masukan Nomo Telepon">
+                        <label for="">Nomor Telepon *</label>
+                        <input required value=""name="phone"type="text" class="form-control" id="" placeholder="Masukan Nomo Telepon">
                     </div>
                     <div class="form-group">
-                        <label>Jenis Kelamin</label>
+                        <label>Jenis Kelamin *</label>
                         <div class="radio">
                             <label>
                             <input type="radio" name="jenis_kelamin" value="l" 
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Agama</label>
+                        <label>Agama *</label>
                         <div class="radio">
                             <label>
                             <input type="radio" name="Agama" value="l" 
@@ -79,15 +79,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Tempat lahir</label>
+                        <label for="">Tempat lahir *</label>
                         <input value=""name="tempat_lahir"type="text" class="form-control" id="" placeholder="Masukan Tempat lahir">
                     </div>
                     <div class="form-group">
-                        <label for="">Tanggal Lahir</label>
+                        <label for="">Tanggal Lahir *</label>
                         <input value="" name="tanggal_lahir"type="date" class="form-control" id="" placeholder="Masukan tanggal lahir">
                     </div>
                     <div class="form-group">
-                        <label>Alamat</label>
+                        <label>Alamat *</label>
                         <textarea name="alamat" class="form-control" placeholder="Masukan alamat"></textarea>
                     </div>
                     <div class="form-group">
@@ -96,18 +96,18 @@
                     </div>
                     <div class="form-group">
                         <label>Semester</label>
-                        <input required value=""name="semester" type="text " class="form-control" placeholder="Masukan Semester">
+                        <input  value=""name="semester" type="text " class="form-control" placeholder="Masukan Semester">
                     </div>
                     <div class="form-group">
-                        <label>Tahun Ajaran</label>
-                        <input required value=""name="tahun_ajar" type="text " class="form-control" placeholder="Masukan Tahun ajaran">
+                        <label>Tahun Ajaran </label>
+                        <input  value=""name="tahun_ajar" type="text " class="form-control" placeholder="Masukan Tahun ajaran">
                     </div>
                     <div class="form-group">
-                        <label for="">Jenis Tinggal</label>
+                        <label for="">Jenis Tinggal </label>
                         <input value="" name="jenis_tinggal"type="text" class="form-control" id="" placeholder="Jenis tinggal">
                     </div>
                     <div class="form-group">
-                        <label for="">Nama Ayah</label>
+                        <label for="">Nama Ayah </label>
                         <input value="" name="nama_ayah"type="text" class="form-control" id="" placeholder="Nama ayah">
                     </div>
                     <div class="form-group">

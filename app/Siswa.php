@@ -36,6 +36,7 @@ class Siswa extends Model
     {
     	 return $this->belongsTo('App\KelasJurusan','kelas_jurusan_id', 'id'); /*1 KJ bisa dimiliki banyak siswa?*/
     }
+    
 
    
 }

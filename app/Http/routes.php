@@ -194,7 +194,7 @@ Route::group(['prefix' => 'siswa'], function () {
 Route::group(['prefix' => 'walikelas'], function () {
 	Route::get('/','WaliKelasController@index');
 	Route::group(['prefix' => 'nilai'], function () {
-		Route::get('{kelasjurusan_id}/{mapel_id}/kelola', 'WaliKelasController@halamanKelolaNilai');/*{kelasjurusan_id}/{mapel_id}/*/
+		Route::get('kelola', 'WaliKelasController@halamanKelolaNilai');/*{kelasjurusan_id}/{mapel_id}/*/
 		Route::get('cek', 'WaliKelasController@cek');
 		/*Route::get('kelola', '@kelolaNilai');
 		Route::get('cek', '@kelolaNilai');	

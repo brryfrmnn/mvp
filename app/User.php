@@ -102,6 +102,7 @@ class User extends Sentinel
     {
         return $this->hasMany('App\NilaiRapor', 'siswa_id','id');
     }
+    
 
     public function getFullNameAttribute()
     {

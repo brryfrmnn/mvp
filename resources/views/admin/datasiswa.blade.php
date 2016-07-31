@@ -36,7 +36,7 @@
 						<td>{{ $no++ }}</td>
 						<td>{{ $data->nomor_induk }}</td>
 						<td>{{ $data->first_name }} {{ $data->last_name }}</td>
-						<td>XII Farmasi</td>
+						<td>{{ $data->siswa->kelasJurusan->kelas_jurusan}}</td>
           				<td><a href="{{ URL('admin/siswa',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
                         &nbsp&nbsp&nbsp
                         <form action="{{ URL('admin/siswa',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
