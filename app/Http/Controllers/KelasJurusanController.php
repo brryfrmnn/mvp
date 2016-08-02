@@ -28,7 +28,7 @@ class KelasJurusanController extends Controller
 
     public function index()
    	{
-   		$kelasjurusan = KelasJurusan::all();
+   		$kelasjurusan = KelasJurusan::orderBy('id','asc')->paginate(8);
    		$no=1;
    		return view ('admin.datakelasjurusan')->with('kelasjurusan', $kelasjurusan)->with('no', $no);
    	}

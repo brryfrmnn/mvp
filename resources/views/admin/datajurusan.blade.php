@@ -37,8 +37,6 @@
 			</tr>			
 			@endforeach		
 		</table>
-		<div class="text-center">
-			{!! $jurusan->links() !!}
-		</div>
+		
 </div>
 @endsection
