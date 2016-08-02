@@ -28,9 +28,10 @@
 					<td>{{ $no++}}</td>
 					<td>{{ $data->nama}}</td>
 					<td>{{ $data->kategori}}</td>
-					<td><a href="{{ URL('admin/mapel',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp
+					<td>
 				    <form action="{{ URL('admin/mapel',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
 				    {{csrf_field()}}
+				    <a href="{{ URL('admin/mapel',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
 				    <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
 				    </form>
 				    </td>

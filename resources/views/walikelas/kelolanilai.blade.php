@@ -37,7 +37,7 @@
                             <td>{{$no++}}</td>
                             <td>{{$data->nomor_induk}}</td>
                             <td>{{$data->full_name}}</td>
-                            <td><a href="{{'walikelas/nilai/cek'}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Kelola Nilai</a>
+                            <td><a href="{{URL('walikelas/nilai/cek')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Kelola Nilai</a>
                             </td>
                             </tr>
                             {{-- {{URL('guru/nilai/input/pengetahuan',[$data->id,$mapel_id])}} --}}

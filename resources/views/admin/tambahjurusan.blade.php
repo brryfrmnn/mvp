@@ -22,6 +22,11 @@
       <div class="container">
             <div class="row" >
         <div class="col-lg-8 col-lg-offset-2"  >
+        @if (session('message'))
+                    <div class="alert alert-{{session('alert')}}">
+                        <p>{{session('message')}}</p>
+                    </div>  
+        @endif
             <h1 class="page-header">Tambah Jurusan<a href="{{ URL('admin/data/jurusan')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
             <div class="panel panel-default">
                 <div class="panel-body">

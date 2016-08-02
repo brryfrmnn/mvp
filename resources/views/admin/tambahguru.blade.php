@@ -37,15 +37,15 @@
                            {{csrf_field()}}
                             <div class="form-group">
                                 <label for="">NIK</label>
-                                <input value=""name="nomor_induk"type="text" class="form-control" id="" placeholder="Masukan nis">
+                                <input value=""name="nomor_induk"type="text" class="form-control" id="" placeholder="Masukan nik">
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Depan</label>
-                                <input value=""name="first_name"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                                <input value=""name="first_name"type="text" class="form-control" id="" placeholder="Masukan Nama Depan">
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Belakang</label>
-                                <input value=""name="last_name"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                                <input value=""name="last_name"type="text" class="form-control" id="" placeholder="Masukan Nama Belakang">
                             </div>
                             <div class="form-group">
                                 <label for="">Email</label>
@@ -68,7 +68,7 @@
                                 <div class="radio">
                                     <label>
                                     <input type="radio" name="jenis_kelamin" value="l" 
-                                    > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="jenis_kelamin" value="p" > Perempuan
+                                    >Laki-laki &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="jenis_kelamin" value="p" > Perempuan
                                     </label>
                                 </div>
                             </div>
@@ -88,11 +88,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Tanggal Lahir</label>
-                                <input value="" name="tanggal_lahir"type="date" class="form-control" id="" placeholder="Masukan nis">
+                                <input value="" name="tanggal_lahir"type="date" class="form-control" id="" placeholder="Masukan Tanggal lahir">
                             </div>
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <textarea name="alamat" class="form-control" placeholder=""></textarea>
+                                <textarea name="alamat" class="form-control" placeholder="Masukan Alamat"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Photo</label>
@@ -100,47 +100,47 @@
                             </div>
                             <div class="form-group">
                                 <label>NIP</label>
-                                <input required value=""name="nip" type="text " class="form-control" placeholder="">
+                                <input value=""name="nip" type="text " class="form-control" placeholder="Masukan Nip">
                             </div>
                             <div class="form-group">
                                 <label>Status Kepegawaian</label>
-                                <input required value=""name="status_kepegawaian" type="text " class="form-control" placeholder="">
+                                <input value=""name="status_kepegawaian" type="text " class="form-control" placeholder="Masukan Status Kepegawaian">
                             </div>
                             <div class="form-group">
                                 <label for="">Jabatan</label>
-                                <input value="" name="jabatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                                <input value="" name="jabatan"type="text" class="form-control" id="" placeholder="Masukan Jabatan">
                             </div>
                             <div class="form-group">
                                 <label for="">Tugas Tambahan</label>
-                                <input value="" name="tugas_tambahan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                                <input value="" name="tugas_tambahan"type="text" class="form-control" id="" placeholder="Masukan Tugas Tambahan">
                             </div>
                             <div class="form-group">
                                 <label for="">SK Pengangkatan</label>
-                                <input value="" name="sk_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                                <input value="" name="sk_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan sk_pengangkatan">
                             </div>
                             <div class="form-group">
                                 <label for="">Tahun Pengangkatan</label>
-                                <input value="" name="tahun_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                                <input value="" name="tahun_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan tahun_pengangkatan">
                             </div>
                             <div class="form-group">
                                 <label for="">Lembaga Pengangkatan</label>
-                                <input value="" name="lembaga_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                                <input value="" name="lembaga_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan Lembaga Pengangkatan">
                             </div>
                             <div class="form-group">
                                 <label for="">Sumber Gaji</label>
-                                <input value="" name="sumber_gaji"type="text" class="form-control" id="" placeholder="Masukan nis">
+                                <input value="" name="sumber_gaji"type="text" class="form-control" id="" placeholder="Masukan Sumber Gaji">
                             </div>
                             <div class="form-group">
                                 <label for="">Status Perkawinan</label>
-                                <input value="" name="status_perkawinan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                                <input value="" name="status_perkawinan"type="text" class="form-control" id="" placeholder="Masukan Status Perkawinan">
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Suami</label>
-                                <input value="" name="nama_suami"type="text" class="form-control" id="" placeholder="Masukan nis">
+                                <input value="" name="nama_suami"type="text" class="form-control" id="" placeholder="Masukan Nama Suami">
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Istri</label>
-                                <input value="" name="nama_istri"type="text" class="form-control" id="" placeholder="Masukan nis">
+                                <input value="" name="nama_istri"type="text" class="form-control" id="" placeholder="Masukan Nama Istri">
                             </div>
                             <div class="form-group">
                                 <label for="">Status Wali Kelas</label>

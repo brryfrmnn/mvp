@@ -45,12 +45,14 @@
                 			<td> </td>
                 			<td>{{ $data->semester }} </td>
                 			<td>{{ $data->tahun_ajaran }} </td>
-  							<td><a href="{{ URL('admin/jadwal',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
+  							<td>
   							<form action="{{ URL('admin/jadwal',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
   							{{csrf_field()}}
+  							<a href="{{ URL('admin/jadwal',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
+  							<a href="{{ URL('admin/jadwal',[$data->id,'detail'])}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
   							<button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
   							</form>
- 							<a href="{{ URL('admin/jadwal',[$data->id,'detail'])}}" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
+ 							</td>
   						</tr>
   						@endforeach
   						
