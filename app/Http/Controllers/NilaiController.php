@@ -21,12 +21,14 @@ class NilaiController extends Controller
     {
 
     		$role = Sentinel::findRoleBySlug('siswa');
-            $user = $role->users()->with('roles','siswa.kelasJurusan')->paginate(20);
+            $user = $role->users()->with(['roles',
+                    'siswa.kelasJurusan' => function($query) use ($kelasjurusan_id) {
+                        $query->where('id',$kelasjurusan_id);
+                    }
+            ])->paginate(20);
             
 
           $kelas_jurusan = KelasJurusan::find($kelasjurusan_id);  //kalo ini nampilin semua kelasjurusan
-
-            // mau nyoab cek data siswa apa ada relasinya.. tuh kan ada
             $no=1;
             return view('guru.inputnilai', compact('user','no', 'kelas_jurusan', 'mapel_id'));
             	
