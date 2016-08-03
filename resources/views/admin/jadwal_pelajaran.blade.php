@@ -16,6 +16,12 @@
 
 	
 	<div class="container">
+					@if (session('message'))
+		                <div class="alert alert-{{session('alert')}}">
+		                    <p>{{session('message')}}
+		                    </p>
+		                </div>  
+            		@endif
 
 					<h1 class="page-header">Jadwal Mengajar <a href="{{URL ('admin/jadwal/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Input Jadwal Mengajar</a></h1>
 					<div class="box-body table-responsive" >
