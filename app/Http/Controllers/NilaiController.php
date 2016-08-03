@@ -13,6 +13,7 @@ use App\NilaiPengetahuan;
 use App\NilaiKeterampilan;
 use App\NilaiSikap;
 use App\NilaiRapor;
+use App\User;
 
 class NilaiController extends Controller
 {
@@ -21,18 +22,17 @@ class NilaiController extends Controller
     {
 
     		$role = Sentinel::findRoleBySlug('siswa');
-            $user = $role->users()->with(['roles',
-                    'siswa.kelasJurusan' => function($query) use ($kelasjurusan_id) {
-                        $query->where('id',$kelasjurusan_id);
-                    }
-            ])->paginate(20);
+            $user = $role->users()
+                            ->with(['roles','siswa.kelasJurusan'])
+                            ->whereHas('siswa.kelasJurusan', function($query) use ($kelasjurusan_id){
+                                $query->where('id',$kelasjurusan_id);
+                            })
+                            ->paginate(20);
             
-
-          $kelas_jurusan = KelasJurusan::find($kelasjurusan_id);  //kalo ini nampilin semua kelasjurusan
+            dd($user);
+            $kelas_jurusan = KelasJurusan::find($kelasjurusan_id);  //kalo ini nampilin semua kelasjurusan
             $no=1;
             return view('guru.inputnilai', compact('user','no', 'kelas_jurusan', 'mapel_id'));
-            	
-    	
     }		
 
     public function proses(Request $request)

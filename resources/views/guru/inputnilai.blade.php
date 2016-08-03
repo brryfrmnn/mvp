@@ -38,7 +38,13 @@
                             <td>{{$data->nomor_induk}}</td>
                             <td>{{$data->full_name}}</td>
                             <td><a href="{{URL('guru/nilai/input/pengetahuan',[$data->id,$mapel_id])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Pengetahuan</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/input/keterampilan',[$data->id,$mapel_id])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Keterampilan</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/input/sikap',[$data->id,$mapel_id])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Sikap</a>&nbsp&nbsp&nbsp<a href="{{URL('guru/nilai/input/deskripsi')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Deskripsi (belum)</a>&nbsp&nbsp&nbsp
-                            
+                            <form action="{{ URL('guru/nilai/proses')}}" method="POST" accept-charset="utf-8">
+                            {{csrf_field()}}
+                            <input type="hidden" name="guru_id" value="15" placeholder="">
+                            <input type="hidden" name="siswa_id" value="{{$data->id}}" placeholder="">
+                            <input type="hidden" name="mapel_id" value="{{$mapel_id}}" placeholder="">
+                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Proses</button>
+                            </form>
                             </td>
                             </tr>
                         @endforeach
