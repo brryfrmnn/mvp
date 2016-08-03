@@ -13,6 +13,7 @@ use App\NilaiPengetahuan;
 use App\NilaiKeterampilan;
 use App\NilaiSikap;
 use App\NilaiRapor;
+use App\NilaiDeskripsi;
 use App\User;
 
 class NilaiController extends Controller
@@ -29,7 +30,7 @@ class NilaiController extends Controller
                             })
                             ->paginate(20);
             
-            dd($user);
+            // dd($user);
             $kelas_jurusan = KelasJurusan::find($kelasjurusan_id);  //kalo ini nampilin semua kelasjurusan
             $no=1;
             return view('guru.inputnilai', compact('user','no', 'kelas_jurusan', 'mapel_id'));
@@ -37,9 +38,9 @@ class NilaiController extends Controller
 
     public function proses(Request $request)
     {
-        $siswa_id = 2;
-        $mapel_id = 4;
-        $guru_id = 15;
+        $siswa_id = $request->input('siswa_id');
+        $mapel_id = $request->input('mapel_id');
+        $guru_id = $request->input('guru_id');
 
         $nilai_pengetahuan = NilaiPengetahuan::where('siswa_id','=',$siswa_id)
                                                 ->where('mapel_id','=',$mapel_id)
@@ -669,7 +670,7 @@ class NilaiController extends Controller
         elseif ($predikat_sikap="K") {
             $antar_mapel="Peserta didik menunjukan sikap yang kurang dalam bersungguh-sungguh menerpakan sikap jujur dan bekerjasama, maka perlu ditingkatkan lagi sikap kerjasama dan percaya diri ";
         }
-    // dd($hasil_pengetahuan);
+        // dd($hasil_pengetahuan);
 
         $nilai_rapor = new NilaiRapor; 
         $nilai_rapor->guru_id =  $request->input('guru_id');

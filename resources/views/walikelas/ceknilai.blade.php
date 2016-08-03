@@ -28,14 +28,24 @@
                             <th>Cek Nilai</th>
                             
                         </tr>  
-                           {{--  @foreach ($ as $data) --}} 
+                        @foreach ($jadwal as $data) 
                             <tr>
                             <td>{{$no++}} </td>
-                            <td>{{$mapel->nama}}</td>
-                            <td>{{$guru->first_name}}</td>
-                            <td><a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Pengetahuan</a>&nbsp&nbsp&nbsp<a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Keterampilan</a>&nbsp&nbsp&nbsp<a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Sikap</a>&nbsp&nbsp&nbsp<a href="{{URL('')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Proses Nilai</a></td>
+                            <td>{{$data->nama_mapel}}</td>
+                            <td>{{$data->guru}}</td>
+                            <td>
+                            <form action="{{ URL('walikelas/nilai')}}" method="POST" accept-charset="utf-8">
+                                {{csrf_field()}}
+
+                                <a href="{{URL('/')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Pengetahuan</a>&nbsp&nbsp&nbsp<a href="{{URL('/')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Keterampilan</a>&nbsp&nbsp&nbsp<a href="{{URL('/')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Sikap</a>&nbsp&nbsp&nbsp
+
+                                <input type="hidden" name="guru_id" value="{{$data->guru_id}}" placeholder="">
+                                <input type="hidden" name="siswa_id" value="{{$data->siswa_id}}" placeholder="">
+                                <input type="hidden" name="mapel_id" value="{{$data->mapel_id}}" placeholder="">
+                                <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Proses</button>
+                            </form>
                             </tr>
-                       {{--  @endforeach  --}}                       
+                        @endforeach                        
                     </table>
                     <div class="text-center">
                        {{--  {!! $pengumuman->links() !!} --}}
