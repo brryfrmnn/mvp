@@ -57,7 +57,7 @@
                   </li>
                   @if (Sentinel::check() && Sentinel::inRole('wali_kelas'))
                   <li><a href="{{ URL('walikelas/nilai/kelola')}}">Kelola Nilai</a></li>
-                  <li><a href="{{ URL('walikelas/lihatnilai') }}">Lihat Nilai</a></li>
+                  <li><a href="{{ URL('walikelas/nilai/lihatrapor') }}">Lihat Nilai</a></li>
                   @endif
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentinel::getUser()->first_name}} <span class="caret"></span></a>

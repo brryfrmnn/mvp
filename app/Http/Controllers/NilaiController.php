@@ -695,7 +695,7 @@ class NilaiController extends Controller
         if ($nilai_rapor->save()) { //jika save berhasil_
             //jika berhasil_ arahkan ke halaman admin/pengumuman
             
-            return redirect('guru/nilai/input/pengetahuan')->with('message','Success .. ')
+            return redirect('walikelas/nilai/kelola')->with('message','Success .. ')
                                         ->with('alert','success');
 
         } else {
@@ -716,6 +716,7 @@ class NilaiController extends Controller
         return view('siswa.rapor');
         }	
 
+    
     
 
 }

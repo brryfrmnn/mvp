@@ -94,6 +94,23 @@ class WaliKelasController extends Controller
                 
         
       }   
+
+      public function cekpengetahuan()
+     {
+         return view('walikelas.ceknilaipengetahuan');
+     } 
+    public function cekketerampilan()
+     {
+         return view('walikelas.ceknilaiketerampilan');
+     } 
+    public function ceksikap()
+     {
+         return view('walikelas.ceknilaisikap');
+     } 
+      public function lihatrapor()
+     {
+         return view('walikelas.nilai_rapor');
+     } 
       /*public function cek()
       {
        	return view('walikelas.ceknilai');

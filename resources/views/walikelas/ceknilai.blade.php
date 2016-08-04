@@ -37,12 +37,12 @@
                             <form action="{{ URL('walikelas/nilai')}}" method="POST" accept-charset="utf-8">
                                 {{csrf_field()}}
 
-                                <a href="{{URL('/')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Pengetahuan</a>&nbsp&nbsp&nbsp<a href="{{URL('/')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Keterampilan</a>&nbsp&nbsp&nbsp<a href="{{URL('/')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Sikap</a>&nbsp&nbsp&nbsp
+                                <a href="{{URL('walikelas/nilai/cek/pengetahuan')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Pengetahuan</a>&nbsp&nbsp&nbsp<a href="{{URL('walikelas/nilai/cek/keterampilan')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Keterampilan</a>&nbsp&nbsp&nbsp<a href="{{URL('walikelas/nilai/cek/sikap')}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Sikap</a>&nbsp&nbsp&nbsp
 
                                 <input type="hidden" name="guru_id" value="{{$data->guru_id}}" placeholder="">
                                 <input type="hidden" name="siswa_id" value="{{$data->siswa_id}}" placeholder="">
                                 <input type="hidden" name="mapel_id" value="{{$data->mapel_id}}" placeholder="">
-                                <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Proses</button>
+                                <button class="btn btn-danger" type="submit"><i class=""></i> Proses Nilai</button>
                             </form>
                             </tr>
                         @endforeach                        

@@ -42,14 +42,36 @@
     </thead>
     <tbody>
         <tr>
-            <td><?php echo $no; ?></td>
-            <td><?php echo $data->nama_mapel; ?></td>
-            <td><?php echo number_format($data->nap,2) ; ?></td>
-            <td><?php echo $data->grade_p; ?></td>
-            <td><?php echo number_format($data->nak,2) ; ?></td>
-            <td><?php echo $data->grade_k; ?></td>
-            <td><?php echo number_format($data->nas,2); ?></td>
-            <td><?php echo $data->grade_s; ?></td>
+            <td>1</td>
+            <td>KKPI</td>
+            <td>4.00</td>
+            <td>A</td>
+            <td>2.00</td>
+            <td>B-</td>
+            <td>SB</td>
+            <td>Sangat Baik</td>
+
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>KKPI</td>
+            <td>4.00</td>
+            <td>A</td>
+            <td>2.00</td>
+            <td>B-</td>
+            <td>SB</td>
+            <td>Sangat Baik</td>
+
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>KKPI</td>
+            <td>4.00</td>
+            <td>A</td>
+            <td>2.00</td>
+            <td>B-</td>
+            <td>SB</td>
+            <td>Sangat Baik</td>
 
         </tr>
     </tbody>

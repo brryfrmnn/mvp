@@ -28,17 +28,64 @@
                             
                             
                         </tr>  
-                            @foreach ($ as $data) 
+                             
                             <tr>
-                            <td>{{$no++}}</td>
-                            <td>{{$data->nomor_induk}}</td>
-                            <td>{{$data->full_name}}</td>
+                            <td>1</td>
+                            <td>Nilai Praktek 1</td>
+                            <td>85</td>
                             </tr>
-                        @endforeach                        
+                            <tr>
+                            <td>2</td>
+                            <td>Nilai Praktek 2</td>
+                            <td>85</td>
+                            </tr>
+                            <tr>
+                            <td>3</td>
+                            <td>Nilai Praktek 3</td>
+                            <td>85</td>
+                            </tr>
+                            <tr>
+                            <td>4</td>
+                            <td>Nilai Praktek 4</td>
+                            <td>85</td>
+                            </tr>
+                            <tr>
+                            <td>5</td>
+                            <td>Nilai Praktek 5</td>
+                            <td>85</td>
+                            </tr>
+                            <tr>
+                            <td>6</td>
+                            <td>Nilai Praktek 6</td>
+                            <td>85</td>
+                            </tr>
+                            <tr>
+                            <td>7</td>
+                            <td>Nilai Praktek 7</td>
+                            <td>85</td>
+                            </tr>
+                            <tr>
+                            <td>8</td>
+                            <td>Nilai Praktek 8</td>
+                            <td>85</td>
+                            </tr>
+
+                            <tr>
+                            <td>9</td>
+                            <td>Nilai Projek</td>
+                            <td>85</td>
+                            </tr>
+
+                            <tr>
+                            <td>10</td>
+                            <td>Nilai Portofolio</td>
+                            <td>85</td>
+                            </tr>
+                                               
                     </table>
-                    <div class="text-center">
-                       {{--  {!! $pengumuman->links() !!} --}}
-                    </div>
+                    {{-- <div class="text-center">
+                        {!! $pengumuman->links() !!}
+                    </div> --}}
                     
 </div>
 @endsection

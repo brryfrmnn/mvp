@@ -196,7 +196,12 @@ Route::group(['prefix' => 'walikelas'], function () {
 	Route::group(['prefix' => 'nilai'], function () {
 		Route::get('kelola', 'WaliKelasController@kelola');/*{kelasjurusan_id}/{mapel_id}/*/
 		Route::get('cek', 'WaliKelasController@cek');
+		Route::get('cek/pengetahuan', 'WaliKelasController@cekpengetahuan');
+		Route::get('cek/keterampilan', 'WaliKelasController@cekketerampilan');
+		Route::get('cek/sikap', 'WaliKelasController@ceksikap');
+		Route::get('lihatrapor', 'WaliKelasController@lihatrapor');
 		Route::post('/', 'NilaiController@proses');
+
 	});
 		
 		Route::get('profil', 'WaliKelasController@guruProfil');
