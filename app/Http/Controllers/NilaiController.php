@@ -23,9 +23,10 @@ class NilaiController extends Controller
     		$role = Sentinel::findRoleBySlug('siswa');
             $user = $role->users()->with(['roles',
                     'siswa.kelasJurusan' => function($query) use ($kelasjurusan_id) {
-                        $query->where('id',$kelasjurusan_id);
-                    }
+                        $query->where('id',$kelasjurusan_id); //sok ketang , aku ngoding disini buat perbaiki masalahnya
+                    }//padahal asa teh bener
             ])->paginate(20);
+            
             
 
           $kelas_jurusan = KelasJurusan::find($kelasjurusan_id);  //kalo ini nampilin semua kelasjurusan
