@@ -33,4 +33,5 @@ class KelasJurusan extends Model
         return $this->kelas->nama.' '.$this->jurusan->nama;
     }
 
+
 }

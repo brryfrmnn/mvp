@@ -196,6 +196,7 @@ Route::group(['prefix' => 'walikelas'], function () {
 	Route::group(['prefix' => 'nilai'], function () {
 		Route::get('kelola', 'WaliKelasController@kelola');/*{kelasjurusan_id}/{mapel_id}/*/
 		Route::get('cek', 'WaliKelasController@cek');
+		Route::post('/', 'NilaiController@proses');
 	});
 		
 		Route::get('profil', 'WaliKelasController@guruProfil');

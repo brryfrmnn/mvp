@@ -47,4 +47,6 @@ class JadwalPelajaran extends Model
         return $this->belongsTo('App\KelasJurusan','kelasjurusan_id', 'id');
     }
 
+    
+
 }
