@@ -10,9 +10,7 @@
 <div class="container bread">
       <div class="row" >
         <div class="col-lg-8 col-lg-offset-2"  >
-      <ul class="breadcrumb"><li><a href="index.php">Home</a></li>
-      
-      
+      <ul class="breadcrumb"><li><a href="{{route('home')}}">Home</a></li>
             <li class="active">Tambah Pengumuman</li>
       </ul>
 </div>

@@ -8,16 +8,13 @@
 @section('content')
 
 <div class="container bread">
-    <ul class="breadcrumb"><li><a href="index.php">Home</a></li>
-    
-    
+    <ul class="breadcrumb"><li><a href="{{route('home')}}">Home</a></li>
         <li class="active">Input nilai siswa</li>
-
     </ul>
      <div class="row">
 
 				<div class="col-lg-12">
-				    	<h1 class="page-header">Nilai Pengetahuan <a href="{{ URL('guru/nilai/input')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+				    	<h1 class="page-header">Nilai Pengetahuan<button onclick="history.go(-1)" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</button></h1>
 				</div>
 	
 			</div>

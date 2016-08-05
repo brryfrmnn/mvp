@@ -13,6 +13,8 @@ use App\Mapel;
 use App\JadwalPelajaran;
 use DB;
 use App\NilaiPengetahuan;
+use App\NilaiKeterampilan;
+use App\NilaiSikap;
 
 class WaliKelasController extends Controller
 {
@@ -117,13 +119,43 @@ class WaliKelasController extends Controller
           }                                                
          
     } 
-    public function cekketerampilan()
+    public function cekketerampilan(Request $request)
      {
-         return view('walikelas.ceknilaiketerampilan');
+         //masukan Request dari get di url
+          $siswa_id = $request->siswa_id;
+          $mapel_id = $request->mapel_id;
+          $guru_id  = $request->guru_id;
+          //ambil data nilai pengetahuan dari model nilai pengetahuan
+          $nilai_keterampilan = NilaiKeterampilan::where('siswa_id','=',$siswa_id)
+                                                ->where('mapel_id','=',$mapel_id)
+                                                ->where('guru_id','=',$guru_id)
+                                                ;   
+          if ($nilai_keterampilan->count() > 0) {
+            $nilai_keterampilan = $nilai_keterampilan->first();
+            return view('walikelas.ceknilaiketerampilan',compact('nilai_keterampilan'));
+          } else {
+              return redirect('walikelas/nilai/cek?siswa_id='.$siswa_id.'&semester='.$semester.'&tahun_ajaran='.$tahun_ajaran)->with('message','Gagal Nilai keterampilan belum diinput.. ')
+                                          ->with('alert','danger');
+          }        
      } 
-    public function ceksikap()
+    public function ceksikap(Request $request)
      {
-         return view('walikelas.ceknilaisikap');
+         //masukan Request dari get di url
+          $siswa_id = $request->siswa_id;
+          $mapel_id = $request->mapel_id;
+          $guru_id  = $request->guru_id;
+          //ambil data nilai pengetahuan dari model nilai pengetahuan
+          $nilai_sikap = NilaiSikap::where('siswa_id','=',$siswa_id)
+                                                ->where('mapel_id','=',$mapel_id)
+                                                ->where('guru_id','=',$guru_id)
+                                                ;   
+          if ($nilai_sikap->count() > 0) {
+            $nilai_sikap = $nilai_sikap->first();
+            return view('walikelas.ceknilaisikap',compact('nilai_sikap'));
+          } else {
+              return redirect('walikelas/nilai/cek?siswa_id='.$siswa_id.'&semester='.$semester.'&tahun_ajaran='.$tahun_ajaran)->with('message','Gagal Nilai sikap belum diinput.. ')
+                                          ->with('alert','danger');
+          }        
      } 
       public function lihatrapor()
      {

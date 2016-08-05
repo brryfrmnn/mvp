@@ -9,8 +9,6 @@
 
 <div class="container bread">
     <ul class="breadcrumb"><li><a href="{{route('home')}}">Home</a></li>
-    
-    
         <li class="active">Cek nilai siswa</li>
     </ul>
 </div>
@@ -24,7 +22,7 @@
                     </div>  
                 @endif
 
-                    <h1 class="page-header">Cek nilai siswa<a href="{{ URL('walikelas/nilai/kelola')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+                    <h1 class="page-header">Cek nilai siswa<button onclick="history.go(-1)" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</button></h1>
                     <table class="table table-striped">
 
                         <tr>

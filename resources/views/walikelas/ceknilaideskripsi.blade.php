@@ -9,8 +9,6 @@
 
 <div class="container bread">
     <ul class="breadcrumb"><li><a href="index.php">Home</a></li>
-    
-    
         <li class="active">Tampil nilai deskripsi</li>
     </ul>
 </div>

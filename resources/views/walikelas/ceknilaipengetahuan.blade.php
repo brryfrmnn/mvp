@@ -9,8 +9,6 @@
 
 <div class="container bread">
     <ul class="breadcrumb"><li><a href="{{route('home')}}">Home</a></li>
-    
-    
         <li class="active">Tampil nilai pengetahuan</li>
     </ul>
 </div>

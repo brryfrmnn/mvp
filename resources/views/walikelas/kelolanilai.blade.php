@@ -18,7 +18,7 @@
     
     <div class="container">
 
-                    <h1 class="page-header">Input nilai siswa <a href="{{ URL('guru/kelas/1/show')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+                    <h1 class="page-header">Input nilai siswa<button onclick="history.go(-1)" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</button></h1>
                     
                     <h3>Kelas       : {{$kelas_jurusan->kelas->nama}}</h3>                
                     <h3>Jurusan     : {{$kelas_jurusan->jurusan->nama}}</h3> 
