@@ -15,6 +15,7 @@ use DB;
 use App\NilaiPengetahuan;
 use App\NilaiKeterampilan;
 use App\NilaiSikap;
+use App\NilaiRapor;
 
 class WaliKelasController extends Controller
 {
@@ -183,9 +184,22 @@ class WaliKelasController extends Controller
                                           ->with('alert','danger');
           }        
      } 
-      public function lihatrapor()
+      public function lihatrapor(Request $request)
      {
-         return view('walikelas.nilai_rapor');
+        $siswa_id = $request->siswa_id;
+        $semester = $request->semester;
+        $tahun_ajaran = $request->tahun_ajaran;
+        $no =1;
+        $rapor = NilaiRapor::with('guru','mapel')->where('siswa_id',$siswa_id)
+                            ->where('semester',$semester)
+                            ->where('tahun_ajaran',$tahun_ajaran)
+                            ;
+        if ($rapor->count()>0) {
+            $rapor = $rapor->get(); 
+            return view('walikelas.nilai_rapor',compact('rapor','no'));
+        } else {
+            return view('walikelas.nilai_rapor'); 
+        }
      } 
       /*public function cek()
       {
