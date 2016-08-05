@@ -23,6 +23,12 @@
 			</div>
 	<div class="row">
 	<div class="col-lg-8">
+	 			@if (session('message'))
+                    <div class="alert alert-{{session('alert')}}">
+                        <p>{{session('message')}}
+                        </p>
+                    </div>  
+                @endif
 		<div class="panel panel-default">
 			<div class="panel-body">
 			   <form action="{{ URL('guru/nilai/pengetahuan')}}" method="POST" role="form">

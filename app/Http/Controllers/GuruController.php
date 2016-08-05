@@ -98,7 +98,6 @@ class GuruController extends Controller
                           $guru->status_perkawinan = $request->input('status_perkawinan');
                           $guru->nama_suami= $request->input('nama_suami');
                           $guru->nama_istri= $request->input('nama_istri');
-                          $guru->status_walikelas = $request->input('status_walikelas');
                           $guru->user_id = $result->user->id;
                           $guru->admin_id = \Sentinel::getUser()->id;
                           if ($guru->save()) {
