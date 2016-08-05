@@ -79,7 +79,7 @@ class NilaiController extends Controller
         }
 
         if ($nilai_keterampilan->count() > 0) {
-            $nilai_ = $nilai_keterampilan->first();
+            $nilai_keterampilan = $nilai_keterampilan->first();
             $npra1 = $nilai_keterampilan->npra1;
             $npra2 = $nilai_keterampilan->npra2;
             $npra3 = $nilai_keterampilan->npra3;

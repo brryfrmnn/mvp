@@ -17,6 +17,12 @@
 
     
     <div class="container">
+                @if (session('message'))
+                    <div class="alert alert-{{session('alert')}}">
+                        <p>{{session('message')}}
+                        </p>
+                    </div>  
+                @endif
 
                     <h1 class="page-header">Input nilai siswa<button onclick="history.go(-1)" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</button></h1>
                     

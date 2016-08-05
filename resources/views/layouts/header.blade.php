@@ -51,8 +51,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Input Nilai Siswa<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="{{URL ('guru/kelas/1/show')}}">Kelas X</a></li>
-                      <li><a href="">Kelas XI</a></li>
-                      <li><a href="">Kelas XII</a></li>
+                      <li><a href="{{URL ('guru/kelas/2/show')}}">Kelas XI</a></li>
+                      <li><a href="{{URL ('guru/kelas/3/show')}}">Kelas XII</a></li>
                     </ul>
                   </li>
                   @if (Sentinel::check() && Sentinel::inRole('wali_kelas'))
