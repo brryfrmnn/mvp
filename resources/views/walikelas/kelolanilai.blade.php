@@ -8,7 +8,7 @@
 @section('content')
 
 <div class="container bread">
-    <ul class="breadcrumb"><li><a href="index.php">Home</a></li>
+    <ul class="breadcrumb"><li><a href="{{route('home')}}">Home</a></li>
     
     
         <li class="active">Input nilai siswa</li>
