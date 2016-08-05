@@ -43,62 +43,86 @@ class NilaiController extends Controller
         $siswa_id = $request->input('siswa_id');
         $mapel_id = $request->input('mapel_id');
         $guru_id = $request->input('guru_id');
+        $semester = $request->input('semester');
+        $tahun_ajaran = $request->input('tahun_ajaran');
 
         $nilai_pengetahuan = NilaiPengetahuan::where('siswa_id','=',$siswa_id)
                                                 ->where('mapel_id','=',$mapel_id)
                                                 ->where('guru_id','=',$guru_id)
-                                                ->first();
+                                                ;
         $nilai_keterampilan = NilaiKeterampilan::where('siswa_id','=',$siswa_id)
                                                 ->where('mapel_id','=',$mapel_id)
                                                 ->where('guru_id','=',$guru_id)
-                                                ->first();
+                                                ;
         $nilai_sikap = NilaiSikap::where('siswa_id','=',$siswa_id)
                                                 ->where('mapel_id','=',$mapel_id)
                                                 ->where('guru_id','=',$guru_id)
-                                                ->first();
-        $nilai_deskripsi = NilaiDeskripsi::where('siswa_id','=',$siswa_id)
+                                                ;
+        /*$nilai_deskripsi = NilaiDeskripsi::where('siswa_id','=',$siswa_id)
                                                 ->where('mapel_id','=',$mapel_id)
                                                 ->where('guru_id','=',$guru_id)
                                                 ->first();
-
+*/
         // dd($nilai_pengetahuan, $nilai_keterampilan, $nilai_sikap, $nilai_deskripsi);
+        if ($nilai_pengetahuan->count() > 0) {
+            $nilai_pengetahuan = $nilai_pengetahuan->first();
+            $nuh1 = $nilai_pengetahuan->nuh1;
+            $nuh2 = $nilai_pengetahuan->nuh2;
+            $nuh3 = $nilai_pengetahuan->nuh3;
+            $nuh4 = $nilai_pengetahuan->nuh4;
+            $nilaiuas = $nilai_pengetahuan->nuas;
+            $nilaiuts = $nilai_pengetahuan->nuts;
+            $ndes = $nilai_pengetahuan->ndes;
+        } else {
+            return redirect('walikelas/nilai/cek?siswa_id='.$siswa_id.'&semester='.$semester.'&tahun_ajaran='.$tahun_ajaran)->with('message','Gagal Nilai Pengetahuan belum diinput.. ')
+                                        ->with('alert','danger');
+        }
 
-        $nuh1 = $nilai_pengetahuan->nuh1;
-        $nuh2 = $nilai_pengetahuan->nuh2;
-        $nuh3 = $nilai_pengetahuan->nuh3;
-        $nuh4 = $nilai_pengetahuan->nuh4;
-        $nilaiuas = $nilai_pengetahuan->nuas;
-        $nilaiuts = $nilai_pengetahuan->nuts;
-        $ndes = $nilai_pengetahuan->ndes;
+        if ($nilai_keterampilan->count() > 0) {
+            $nilai_ = $nilai_keterampilan->first();
+            $npra1 = $nilai_keterampilan->npra1;
+            $npra2 = $nilai_keterampilan->npra2;
+            $npra3 = $nilai_keterampilan->npra3;
+            $npra4 = $nilai_keterampilan->npra4;
+            $npra5 = $nilai_keterampilan->npra5;
+            $npra6 = $nilai_keterampilan->npra6;
+            $npra7 = $nilai_keterampilan->npra7;
+            $npra8 = $nilai_keterampilan->npra8;
+            $nproy = $nilai_keterampilan->nproy;
+            $nport = $nilai_keterampilan->nport;
+            $ndes = $nilai_keterampilan->ndes;
+            
+        } else {
+            return redirect('walikelas/nilai/cek?siswa_id='.$siswa_id.'&semester='.$semester.'&tahun_ajaran='.$tahun_ajaran)->with('message','Gagal Nilai Keterampilan belum diinput.. ')
+                                        ->with('alert','danger');
+        }
 
-        $npra1 = $nilai_keterampilan->npra1;
-        $npra2 = $nilai_keterampilan->npra2;
-        $npra3 = $nilai_keterampilan->npra3;
-        $npra4 = $nilai_keterampilan->npra4;
-        $npra5 = $nilai_keterampilan->npra5;
-        $npra6 = $nilai_keterampilan->npra6;
-        $npra7 = $nilai_keterampilan->npra7;
-        $npra8 = $nilai_keterampilan->npra8;
-        $nproy = $nilai_keterampilan->nproy;
-        $nport = $nilai_keterampilan->nport;
-        $ndes = $nilai_keterampilan->ndes;
+        if ($nilai_sikap->count() > 0) {
+            $nilai_sikap = $nilai_sikap->first();
+            $nob1 = $nilai_sikap->nob1;
+            $nob2 = $nilai_sikap->nob2;
+            $nob3 = $nilai_sikap->nob3;
+            $nob4 = $nilai_sikap->nob4;
+            $nob5 = $nilai_sikap->nob5;
+            $nob6 = $nilai_sikap->nob6;
+            $nob7 = $nilai_sikap->nob7;
+            $nob8 = $nilai_sikap->nob8;
+            $nob9 = $nilai_sikap->nob9;
+            $nob10 = $nilai_sikap->nob10;
+            $nob11 = $nilai_sikap->nob11;
+            $nob12 = $nilai_sikap->nob12;
+            $nds = $nilai_sikap->nds;
+            $nat = $nilai_sikap->nat;
+            $nj = $nilai_sikap->nj;
+            $ndes = $nilai_sikap->ndes;    
+        } else {
+            return redirect('walikelas/nilai/cek?siswa_id='.$siswa_id.'&semester='.$semester.'&tahun_ajaran='.$tahun_ajaran)->with('message','Gagal Nilai Sikap belum diinput.. ')
+                                        ->with('alert','danger');
+        }
 
-        $nob1 = $nilai_sikap->nob1;
-        $nob2 = $nilai_sikap->nob2;
-        $nob3 = $nilai_sikap->nob3;
-        $nob4 = $nilai_sikap->nob4;
-        $nob5 = $nilai_sikap->nob5;
-        $nob6 = $nilai_sikap->nob6;
-        $nob7 = $nilai_sikap->nob7;
-        $nob8 = $nilai_sikap->nob8;
-        $nob9 = $nilai_sikap->nob9;
-        $nob10 = $nilai_sikap->nob10;
-        $nob11 = $nilai_sikap->nob11;
-        $nob12 = $nilai_sikap->nob12;
-        $nds = $nilai_sikap->nds;
-        $nat = $nilai_sikap->nat;
-        $nj = $nilai_sikap->nj;
-        $ndes = $nilai_sikap->ndes;
+        
+
+        
 
         $ratanuh=(($nuh1+$nuh2+$nuh3+$nuh4)/4)*2;
         $hasil_pengetahuan=($ratanuh+$nilaiuts+$nilaiuas)/4;
@@ -691,6 +715,8 @@ class NilaiController extends Controller
         $nilai_rapor->predikat_keterampilan =$predikat_keterampilan;
         $nilai_rapor->predikat_sikap =$predikat_sikap;
         $nilai_rapor->antar_mapel = $antar_mapel;
+        $nilai_rapor->semester = $semester;
+        $nilai_rapor->tahun_ajaran = $tahun_ajaran;
         // dd($nilai_rapor);
         if ($nilai_rapor->save()) { //jika save berhasil_
             //jika berhasil_ arahkan ke halaman admin/pengumuman
@@ -701,7 +727,7 @@ class NilaiController extends Controller
         } else {
             //jika berhasil_ arahkan ke halaman admin/pengumuman/tambah
             
-            return redirect('')->with('message','Gagal .. ')
+            return redirect('walikelas/nilai/cek?siswa_id='.$siswa_id.'&semester='.$semester.'&tahun_ajaran='.$tahun_ajaran)->with('message','Gagal .. ')
                                         ->with('alert','danger');
 
         }

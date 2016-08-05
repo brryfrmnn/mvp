@@ -12,6 +12,7 @@ use App\User;
 use App\Mapel;
 use App\JadwalPelajaran;
 use DB;
+use App\NilaiPengetahuan;
 
 class WaliKelasController extends Controller
 {
@@ -54,6 +55,7 @@ class WaliKelasController extends Controller
       {
             $siswa_id = $request->input('siswa_id');
             $semester = $request->input('semester');
+            $tahun_ajaran = $request->input('tahun_ajaran');
             $jadwal = DB::table('jadwal_pelajaran')
                         ->select(DB::raw('
                             mapel.id as mapel_id,
@@ -90,15 +92,31 @@ class WaliKelasController extends Controller
 
               // mau nyoab cek data siswa apa ada relasinya.. tuh kan ada
             $no=1;
-            return view('walikelas.ceknilai', compact('jadwal','no'));
+            return view('walikelas.ceknilai', compact('jadwal','no','semester','tahun_ajaran'));
                 
         
       }   
 
-      public function cekpengetahuan()
-     {
-         return view('walikelas.ceknilaipengetahuan');
-     } 
+    public function cekpengetahuan(Request $request)
+    {
+          //masukan Request dari get di url
+          $siswa_id = $request->siswa_id;
+          $mapel_id = $request->mapel_id;
+          $guru_id  = $request->guru_id;
+          //ambil data nilai pengetahuan dari model nilai pengetahuan
+          $nilai_pengetahuan = NilaiPengetahuan::where('siswa_id','=',$siswa_id)
+                                                ->where('mapel_id','=',$mapel_id)
+                                                ->where('guru_id','=',$guru_id)
+                                                ;   
+          if ($nilai_pengetahuan->count() > 0) {
+            $nilai_pengetahuan = $nilai_pengetahuan->first();
+            return view('walikelas.ceknilaipengetahuan',compact('nilai_pengetahuan'));
+          } else {
+              return redirect('walikelas/nilai/cek?siswa_id='.$siswa_id.'&semester='.$semester.'&tahun_ajaran='.$tahun_ajaran)->with('message','Gagal Nilai Pengetahuan belum diinput.. ')
+                                          ->with('alert','danger');
+          }                                                
+         
+    } 
     public function cekketerampilan()
      {
          return view('walikelas.ceknilaiketerampilan');

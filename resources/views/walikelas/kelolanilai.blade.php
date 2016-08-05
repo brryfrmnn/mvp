@@ -8,7 +8,7 @@
 @section('content')
 
 <div class="container bread">
-    <ul class="breadcrumb"><li><a href="index.php">Home</a></li>
+    <ul class="breadcrumb"><li><a href="{{route('home')}}">Home</a></li>
     
     
         <li class="active">Input nilai siswa</li>
@@ -37,7 +37,7 @@
                             <td>{{$no++}}</td>
                             <td>{{$data->nomor_induk}}</td>
                             <td>{{$data->full_name}}</td>
-                            <td><a href="{{URL('walikelas/nilai/cek?siswa_id='.$data->id.'&semester='.$data->siswa->semester)}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Kelola Nilai</a>
+                            <td><a href="{{URL('walikelas/nilai/cek?siswa_id='.$data->id.'&semester='.$data->siswa->semester.'&tahun_ajaran='.$data->siswa->tahun_ajar)}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Kelola Nilai</a>
                             
                             </td>
                             </tr>
