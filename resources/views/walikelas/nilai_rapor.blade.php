@@ -18,7 +18,7 @@
     
     <div class="container">
 
-                    <h1 class="page-header">Lihat nilai siswa <a href="{{ URL('')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+                    <h1 class="page-header">Lihat nilai siswa <button onclick="history.go(-1)" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</button></h1>
         <table class="table table-hover table-bordered" style="text-align: center;">
     <thead>
         <tr >
