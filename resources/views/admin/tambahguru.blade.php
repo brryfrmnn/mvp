@@ -67,8 +67,8 @@
                                 <label>Jenis Kelamin</label>
                                 <div class="radio">
                                     <label>
-                                    <input type="radio" name="jenis_kelamin" value="l" 
-                                    >Laki-laki &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="jenis_kelamin" value="p" > Perempuan
+                                    <input type="radio" name="jenis_kelamin" value="laki-laki" 
+                                    >Laki-laki &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="jenis_kelamin" value="perempuan" > Perempuan
                                     </label>
                                 </div>
                             </div>
@@ -142,16 +142,7 @@
                                 <label for="">Nama Istri</label>
                                 <input value="" name="nama_istri"type="text" class="form-control" id="" placeholder="Masukan Nama Istri">
                             </div>
-                            <div class="form-group">
-                                <label for="">Status Wali Kelas</label>
-
-                                <select class="form-control" name="status_walikelas">
-                                <option value="0" disabled="" selected="" >Pilih</option>
-                                    <option value="0" >Ya</option>
-                                     <option value="1" >Tidak</option>
-                                </select>
-                            </div>
-                           
+                                                  
                            
                            
                            

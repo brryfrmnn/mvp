@@ -17,6 +17,12 @@
 
     
     <div class="container">
+                @if (session('message'))
+                    <div class="alert alert-{{session('alert')}}">
+                        <p>{{session('message')}}
+                        </p>
+                    </div>  
+                @endif
 
                     <h1 class="page-header">Cek nilai siswa<a href="{{ URL('walikelas/nilai/kelola')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
                     <table class="table table-striped">

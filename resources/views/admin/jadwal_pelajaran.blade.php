@@ -10,7 +10,7 @@
 	<ul class="breadcrumb"><li><a href="index.php">Home</a></li>
 	
 	
-		<li class="active">Jadwal Mengajar</li>
+		<li class="active">Jadwal Pelajaran</li>
 	</ul>
 </div>
 
@@ -23,7 +23,7 @@
 		                </div>  
             		@endif
 
-					<h1 class="page-header">Jadwal Mengajar <a href="{{URL ('admin/jadwal/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Input Jadwal Mengajar</a></h1>
+					<h1 class="page-header">Jadwal Pelajaran <a href="{{URL ('admin/jadwal/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Input Jadwal Pelajaran</a></h1>
 					<div class="box-body table-responsive" >
 					<table class="table table-striped">
   						<tr>
