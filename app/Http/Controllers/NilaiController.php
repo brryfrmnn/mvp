@@ -43,6 +43,8 @@ class NilaiController extends Controller
         $siswa_id = $request->input('siswa_id');
         $mapel_id = $request->input('mapel_id');
         $guru_id = $request->input('guru_id');
+        $semester = $request->input('semester');
+        $tahun_ajaran = $request->input('tahun_ajaran');
 
         $nilai_pengetahuan = NilaiPengetahuan::where('siswa_id','=',$siswa_id)
                                                 ->where('mapel_id','=',$mapel_id)
@@ -72,7 +74,7 @@ class NilaiController extends Controller
             $nilaiuts = $nilai_pengetahuan->nuts;
             $ndes = $nilai_pengetahuan->ndes;
         } else {
-            return redirect('walikelas/nilai/kelola')->with('message','Gagal Nilai Pengetahuan belum diinput.. ')
+            return redirect('walikelas/nilai/cek?siswa_id='.$siswa_id.'&semester='.$semester.'&tahun_ajaran='.$tahun_ajaran)->with('message','Gagal Nilai Pengetahuan belum diinput.. ')
                                         ->with('alert','danger');
         }
 
@@ -91,7 +93,7 @@ class NilaiController extends Controller
             $ndes = $nilai_keterampilan->ndes;
             
         } else {
-            return redirect('walikelas/nilai/kelola')->with('message','Gagal Nilai Keterampilan belum diinput.. ')
+            return redirect('walikelas/nilai/cek?siswa_id='.$siswa_id.'&semester='.$semester.'&tahun_ajaran='.$tahun_ajaran)->with('message','Gagal Nilai Keterampilan belum diinput.. ')
                                         ->with('alert','danger');
         }
 
@@ -114,7 +116,7 @@ class NilaiController extends Controller
             $nj = $nilai_sikap->nj;
             $ndes = $nilai_sikap->ndes;    
         } else {
-            return redirect('walikelas/nilai/kelola')->with('message','Gagal Nilai Sikap belum diinput.. ')
+            return redirect('walikelas/nilai/cek?siswa_id='.$siswa_id.'&semester='.$semester.'&tahun_ajaran='.$tahun_ajaran)->with('message','Gagal Nilai Sikap belum diinput.. ')
                                         ->with('alert','danger');
         }
 
@@ -713,8 +715,8 @@ class NilaiController extends Controller
         $nilai_rapor->predikat_keterampilan =$predikat_keterampilan;
         $nilai_rapor->predikat_sikap =$predikat_sikap;
         $nilai_rapor->antar_mapel = $antar_mapel;
-        $nilai_rapor->semester = $antar_mapel;
-        $nilai_rapor->tahun_ajaran = $antar_mapel;
+        $nilai_rapor->semester = $semester;
+        $nilai_rapor->tahun_ajaran = $tahun_ajaran;
         // dd($nilai_rapor);
         if ($nilai_rapor->save()) { //jika save berhasil_
             //jika berhasil_ arahkan ke halaman admin/pengumuman
@@ -725,7 +727,7 @@ class NilaiController extends Controller
         } else {
             //jika berhasil_ arahkan ke halaman admin/pengumuman/tambah
             
-            return redirect('walikelas/nilai/kelola')->with('message','Gagal .. ')
+            return redirect('walikelas/nilai/cek?siswa_id='.$siswa_id.'&semester='.$semester.'&tahun_ajaran='.$tahun_ajaran)->with('message','Gagal .. ')
                                         ->with('alert','danger');
 
         }
