@@ -14,12 +14,18 @@
 
 	
 <div class="container">
+		@if (session('message'))
+            <div class="alert alert-{{session('alert')}}">
+                <p>{{session('message')}}</p>
+            </div>  
+        @endif
 
 		<h1 class="page-header">Data Mata Pelajaran <a href="{{ URL('admin/mapel/tambah')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Mapel</a></h1>
 		<table class="table table-striped">
 				<tr>
 					<th>No</th>
 					<th>Nama Mata Pelajaran</th>
+					<th>Kode Mata Pelajaran</th>
 					<th>Kategori</th>
 					<th>Aksi</th>
 				</tr>	
@@ -27,6 +33,7 @@
 				<tr>
 					<td>{{ $no++}}</td>
 					<td>{{ $data->nama}}</td>
+					<td>{{ $data->kode}}</td>
 					<td>{{ $data->kategori}}</td>
 					<td>
 				    <form action="{{ URL('admin/mapel',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">

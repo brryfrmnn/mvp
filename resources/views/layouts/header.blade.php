@@ -80,7 +80,7 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lihat Nilai Rapor <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="">Semester1</a></li>
+                      <li><a href="{{URL('siswa/lihatnilai/rapor/1')}}">Semester1</a></li>
                       <li><a href="">semester2</a></li>
                       <li><a href="">semester3</a></li>
                       <li><a href="">Semester4</a></li>

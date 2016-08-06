@@ -45,10 +45,10 @@
   							<td>{{ $no++ }}</td>
   							<td>{{$data->guru->nomor_induk}}</td>
   							<td>{{$data->guru->full_name}}</td>
-                			<td></td>
-                			<td> </td>
-                			<td>{{ $data->semester }} </td>
-                			<td>{{ $data->tahun_ajaran }} </td>
+                			<td>{{$data->kelasJurusan->kelas_jurusan}}</td>
+                			<td>{{$data->mapel->kode}}</td>
+                			<td>{{$data->semester }} </td>
+                			<td>{{$data->tahun_ajaran }} </td>
   							<td>
   							<form action="{{ URL('admin/jadwal',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
   							{{csrf_field()}}

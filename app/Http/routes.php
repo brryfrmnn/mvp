@@ -185,7 +185,7 @@ Route::group(['prefix' => 'siswa'], function () {
 	Route::get('/','SiswaController@index');
 	Route::group(['prefix' => 'lihatnilai'], function () {
 		Route::get('semester/1/show', 'SiswaController@NilaiSemester1');
-		Route::get('tampil', 'NilaiController@tampil');
+		Route::get('rapor/{semester}', 'NilaiController@rapor');
 	});
 	Route::get('profil', 'SiswaController@siswaProfil');
 	Route::get('profil/edit', 'SiswaController@profilEdit');
