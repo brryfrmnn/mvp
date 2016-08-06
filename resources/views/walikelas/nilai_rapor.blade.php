@@ -41,39 +41,20 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>KKPI</td>
-            <td>4.00</td>
-            <td>A</td>
-            <td>2.00</td>
-            <td>B-</td>
-            <td>SB</td>
-            <td>Sangat Baik</td>
-
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>KKPI</td>
-            <td>4.00</td>
-            <td>A</td>
-            <td>2.00</td>
-            <td>B-</td>
-            <td>SB</td>
-            <td>Sangat Baik</td>
-
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>KKPI</td>
-            <td>4.00</td>
-            <td>A</td>
-            <td>2.00</td>
-            <td>B-</td>
-            <td>SB</td>
-            <td>Sangat Baik</td>
-
-        </tr>
+    @if (isset($rapor))
+        @foreach ($rapor as $data)
+            <tr>
+                <td>{{$no++}}</td>
+                <td>{{$data->mapel->nama}}</td>
+                <td>{{$data->angka_pengetahuan}}</td>
+                <td>{{$data->predikat_pengetahuan}}</td>
+                <td>{{$data->angka_keterampilan}}</td>
+                <td>{{$data->predikat_keterampilan}}</td>
+                <td>{{$data->predikat_sikap}}</td>
+                <td>{{$data->antar_mapel}}</td>
+            </tr>  
+        @endforeach
+    @endif
     </tbody>
 </table>
 

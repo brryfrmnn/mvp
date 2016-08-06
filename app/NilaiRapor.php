@@ -8,7 +8,7 @@ class NilaiRapor extends Model
 {
     //
     
-    protected $fillabel = [
+    protected $fillable = [
 
     	
     	'pengetahuan_id',
@@ -43,6 +43,6 @@ class NilaiRapor extends Model
     }
      public function mapel() //relasi user dengan
     {
-        return $this->belongsTo('App\User', 'mapel_id','id');
+        return $this->belongsTo('App\Mapel', 'mapel_id','id');
     }
 }

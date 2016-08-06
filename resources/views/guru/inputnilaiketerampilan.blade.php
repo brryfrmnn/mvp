@@ -33,49 +33,49 @@
 					<input value="{{$siswa_id}}" name="siswa_id" type="hidden">
 						<div class="form-group">
 							<label for="">Nilai Praktik 1</label>
-							<input value=""name="npra1" type="number" class="form-control" id="1" min="0" max="100" required>
+							<input value="{{ $nilai_keterampilan->npra1 or 0 }}"name="npra1" type="number" class="form-control" id="1" min="0" max="100" required>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label for="">Nilai Praktik 2</label>
-							<input value="" name="npra2" type="number" class="form-control" id="2" min="0" max="100">
+							<input value="{{ $nilai_keterampilan->npra2 or 0 }}" name="npra2" type="number" class="form-control" id="2" min="0" max="100">
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label for="">Nilai Praktik 3</label>
-							<input value=""name="npra3" type="number" class="form-control" id="3" min="0" max="100">
+							<input value="{{ $nilai_keterampilan->npra3 or 0 }}"name="npra3" type="number" class="form-control" id="3" min="0" max="100">
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label for="">Nilai Praktik 4</label>
-							<input value=""name="npra4" type="number" class="form-control" id="4" min="0" max="100">
+							<input value="{{ $nilai_keterampilan->npra4 or 0 }}"name="npra4" type="number" class="form-control" id="4" min="0" max="100">
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label for="">Nilai Praktik 5</label>
-							<input value=""name="npra5" type="number" class="form-control" id="1" min="0" max="100" required>
+							<input value="{{ $nilai_keterampilan->npra5 or 0 }}"name="npra5" type="number" class="form-control" id="1" min="0" max="100" required>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label for="">Nilai Praktik 6</label>
-							<input value=""name="npra6" type="number" class="form-control" id="2" min="0" max="100">
+							<input value="{{ $nilai_keterampilan->npra6 or 0 }}"name="npra6" type="number" class="form-control" id="2" min="0" max="100">
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label for="">Nilai Praktik 7</label>
-							<input value="" name="npra7" type="number" class="form-control" id="3" min="0" max="100">
+							<input value="{{ $nilai_keterampilan->npra7 or 0 }}" name="npra7" type="number" class="form-control" id="3" min="0" max="100">
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<label for="">Nilai Praktik 8</label>
-							<input value="" name="npra8" type="number" class="form-control" id="4" min="0" max="100">
+							<input value="{{ $nilai_keterampilan->npra8 or 0 }}" name="npra8" type="number" class="form-control" id="4" min="0" max="100">
 						</div>
 					</div>
 				
@@ -92,19 +92,19 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="">Nilai Proyek</label>
-							<input value="" name="nproy" type="number" class="form-control" id="" min="0" max="100">
+							<input value="{{ $nilai_keterampilan->nproy or 0 }}" name="nproy" type="number" class="form-control" id="" min="0" max="100">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="">Nilai Portofolio</label>
-							<input value="" name="nport" type="number" class="form-control" id="" min="0" max="100">
+							<input value="{{ $nilai_keterampilan->nport or 0 }}" name="nport" type="number" class="form-control" id="" min="0" max="100">
 						</div>
 					</div>
 					<div class="col-md-12">
 						<div class="form-group">
 		                        <label for="">Input Deskripsi Keterampilan</label>
-			                        <select class="form-control" name="ndes">
+			                        <select class="form-control" name="ndes" required>
 			                            <option value="0" disabled="" selected="">Pilih Deskripsi</option>
 
 			                            <option value="Sangat baik dan sempurna. Sangat aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan  semua soal ">Sangat baik dan sempurna. Sangat aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan  semua soal </option>

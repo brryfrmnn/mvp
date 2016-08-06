@@ -139,306 +139,306 @@ class NilaiController extends Controller
         $hasil_sikap=($ratanob+$nds+$nat+$nj)/5;
         $hasil_sikap=number_format($hasil_sikap,2);
 
-
+        // dd(floor($hasil_pengetahuan));
         //Awal dari Nilai Pengetahuan
         switch (floor($hasil_pengetahuan)) {
-            case '100':
+            case '100.0':
                 $angka_pengetahuan='4.00';
                 $predikat_pengetahuan='A';
                 break;
-            case '99':
+            case '99.0':
                 $angka_pengetahuan='3.96';
                 $predikat_pengetahuan='A';
                 break;
-            case '98':
+            case '98.0':
                 $angka_pengetahuan='3.92';
                 $predikat_pengetahuan='A';
                 break;
-            case '97':
+            case '97.0':
                 $angka_pengetahuan='3.88';
                 $predikat_pengetahuan='A';
                 break;
-            case '96':
+            case '96.0':
                 $angka_pengetahuan='3.84';
                 $predikat_pengetahuan='A';
                 break;
-            case '95':
+            case '95.0':
                 $angka_pengetahuan='3.80';
                 $predikat_pengetahuan='A';
                 break;
-            case '94':
+            case '94.0':
                 $angka_pengetahuan='3.76';
                 $predikat_pengetahuan='A';
                 break;
-            case '93':
+            case '93.0':
                 $angka_pengetahuan='3.72';
                 $predikat_pengetahuan='A';
                 break;
-            case '92':
+            case '92.0':
                 $angka_pengetahuan='3.68';
                 $predikat_pengetahuan='A';
                 break;
-            case '91':
+            case '91.0':
                 $angka_pengetahuan='3.64';
                 $predikat_pengetahuan='A-';
                 break;
-            case '90':
+            case '90.0':
                 $angka_pengetahuan='3.60';
                 $predikat_pengetahuan='B+';
                 break;
-            case '89':
+            case '89.0':
                 $angka_pengetahuan='3.56';
                 $predikat_pengetahuan='A-';
                 break;
-            case '88':
+            case '88.0':
                 $angka_pengetahuan='3.52';
                 $predikat_pengetahuan='A-';
                 break;
-            case '87':
+            case '87.0':
                 $angka_pengetahuan='3.48';
                 $predikat_pengetahuan='A-';
                 break;
-            case '86':
+            case '86.0':
                 $angka_pengetahuan='3.44';
                 $predikat_pengetahuan='A-';
                 break;
-            case '85':
+            case '85.0':
                 $angka_pengetahuan='3.40';
                 $predikat_pengetahuan='A-';
                 break;
-            case '84':
+            case '84.0':
                 $angka_pengetahuan='3.36';
                 $predikat_pengetahuan='A-';
                 break;
-            case '83':
+            case '83.0':
                 $angka_pengetahuan='3.32';
                 $predikat_pengetahuan='B+';
                 break;
-            case '82':
+            case '82.0':
                 $angka_pengetahuan='3.28';
                 $predikat_pengetahuan='B+';
                 break;
-            case '81':
+            case '81.0':
                 $angka_pengetahuan='3.24';
                 $predikat_pengetahuan='B+';
                 break;
-            case '80':
+            case '80.0':
                 $angka_pengetahuan='3.20';
                 $predikat_pengetahuan='B+';
                 break;
-            case '79':
+            case '79.0':
                 $angka_pengetahuan='3.16';
                 $predikat_pengetahuan='B+';
                 break;
-            case '78':
+            case '78.0':
                 $angka_pengetahuan='3.12';
                 $predikat_pengetahuan='B+';
                 break;
-            case '77':
+            case '77.0':
                 $angka_pengetahuan='3.08';
                 $predikat_pengetahuan='B+';
                 break;
-            case '76':
+            case '76.0':
                 $angka_pengetahuan='3.04';
                 $predikat_pengetahuan='B+';
                 break;
-            case '75':
+            case '75.0':
                 $angka_pengetahuan='3.00';
                 $predikat_pengetahuan='B';
                 break;
-            case '74':
+            case '74.0':
                 $angka_pengetahuan='2.96';
                 $predikat_pengetahuan='B';
                 break;
-            case '73':
+            case '73.0':
                 $angka_pengetahuan='2.92';
                 $predikat_pengetahuan='B';
                 break;
-            case '72':
+            case '72.0':
                 $angka_pengetahuan='2.88';
                 $predikat_pengetahuan='B';
                 break;
-            case '71':
+            case '71.0':
                 $angka_pengetahuan='2.84';
                 $predikat_pengetahuan='B';
                 break;
-            case '70':
+            case '70.0':
                 $angka_pengetahuan='2.80';
                 $predikat_pengetahuan='B';
                 break;
-            case '69':
+            case '69.0':
                 $angka_pengetahuan='2.76';
                 $predikat_pengetahuan='B';
                 break;
-            case '68':
+            case '68.0':
                 $angka_pengetahuan='2.72';
                 $predikat_pengetahuan='B';
                 break;
-            case '67':
+            case '67.0':
                 $angka_pengetahuan='2.68';
                 $predikat_pengetahuan='B';
                 break;
-            case '66':
+            case '66.0':
                 $angka_pengetahuan='2.64';
                 $predikat_pengetahuan='B-';
                 break;
-            case '65':
+            case '65.0':
                 $angka_pengetahuan='2.60';
                 $predikat_pengetahuan='B-';
                 break;
-            case '64':
+            case '64.0':
                 $angka_pengetahuan='2.56';
                 $predikat_pengetahuan='B-';
                 break;
-            case '63':
+            case '63.0':
                 $angka_pengetahuan='2.52';
                 $predikat_pengetahuan='B-';
                 break;
-            case '62':
+            case '62.0':
                 $angka_pengetahuan='2.48';
                 $predikat_pengetahuan='B-';
                 break;
-            case '61':
+            case '61.0':
                 $angka_pengetahuan='2.44';
                 $predikat_pengetahuan='B-';
                 break;
-            case '60':
+            case '60.0':
                 $angka_pengetahuan='2.40';
                 $predikat_pengetahuan='B-';
                 break;
-            case '59':
+            case '59.0':
                 $angka_pengetahuan='2.36';
                 $predikat_pengetahuan='B-';
                 break;
-            case '58':
+            case '58.0':
                 $angka_pengetahuan='2.32';
                 $predikat_pengetahuan='C+';
                 break;
-            case '57':
+            case '57.0':
                 $angka_pengetahuan='2.28';
                 $predikat_pengetahuan='C+';
                 break;
-            case '56':
+            case '56.0':
                 $angka_pengetahuan='2.24';
                 $predikat_pengetahuan='C+';
                 break;
-            case '55':
+            case '55.0':
                 $angka_pengetahuan='2.20';
                 $predikat_pengetahuan='C+';
                 break;
-            case '54':
+            case '54.0':
                 $angka_pengetahuan='2.16';
                 $predikat_pengetahuan='C+';
                 break;
-            case '53':
+            case '53.0':
                 $angka_pengetahuan='2.12';
                 $predikat_pengetahuan='C+';
                 break;
-            case '52':
+            case '52.0':
                 $angka_pengetahuan='2.08';
                 $predikat_pengetahuan='C+';
                 break;
-            case '51':
+            case '51.0':
                 $angka_pengetahuan='2.04';
                 $predikat_pengetahuan='C+';
                 break;
-            case '50':
+            case '50.0':
                 $angka_pengetahuan='2.00';
                 $predikat_pengetahuan='C';
                 break;
-            case '49':
+            case '49.0':
                 $angka_pengetahuan='1.96';
                 $predikat_pengetahuan='C';
                 break;
-            case '48':
+            case '48.0':
                 $angka_pengetahuan='1.92';
                 $predikat_pengetahuan='C';
                 break;
-            case '47':
+            case '47.0':
                 $angka_pengetahuan='1.88';
                 $predikat_pengetahuan='C';
                 break;
-            case '46':
+            case '46.0':
                 $angka_pengetahuan='1.84';
                 $predikat_pengetahuan='C';
                 break;
-            case '45':
+            case '45.0':
                 $angka_pengetahuan='1.80';
                 $predikat_pengetahuan='C';
                 break;
-            case '44':
+            case '44.0':
                 $angka_pengetahuan='1.76';
                 $predikat_pengetahuan='C';
                 break;
-            case '43':
+            case '43.0':
                 $angka_pengetahuan='1.72';
                 $predikat_pengetahuan='C';
                 break;
-            case '42':
+            case '42.0':
                 $angka_pengetahuan='1.68';
                 $predikat_pengetahuan='C';
                 break;
-            case '41':
+            case '41.0':
                 $angka_pengetahuan='1.64';
                 $predikat_pengetahuan='C';
                 break;
-            case '40':
+            case '40.0':
                 $angka_pengetahuan='1.60';
                 $predikat_pengetahuan='C-';
                 break;
-            case '39':
+            case '39.0':
                 $angka_pengetahuan='1.56';
                 $predikat_pengetahuan='C-';
                 break;
-            case '38':
+            case '38.0':
                 $angka_pengetahuan='1.52';
                 $predikat_pengetahuan='C-';
                 break;
-            case '37':
+            case '37.0':
                 $angka_pengetahuan='1.48';
                 $predikat_pengetahuan='';
                 break;
-            case '36':
+            case '36.0':
                 $angka_pengetahuan='1.44';
                 $predikat_pengetahuan='C-';
                 break;
-            case '35':
+            case '35.0':
                 $angka_pengetahuan='1.40';
                 $predikat_pengetahuan='C-';
                 break;
-            case '34':
+            case '34.0':
                 $angka_pengetahuan='1.36';
                 $predikat_pengetahuan='C-';
                 break;
-            case '33':
+            case '33.0':
                 $angka_pengetahuan='1.32';
                 $predikat_pengetahuan='D+';
                 break;
-            case '32':
+            case '32.0':
                 $angka_pengetahuan='1.28';
                 $predikat_pengetahuan='D+';
                 break;
-            case '31':
+            case '31.0':
                 $angka_pengetahuan='1.24';
                 $predikat_pengetahuan='D+';
                 break;
-            case '30':
+            case '30.0':
                 $angka_pengetahuan='1.20';
                 $predikat_pengetahuan='D+';
                 break;
-            case '29':
+            case '29.0':
                 $angka_pengetahuan='1.16';
                 $predikat_pengetahuan='D+';
                 break;
-            case '28':
+            case '28.0':
                 $angka_pengetahuan='1.12';
                 $predikat_pengetahuan='';
                 break;
-            case '27':
+            case '27.0':
                 $angka_pengetahuan='1.08';
                 $predikat_pengetahuan='D+';
                 break;
-            case '26':
+            case '26.0':
                 $angka_pengetahuan='1.04';
                 $predikat_pengetahuan='D+';
                 break;
@@ -450,208 +450,209 @@ class NilaiController extends Controller
 
         //Akhir dari Nilai Pengetahuan
         //Awal dari Nilai Keterampilan
+     
         switch (floor($hasil_keterampilan)) {
-            case '100':
+            case '100.0':
                 $angka_keterampilan='4.00';
                 $predikat_keterampilan='A';
                 break;
-            case '99':
+            case '99.0':
                 $angka_keterampilan='3.96';
                 $predikat_keterampilan='A';
                 break;
-            case '98':
+            case '98.0':
                 $angka_keterampilan='3.93';
                 $predikat_keterampilan='A';
                 break;
-            case '97':
+            case '97.0':
                 $angka_keterampilan='3.89';
                 $predikat_keterampilan='A';
                 break;
-            case '96':
+            case '96.0':
                 $angka_keterampilan='3.85';
                 $predikat_keterampilan='A';
                 break;
-            case '95':
+            case '95.0':
                 $angka_keterampilan='3.3.84';
                 $predikat_keterampilan='A-';
                 break;
-            case '94':
+            case '94.0':
                 $angka_keterampilan='3.76';
                 $predikat_keterampilan='A-';
                 break;
-            case '93':
+            case '93.0':
                 $angka_keterampilan='3.68';
                 $predikat_keterampilan='A-';
                 break;
-            case '92':
+            case '92.0':
                 $angka_keterampilan='3.59';
                 $predikat_keterampilan='A-';
                 break;
-            case '91':
+            case '91.0':
                 $angka_keterampilan='3.51';
                 $predikat_keterampilan='A-';
                 break;
-            case '90':
+            case '90.0':
                 $angka_keterampilan='3.50';
                 $predikat_keterampilan='B+';
                 break;
-            case '89':
+            case '89.0':
                 $angka_keterampilan='3.42';
                 $predikat_keterampilan='B+';
                 break;
-            case '88':
+            case '88.0':
                 $angka_keterampilan='3.34';
                 $predikat_keterampilan='B+';
                 break;
-            case '87':
+            case '87.0':
                 $angka_keterampilan='3.26';
                 $predikat_keterampilan='B+';
                 break;
-            case '86':
+            case '86.0':
                 $angka_keterampilan='3.18';
                 $predikat_keterampilan='B+';
                 break;
-            case '85':
+            case '85.0':
                 $angka_keterampilan='3.17';
                 $predikat_keterampilan='B';
                 break;
-            case '84':
+            case '84.0':
                 $angka_keterampilan='3.09';
                 $predikat_keterampilan='B';
                 break;
-            case '83':
+            case '83.0':
                 $angka_keterampilan='3.01';
                 $predikat_keterampilan='B';
                 break;
-            case '82':
+            case '82.0':
                 $angka_keterampilan='2.93';
                 $predikat_keterampilan='B';
                 break;
-            case '81':
+            case '81.0':
                 $angka_keterampilan='2.85';
                 $predikat_keterampilan='B';
                 break;
-            case '80':
+            case '80.0':
                 $angka_keterampilan='2.84';
                 $predikat_keterampilan='B';
                 break;
-            case '79':
+            case '79.0':
                 $angka_keterampilan='2.77';
                 $predikat_keterampilan='B-';
                 break;
-            case '78':
+            case '78.0':
                 $angka_keterampilan='2.71';
                 $predikat_keterampilan='B-';
                 break;
-            case '77':
+            case '77.0':
                 $angka_keterampilan='2.64';
                 $predikat_keterampilan='B-';
                 break;
-            case '76':
+            case '76.0':
                 $angka_keterampilan='2.58';
                 $predikat_keterampilan='B-';
                 break;
-            case '75':
+            case '75.0':
                 $angka_keterampilan='2.51';
                 $predikat_keterampilan='B-';
                 break;
-            case '74':
+            case '74.0':
                 $angka_keterampilan='2.50';
                 $predikat_keterampilan='C+';
                 break;
-            case '73':
+            case '73.0':
                 $angka_keterampilan='2.42';
                 $predikat_keterampilan='C+';
                 break;
-            case '72':
+            case '72.0':
                 $angka_keterampilan='2.34';
                 $predikat_keterampilan='C+';
                 break;
-            case '71':
+            case '71.0':
                 $angka_keterampilan='2.26';
                 $predikat_keterampilan='C+';
                 break;
-            case '70':
+            case '70.0':
                 $angka_keterampilan='2.18';
                 $predikat_keterampilan='C+';
                 break;
-            case '69':
+            case '69.0':
                 $angka_keterampilan='2.17';
                 $predikat_keterampilan='C';
                 break;
-            case '68':
+            case '68.0':
                 $angka_keterampilan='2.09';
                 $predikat_keterampilan='C';
                 break;
-            case '67':
+            case '67.0':
                 $angka_keterampilan='2.01';
                 $predikat_keterampilan='C';
                 break;
-            case '66':
+            case '66.0':
                 $angka_keterampilan='1.93';
                 $predikat_keterampilan='C';
                 break;
-            case '65':
+            case '65.0':
                 $angka_keterampilan='1.85';
                 $predikat_keterampilan='C';
                 break;
-            case '64':
+            case '64.0':
                 $angka_keterampilan='1.84';
                 $predikat_keterampilan='C-';
                 break;
-            case '63':
+            case '63.0':
                 $angka_keterampilan='1.76';
                 $predikat_keterampilan='C-';
                 break;
-            case '62':
+            case '62.0':
                 $angka_keterampilan='1.68';
                 $predikat_keterampilan='C-';
                 break;
-            case '61':
+            case '61.0':
                 $angka_keterampilan='1.59';
                 $predikat_keterampilan='C-';
                 break;
-            case '60':
+            case '60.0':
                 $angka_keterampilan='1.51';
                 $predikat_keterampilan='C-';
                 break;
-            case '59':
+            case '59.0':
                 $angka_keterampilan='1.50';
                 $predikat_keterampilan='D+';
                 break;
-            case '58':
+            case '58.0':
                 $angka_keterampilan='1.42';
                 $predikat_keterampilan='D+';
                 break;
-            case '57':
+            case '57.0':
                 $angka_keterampilan='1.34';
                 $predikat_keterampilan='D+';
                 break;
-            case '56':
+            case '56.0':
                 $angka_keterampilan='1.26';
                 $predikat_keterampilan='D+';
                 break;
-            case '55':
+            case '55.0':
                 $angka_keterampilan='1.18';
                 $predikat_keterampilan='D+';
                 break;
-            case '54':
+            case '54.0':
                 $angka_keterampilan='1.17';
                 $predikat_keterampilan='D+';
                 break;
-            case '53':
+            case '53.0':
                 $angka_keterampilan='1.13';
                 $predikat_keterampilan='D+';
                 break;
-            case '52':
+            case '52.0':
                 $angka_keterampilan='1.09';
                 $predikat_keterampilan='D+';
                 break;
-            case '51':
+            case '51.0':
                 $angka_keterampilan='1.04';
                 $predikat_keterampilan='D+';
                 break;
-            case '50':
+            case '50.0  ':
                 $angka_keterampilan='1.00';
                 $predikat_keterampilan='D+';
                 break;
@@ -696,12 +697,14 @@ class NilaiController extends Controller
         elseif ($predikat_sikap="K") {
             $antar_mapel="Peserta didik menunjukan sikap yang kurang dalam bersungguh-sungguh menerpakan sikap jujur dan bekerjasama, maka perlu ditingkatkan lagi sikap kerjasama dan percaya diri ";
         }
+        // dd($angka_keterampilan);
         // dd($hasil_pengetahuan);
-
-        $nilai_rapor = new NilaiRapor; 
-        $nilai_rapor->guru_id =  $request->input('guru_id');
-        $nilai_rapor->siswa_id = $request->input('siswa_id');
-        $nilai_rapor->mapel_id = $request->input('mapel_id');//$request->input mirip $_POST['']
+        /*$checkIfExists = NilaiRapor*/
+        $nilai_rapor = NilaiRapor::firstOrNew([
+            'guru_id' => $request->input('guru_id'),
+            'siswa_id'=> $request->input('siswa_id'),
+            'mapel_id'=> $request->input('mapel_id'),
+        ]);
         $nilai_rapor->nilai_pengetahuan_id = $nilai_pengetahuan->id;
         $nilai_rapor->nilai_keterampilan_id = $nilai_keterampilan->id;
         $nilai_rapor->nilai_sikap_id = $nilai_sikap->id;
