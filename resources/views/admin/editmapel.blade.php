@@ -31,9 +31,21 @@
                    {{csrf_field()}}
 				<div class="form-group">
 					<label >Nama mapel</label>
-					
 					<input type="text" value="{{ $mapel->nama }}" class="form-control bgcol" name="nama" placeholder="Pemrograman Berorisentasi Objek">
 				</div>
+				<div class="form-group">
+                        <label for="">Semester</label>
+                        <select required class="form-control" name="semester">
+                            <option value="0" disabled="" selected="" >Pilih</option>
+                             @for ($i = 1; $i <=6; $i++)
+                              @if ($mapel->semester==$i)
+                                <option selected value="{{$i}}">{{$i}}</option>  
+                              @else
+                                <option value="{{$i}}">{{$i}}</option>  
+                              @endif
+                      @endfor
+                        </select>
+                </div> 
 				<div class="form-group">
 					<label >Kategori Mata Pelajaran</label>
 					<input type="text" name="kategori" class="form-control bgcol" cols="30" value="{{ $mapel->kategori }}" placeholder="C2">

@@ -737,11 +737,8 @@ class NilaiController extends Controller
 
     }
 
-    public function tampil($siswa_id, $guru_id, $kelasjurusan_id,$mapel_id, $nilai_pengetahuan_id, $nilai_keterampilan_id, $nilai_sikap_id)
+    public function rapor()
         {
-        $nilai_rapor = NilaiRapor::where('siswa_id','=',$siswa_id)
-                                ->where('semester', '=', $semester)
-                                                ->get();
         return view('siswa.rapor');
         }	
 

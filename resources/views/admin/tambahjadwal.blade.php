@@ -59,7 +59,7 @@
                         <select class="form-control" name="mapel_id">
                             <option value="" disabled="" selected="">Pilih Mata Pelajaran</option>
                             @foreach($mapel as $data)
-                            <option value="{{$data->id}}">{{$data->nama}}</option>
+                            <option value="{{$data->id}}">{{$data->kode}}</option>
                             @endforeach
                         </select>
                     </div>

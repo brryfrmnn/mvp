@@ -80,9 +80,13 @@ class AdminController extends Controller
 
             contoh A
         */
+        $nama = $request->nama;
+        $semester = $request->semester;
+        $kode = $nama.' '.$semester;
         $mapel = new Mapel; //deklarasikan objek pengumuman dari Class/odel Pengumuman
         $mapel->admin_id = \Sentinel::getUser()->id; //gunakan Model Sentinel agar dapat id dari orang yang login
         $mapel->nama   = $request->input('nama'); //$request->input mirip $_POST['']
+        $mapel->kode   = $kode; //$request->input mirip $_POST['']
         $mapel->kategori  = $request->input('kategori');
 
         if ($mapel->save()) { //jika save berhasil
@@ -109,9 +113,13 @@ class AdminController extends Controller
     public function updateMapel(Request $request, $id)
     {
         //gunakan method find utntuk mencari id
+        $nama = $request->nama;
+        $semester = $request->semester;
+        $kode = $nama.' '.$semester;
         $mapel = Mapel::find($id);
         $mapel->admin_id = \Sentinel::getUser()->id; //gunakan Model Sentinel agar dapat id dari orang yang login
         $mapel->nama    = $request->input('nama'); //$request->input mirip $_POST['']
+        $mapel->kode   = $kode; //$request->input mirip $_POST['']
         $mapel->kategori    = $request->input('kategori');
 
         if ($mapel->save()) { //jika save berhasil

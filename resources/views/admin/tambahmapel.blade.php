@@ -35,13 +35,24 @@
                    {{csrf_field()}}
 				<div class="form-group">
 					<label >Nama mapel</label>
-					
 					<input type="text" value="" class="form-control bgcol" name="nama" placeholder="Masukan Nama Mapel">
 				</div>
 				<div class="form-group">
+                        <label for="">Semester</label>
+                        <select required class="form-control" name="semester">
+                            <option value="0" disabled="" selected="" >Pilih</option>
+                              <option value="1" >1</option>
+                              <option value="2" >2</option>
+                              <option value="3" >3</option>
+                              <option value="4" >4</option>
+                              <option value="5" >5</option>
+                              <option value="6" >6</option>
+                        </select>
+                    </div>  
+				<div class="form-group">
 					<label >Kategori Mata Pelajaran</label>
 					<input type="text" name="kategori" class="form-control bgcol" cols="30" value="" placeholder="Masukan kategori">
-					</div>
+				</div>
 				</div>
 				<button type="submit" name="edit" class="btn btn-orange">Simpan</button>
 			</form>
