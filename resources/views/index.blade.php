@@ -21,7 +21,7 @@
 									<label class="sr-only" for="inputusername">Username</label>
 									<div class="input-group">
 								      <div class="input-group-addon"><i class="fa fa-user"></i></div>
-								      <input type="text" name="email" class="form-control" id="inputusername" placeholder="Username">
+								      <input type="text" autofocus name="email" class="form-control" id="inputusername" placeholder="Username">
 								    </div>
 								</div>
 								<div class="form-group">
@@ -69,7 +69,7 @@
 							
 							<div class="product-detail">
 								<h5><a href="product-detail.php?id=">{{ $data->judul }}</a></h5>
-								<p>{{ $data->isi }}</p>
+								<p>{{ str_limit($data->isi,400) }}</p>
 								<div class="author">by <a href="vendor-detail.php?id=">{{ $data->user->first_name }}</a></div>
 								<a class="btn-orange btn-sm btn" href="product-detail.php?id=">Selengkapnya</a>
 							</div>
