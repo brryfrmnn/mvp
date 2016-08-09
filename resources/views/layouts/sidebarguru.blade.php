@@ -2,7 +2,6 @@
 <div class="col-md-3">
 	<div class="user-panel">
 		<div class="text-center">
-			
 				<img src="{{url('images/default.png')}}" class="img-responsive img-thumbnail img-circle">
 			<h3>{{Sentinel::getUser()->first_name}}</h3>
 		</div>

@@ -70,6 +70,7 @@ Route::group(['prefix' => 'admin'], function () {
 			Route::get('tampil', 'KelasJurusanController@tampil');
 			Route::get('tambah', 'KelasJurusanController@tambah');
 			Route::get('detail', 'KelasJurusanController@detail');
+			Route::post('{id}/delete', 'KelasJurusanController@hapus');
 			    
 		});
 
@@ -106,7 +107,7 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::get('{id}/edit', 'SiswaController@edit'); 
 		Route::post('{id}/update', 'SiswaController@update');
 		Route::post('{id}/delete', 'SiswaController@hapus');
-		Route::get('detail', 'AdminController@detailSiswa');
+		Route::get('detail', 'SiswaController@detail');
 		
 		    
 	});
@@ -116,7 +117,7 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::get('{id}/edit', 'GuruController@edit');
 		Route::post('{id}/update', 'GuruController@update');
 		Route::post('{id}/delete', 'GuruController@hapus');
-		Route::get('detail', 'AdminController@detailGuru');
+		Route::get('detail', 'GuruController@detail');
 		Route::post('/wali','AdminController@wali');
 		    
 	});
@@ -139,6 +140,7 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::get('profil', 'AdminController@adminProfil');
 	Route::get('profil/edit', 'AdminController@editProfil');
 	Route::get('pengumuman', 'PengumumanController@pengumuman');
+	Route::get('pengumuman/all', 'PengumumanController@all');
 	Route::get('pengumuman/tambah', 'PengumumanController@tambahPengumuman');
 	Route::get('pengumuman/{id}/edit', 'PengumumanController@edit');
 	Route::get('pengumuman/{id}/detail', 'PengumumanController@detail');

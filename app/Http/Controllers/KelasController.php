@@ -62,7 +62,7 @@ class KelasController extends Controller
     {
         //gunakan method find utntuk mencari id
         $kelas = Kelas::find($id);
-        $Kelas->admin_id = \Sentinel::getUser()->id; //gunakan Model Sentinel agar dapat id dari orang yang login
+        $kelas->admin_id = \Sentinel::getUser()->id; //gunakan Model Sentinel agar dapat id dari orang yang login
         $kelas->kode    = $request->input('kode'); //$request->input mirip $_POST['']
         $kelas->nama     = $request->input('nama');
 

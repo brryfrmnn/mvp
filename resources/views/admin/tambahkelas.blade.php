@@ -31,14 +31,14 @@
                    <form action="{{ URL('admin/data/kelas')}}" method="POST" role="form" enctype="multipart/form-data" >
                    {{csrf_field()}}
                     <div class="form-group">
-                        <label >Kode</label>
-                    
-                            <input type="text" value="" class="form-control bgcol" name="kode" placeholder="Masukan kode">
-                    </div>
-                    <div class="form-group">
                         <label >Nama</label>
                     
                             <input type="text" value="" class="form-control bgcol" name="nama" placeholder="Masukan nama">
+                    </div>
+                    <div class="form-group">
+                        <label >Kode</label>
+                    
+                            <input type="text" value="" class="form-control bgcol" name="kode" placeholder="Masukan kode">
                     </div>
                     {{-- <div class="form-group">
                         <label for="">Admin</label>

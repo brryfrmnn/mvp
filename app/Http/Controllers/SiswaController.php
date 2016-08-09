@@ -56,6 +56,22 @@ class SiswaController extends Controller
             return view('admin.datasiswa', ['users' => $siswa, 'no' => $no]);
      }
 
+     public function detail()
+     {
+        //tampilkan semua menggunakan method all() atau get() atau paginate()
+        /*
+        $pengumuman = Pengumuman::all();
+        return redirect('/admin/create')->with('message','Success .. ')
+                                        ->with('alert','success');
+                                        */
+        //atau
+
+            /*$role = Sentinel::findRoleBySlug('siswa');
+            $siswa = $role->users()->with('roles','siswa.kelasJurusan');
+            $no=1;*/
+            return view('admin.detailsiswa'/*, ['users' => $siswa, 'no' => $no]*/);
+     }
+
       public function tambah()
       {
             $kelasjurusan = KelasJurusan::all();
@@ -181,22 +197,24 @@ class SiswaController extends Controller
                                     'penghasilan_orangtua' => $request->input('penghasilan_orangtua'),
                                     'pekerjaan_ayah' => $request->input('pekerjaan_ayah'),
                                     'alamat_orangtua' => $request->input('alamat_orangtua'),
-                                    'pekerjaan_ayah' => $request->input('pekerjaan_ibu'),
+                                    'pekerjaan_ayah' => $request->input('pekerjaan_ayah'),
+                                    'pekerjaan_ibu' => $request->input('pekerjaan_ibu'),
                                     'kelas_jurusan_id' => $request->input('kelas_jurusan_id'),
                                     'user_id' => $user->id,
                                     'admin_id' => \Sentinel::getUser()->id,
                               ]);
                         
                         if ($siswa) {
-                              return redirect('admin/siswa/'.$user->id.'/edit');
+                              return redirect('admin/siswa/'.$user->id.'/edit')->with('message','Berhasil')->with('alert','success');
+                                              
                         }
                   } catch (Illuminate\Database\QueryException $e) {
-                     dd($e);   
+                     return redirect('admin/siswa/'.$user->id.'/edit')->with('message','Gagal '.$e)->with('alert','danger');   
                   } catch (PDOException $e) {
-                      dd($e);
+                      return redirect('admin/siswa/'.$user->id.'/edit')->with('message','Gagal '.$e)->with('alert','danger');
                   }   
                } else {
-                  return redirect('admin/siswa/'.$user->id.'/edit');
+                   return redirect('admin/siswa/'.$user->id.'/edit')->with('message','Gagal ')->with('alert','danger');
                }
 
               // Assign User Roles

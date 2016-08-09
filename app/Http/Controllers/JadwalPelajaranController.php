@@ -48,15 +48,15 @@ class JadwalPelajaranController extends Controller
    		$jadwal_pelajaran->kelasjurusan_id = $request->input('kelasjurusan_id');
    		$jadwal_pelajaran->mapel_id = $request->input('mapel_id');
    		$jadwal_pelajaran->semester = $request->input('semester');
-   		$jadwal_pelajaran->tahun_ajaran = $request->input('tahun_ajaran');
+   		$jadwal_pelajaran->tahun_ajaran = $request->input('tahun_ajar');
    		if ($jadwal_pelajaran->save()) { //jika save berhasil
             //jika berhasil arahkan ke halaman admin/pengumuman
-            return redirect('/admin/jadwal')->with('message','Success .. ')
+            return redirect('/admin/jadwal')->with('message','Data Berhasil Diubah ')
                                         ->with('alert','success');
 
         } else {
             //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-            return redirect('/admin/jadwal/tambah')->with('message','Gagal .. ')
+            return redirect('/admin/jadwal/tambah')->with('message','Data Gagal Diubah')
                                         ->with('alert','danger');
 
         }
@@ -74,15 +74,15 @@ class JadwalPelajaranController extends Controller
    		$jadwal_pelajaran->kelasjurusan_id = $request->input('kelasjurusan_id');
    		$jadwal_pelajaran->mapel_id = $request->input('mapel_id');
    		$jadwal_pelajaran->semester = $request->input('semester');
-   		$jadwal_pelajaran->tahun_ajaran = $request->input('tahun_ajaran');
+   		$jadwal_pelajaran->tahun_ajaran = $request->input('tahun_ajar');
    		if ($jadwal_pelajaran->save()) { //jika save berhasil
             //jika berhasil arahkan ke halaman admin/pengumuman
-            return redirect('/admin/jadwal')->with('message','Success .. ')
+            return redirect('/admin/jadwal')->with('message','Data Berhasil Disimpan')
                                         ->with('alert','success');
 
         } else {
             //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-            return redirect('/admin/jadwal/tambah')->with('message','Gagal .. ')
+            return redirect('/admin/jadwal/tambah')->with('message','Data Gagal Disimpan')
                                         ->with('alert','danger');
 
         }
@@ -95,12 +95,12 @@ class JadwalPelajaranController extends Controller
         // $pengumuman->delete();
        if ($jadwal_pelajaran->delete()) { //jika save berhasil
             //jika berhasil arahkan ke halaman admin/pengumuman
-            return redirect('/admin/jadwal')->with('message','Success .. berhasil di hapus')
+            return redirect('/admin/jadwal')->with('message','Data Berhasil Dihapus')
                                         ->with('alert','success');
 
         } else {
             //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-            return redirect('/admin/jadwal')->with('message','Gagal ..dihapus ')
+            return redirect('/admin/jadwal')->with('message','Data Gagal Dihapus')
                                         ->with('alert','danger');
 
         }
@@ -117,8 +117,9 @@ class JadwalPelajaranController extends Controller
     	// })->get();
 
     	// $kelasjurusan_id = $kelasjurusan_id;
-    	$tahun_ajaran = '2016';
 
+    	$tahun_ajaran = \DB::table('tahun_ajaran')->orderBy('id','desc')->first();
+        $tahun_ajaran = $tahun_ajaran->tahun_ajaran;
     	$jadwal_pelajaran = JadwalPelajaran::where('guru_id', '=', $guru_id)
     										->whereHas('kelasjurusan',function($query) use ($id){
     											$query->whereHas('kelas',function($query2) use ($id){

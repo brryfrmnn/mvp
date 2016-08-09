@@ -20,7 +20,7 @@
 <div class="container">
   <div class="row" >
     <div class="col-lg-8 col-lg-offset-2">
-      <h1 class="page-header">Detail Pengumuman<a href="{{ URL('admin/pengumuman')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+      <h1 class="page-header">Detail Pengumuman<button onclick="history.go(-1)" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</button></h1>
         <div class="panel panel-default">
           <div class="panel-body">                   
               <form action="{{ URL('admin/pengumuman',[$pengumuman->id,'detail'])}}" method="POST" role="form" enctype="multipart/form-data" >

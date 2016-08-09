@@ -20,6 +20,12 @@
 <div class="container">
 	<div class="row" >
         <div class="col-lg-8 col-lg-offset-2"  >
+            @if (session('message'))
+                <div class="alert alert-{{session('alert')}}">
+                    <p>{{session('message')}}
+                    </p>
+                </div>  
+            @endif
         <h1 class="page-header">Edit Guru<a href="{{ URL('admin/data/guru')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
      		<div class="panel panel-default">
                 <div class="panel-body">
@@ -35,11 +41,11 @@
                     </div>
                     <div class="form-group">
                         <label for="">Nama Belakang</label>
-                        <input value="{{ $guru->last_name }}"name="last_name"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <input value="{{ $guru->last_name }}"name="last_name"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input value="{{ $guru->email}}"name="email"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <input value="{{ $guru->email}}"name="email"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
@@ -51,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Nomor Telepon</label>
-                        <input value="{{ $guru->phone}}"name="phone"type="text" class="form-control" id="" placeholder="Masukan Nama">
+                        <input value="{{ $guru->phone}}"name="phone"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label>Jenis Kelamin</label>
@@ -74,11 +80,11 @@
                     </div>
                     <div class="form-group">
                         <label for="">Tempat lahir</label>
-                        <input value="{{ $guru->tempat_lahir}}"name="tempat_lahir"type="text" class="form-control" id="" placeholder="Masukan Tempat lahir">
+                        <input value="{{ $guru->tempat_lahir}}"name="tempat_lahir"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Tanggal Lahir</label>
-                        <input value="{{ $guru->tanggal_lahir }}" name="tanggal_lahir"type="date" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="{{ $guru->tanggal_lahir }}" name="tanggal_lahir"type="date" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
@@ -90,7 +96,7 @@
                     </div>
                     <div class="form-group">
                         <label>NIP</label>
-                        <input value="{{$guru->nip}}"name="nip" type="text " class="form-control" placeholder="">
+                        <input value="{{$guru->guru->nip}}"name="nip" type="text " class="form-control" placeholder="">
                     </div>
                     <div class="form-group">
                         <label>Status Kepegawaian</label>
@@ -98,62 +104,48 @@
                     </div>
                     <div class="form-group">
                         <label for="">Jabatan</label>
-                        <input value="{{$guru->jabatan}}" name="jabatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="{{$guru->jabatan}}" name="jabatan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Tugas Tambahan</label>
-                        <input value="{{$guru->tugas_tambahan}}" name="tugas_tambahan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="{{$guru->tugas_tambahan}}" name="tugas_tambahan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">SK Pengangkatan</label>
-                        <input value="{{$guru->sk_pengangkatan}}" name="sk_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="{{$guru->sk_pengangkatan}}" name="sk_pengangkatan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Tahun Pengangkatan</label>
-                        <input value="{{$guru->tahun_pengangkatan}}" name="tahun_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="{{$guru->tahun_pengangkatan}}" name="tahun_pengangkatan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Lembaga Pengangkatan</label>
-                        <input value="{{$guru->lembaga_pengangkatan}}" name="lembaga_pengangkatan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="{{$guru->lembaga_pengangkatan}}" name="lembaga_pengangkatan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Sumber Gaji</label>
-                        <input value="{{$guru->sumber_gaji}}" name="sumber_gaji"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="{{$guru->sumber_gaji}}" name="sumber_gaji"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Status Perkawinan</label>
-                        <input value="{{$guru->status_perkawinan}}" name="status_perkawinan"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="{{$guru->status_perkawinan}}" name="status_perkawinan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Suami</label>
-                        <input value="{{$guru->nama_suami}}" name="nama_suami"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="{{$guru->nama_suami}}" name="nama_suami"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Istri</label>
-                        <input value="{{$guru->nama_istri}}" name="nama_istri"type="text" class="form-control" id="" placeholder="Masukan nis">
+                        <input value="{{$guru->nama_istri}}" name="nama_istri"type="text" class="form-control" id="" placeholder="">
                     </div>
-                    <div class="form-group">
-                        <label for="">Status Wali Kelas</label>
-
-                        <select required class="form-control" name="status_walikelas">
-                        <option value="0" disabled="" selected="" >Pilih</option>
-                        @foreach ($guru as $data)               
-                            <option value="{{$data->id}}" >{{$data->status_walikelas}}</option>
-                       @endforeach
-                        </select>
-                    </div>
-                   
+                    
                     <button type="submit" class="btn btn-orange" name="edit">EDIT</button>
                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-	
-			
-					
+</div>				
 @endsection
 
 

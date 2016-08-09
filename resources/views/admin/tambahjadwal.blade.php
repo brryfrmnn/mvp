@@ -26,7 +26,7 @@
                         <p>{{session('message')}}</p>
                     </div>  
         @endif
-        <h1 class="page-header">Tambah Jadwal<a href="{{ URL('admin/jadwal')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+        <h1 class="page-header">Tambah Jadwal<button onclick="history.go(-1)" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</button></h1>
 
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -79,7 +79,7 @@
 
                     <div class="form-group">
                         <label for="">Tahun Ajaran</label>
-                        <input value="" class="form-control" type="text" name="tahun_ajaran" placeholder="2014/2015">
+                        <input value="" class="form-control" type="text" name="tahun_ajar" placeholder="2014/2015">
                     </div>
 
 
