@@ -201,6 +201,7 @@ class WaliKelasController extends Controller
             return view('walikelas.nilai_rapor'); 
         }
      } 
+      
       /*public function cek()
       {
        	return view('walikelas.ceknilai');

@@ -13,6 +13,7 @@ use App\Role;
 
 use App\KelasJurusan;
 use App\Siswa;
+use App\NilaiRapor;
 
 
 
@@ -241,36 +242,50 @@ class SiswaController extends Controller
 
               }
           }
-     Public function siswaProfil()
-      {
-       return view ('siswa.profil');
-      }
-      Public function profilEdit()
-      {
-       return view ('siswa.profil_edit');
-      }
-      Public function NilaiSemester1()
-      {
-       return view ('siswa.Semester1');
-      }
-      Public function NilaiSemester2()
-      {
-       return view ('siswa.Semester2');
-      }
-      Public function NilaiSemester3()
-      {
-       return view ('siswa.Semester3');
-      }
-      Public function NilaiSemester4()
-      {
-       return view ('siswa.Semester4');
-      }
-      Public function NilaiSemester5()
-      {
-       return view ('siswa.Semester5');
-      }
-      Public function NilaiSemester6()
-      {
-       return view ('siswa.Semester6');
-      }
+
+          public function raporsiswa($semester)
+         {
+            $siswa_id = Sentinel::getUser()->id;
+            $semester = $semester;/*
+            $tahun_ajaran = $request->tahun_ajaran;*/
+            $no =1;
+            $raporA = NilaiRapor::with('guru','mapel','siswa.siswa')->where('siswa_id',$siswa_id)
+                                ->where('semester',$semester)
+                                ->whereHas('mapel',function($query){
+                                    $query->where('kategori','A');
+                                })
+                               /* ->where('tahun_ajaran',$tahun_ajaran)*/
+                                ;
+            $raporB = NilaiRapor::with('guru','mapel')->where('siswa_id',$siswa_id)
+                                ->where('semester',$semester)
+                                ->whereHas('mapel',function($query){
+                                    $query->where('kategori','B');
+                                })
+                               /* ->where('tahun_ajaran',$tahun_ajaran)*/
+                                ;
+            $raporC1 = NilaiRapor::with('guru','mapel')->where('siswa_id',$siswa_id)
+                                ->where('semester',$semester)
+                                ->whereHas('mapel',function($query){
+                                    $query->where('kategori','C1');
+                                })
+                               /* ->where('tahun_ajaran',$tahun_ajaran)*/
+                                ;
+            $raporC2 = NilaiRapor::with('guru','mapel')->where('siswa_id',$siswa_id)
+                                ->where('semester',$semester)
+                                ->whereHas('mapel',function($query){
+                                    $query->where('kategori','C2');
+                                })
+                               /* ->where('tahun_ajaran',$tahun_ajaran)*/
+                                ;
+            if ($raporA->count()>0 || $raporB->count()>0 || $raporC1->count()>0 || $raporC2->count()>0) {
+                $raporA = $raporA->get(); 
+                $raporB = $raporB->get(); 
+                $raporC1 = $raporC1->get(); 
+                $raporC2 = $raporC2->get(); 
+                return view('siswa.rapor',compact('raporA','raporB','raporC1','raporC2','no'));
+            } else {
+                return view('siswa.rapor'); 
+            }
+         } 
+     
 }
