@@ -28,6 +28,19 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::orderBy('id','desc')->paginate(3);
          return view('index')->with('pengumuman',$pengumuman);
     }
+    public function all()
+    {
+        //tampilkan semua menggunakan method all() atau get() atau paginate()
+        /*
+        $pengumuman = Pengumuman::all();
+        return redirect('/admin/create')->with('message','Success .. ')
+                                        ->with('alert','success');
+                                        */
+        //atau
+
+        $pengumuman = Pengumuman::orderBy('id','desc')->paginate(6);
+         return view('admin.tampilpengumuman')->with('pengumuman',$pengumuman);
+    }
     public function pengumuman()
     {
         //tampilkan semua menggunakan method all() atau get() atau paginate()
@@ -76,12 +89,12 @@ class PengumumanController extends Controller
 
         if ($pengumuman->save()) { //jika save berhasil
             //jika berhasil arahkan ke halaman admin/pengumuman
-            return redirect('/admin/pengumuman')->with('message','Success .. ')
+            return redirect('/admin/pengumuman')->with('message','Data Berhasil Disimpan ')
                                         ->with('alert','success');
 
         } else {
             //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-            return redirect('/admin/pengumuman/tambah')->with('message','Gagal .. ')
+            return redirect('/admin/pengumuman/tambah')->with('message','Data Gagal Disimpan ')
                                         ->with('alert','danger');
 
         }
@@ -151,12 +164,12 @@ class PengumumanController extends Controller
 
         if ($pengumuman->save()) { //jika save berhasil
             //jika berhasil arahkan ke halaman admin/pengumuman
-            return redirect('/admin/pengumuman')->with('message','Success .. ')
+            return redirect('/admin/pengumuman')->with('message','Data Berhasil Diubah ')
                                         ->with('alert','success');
 
         } else {
             //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-            return redirect('/admin/pengumuman/tambah')->with('message','Gagal .. ')
+            return redirect('/admin/pengumuman/tambah')->with('message','Data Gagal Diubah')
                                         ->with('alert','danger');
 
         }
@@ -176,12 +189,12 @@ class PengumumanController extends Controller
         // $pengumuman->delete();
        if ($pengumuman->delete()) { //jika save berhasil
             //jika berhasil arahkan ke halaman admin/pengumuman
-            return redirect('/admin/pengumuman')->with('message','Success .. berhasil di hapus')
+            return redirect('/admin/pengumuman')->with('message','Data Berhasil Dihapus')
                                         ->with('alert','success');
 
         } else {
             //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-            return redirect('/admin/pengumuman/tambah')->with('message','Gagal ..dihapus ')
+            return redirect('/admin/pengumuman/tambah')->with('message','Data Gagal Dihapus ')
                                         ->with('alert','danger');
 
         }

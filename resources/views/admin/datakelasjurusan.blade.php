@@ -30,7 +30,13 @@
 					<td>{{$no++}}</td>
 					<td>{{$data->kelas->nama}}</td>
 					<td>{{$data->jurusan->nama}}</td>
-					<td><a href="{{URL('admin/kelas/detail')}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i> Detail</a></td>
+					<td>
+					<form action="{{ URL('admin/data/kelasjurusan',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
+				    {{csrf_field()}}
+				    <a href="{{URL('admin/kelas/detail')}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
+				    <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
+				    </form>
+					</td>
 				</tr>			
 					@endforeach		
 			</table>

@@ -64,7 +64,7 @@
 					<div class="col-md-4 col-sm-4 col-xs-4 product">
 						<div class="product-thumb">
 							<a href="product-detail.php?id=" class="product-img">
-									<img src="images/product-800.jpg" class="img-responsive" data-min-width-0="images/calendar.png" data-min-width-641="images/product-800.jpg" data-min-width-1025="images/product.jpg">
+									<img src="images/pengumuman.png" class="img-responsive" data-min-width-0="images/calendar.png" data-min-width-641="images/product-800.jpg" data-min-width-1025="images/pengumuman.png">
 							</a>
 							
 							<div class="product-detail">
@@ -85,7 +85,7 @@
 					
 			</div>
 			<div class="text-center">
-				<a class="btn btn-md btn-orange" href="product.php">Lihat Pengumuman Lainnya</a>
+				<a class="btn btn-md btn-orange" href="{{URL('admin/pengumuman/all')}}">Lihat Pengumuman Lainnya</a>
 			</div>
 			
 

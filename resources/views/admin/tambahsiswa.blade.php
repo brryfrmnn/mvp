@@ -72,8 +72,8 @@
                         <label>Agama *</label>
                         <div class="radio">
                             <label>
-                            <input type="radio" name="Agama" value="l" 
-                            >Islam &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" > Budha &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" >Katholik&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="p" >Hindu
+                            <input type="radio" name="Agama" value="Islam" 
+                            >Islam &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="Budha" > Budha &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="Katholik" >Katholik&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="Agama" value="Hindu" >Hindu
 
                             </label>
                         </div>

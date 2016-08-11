@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Cartalyst\Sentinel\Users\IlluminateUserRepository;
 use App\User;
 use App\Role;
-
 use App\KelasJurusan;
 use App\Guru;
 
@@ -135,8 +134,8 @@ class GuruController extends Controller
               /*$role = Sentinel::findRoleBySlug('administrator');
               $admins = $role->users()->with('roles')->get();*/
               $guru = User::find($id);
-              // dd($siswa);
-              return view('admin.editguru', compact('kelasjurusan')); 
+              /*dd($guru);*/
+              return view('admin.editguru', compact('guru')); 
       }
 
       public function update(Request $request, $id)
@@ -196,32 +195,37 @@ class GuruController extends Controller
 
 
     //Controller Buat Guru
-      public function hapus($id)
+      
+    public function hapus($id)
       {
-       //method hapus .. jika menggunakan softDeletes() data tidak benar2 dihapus .. tapi tidak ditampilkan daja
-        //cari dengan method find
-        $user = User::find($id);
-        $guru = Guru::where('user_id',$user->id);
+          //method hapus .. jika menggunakan softDeletes() data tidak benar2 dihapus .. tapi tidak ditampilkan daja
+          //cari dengan method find
+          $user = User::find($id);
+          // $pengumuman->delete();
+         if ($user->delete()) { //jika save berhasil
+              //jika berhasil arahkan ke halaman admin/pengumuman
+              return redirect('admin/guru')->with('message','Success .. berhasil di hapus')
+                                          ->with('alert','success');
 
-        // $pengumuman->delete();
-       if ($user->delete() && $guru->delete()) { //jika save berhasil
-            //jika berhasil arahkan ke halaman admin/pengumuman
+          } else {
+              //jika berhasil arahkan ke halaman admin/pengumuman/tambah
+              return redirect('admin/guru')->with('message','Gagal ..dihapus ')
+                                          ->with('alert','danger');
 
-            return redirect('/admin/data/guru')->with('message','Success .. berhasil di hapus')
-                                        ->with('alert','success');
-
-        } else {
-            //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-            return redirect('/admin/data/guru')->with('message','Gagal ..dihapus ')
-                                        ->with('alert','danger');
-
-        }
+          }
       }
+      
 
     	public function profil($id)
       {
            $user = User::find($id);
            return view('guru.profile')->with('user',$user); 
+      }
+
+      public function detail()
+      {
+           
+           return view('admin.detailguru'); 
       }
 
 

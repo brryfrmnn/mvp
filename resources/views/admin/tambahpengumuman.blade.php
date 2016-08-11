@@ -26,7 +26,7 @@
                         <p>{{session('message')}}</p>
                     </div>  
         @endif
-        <h1 class="page-header">Tambah Pengumuman<a href="{{ URL('admin/pengumuman')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+        <h1 class="page-header">Tambah Pengumuman<button onclick="history.go(-1)" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</button></h1>
 
             <div class="panel panel-default">
                 <div class="panel-body">

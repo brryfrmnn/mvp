@@ -20,7 +20,7 @@
 <div class="container">
   <div class="row" >
     <div class="col-lg-8 col-lg-offset-2">
-        <h1 class="page-header">Ubah Jadwal<a href="{{ URL('admin/jadwal')}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</a></h1>
+        <h1 class="page-header">Ubah Jadwal<button onclick="history.go(-1)" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</button></h1>
 
       <div class="panel panel-default">
           <div class="panel-body">
@@ -62,9 +62,9 @@
                       <option value="" disabled="" selected="">Pilih Mata Pelajaran</option>
                       @foreach ($mapel as $data)
                           @if ($jadwal_pelajaran->mapel_id==$data->id)
-                            <option selected value="{{$data->id}}">{{$data->nama}}</option>  
+                            <option selected value="{{$data->id}}">{{$data->kode}}</option>  
                           @else
-                            <option value="{{$data->id}}">{{$data->nama}}</option>  
+                            <option value="{{$data->id}}">{{$data->kode}}</option>  
                           @endif
                          
                       @endforeach
@@ -87,7 +87,7 @@
 
               <div class="form-group">
                   <label for="">Tahun Ajaran</label>
-                  <input value="{{ $jadwal_pelajaran->tahun_ajaran }}" class="form-control" type="text" name="tahun_ajaran" placeholder="2014/2015">
+                  <input value="{{ $jadwal_pelajaran->tahun_ajaran }}" class="form-control" type="text" name="tahun_ajar" placeholder=" contoh:2014/2015">
               </div>
 
               <button type="submit" class="btn btn-orange" name="simpan">Simpan</button>

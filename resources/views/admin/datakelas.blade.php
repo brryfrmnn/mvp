@@ -35,7 +35,7 @@
 					<td><a href="{{ URL('admin/data/kelas',[$data->id,'edit'])}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i> Ubah</a>&nbsp&nbsp&nbsp
 					<form action="{{ URL('admin/data/kelas',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
 					{{csrf_field()}}
-					<button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
+					<button onclick="return confirm('Yakin akan menghapus data ini?')" class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
 					</form>
 					</td>
 				</tr>			

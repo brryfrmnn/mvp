@@ -91,12 +91,12 @@ class AdminController extends Controller
 
         if ($mapel->save()) { //jika save berhasil
             //jika berhasil arahkan ke halaman admin/pengumuman
-            return redirect('/admin/mapel/tampil')->with('message','Success .. ')
+            return redirect('/admin/mapel/tampil')->with('message','Data Berhasil Tersimpan ')
                                         ->with('alert','success');
 
         } else {
             //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-            return redirect('/admin/mapel/tambah')->with('message','Gagal .. ')
+            return redirect('/admin/mapel/tambah')->with('message','Data Gagal Tersimpan ')
                                         ->with('alert','danger');
 
         } 
@@ -124,12 +124,12 @@ class AdminController extends Controller
 
         if ($mapel->save()) { //jika save berhasil
             //jika berhasil arahkan ke halaman admin/pengumuman
-            return redirect('/admin/mapel/tampil')->with('message','Success .. ')
+            return redirect('/admin/mapel/tampil')->with('message','Data Berhasil Diubah ')
                                         ->with('alert','success');
 
         } else {
             //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-            return redirect('/admin/mapel/tambah')->with('message','Gagal .. ')
+            return redirect('/admin/mapel/tambah')->with('message','Data Gagal Diubah ')
                                         ->with('alert','danger');
 
         }
@@ -143,12 +143,12 @@ class AdminController extends Controller
         // $pengumuman->delete();
        if ($mapel->delete()) { //jika save berhasil
             //jika berhasil arahkan ke halaman admin/pengumuman
-            return redirect('/admin/mapel/tampil')->with('message','Success .. berhasil di hapus')
+            return redirect('/admin/mapel/tampil')->with('message','Data Berhasil Dihapus')
                                         ->with('alert','success');
 
         } else {
             //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-            return redirect('/admin/mapel/tambah')->with('message','Gagal ..dihapus ')
+            return redirect('/admin/mapel/tambah')->with('message','Data Gagal Dihapus ')
                                         ->with('alert','danger');
 
         }
