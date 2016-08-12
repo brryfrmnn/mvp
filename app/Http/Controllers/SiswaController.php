@@ -57,20 +57,27 @@ class SiswaController extends Controller
             return view('admin.datasiswa', ['users' => $siswa, 'no' => $no]);
      }
 
-     public function detail()
+     public function detail(Request $request)
      {
-        //tampilkan semua menggunakan method all() atau get() atau paginate()
-        /*
-        $pengumuman = Pengumuman::all();
-        return redirect('/admin/create')->with('message','Success .. ')
-                                        ->with('alert','success');
-                                        */
-        //atau
-
-            /*$role = Sentinel::findRoleBySlug('siswa');
-            $siswa = $role->users()->with('roles','siswa.kelasJurusan');
-            $no=1;*/
-            return view('admin.detailsiswa'/*, ['users' => $siswa, 'no' => $no]*/);
+        $validator = \Validator::make($request->all(), [
+            'id' => 'required|integer',
+          ]);
+        if ($validator->passes()) {
+          $id = $request->id;
+          $siswa = User::find($id);
+          $now = \Carbon\Carbon::now();
+          $last_login = new \Carbon\Carbon($siswa->last_login);
+          $difference = ($last_login->diff($now)->days < 1)
+                          ? 'Hari ini'
+                          : $created->diff($now)->days.' hari yang lalu';
+                          return view('admin.detailsiswa', ['siswa' => $siswa,'last_login' => $difference]);
+        }
+        else
+        {  
+            return "Error. ".$validator->errors()." Kembali";
+        }
+        
+        
      }
 
       public function tambah()

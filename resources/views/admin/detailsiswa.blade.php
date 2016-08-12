@@ -26,116 +26,116 @@
 					<tr >
 						<td>Nomor Induk Siswa</td>
 						<td>:</td>
-						<td>{{--{{ $siswa->nomor_induk }}--}}</td>
+						<td>{{ $siswa->nomor_induk }}</td>
 						
 					</tr>
 					<tr>
 						<td>Nama </td>
 						<td>:</td>
-						<td>{{--{{ $siswa->first_name }}--}}</td>
+						<td>{{ $siswa->full_name }}</td>
 						
 					</tr>
 					<tr >
 						<td>Email</td>
 						<td>:</td>
-						<td>Jl. Slamet 1 No.52 Cicadas Bandung</td>
+						<td>{{ $siswa->email }}</td>
 						
 					</tr>
 					<tr >
 						<td>No Telepon</td>
 						<td>:</td>
-						<td>085722738348</td>
+						<td>{{ $siswa->phone }}</td>
 						
 					</tr>
 					<tr>
 						<td>Jenis Kelamin</td>
 						<td>:</td>
-						<td>Perempuan</td>
+						<td>{{ $siswa->jenis_kelamin == 'p'?'Perempuan':'Laki-laki' }}</td>
 					</tr>
 					<tr>
 						<td>Agama</td>
 						<td>:</td>
-						<td>Islam</td>
+						<td>{{ $siswa->Agama }}</td>
 					</tr>
 					<tr>
 						<td>Tempat Lahir</td>
 						<td>:</td>
-						<td>Bandung</td>
+						<td>{{ $siswa->tempat_lahir }}</td>
 					</tr>
 					<tr>
 						<td>Tanggal Lahir</td>
 						<td>:</td>
-						<td>23, Maret 1995</td>
+						<td>{{ date('d F Y',strtotime($siswa->tanggal_lahir))  }}</td>
 					</tr>
 					<tr>
 						<td>Alamat</td>
 						<td>:</td>
-						<td>bandung</td>
+						<td>{{$siswa->alamat}}</td>
 					</tr>
 					<tr>
 						<td>Semester</td>
 						<td>:</td>
-						<td>1</td>
+						<td>{{$siswa->siswa->semester}}</td>
 					</tr>
 					<tr>
 						<td>Tahun Ajaran</td>
 						<td>:</td>
-						<td>2016/2017</td>
+						<td>{{$siswa->siswa->tahun_ajar}}</td>
 					</tr>
 					<tr>
 						<td>Jenis Tinggal</td>
 						<td>:</td>
-						<td>bersama orang tua</td>
+						<td>{{$siswa->siswa->jenis_tinggal}}</td>
 					</tr>
 					<tr>
 						<td>Nama Ayah</td>
 						<td>:</td>
-						<td>DAdang</td>
+						<td>{{$siswa->siswa->nama_ayah}}</td>
 					</tr>
 					<tr>
 						<td>Nama Ibu</td>
 						<td>:</td>
-						<td>nining</td>
+						<td>{{$siswa->siswa->nama_ibu}}</td>
 					</tr>
 					<tr>
 						<td>Alat Transportasi</td>
 						<td>:</td>
-						<td>Motor</td>
+						<td>{{$siswa->siswa->alat_transportasi}}</td>
 					</tr>
 					<tr>
 						<td>Pengashilan Orang Tua</td>
 						<td>:</td>
-						<td>Motor</td>
+						<td>{{$siswa->siswa->penghasil_orangtua}}</td>
 					</tr>
 					<tr>
 						<td>Alamat Orang tua</td>
 						<td>:</td>
-						<td>Motor</td>
+						<td>{{$siswa->siswa->alamat_orangtua}}</td>
 					</tr>
 					<tr>
 						<td>Pekerjaan Ayah</td>
 						<td>:</td>
-						<td>Motor</td>
+						<td>{{$siswa->siswa->pekerjaan_ayah}}</td>
 					</tr>
 					<tr>
 						<td>Pekerjaan Ibu</td>
 						<td>:</td>
-						<td>Motor</td>
+						<td>{{$siswa->siswa->pekerjaan_ibu}}</td>
 					</tr>
 					<tr>
 						<td>Kelas</td>
 						<td>:</td>
-						<td>X</td>
+						<td>{{$siswa->siswa->kelasJurusan->kelas->nama}}</td>
 					</tr>
 					<tr>
 						<td>Jurusan</td>
 						<td>:</td>
-						<td>TIK</td>
+						<td>{{$siswa->siswa->kelasJurusan->jurusan->kode}}</td>
 					</tr>
 					<tr>
 						<td>Terakhir Login</td>
 						<td>:</td>
-						<td>258 hari yang lalu</td>
+						<td>{{$last_login}}</td>
 					</tr>
 					</table>
 					</div>

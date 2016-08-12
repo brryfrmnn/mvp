@@ -10,11 +10,18 @@
 			<div class="row">
 				<div class="col-md-8 col-lg-7 col-xs-10 col-center">
 				@if (!Sentinel::check())
+					@if (session('message'))
+					    <div class="alert alert-{{session('alert')}}">
+					        <p>{{session('message')}}
+					        </p>
+					    </div>  
+					@endif
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h4 class="sc-heading">Login</h4>
 						</div>
 						<div class="panel-body">
+
 							<form class="form form-inline" action="{{ route('auth.login.attempt') }}" role="form" method="POST"> <!--inline fungsinya supaya inputan nya sejajar -->
 								{{csrf_field()}}
 								<div class="form-group">

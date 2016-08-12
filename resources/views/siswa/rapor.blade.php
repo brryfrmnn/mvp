@@ -37,25 +37,25 @@
   <tr>
     <td>Nama Peserta Didik</td>
     <td>:</td>
-    <td>{{$raporA[0]->siswa->full_name}}</td>
+    <td>{{$raporA[0]->siswa->full_name or ''}}</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>Kelas/Semester</td>
     <td>:</td>
-    <td>{{$raporA[0]->siswa->siswa->kelasJurusan->kj_kode}}/{{$raporA[0]->semester}}</td>
+    <td>{{$raporA[0]->siswa->siswa->kelasJurusan->kj_kode or ''}}/{{$raporA[0]->semester or ''}}</td>
   </tr>
 
   <tr>
     <td>Nomor Induk</td>
     <td>:</td>
-    <td>{{$raporA[0]->siswa->nomor_induk}}</td>
+    <td>{{$raporA[0]->siswa->nomor_induk or ''}}</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>Tahun Ajaran</td>
     <td>:</td>
-    <td>{{$raporA[0]->tahun_ajaran}}</td>
+    <td>{{$raporA[0]->tahun_ajaran or ''}}</td>
   </tr>
   <tr>
     <td>Nama Sekolah</td>
@@ -144,7 +144,7 @@
           <td class="tg-uce2">{{$dataA->predikat_keterampilan}}</td>
           <td class="tg-uce2">{{$dataA->predikat_sikap}}</td>
           <td class="tg-uce2 tg-s6z2" rowspan="24">
-          @if ($no=1)
+          @if ($no==2)
             {{$dataA->antar_mapel}}
           @endif</td>
         </tr>

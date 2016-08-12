@@ -12,13 +12,16 @@
     <title>@yield('title')</title>
 
     <!-- Bootstrap core CSS -->
-	  <link rel="icon" type="image/png" href="{{URL('images/mvp.png')}}">
+
+      <link rel="icon" type="image/png" href="{{URL('images/mvp.png')}}">
     <link href="{{URL::asset('assets/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('assets/fontawesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('assets/flexslider/flexslider.css')}}" rel="stylesheet">
     <link href="{{URL::asset('assets/dropzone/dist/min/dropzone.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('assets/colorbox/example4/colorbox.css')}}" rel="stylesheet">
     <link href="{{URL::asset('assets/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/select2/css/select2.min.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/select2/css/select2-bootstrap.min.css')}}"> --}}
     
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -30,7 +33,6 @@
     <!-- Custom styles for this template -->
     
     <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
-
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -67,5 +69,6 @@
     <script src="{{URL::asset('assets/parsley/parsley.min.js')}}"></script>
     <script src="{{URL::asset('assets/jquery-input-mask/jquery.inputmask.bundle.min.js')}}"></script>
     <script src="{{URL::asset('js/custom.js')}}"></script> 
+     @stack('scripts')
   </body>
 </html>

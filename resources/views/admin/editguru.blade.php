@@ -48,14 +48,6 @@
                         <input value="{{ $guru->email}}"name="email"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
-                        <label for="">Password</label>
-                        <input value=""name="password"type="password" class="form-control" id="" placeholder="Masukan Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Password</label>
-                        <input value=""name="password_confirmation"type="password" class="form-control" id="" placeholder="Masukan Konfirmasi Password">
-                    </div>
-                    <div class="form-group">
                         <label for="">Nomor Telepon</label>
                         <input value="{{ $guru->phone}}"name="phone"type="text" class="form-control" id="" placeholder="">
                     </div>
@@ -100,43 +92,43 @@
                     </div>
                     <div class="form-group">
                         <label>Status Kepegawaian</label>
-                        <input value="{{$guru->status_kepegawaian}}"name="status_kepegawaian" type="text " class="form-control" placeholder="">
+                        <input value="{{$guru->guru->status_kepegawaian}}"name="status_kepegawaian" type="text " class="form-control" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Jabatan</label>
-                        <input value="{{$guru->jabatan}}" name="jabatan"type="text" class="form-control" id="" placeholder="">
+                        <input value="{{$guru->guru->jabatan}}" name="jabatan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Tugas Tambahan</label>
-                        <input value="{{$guru->tugas_tambahan}}" name="tugas_tambahan"type="text" class="form-control" id="" placeholder="">
+                        <input value="{{$guru->guru->tugas_tambahan}}" name="tugas_tambahan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">SK Pengangkatan</label>
-                        <input value="{{$guru->sk_pengangkatan}}" name="sk_pengangkatan"type="text" class="form-control" id="" placeholder="">
+                        <input value="{{$guru->guru->sk_pengangkatan}}" name="sk_pengangkatan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Tahun Pengangkatan</label>
-                        <input value="{{$guru->tahun_pengangkatan}}" name="tahun_pengangkatan"type="text" class="form-control" id="" placeholder="">
+                        <input value="{{$guru->guru->tahun_pengangkatan}}" name="tahun_pengangkatan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Lembaga Pengangkatan</label>
-                        <input value="{{$guru->lembaga_pengangkatan}}" name="lembaga_pengangkatan"type="text" class="form-control" id="" placeholder="">
+                        <input value="{{$guru->guru->lembaga_pengangkatan}}" name="lembaga_pengangkatan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Sumber Gaji</label>
-                        <input value="{{$guru->sumber_gaji}}" name="sumber_gaji"type="text" class="form-control" id="" placeholder="">
+                        <input value="{{$guru->guru->sumber_gaji}}" name="sumber_gaji"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Status Perkawinan</label>
-                        <input value="{{$guru->status_perkawinan}}" name="status_perkawinan"type="text" class="form-control" id="" placeholder="">
+                        <input value="{{$guru->guru->status_perkawinan}}" name="status_perkawinan"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Suami</label>
-                        <input value="{{$guru->nama_suami}}" name="nama_suami"type="text" class="form-control" id="" placeholder="">
+                        <input value="{{$guru->guru->nama_suami}}" name="nama_suami"type="text" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Istri</label>
-                        <input value="{{$guru->nama_istri}}" name="nama_istri"type="text" class="form-control" id="" placeholder="">
+                        <input value="{{$guru->guru->nama_istri}}" name="nama_istri"type="text" class="form-control" id="" placeholder="">
                     </div>
                     
                     <button type="submit" class="btn btn-orange" name="edit">EDIT</button>

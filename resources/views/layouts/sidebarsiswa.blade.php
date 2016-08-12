@@ -6,7 +6,7 @@
         <img src="{{url('images/default.png')}}" class="img-responsive img-thumbnail img-circle">
       
       
-      <h3>Acep Aldo</h3>
+      <h3>{{$siswa->full_name}}</h3>
     </div>
     <ul class="menu">
       <li>

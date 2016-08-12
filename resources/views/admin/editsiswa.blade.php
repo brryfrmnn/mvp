@@ -131,10 +131,10 @@
                         <div class="form-group">
                             <label for="">Pilih Kelas dan Jurusan</label>
 
-                            <select required class="form-control" name="kelas_jurusan_id">
-                            <option value="0" disabled="" selected="" >Pilih</option>
+                            <select id="kj" required class="form-control select2-input select2-default" name="kelas_jurusan_id">
+                            <option value="0" disabled="" >Pilih</option>
                             @foreach ($kelasjurusan as $data)               
-                                <option value="{{$data->id}}" >{{$data->kelas->nama}} {{$data->jurusan->nama}}</option>
+                                <option value="{{$data->id}}" {{$data->id==$siswa->siswa->kelas_jurusan_id?"selected":""}} >{{$data->kelas->nama}} {{$data->jurusan->nama}}</option>
                            @endforeach
                             </select>
                         </div>
@@ -151,3 +151,14 @@
                     
 
 @endsection
+
+@push('scripts')
+    <script src="{{URL::asset('assets/select2/js/select2.min.js')}}"></script>
+    <script>
+            $(document).ready(function () {
+                $("#kj").select2({
+                    placeholder: "Please Select"
+                });
+            });
+        </script>
+@endpush

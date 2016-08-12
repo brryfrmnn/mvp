@@ -170,21 +170,25 @@ class GuruController extends Controller
                                     'status_perkawinan' => $request->input('status_perkawinan'),
                                     'nama_suami'=> $request->input('nama_suami'),
                                     'nama_istri'=> $request->input('nama_istri'),
-                                    'status_walikelas' => $request->input('status_walikelas'),
+                                    // 'status_walikelas' => $request->input('status_walikelas'),
                                     'user_id' => $user->id,
                                     'admin_id' => \Sentinel::getUser()->id,
                               ]);
                         
                         if ($guru) {
-                              return redirect('admin/guru/'.$user->id.'/edit');
+                              return redirect('admin/guru/'.$user->id.'/edit')->with('message','Berhasil merubah info guru')
+                                              ->with('alert','success');
                         }
                   } catch (Illuminate\Database\QueryException $e) {
-                     dd($e);   
+                     return redirect('admin/guru/'.$user->id.'/edit')->with('message','gagal merubah info guru '.$e)
+                                              ->with('alert','danger');   
                   } catch (PDOException $e) {
-                      dd($e);
+                      return redirect('admin/guru/'.$user->id.'/edit')->with('message','Gagal merubah info guru '.$e)
+                                              ->with('alert','danger');
                   }   
                } else {
-                  return redirect('admin/guru/'.$user->id.'/edit');
+                  return redirect('admin/guru/'.$user->id.'/edit')->with('message','Gagal merubah info guru ')
+                                              ->with('alert','danger');
                }
 
               // Assign User Roles

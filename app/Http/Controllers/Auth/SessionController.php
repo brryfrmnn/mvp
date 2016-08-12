@@ -54,10 +54,16 @@ class SessionController extends Controller
 
         // Attempt the Login
         $result = $this->authManager->authenticate($credentials, $remember);
+        if ($result->isSuccessful()) {
+            // Return the appropriate response
+            $path = session()->pull('url.intended', route('home'));
+            return $result->dispatch($path);
+        } elseif ($result->isFailure()) {
+            // Return the appropriate response
+            return redirect('/')->with('message','Email/Nomor Induk/Password salah ')
+                                        ->with('alert','danger');
 
-        // Return the appropriate response
-        $path = session()->pull('url.intended', route('home'));
-        return $result->dispatch($path);
+        }
     }
 
     /**
