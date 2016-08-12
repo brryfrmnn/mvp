@@ -17,7 +17,7 @@ class KelasJurusan extends Model
     ];
 
     protected $table = 'kelas_jurusan';
-    protected $appends = ['kelas_jurusan'];
+    protected $appends = ['kelas_jurusan','kj_kode'];
 
     public function jurusan()
     {
@@ -31,6 +31,11 @@ class KelasJurusan extends Model
     public function getKelasJurusanAttribute()
     {
         return $this->kelas->nama.' '.$this->jurusan->nama;
+    }
+
+    public function getKjKodeAttribute()
+    {
+        return $this->kelas->nama.' '.$this->jurusan->kode;
     }
 
 
