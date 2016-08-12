@@ -64,12 +64,12 @@
 					<div class="col-md-4 col-sm-4 col-xs-4 product">
 						<div class="product-thumb">
 							<a href="product-detail.php?id=" class="product-img">
-									<img src="images/pengumuman.png" class="img-responsive" data-min-width-0="images/calendar.png" data-min-width-641="images/product-800.jpg" data-min-width-1025="images/pengumuman.png">
+									<img src="images/pengumuman800.png" class="img-responsive" data-min-width-0="images/calendar.png" data-min-width-641="images/pengumuman800.png" data-min-width-1025="images/pengumuman800.png">
 							</a>
 							
 							<div class="product-detail">
 								<h5><a href="product-detail.php?id=">{{ $data->judul }}</a></h5>
-								<p>{{ $data->isi }}</p>
+								<p>{{ str_limit($data->isi,150) }}</p>
 								<div class="author">by <a href="vendor-detail.php?id=">{{ $data->user->first_name }}</a></div>
 								<a class="btn-orange btn-sm btn" href="product-detail.php?id=">Selengkapnya</a>
 							</div>

@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php"><img src="{{URL('images/logo6.png')}}" alt=""></a>
+          <a class="navbar-brand" href="{{route('home')}}"><img src="{{URL('images/logo6.png')}}" alt=""></a>
         </div>
             @if (Sentinel::check() && Sentinel::inRole('administrator'))
               <div class="collapse navbar-collapse">
