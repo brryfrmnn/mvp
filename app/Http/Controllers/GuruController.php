@@ -208,12 +208,12 @@ class GuruController extends Controller
           // $pengumuman->delete();
          if ($user->delete()) { //jika save berhasil
               //jika berhasil arahkan ke halaman admin/pengumuman
-              return redirect('admin/guru')->with('message','Success .. berhasil di hapus')
+              return redirect('admin/data/guru')->with('message','Success .. berhasil di hapus')
                                           ->with('alert','success');
 
           } else {
               //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-              return redirect('admin/guru')->with('message','Gagal ..dihapus ')
+              return redirect('admin/data/guru')->with('message','Gagal ..dihapus ')
                                           ->with('alert','danger');
 
           }
