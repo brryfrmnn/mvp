@@ -21,7 +21,6 @@
                       <li><a href="{{ URL('admin/data/kelasjurusan') }}">Data Kelas dan Jurusan</a></li>
                       <li><a href="{{ URL('admin/data/kelas') }}">Kelola Kelas</a></li>
                       <li><a href="{{ URL('admin/data/jurusan') }}">Kelola Jurusan</a></li>
-                      <li><a href="{{ URL('admin/walikelas/kelola') }}">Kelola Wali kelas</a></li>
                     </ul>
                   </li>
 

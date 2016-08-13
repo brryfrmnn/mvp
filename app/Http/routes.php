@@ -108,12 +108,13 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::post('{id}/update', 'SiswaController@update');
 		Route::post('{id}/delete', 'SiswaController@hapus');
 		Route::get('detail', 'SiswaController@detail');
-		
+		Route::post('/change', 'AdminController@postChangePasswordSiswa');
 		    
 	});
 	Route::group(['prefix' => 'guru'], function () {
 		Route::get('tambah', 'GuruController@tambah'); 
 		Route::post('/', 'GuruController@simpan');
+		Route::post('/change', 'AdminController@postChangePassword');
 		Route::get('{id}/edit', 'GuruController@edit');
 		Route::post('{id}/update', 'GuruController@update');
 		Route::post('{id}/delete', 'GuruController@hapus');

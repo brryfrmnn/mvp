@@ -10,14 +10,26 @@ use App\KelasJurusan;
 use App\Http\Requests;
 use App\User;
 use App\Guru;
-
+use Reminder;
+use Centaur\AuthManager;
 class AdminController extends Controller
 {
    	//membuat method index untuk ambil data semua siswa
    	
 
 /*================================= Awal Controller ADMIN=========================================*/
-  
+    protected $authManager;
+
+    /**
+       * Create a new authentication controller instance.
+       *
+       * @return void
+       */
+      public function __construct(AuthManager $authManager)
+      {
+          // $this->middleware('sentinel.guest', ['except' => 'getLogout']);
+          $this->authManager = $authManager;
+      }
     public function index()
     {
           $role = Sentinel::findRoleBySlug('administrator');
@@ -261,4 +273,78 @@ class AdminController extends Controller
                                           ->with('alert','danger');
           }
       }
+
+    public function postChangePassword(Request $request)
+    {
+        // Validate the form data
+        $validator = \Validator::make($request->all(),[
+            'password' => 'required|confirmed|min:6',
+            'user_id' => 'required|exists:users,id'
+        ]);
+
+         $user = Sentinel::findById($request->input('user_id'));
+        // dd($user);
+        // Only send them an email if they have a valid, inactive account
+        if ($user) {
+        
+              $reminder = Reminder::create($user);
+              $code = $reminder->code;
+              $result = $this->authManager->resetPassword($code, $request->input('password'));
+              if ($result->isFailure()) {
+                  return redirect('admin/data/guru')->with('message','Error'.$result->message())
+                                              ->with('alert','danger');
+              } else {
+                  return redirect('admin/data/guru')->with('message','Success')
+                                              ->with('alert','success');
+              }
+
+        } else {
+            return redirect('admin/data/guru')->with('message','Error')
+                                              ->with('alert','danger');
+        }
+
+        // Attempt the password reset
+        
+
+        // Return the appropriate response
+        return $this->response->array(compact('meta'))->setStatusCode($code);
+    }
+
+    public function postChangePasswordSiswa(Request $request)
+    {
+        // Validate the form data
+        $validator = \Validator::make($request->all(),[
+            'password' => 'required|confirmed|min:6',
+            'user_id' => 'required|exists:users,id'
+        ]);
+
+         $user = Sentinel::findById($request->input('user_id'));
+        // dd($user);
+        // Only send them an email if they have a valid, inactive account
+        if ($user) {
+        
+              $reminder = Reminder::create($user);
+              $code = $reminder->code;
+              $result = $this->authManager->resetPassword($code, $request->input('password'));
+              if ($result->isFailure()) {
+                  return redirect('admin/siswa')->with('message','Error'.$result->message())
+                                              ->with('alert','danger');
+              } else {
+                  return redirect('admin/siswa')->with('message','Success')
+                                              ->with('alert','success');
+              }
+
+        } else {
+            return redirect('admin/siswa')->with('message','Error')
+                                              ->with('alert','danger');
+        }
+
+        // Attempt the password reset
+        
+
+        // Return the appropriate response
+        return $this->response->array(compact('meta'))->setStatusCode($code);
+    }
+
+    
 }
