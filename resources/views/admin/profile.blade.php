@@ -27,42 +27,42 @@
 						<tr >
 							<td>NIP</td>
 							<td>:</td>
-							<td>201601112</td>
+							<td>{{Sentinel::getUser()->nomor_induk}}</td>
 							
 						</tr>
 						<tr>
 							<td>Nama </td>
 							<td>:</td>
-							<td>{{Sentinel::getUser()->first_name}}</td>
+							<td>{{Sentinel::getUser()->full_name}}</td>
 							
 						</tr>
 						<tr >
 							<td>Alamat</td>
 							<td>:</td>
-							<td>Jl. Slamet 1 No.52 Cicadas Bandung</td>
+							<td>{{Sentinel::getUser()->alamat}}</td>
 							
 						</tr>
 						<tr >
 							<td>No Telepon</td>
 							<td>:</td>
-							<td>085722738348</td>
+							<td>{{Sentinel::getUser()->phone}}</td>
 							
 						</tr>
 						<tr>
 							<td>Alamat Email</td>
 							<td>:</td>
-							<td>Berry.frm@mvp.sch.id</td>
+							<td>{{Sentinel::getUser()->email}}</td>
 							
 						</tr>
 						<tr>
 							<td>Lahir</td>
 							<td>:</td>
-							<td>23, Maret 1990</td>
+							<td>{{ date('d F Y', strtotime(Sentinel::getUser()->tanggal_lahir)) }}</td>
 						</tr>
 						<tr>
 							<td>Jenis Kelamin</td>
 							<td>:</td>
-							<td>Laki-laki</td>
+							<td>{{ Sentinel::getUser()->jenis_kelamin }}</td>
 						</tr>
 						</table>
 						</div>
