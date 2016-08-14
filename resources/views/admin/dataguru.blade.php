@@ -66,7 +66,7 @@
 					                            <select name="kelasjurusan_id" id="inputKelasjurusan_id" class="form-control" required="required">
 					                            	<option value="0" selected disabled>Pilih Kelas</option>
 					                            	@foreach ($kelasjurusan as $datakj)
-					                            		<option value="{{$data->id}}">{{$datakj->kelas_jurusan}}</option>
+					                            		<option value="{{$datakj->id}}">{{$datakj->kelas_jurusan}}</option>
 					                            	@endforeach
 					                            </select>
 								      </div>

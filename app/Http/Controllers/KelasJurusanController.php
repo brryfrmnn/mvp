@@ -67,6 +67,42 @@ class KelasJurusanController extends Controller
 
     }
 
+
+    public function changeAll(Request $request)
+    {
+       $old_kelasjurusan_id = $request->id;
+       $kelasjurusan_id = $request->kelasjurusan_id;
+       $redirect = $request->redirect;
+
+       $siswa = \App\Siswa::where('kelas_jurusan_id',$old_kelasjurusan_id)->update(['kelas_jurusan_id' => $kelasjurusan_id]);
+       // dd($siswa);
+       if ($siswa) {
+          return redirect('/admin/data/kelasjurusan/detail?id='.$redirect)->with('message','Berhasil naik kelas')
+                                        ->with('alert','success');
+       } else {
+          return redirect('/admin/data/kelasjurusan/detail?id='.$redirect)->with('message','Tdak Berhasil naik kelas')
+                                        ->with('alert','danger');
+       }
+
+    }
+
+    public function change(Request $request)
+    {
+       $user_id = $request->id;
+       $kelasjurusan_id = $request->kelasjurusan_id;
+       $redirect = $request->redirect;
+
+       $siswa = \App\Siswa::where('user_id',$user_id)->update(['kelas_jurusan_id' => $kelasjurusan_id]);
+       if ($siswa) {
+          return redirect('/admin/data/kelasjurusan/detail?id='.$redirect)->with('message','Berhasil naik kelas')
+                                        ->with('alert','success');
+       } else {
+          return redirect('/admin/data/kelasjurusan/detail?id='.$redirect)->with('message','Tdak Berhasil naik kelas')
+                                        ->with('alert','danger');
+       }
+
+    }
+
     public function hapus($id)
     {
       $kelasjurusan = KelasJurusan::find($id);
