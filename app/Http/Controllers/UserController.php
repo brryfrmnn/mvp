@@ -47,6 +47,8 @@ class UserController extends Controller
         return view('Centaur::users.index', ['users' => $users]);
     }
 
+    
+
     /**
      * Show the form for creating a new user.
      *

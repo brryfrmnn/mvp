@@ -68,6 +68,21 @@ class AdminController extends Controller
         return view('admin.datasiswa', ['siswa' => $siswa, 'no' =>$no]);
          
       }
+
+      public function ubahPass()
+    {
+        // $users = $this->userRepository->createModel()->paginate(15);
+       
+        return view('admin.ubahpassword');
+    }
+
+    public function simpanPass()
+    {
+        // $users = $this->userRepository->createModel()->paginate(15);
+       
+        return view('admin.ubahpassword');
+    }
+
    	
    	public function tampilMapel()
     {

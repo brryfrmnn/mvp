@@ -61,6 +61,8 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::get('jadwal/{id}/edit', 'JadwalPelajaranController@edit');
 	Route::post('jadwal/{id}/update', 'JadwalPelajaranController@update');
 	Route::post('jadwal/{id}/delete', 'JadwalPelajaranController@hapus');
+	Route::get('ubahpassword', 'UserController@ubahPass');
+	Route::post('ubahpassword', 'UserController@simpanPass');
 	Route::group(['prefix' => 'data'], function () {
 		Route::get('siswa', 'AdminController@dataSiswa');
 		Route::get('guru', 'AdminController@dataGuru');

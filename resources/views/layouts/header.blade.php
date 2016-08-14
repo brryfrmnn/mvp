@@ -27,13 +27,13 @@
                   <li><a href="{{ URL('admin/mapel/tampil') }}">Mata Pelajaran</a></li>
                   <li><a href="{{ URL('admin/jadwal') }}">Jadwal Pelajaran</a></li>
                   <li><a href="{{ URL('admin/pengumuman') }}">Pengumuman</a></li>
-                  <li><a href="{{ URL('admin/ubahpassword') }}">Ubah Password</a></li>
+                  
 
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentinel::getUser()->first_name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="{{ URL('admin/profil') }}">Profile Saya</a></li>
-                      
+                      <li><a href="{{ URL('admin/ubahpassword') }}">Ubah Password</a></li>
                       <li><a href="{{ route('auth.logout') }}">Keluar</a></li>
                     </ul>
                   </li>
@@ -54,7 +54,7 @@
                       <li><a href="{{URL ('guru/kelas/2/show')}}">Kelas XI</a></li>
                       <li><a href="{{URL ('guru/kelas/3/show')}}">Kelas XII</a></li>
                     </ul>
-                      <li><a href="{{ URL('guru/ubahpassword') }}">Ubah Password</a></li>
+                      
                   </li>
                   @if (Sentinel::check() && Sentinel::inRole('wali_kelas'))
                   <li><a href="{{ URL('walikelas/nilai/kelola')}}">Kelola Nilai</a></li>
@@ -64,7 +64,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentinel::getUser()->first_name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="{{ URL('guru/{id}/profil') }}">Profil Saya</a></li>
-                      
+                      <li><a href="{{ URL('guru/ubahpassword') }}">Ubah Password</a></li>
                       <li><a href="{{ route('auth.logout') }}">Keluar</a></li>
                     </ul>
                   </li>
@@ -88,13 +88,13 @@
                       <li><a href="{{URL('siswa/lihatnilai/rapor/5')}}">Semester 5</a></li>
                       <li><a href="{{URL('siswa/lihatnilai/rapor/6')}}">Semester 6</a></li>
                     </ul>
-                    <li><a href="{{ URL('siswa/ubahpassword') }}">Ubah Password</a></li>
+                    
                   </li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentinel::getUser()->first_name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="{{URL('siswa/profil')}}">Profil Saya</a></li>
-                      
+                      <li><a href="{{ URL('admin/ubahpassword') }}">Ubah Password</a></li>
                       <li><a href="{{ route('auth.logout') }}">Keluar</a></li>
                     </ul>
                   </li>
