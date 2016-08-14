@@ -12,7 +12,7 @@
   	</ul>
 </div>
 <div class="container">
-				<h1 class="page-header">Data Siswa<button onclick="history.go(-1)" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</button></h1>
+				<h1 class="page-header">Data Siswa<button onclick="history.go(-1)" class="btn btn-default"><i class="fa fa-arrow-left"></i> Kembali</button>&nbsp;&nbsp;&nbsp;<a href="{{ URL('admin/data/kelasjurusan/ubahkelas/all?id='.$kelasjurusan_id)}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Naik Kelas Semua</a></h1>
   				<table class="table table-striped">
   						<tr>
   							<th>No</th>

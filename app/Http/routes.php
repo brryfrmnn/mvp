@@ -71,6 +71,8 @@ Route::group(['prefix' => 'admin'], function () {
 			Route::get('tambah', 'KelasJurusanController@tambah');
 			Route::get('detail', 'KelasJurusanController@detail');
 			Route::post('{id}/delete', 'KelasJurusanController@hapus');
+			Route::post('ubahkelas/all', 'KelasJurusanController@changeAll');
+			Route::post('ubahkelas', 'KelasJurusanController@change');
 			    
 		});
 
