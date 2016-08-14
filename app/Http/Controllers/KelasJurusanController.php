@@ -59,9 +59,12 @@ class KelasJurusanController extends Controller
 
         /*$role = Sentinel::findRoleBySlug('administrator');
         $admins = $role->users()->with('roles')->get();*/
+        $no=1;
         $siswa = User::with('siswa')->kelasJurusan($kelasjurusan_id)->get();
         // dd($siswa);
-        return view('admin.detailkelasjurusan')->with('siswa',$siswa); 
+
+        return view('admin.detailkelasjurusan')->with('siswa',$siswa)->with('no',$no)->with('kelasjurusan_id',$kelasjurusan_id); 
+
     }
 
     public function hapus($id)
