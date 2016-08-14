@@ -33,7 +33,7 @@
 					<td>
 					<form action="{{ URL('admin/data/kelasjurusan',[$data->id,'delete'])}}" method="POST" accept-charset="utf-8">
 				    {{csrf_field()}}
-				    <a href="{{URL('admin/kelas/detail')}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
+				    <a href="{{URL('admin/data/kelasjurusan/detail?id='.$data->id)}}" class="btn btn-primary"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
 				    <button onclick="return confirm('Yakin akan menghapus data ini?')" class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Hapus</button>
 				    </form>
 					</td>

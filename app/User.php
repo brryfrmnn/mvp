@@ -109,5 +109,11 @@ class User extends Sentinel
         return $this->attributes['first_name'].' '.$this->attributes['last_name'];
     }
 
+    public function scopeKelasJurusan($query,$id)
+    {
+        return $query->whereHas('siswa', function($query) use ($id) {
+                  $query->where('kelas_jurusan_id',$id);
+              });
+    }
 
 }

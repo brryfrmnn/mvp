@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Kelas;
 use App\Jurusan;
 use App\KelasJurusan;
+use App\User;
 class KelasJurusanController extends Controller
 {
     //
@@ -52,12 +53,15 @@ class KelasJurusanController extends Controller
 
    	}
 
-   	public function detail($id)
+   	public function detail(Request $request)
     {
+        $kelasjurusan_id = $request->id;
+
         /*$role = Sentinel::findRoleBySlug('administrator');
         $admins = $role->users()->with('roles')->get();*/
-        $kelasjurusan = KelasJurusan::find($id);
-        return view('admin.detailkelasjurusan')->with('kelasjurusan',$kelasjurusan); 
+        $siswa = User::with('siswa')->kelasJurusan($kelasjurusan_id)->get();
+        dd($siswa);
+        // return view('admin.detailkelasjurusan')->with('siswa',$siswa); 
     }
 
     public function hapus($id)
