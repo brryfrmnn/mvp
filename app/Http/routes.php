@@ -15,7 +15,7 @@
 Route::get('/login', ['as' => 'auth.login.form', 'uses' => 'Auth\SessionController@getLogin']);
 Route::post('/login', ['as' => 'auth.login.attempt', 'uses' => 'Auth\SessionController@postLogin']);
 Route::get('/logout', ['as' => 'auth.logout', 'uses' => 'Auth\SessionController@getLogout']);
-
+Route::post('ubahpassword', 'UserController@simpanPass');
 // Registration
 Route::get('register', ['as' => 'auth.register.form', 'uses' => 'Auth\RegistrationController@getRegister']);
 Route::post('register', ['as' => 'auth.register.attempt', 'uses' => 'Auth\RegistrationController@postRegister']);
@@ -43,6 +43,8 @@ Route::get('/dashboard', ['as' => 'dashboard', 'uses' => function() {
     // return view('index');
 }]);
 Route::get('/', ['as' => 'home', 'uses' => 'PengumumanController@index']);
+Route::get('/pengumuman/all', 'PengumumanController@allIndex');
+Route::get('/pengumuman/{id}/show', 'PengumumanController@show');
 
 //=======================END ========================================
 
@@ -159,6 +161,8 @@ Route::group(['prefix' => 'admin'], function () {
 });
 /*=================================ROUTE UNTUK guru =========================================*/
 Route::group(['prefix' => 'guru'], function () {
+	Route::get('ubahpassword', 'UserController@ubahPass');
+	Route::post('ubahpassword', 'UserController@simpanPass');
 	Route::get('/','GuruController@index');
 	Route::group(['prefix' => 'nilai'], function () {
 		Route::get('{kelasjurusan_id}/{mapel_id}/input', 'NilaiController@halamanInputNilai'); //sudah
@@ -189,6 +193,8 @@ Route::group(['prefix' => 'guru'], function () {
 });
 /*=================================ROUTE UNTUK Siswa =========================================*/
 Route::group(['prefix' => 'siswa'], function () {
+	Route::get('ubahpassword', 'UserController@ubahPass');
+	Route::post('ubahpassword', 'UserController@simpanPass');
 	Route::get('/','SiswaController@index');
 	Route::group(['prefix' => 'lihatnilai'], function () {
 		Route::get('rapor/{semester}', 'SiswaController@raporsiswa');

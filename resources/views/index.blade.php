@@ -46,6 +46,12 @@
 						
 					</div>
 				@else
+					@if (session('message'))
+					    <div class="alert alert-{{session('alert')}}">
+					        <p>{{session('message')}}
+					        </p>
+					    </div>  
+					@endif
 					<div class="panel panel-default" style="transparent: 100%" >
 						<div class="panel-heading">
 							<h4 class="sc-heading">Selamat Datang</h4>
@@ -70,16 +76,16 @@
 				@foreach ($pengumuman as $data)
 					<div class="col-md-4 col-sm-4 col-xs-4 product">
 						<div class="product-thumb">
-							<a href="product-detail.php?id=" class="product-img">
+							<a href="#" class="product-img">
 									<img src="images/pengumuman800.png" class="img-responsive" data-min-width-0="images/calendar.png" data-min-width-641="images/pengumuman800.png" data-min-width-1025="images/pengumuman800.png">
 							</a>
 							
 							<div class="product-detail">
-								<h5><a href="product-detail.php?id=">{{ $data->judul }}</a></h5>
+								<h5><a href="pengumuman/{{$data->id}}/show">{{ $data->judul }}</a></h5>
 
 								<p>{{ str_limit($data->isi,150) }}</p>
 								<div class="author">by <a href="vendor-detail.php?id=">{{ $data->user->first_name }}</a></div>
-								<a class="btn-orange btn-sm btn" href="product-detail.php?id=">Selengkapnya</a>
+								<a class="btn-orange btn-sm btn" href="pengumuman/{{$data->id}}/show">Selengkapnya</a>
 							</div>
 						</div>
 					</div>
@@ -93,7 +99,7 @@
 					
 			</div>
 			<div class="text-center">
-				<a class="btn btn-md btn-orange" href="{{URL('admin/pengumuman/all')}}">Lihat Pengumuman Lainnya</a>
+				<a class="btn btn-md btn-orange" href="{{URL('pengumuman/all')}}">Lihat Pengumuman Lainnya</a>
 			</div>
 			
 

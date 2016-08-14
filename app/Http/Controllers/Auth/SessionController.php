@@ -39,11 +39,25 @@ class SessionController extends Controller
      */
     public function postLogin(Request $request)
     {
+        if ($request->email == null && $request->password == null) {
+
+
+            return redirect('/')->with('message','Email/Nomor Induk dan Password tidak boleh kosong')
+                                        ->with('alert','danger');
+        } elseif ($request->email == null) {
+            return redirect('/')->with('message','Email/Nomor Induk tidak boleh kosong')
+                                        ->with('alert','danger');
+        } elseif ($request->password == null) {
+            return redirect('/')->with('message','Password tidak boleh kosong')
+                                        ->with('alert','danger');
+        }
         // Validate the Form Data
         $result = $this->validate($request, [
             'email' => 'required',
             'password' => 'required'
         ]);
+
+
 
         // Assemble Login Credentials
         $credentials = [
@@ -79,4 +93,7 @@ class SessionController extends Controller
         // Return the appropriate response
         return $result->dispatch(route('home'));
     }
+
+    
+
 }

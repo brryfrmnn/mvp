@@ -21,22 +21,17 @@
         @endif
 
 		<h1 class="page-header">Ubah Password</h1>
-		<form action="{{ URL('')}}" method="POST" role="form" enctype="multipart/form-data" >
+		<form action="{{ URL('/ubahpassword')}}" method="POST" role="form" enctype="multipart/form-data" >
                    {{csrf_field()}}
-                    <div class="form-group">
-                        <label >Password lama</label>
-                    
-                            <input type="text" value="" class="form-control bgcol" name="password_lama" placeholder="Masukan nama">
-                    </div>
                     <div class="form-group">
                         <label >Password Baru</label>
                     
-                            <input type="text" value="" class="form-control bgcol" name="kode" placeholder="password_baru">
+                            <input type="password" name="password" value="" class="form-control bgcol" name="kode" placeholder="password">
                     </div>
                     <div class="form-group">
                         <label >Konfirmasi Password</label>
                     
-                            <input type="text" value="" class="form-control bgcol" name="kode" placeholder="konfirmasi_password">
+                            <input type="password" value="" name="password_confirmation" class="form-control bgcol" name="kode" placeholder="konfirmasi">
                     </div>
                     {{-- <div class="form-group">
                         <label for="">Admin</label>
@@ -49,8 +44,6 @@
                     </div> --}}
                     <button type="submit" class="btn btn-orange" name="simpan">Simpan</button>
                    </form>
-		<div class="text-center">
-			{!! $mapel->links() !!}
-		</div>
+		
 </div>
 @endsection

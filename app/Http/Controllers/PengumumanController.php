@@ -28,6 +28,12 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::orderBy('id','desc')->paginate(3);
          return view('index')->with('pengumuman',$pengumuman);
     }
+    public function allIndex()
+    {
+        
+        $pengumuman = Pengumuman::orderBy('id','desc')->paginate(6);
+         return view('pengumuman.index')->with('pengumuman',$pengumuman);
+    }
     public function all()
     {
         //tampilkan semua menggunakan method all() atau get() atau paginate()
@@ -198,5 +204,11 @@ class PengumumanController extends Controller
                                         ->with('alert','danger');
 
         }
+    }
+
+    public function show($id)
+    {
+        $pengumuman = Pengumuman::find($id);
+        return view('pengumuman.show')->with('data',$pengumuman); 
     }
 }

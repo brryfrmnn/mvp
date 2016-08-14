@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Cartalyst\Sentinel\Users\IlluminateUserRepository;
 use App\User;
 use App\Role;
-
+use Reminder;
 class UserController extends Controller
 {
     /** @var Cartalyst\Sentinel\Users\IlluminateUserRepository */
@@ -248,6 +248,43 @@ class UserController extends Controller
         session()->flash('success', $message);
         return redirect()->route('users.index');
     }
+
+    public function ubahPass()
+    {
+        return view('admin.ubahpassword');
+    }
+
+    public function simpanPass(Request $request)
+    {
+        // Validate the form data
+        $validator = \Validator::make($request->all(),[
+            'password' => 'required|confirmed|min:6'
+        ]);
+
+         $user = Sentinel::findById(Sentinel::getUser()->id);
+        // dd($user);
+        // Only send them an email if they have a valid, inactive account
+        if ($user && $validator->passes()) {
+        
+              $reminder = Reminder::create($user);
+              $code = $reminder->code;
+              $result = $this->authManager->resetPassword($code, $request->input('password'));
+              if ($result->isFailure()) {
+                  return redirect()->route('home')->with('message','Error '.$result->message())
+                                              ->with('alert','danger');
+              } else {
+                  return redirect()->route('home')->with('message','Success Password berhasil dirubah')
+                                              ->with('alert','success');
+              }
+
+        } else {
+            // dd($validator->errors());
+            return redirect()->route('home')->with('message','Error '.$validator->errors())
+                                              ->with('alert','danger');
+        }
+
+    }
+
 
     /**
      * Decode a hashid
