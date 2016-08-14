@@ -139,7 +139,7 @@
                     <div class="form-group">
                         <label for="">Pilih Kelas dan Jurusan</label>
 
-                        <select required class="form-control" name="kelas_jurusan_id">
+                        <select id="kj" required class="form-control" name="kelas_jurusan_id">
                         <option value="0" disabled="" selected="" >Pilih</option>
                         @foreach ($kelasjurusan as $data)               
                             <option value="{{$data->id}}" >{{$data->kelas->nama}} {{$data->jurusan->nama}}</option>
@@ -165,3 +165,13 @@
 					
 
 @endsection
+@push('scripts')
+    <script src="{{URL::asset('assets/select2/js/select2.min.js')}}"></script>
+    <script>
+            $(document).ready(function () {
+                $("#kj").select2({
+                    placeholder: "Please Select"
+                });
+            });
+        </script>
+@endpush

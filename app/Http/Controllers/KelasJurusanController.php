@@ -60,19 +60,20 @@ class KelasJurusanController extends Controller
         return view('admin.detailkelasjurusan')->with('kelasjurusan',$kelasjurusan); 
     }
 
-    public function hapus()
-    {/*
-      return view('');
-      if ($user->delete()) { //jika save berhasil
-                  //jika berhasil arahkan ke halaman admin/pengumuman
-                  return redirect('admin/siswa')->with('message','Success .. berhasil di hapus')
-                                              ->with('alert','success');
+    public function hapus($id)
+    {
+      $kelasjurusan = KelasJurusan::find($id);
+        // $pengumuman->delete();
+       if ($kelasjurusan->delete()) { //jika save berhasil
+            //jika berhasil arahkan ke halaman admin/pengumuman
+            return redirect('/admin/data/kelasjurusan')->with('message','Data Berhasil Dihapus')
+                                        ->with('alert','success');
 
-              } else {
-                  //jika berhasil arahkan ke halaman admin/pengumuman/tambah
-                  return redirect('admin/siswa')->with('message','Gagal ..dihapus ')
-                                              ->with('alert','danger');
+        } else {
+            //jika berhasil arahkan ke halaman admin/pengumuman/tambah
+            return redirect('/admin/data/kelasjurusan')->with('message','Data Gagal Dihapus ')
+                                        ->with('alert','danger');
 
-              }
-    */}
+        }
+    }
 }

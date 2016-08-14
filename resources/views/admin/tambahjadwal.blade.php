@@ -34,7 +34,7 @@
                    {{csrf_field()}}
                     <div class="form-group">
                         <label for="">NIP</label>
-                        <select class="form-control" name="nip">
+                        <select class="form-control" name="nip" id="nip">
                             <option value="0" disabled="" selected="">Pilih NIP</option>
                             @foreach ($guru as $data)
                                <option value="{{$data->id}}">{{$data->nomor_induk}} {{$data->full_name}}</option>
@@ -44,7 +44,7 @@
                    
                     <div class="form-group">
                         <label for="">Kelas dan Jurusan</label>
-                        <select required class="form-control" name="kelasjurusan_id">
+                        <select required class="form-control" name="kelasjurusan_id" id="kj">
                             <option value="0" disabled="" selected="" >Pilih Kelas dan Jurusan</option>
                             @foreach ($kelas_jurusan as $data)
                               <option value="{{$data->id}}" >{{$data->kelas->nama}} {{$data->jurusan->nama}}</option>
@@ -56,7 +56,7 @@
 
                     <div class="form-group">
                         <label for="">Pilih Mata Pelajaran</label>
-                        <select class="form-control" name="mapel_id">
+                        <select class="form-control" name="mapel_id" id="mapel">
                             <option value="" disabled="" selected="">Pilih Mata Pelajaran</option>
                             @foreach($mapel as $data)
                             <option value="{{$data->id}}">{{$data->kode}}</option>
@@ -101,6 +101,24 @@
                   
                               
 @endsection
+
+
+@push('scripts')
+    <script src="{{URL::asset('assets/select2/js/select2.min.js')}}"></script>
+    <script>
+            $(document).ready(function () {
+                $("#nip").select2({
+                    placeholder: "Please Select"
+                });
+                 $("#kj").select2({
+                    placeholder: "Please Select"
+                });
+                  $("#mapel").select2({
+                    placeholder: "Please Select"
+                });
+            });
+        </script>
+@endpush
 
 
 
