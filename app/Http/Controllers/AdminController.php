@@ -301,7 +301,7 @@ class AdminController extends Controller
          $user = Sentinel::findById($request->input('user_id'));
         // dd($user);
         // Only send them an email if they have a valid, inactive account
-        if ($user) {
+        if ($user && $validator->passes()) {
         
               $reminder = Reminder::create($user);
               $code = $reminder->code;
@@ -315,7 +315,7 @@ class AdminController extends Controller
               }
 
         } else {
-            return redirect('admin/data/guru')->with('message','Error')
+            return redirect('admin/data/guru')->with('message','Error '.$validator->errors())
                                               ->with('alert','danger');
         }
 
@@ -337,7 +337,7 @@ class AdminController extends Controller
          $user = Sentinel::findById($request->input('user_id'));
         // dd($user);
         // Only send them an email if they have a valid, inactive account
-        if ($user) {
+        if ($user && $validator->passes()) {
         
               $reminder = Reminder::create($user);
               $code = $reminder->code;
@@ -351,7 +351,7 @@ class AdminController extends Controller
               }
 
         } else {
-            return redirect('admin/siswa')->with('message','Error')
+            return redirect('admin/siswa')->with('message','Error '.$validator->passes())
                                               ->with('alert','danger');
         }
 
