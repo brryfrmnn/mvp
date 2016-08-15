@@ -71,10 +71,12 @@ class KelasJurusanController extends Controller
     public function changeAll(Request $request)
     {
        $old_kelasjurusan_id = $request->id;
+       $semester = $request->semester;
        $kelasjurusan_id = $request->kelasjurusan_id;
        $redirect = $request->redirect;
-
-       $siswa = \App\Siswa::where('kelas_jurusan_id',$old_kelasjurusan_id)->update(['kelas_jurusan_id' => $kelasjurusan_id]);
+       $tahun_ajaran = \DB::table('tahun_ajaran')->orderBy('id','desc')->first();
+       $tahun_ajaran = $tahun_ajaran->tahun_ajaran;
+       $siswa = \App\Siswa::where('kelas_jurusan_id',$old_kelasjurusan_id)->update(['kelas_jurusan_id' => $kelasjurusan_id, 'tahun_ajar' => $tahun_ajaran, 'semester' => $semester]);
        // dd($siswa);
        if ($siswa) {
           return redirect('/admin/data/kelasjurusan/detail?id='.$redirect)->with('message','Berhasil naik kelas')
@@ -91,8 +93,11 @@ class KelasJurusanController extends Controller
        $user_id = $request->id;
        $kelasjurusan_id = $request->kelasjurusan_id;
        $redirect = $request->redirect;
+       $semester = $request->semester;
+       $tahun_ajaran = \DB::table('tahun_ajaran')->orderBy('id','desc')->first();
+       $tahun_ajaran = $tahun_ajaran->tahun_ajaran;
 
-       $siswa = \App\Siswa::where('user_id',$user_id)->update(['kelas_jurusan_id' => $kelasjurusan_id]);
+       $siswa = \App\Siswa::where('user_id',$user_id)->update(['kelas_jurusan_id' => $kelasjurusan_id, 'tahun_ajar' => $tahun_ajaran, 'semester' => $semester]);
        if ($siswa) {
           return redirect('/admin/data/kelasjurusan/detail?id='.$redirect)->with('message','Berhasil naik kelas')
                                         ->with('alert','success');

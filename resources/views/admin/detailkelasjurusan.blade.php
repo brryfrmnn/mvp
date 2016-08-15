@@ -29,6 +29,17 @@
                       <input type="hidden" name="id" value="{{$kelasjurusan_id}}">
                       <input type="hidden" name="redirect" value="{{$kelasjurusan_id}}">
                       <div class="form-group">
+                          <label >Semester</label>
+                          <select name="semester" class="form-control" required="required">
+                            
+                            
+                            @for ($i = 1; $i < 7; $i++)
+                              <option value="{{$i}}">Semester {{$i}}</option>
+
+                            @endfor
+                          </select>
+                      </div>
+                      <div class="form-group">
                           <label >Kelas</label>
                           <select name="kelasjurusan_id" class="form-control" required="required">
                             <option value="0" selected disabled>Pilih Kelas</option>
@@ -54,7 +65,7 @@
           </script>
 
 
-        <a href="{{ URL('admin/data/kelasjurusan/ubahkelas/all?id='.$kelasjurusan_id)}}" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i>Naik Kelas Semua</a></h1>
+        </h1>
   				<table class="table table-striped">
   						<tr>
   							<th>No</th>
@@ -83,6 +94,17 @@
                                 {{csrf_field()}}
                                 <input type="hidden" name="id" value="{{$data->id}}">
                                 <input type="hidden" name="redirect" value="{{$kelasjurusan_id}}">
+                                <div class="form-group">
+                                  <label >Semester</label>
+                                  <select name="semester" class="form-control" required="required">
+                                    
+                                    
+                                    @for ($i = 1; $i < 7; $i++)
+                                      <option value="{{$i}}">Semester {{$i}}</option>
+
+                                    @endfor
+                                  </select>
+                              </div>
                                 <div class="form-group">
                                     <label >Kelas</label>
                                     <select name="kelasjurusan_id" class="form-control" required="required">
