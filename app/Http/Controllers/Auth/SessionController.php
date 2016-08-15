@@ -51,14 +51,7 @@ class SessionController extends Controller
             return redirect('/')->with('message','Password tidak boleh kosong')
                                         ->with('alert','danger');
         }
-        // Validate the Form Data
-        $result = $this->validate($request, [
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-
-
-
+        
         // Assemble Login Credentials
         $credentials = [
             'login' => trim($request->get('email')),
@@ -74,7 +67,8 @@ class SessionController extends Controller
             return $result->dispatch($path);
         } elseif ($result->isFailure()) {
             // Return the appropriate response
-            return redirect('/')->with('message','Email/Nomor Induk/Password salah ')
+            // dd();
+            return redirect('/')->with('message','Email/Nomor Induk/Password salah '.$result->message)
                                         ->with('alert','danger');
 
         }
