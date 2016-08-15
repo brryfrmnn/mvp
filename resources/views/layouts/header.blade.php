@@ -33,6 +33,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{Sentinel::getUser()->first_name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="{{ URL('admin/profil') }}">Profile Saya</a></li>
+                      <li><a href="{{ URL('admin/tahun_ajar') }}">Ubah Tahun Ajar</a></li>
                       <li><a href="{{ URL('admin/ubahpassword') }}">Ubah Password</a></li>
                       <li><a href="{{ route('auth.logout') }}">Keluar</a></li>
                     </ul>

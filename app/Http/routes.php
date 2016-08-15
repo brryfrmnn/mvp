@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Http\Request;
+use App\Http\Requests;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -45,6 +46,16 @@ Route::get('/dashboard', ['as' => 'dashboard', 'uses' => function() {
 Route::get('/', ['as' => 'home', 'uses' => 'PengumumanController@index']);
 Route::get('/pengumuman/all', 'PengumumanController@allIndex');
 Route::get('/pengumuman/{id}/show', 'PengumumanController@show');
+Route::get('admin/tahun_ajar', function(){
+	$tahun_ajaran = \DB::table('tahun_ajaran')->orderBy('id','desc')->first();
+	return view('tahun_ajar',compact('tahun_ajaran'));
+});
+
+Route::post('admin/tahun_ajar', function(Request $request){
+	$tahun_ajaran = \DB::table('tahun_ajaran')->insert(['tahun_ajaran' => $request->tahun_ajaran]);
+	return redirect('/admin/tahun_ajar')->with('message','Berhasil')->with('alert','success');
+});
+
 
 //=======================END ========================================
 

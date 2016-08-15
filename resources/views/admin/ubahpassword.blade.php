@@ -26,12 +26,12 @@
                     <div class="form-group">
                         <label >Password Baru</label>
                     
-                            <input type="password" name="password" value="" class="form-control bgcol" name="kode" placeholder="password">
+                            <input type="password" name="password" value="" class="form-control bgcol"  placeholder="password">
                     </div>
                     <div class="form-group">
                         <label >Konfirmasi Password</label>
                     
-                            <input type="password" value="" name="password_confirmation" class="form-control bgcol" name="kode" placeholder="konfirmasi">
+                            <input type="password" value="" name="password_confirmation" class="form-control bgcol" placeholder="konfirmasi">
                     </div>
                     {{-- <div class="form-group">
                         <label for="">Admin</label>
